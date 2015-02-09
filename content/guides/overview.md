@@ -8,7 +8,7 @@ ARGO is a lightweight service for Service Level Monitoring designed for medium a
 
 The ARGO software stack is comprised of the following components (products)
 
-- [Sync component][sync]
+- [Sync components][sync]
 - [Consumer][consumer]
 - [Compute Engine][compute]
 - [API][api]
