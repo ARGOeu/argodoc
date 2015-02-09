@@ -1,4 +1,4 @@
-{:	data{RI"/guides/api-partial/:ET{:default{	:	lastI"Ú<!doctype html>
+{:	data{SI"/guides/api-partial/:ET{:default{	:	lastI"Ú<!doctype html>
 
 <html lang="en">
 <head>
@@ -453,7 +453,7 @@ I"Ö
 
 <p>You may use the  create examples</p>
 
-;T;@I"/guides/api/;T{;{	;I"Å<!doctype html>
+;T;@I"/guides/api/;T{;{	;I"Õ<!doctype html>
 
 <html lang="en">
 <head>
@@ -571,7 +571,7 @@ I"Ö
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -580,7 +580,7 @@ I"Ö
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -7008,7 +7008,7 @@ I"3
   <li>type: the admin type</li>
   <li>parsed_data: the admin data with a set of possible permissions</li>
 </ul>
-;T;@ÁI"/guides/overview/;T{;{	;I"<!doctype html>
+;T;@ÁI"/guides/overview/;T{;{	;I"<!doctype html>
 
 <html lang="en">
 <head>
@@ -7134,7 +7134,7 @@ I"3
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -7143,7 +7143,7 @@ I"3
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -7187,7 +7187,7 @@ I"û
   <li><a href="/guides/webui">Web UI</a></li>
 </ul>
 
-;T;@ÇI"/guides/;T{;{	;I"<!doctype html>
+;T;@ÇI"/guides/;T{;{	;I"<!doctype html>
 
 <html lang="en">
 <head>
@@ -7299,7 +7299,7 @@ I"û
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -7308,7 +7308,7 @@ I"û
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -7319,7 +7319,7 @@ I"û
 
 ;T;	I" ;T;
 I"
-;T;@ÍI"/;T{;{	;I"9<!doctype html>
+;T;@ÍI"/;T{;{	;I"D<!doctype html>
 
 <html lang="en">
 <head>
@@ -7402,16 +7402,13 @@ I"
   
 <div class="wrapper feature">
 	<h1>ARGO Documentation</h1>
-	<h2></h2>
 	<a href="/guides/overview/" class="button">Browse the documentation</a>
-<!--
 	<div class="handle-pid-logo">
-		<img src="/shared/images/handle-pid.png"  />
+		<img src="/shared/images/argo-arch-overview.png">
 		<span class="caption simple-caption">  
 		<p>Evolving Service Availability Monitoring towards a more lightweight and customisable solution</p>  
 		</span> 
 	</div>
--->
 
 
 </div>
@@ -7429,9 +7426,9 @@ I"
 			<p>Enable the use of ARGO API in your SLA monitoring application</p>
 		</li>
 		<li class="highlight-module">
-			<a href="mailto:contact@argodoc.eu" target="blank"><span class="big-icon glyphicon-envelope"></span></a>
-			<h2><a href="mailto:contact@pidconsortium.eu" target="blank">Contact</a></h2>
-			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href="mailto:contact@argodoc.eu" target="blank">email</a>.</p>
+			<a href="mailto:argo-ggus-support@grnet.gr" target="blank"><span class="big-icon glyphicon-envelope"></span></a>
+			<h2><a href="mailto:argo-ggus-support@grnet.gr" target="blank">Contact</a></h2>
+			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href="mailto:argo-ggus-support@grnet.gr" target="blank">email</a>.</p>
 		</li>
 	</ul>
 </div>
@@ -7441,26 +7438,23 @@ I"
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
 
 </body>
 </html>
-;T;	I"4
+;T;	I":
 <div class="wrapper feature">
 	<h1>ARGO Documentation</h1>
-	<h2></h2>
 	<a href="/guides/overview/" class="button">Browse the documentation</a>
-<!--
 	<div class="handle-pid-logo">
-		<img src="/shared/images/handle-pid.png"  />
+		<img src="/shared/images/argo-arch-overview.png"  />
 		<span class="caption simple-caption">  
 		<p>Evolving Service Availability Monitoring towards a more lightweight and customisable solution</p>  
 		</span> 
 	</div>
--->
 
 
 </div>
@@ -7478,26 +7472,23 @@ I"
 			<p>Enable the use of ARGO API in your SLA monitoring application</p>
 		</li>
 		<li class="highlight-module">
-			<a href="mailto:contact@argodoc.eu" target='blank'><span class="big-icon glyphicon-envelope"></span></a>
-			<h2><a href="mailto:contact@pidconsortium.eu" target="blank">Contact</a></h2>
-			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href='mailto:contact@argodoc.eu' target='blank'>email</a>.</p>
+			<a href="mailto:argo-ggus-support@grnet.gr" target='blank'><span class="big-icon glyphicon-envelope"></span></a>
+			<h2><a href="mailto:argo-ggus-support@grnet.gr" target="blank">Contact</a></h2>
+			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href='mailto:argo-ggus-support@grnet.gr' target='blank'>email</a>.</p>
 		</li>
 	</ul>
 </div>
 ;T;
-I"4
+I"7
 <div class="wrapper feature">
 	<h1>ARGO Documentation</h1>
-	<h2></h2>
 	<a href="/guides/overview/" class="button">Browse the documentation</a>
-<!--
 	<div class="handle-pid-logo">
-		<img src="/shared/images/handle-pid.png"  />
+		<img src="/shared/images/argo-arch-overview.png">
 		<span class="caption simple-caption">  
 		<p>Evolving Service Availability Monitoring towards a more lightweight and customisable solution</p>  
 		</span> 
 	</div>
--->
 
 
 </div>
@@ -7515,9 +7506,9 @@ I"4
 			<p>Enable the use of ARGO API in your SLA monitoring application</p>
 		</li>
 		<li class="highlight-module">
-			<a href="mailto:contact@argodoc.eu" target="blank"><span class="big-icon glyphicon-envelope"></span></a>
-			<h2><a href="mailto:contact@pidconsortium.eu" target="blank">Contact</a></h2>
-			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href="mailto:contact@argodoc.eu" target="blank">email</a>.</p>
+			<a href="mailto:argo-ggus-support@grnet.gr" target="blank"><span class="big-icon glyphicon-envelope"></span></a>
+			<h2><a href="mailto:argo-ggus-support@grnet.gr" target="blank">Contact</a></h2>
+			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href="mailto:argo-ggus-support@grnet.gr" target="blank">email</a>.</p>
 		</li>
 	</ul>
 </div>
@@ -13033,7 +13024,7 @@ I"ã
 
 <p>In this example we are going to use the term  to retrieve the list of PIDs with the following URL https://epic.grnet.gr/api/v2/handles/11239/?URL=*GRNET*</p>
 
-;T;@<I"+/static/shared/images/argo-banner.png/;T{;{ I"+/static/shared/images/argo-header.png/;T{;{ I")/static/shared/images/argo-logo.png/;T{;{ I"/guides/compute/;T{;{	;I"U<!doctype html>
+;T;@<I"+/static/shared/images/argo-banner.png/;T{;{ I"+/static/shared/images/argo-header.png/;T{;{ I")/static/shared/images/argo-logo.png/;T{;{ I"/guides/compute/;T{;{	;I"e<!doctype html>
 
 <html lang="en">
 <head>
@@ -13147,7 +13138,7 @@ I"ã
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -13156,7 +13147,7 @@ I"ã
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -13172,7 +13163,7 @@ I"ã
 I"3
 <h1 id="compute-engine">Compute Engine</h1>
 
-;T;@KI"/guides/consumer/;T{;{	;I"b<!doctype html>
+;T;@KI"/guides/consumer/;T{;{	;I"r<!doctype html>
 
 <html lang="en">
 <head>
@@ -13290,7 +13281,7 @@ I"3
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -13299,7 +13290,7 @@ I"3
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -13323,7 +13314,7 @@ I"O
 
 <p>The consumer has # configuration files that define which messages and what data is logged in the log files.</p>
 
-;T;@QI"/guides/sync/;T{;{	;I"Ó<!doctype html>
+;T;@QI"/guides/sync/;T{;{	;I"ã<!doctype html>
 
 <html lang="en">
 <head>
@@ -13506,7 +13497,7 @@ avroOutputSchema = â€˜/etc/ar-sync/metric_profiles.avscâ€™</p>
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -13515,7 +13506,7 @@ avroOutputSchema = â€˜/etc/ar-sync/metric_profiles.avscâ€™</p>
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -13665,7 +13656,7 @@ avroOutputDir = â€˜/var/lib/ar-syncâ€™
 avroOutputSchema = â€˜/etc/ar-sync/metric_profiles.avscâ€™</p>
 
 <p>```</p>
-;T;@WI"/guides/webui/;T{;{	;I"Â<!doctype html>
+;T;@WI"/guides/webui/;T{;{	;I"Ò<!doctype html>
 
 <html lang="en">
 <head>
@@ -13806,7 +13797,7 @@ avroOutputSchema = â€˜/etc/ar-sync/metric_profiles.avscâ€™</p>
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -13815,7 +13806,7 @@ avroOutputSchema = â€˜/etc/ar-sync/metric_profiles.avscâ€™</p>
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -13884,7 +13875,7 @@ I"±
   <li>if everything goes well </li>
   <li>./bin/lavoisier.sh restart</li>
 </ul>
-;T;@]I"/guides/installation/;T{;{	;I"U%<!doctype html>
+;T;@]I"/guides/installation/;T{;{	;I"x%<!doctype html>
 
 <html lang="en">
 <head>
@@ -14011,57 +14002,51 @@ I"±
 
 <p>On your host the next step is to install (as root user) the ar-release package via yum:</p>
 
-<p><code>sh
-# yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
-</code></p>
+<pre><code># yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
+</code></pre>
 
 <p>This package will configure on the host(s) the repository files under <code>/etc/yum.repos.d</code>.</p>
 
 <p>Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:</p>
 
-<p><code>sh
-# yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
-</code></p>
+<pre><code># yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+</code></pre>
 
 <p>You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named <code>/etc/yum.repos.d/cloudera-cdh4.repo</code> place the following contents:</p>
 
-<p><code>
-[cloudera-cdh4]
+<pre><code>[cloudera-cdh4]
 name=Cloudera's Distribution for Hadoop, Version 4
 baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
 gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
 gpgcheck = 1
 enabled = 1
-</code></p>
+</code></pre>
 
 <p>You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named <code>/etc/yum.repos.d/EGI-trustanchors.repo</code> place the following contents:</p>
 
-<p><code>
-[EGI-trustanchors]
+<pre><code>[EGI-trustanchors]
 name=EGI-trustanchors
 baseurl=http://repository.egi.eu/sw/production/cas/1/current/
 enabled=1
 gpgcheck=1
 gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
-</code></p>
+</code></pre>
 
 <p>You will finally need to add a MongoDB repository. The name of the file should be <code>/etc/yum.repos.d/mongodb.repo</code>) and its contents should be:</p>
 
-<p><code>
-[mongodb]
+<pre><code>[mongodb]
 name=MongoDB Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
 gpgcheck=0
 enabled=1
-</code></p>
+</code></pre>
 
 <h3 id="sync-components-and-consumer-service">Sync Components and Consumer Service</h3>
 
 <p>First of all install the ca_bundle meta-rpm with the following command:</p>
 
-<p><code>
-# yum install ca-policy-egi-core
-</code></p>
+<pre><code># yum install ca-policy-egi-core
+</code></pre>
 
 <p>As a next step you should request and obtain an x509 host certificate from your national IGTF (Grid-related) approved CA and place the key/certificate pair under <code>/etc/grid-security/</code> folder with the following names and permissions:</p>
 
@@ -14072,10 +14057,9 @@ enabled=1
 
 <p>Next, as root user install the following packages via yum:</p>
 
-<p><code>
-# yum install ar-consumer
+<pre><code># yum install ar-consumer
 # yum install ar-sync
-</code></p>
+</code></pre>
 
 <p>The ar-sync package installs components needed for refreshing the current status of the monitored system.</p>
 
@@ -14085,10 +14069,9 @@ enabled=1
 
 <p>Start consumer service and make sure to add it to appropriate run levels:</p>
 
-<p><code>
-# chkconfig ar-consumer on
+<pre><code># chkconfig ar-consumer on
 # service ar-consumer start
-</code>`</p>
+</code></pre>
 
 
  <!--end item[:slug]-->
@@ -14119,7 +14102,7 @@ enabled=1
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -14128,7 +14111,7 @@ enabled=1
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
@@ -14137,7 +14120,7 @@ enabled=1
 </html>
 
 
-;T;	I"›
+;T;	I"¶
 # Installation
 
 This document will guide you through the installation process. The ARGO A/R components include the following items:
@@ -14177,57 +14160,45 @@ You will need a RHEL 6.x or similar (base installation) to proceed. As a first s
 
 On your host the next step is to install (as root user) the ar-release package via yum:
 
-```sh
-# yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
-```
+    # yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
 
 This package will configure on the host(s) the repository files under `/etc/yum.repos.d`.
 
 Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:
 
-```sh
-# yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
-```
+    # yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
 
 You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named `/etc/yum.repos.d/cloudera-cdh4.repo` place the following contents:
 
-```
-[cloudera-cdh4]
-name=Cloudera's Distribution for Hadoop, Version 4
-baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
-gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
-gpgcheck = 1
-enabled = 1
-```
+    [cloudera-cdh4]
+    name=Cloudera's Distribution for Hadoop, Version 4
+    baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
+    gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
+    gpgcheck = 1
+    enabled = 1
 
 You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named `/etc/yum.repos.d/EGI-trustanchors.repo` place the following contents:
 
-```
-[EGI-trustanchors]
-name=EGI-trustanchors
-baseurl=http://repository.egi.eu/sw/production/cas/1/current/
-enabled=1
-gpgcheck=1
-gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
-```
+    [EGI-trustanchors]
+    name=EGI-trustanchors
+    baseurl=http://repository.egi.eu/sw/production/cas/1/current/
+    enabled=1
+    gpgcheck=1
+    gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
 
 You will finally need to add a MongoDB repository. The name of the file should be `/etc/yum.repos.d/mongodb.repo`) and its contents should be:
 
-```
-[mongodb]
-name=MongoDB Repository
-baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
-gpgcheck=0
-enabled=1
-```
+    [mongodb]
+    name=MongoDB Repository
+    baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
+    gpgcheck=0
+    enabled=1
 
 ### Sync Components and Consumer Service
 
 First of all install the ca_bundle meta-rpm with the following command:
 
-```
-# yum install ca-policy-egi-core
-```
+    # yum install ca-policy-egi-core
 
 As a next step you should request and obtain an x509 host certificate from your national IGTF (Grid-related) approved CA and place the key/certificate pair under `/etc/grid-security/` folder with the following names and permissions:
 
@@ -14236,10 +14207,8 @@ As a next step you should request and obtain an x509 host certificate from your 
 
 Next, as root user install the following packages via yum:
 
-```
-# yum install ar-consumer
-# yum install ar-sync
-```
+    # yum install ar-consumer
+    # yum install ar-sync
 
 The ar-sync package installs components needed for refreshing the current status of the monitored system.
 
@@ -14249,12 +14218,10 @@ This configuration is suggested as it will allow the consumer service to cycle t
 
 Start consumer service and make sure to add it to appropriate run levels:
 
-```
-# chkconfig ar-consumer on
-# service ar-consumer start
-````
+    # chkconfig ar-consumer on
+    # service ar-consumer start
 ;T;
-I">
+I"Q
 <h1 id="installation">Installation</h1>
 
 <p>This document will guide you through the installation process. The ARGO A/R components include the following items:</p>
@@ -14300,57 +14267,51 @@ I">
 
 <p>On your host the next step is to install (as root user) the ar-release package via yum:</p>
 
-<p><code>sh
-# yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
-</code></p>
+<pre><code># yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
+</code></pre>
 
 <p>This package will configure on the host(s) the repository files under <code>/etc/yum.repos.d</code>.</p>
 
 <p>Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:</p>
 
-<p><code>sh
-# yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
-</code></p>
+<pre><code># yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+</code></pre>
 
 <p>You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named <code>/etc/yum.repos.d/cloudera-cdh4.repo</code> place the following contents:</p>
 
-<p><code>
-[cloudera-cdh4]
+<pre><code>[cloudera-cdh4]
 name=Cloudera's Distribution for Hadoop, Version 4
 baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
 gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
 gpgcheck = 1
 enabled = 1
-</code></p>
+</code></pre>
 
 <p>You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named <code>/etc/yum.repos.d/EGI-trustanchors.repo</code> place the following contents:</p>
 
-<p><code>
-[EGI-trustanchors]
+<pre><code>[EGI-trustanchors]
 name=EGI-trustanchors
 baseurl=http://repository.egi.eu/sw/production/cas/1/current/
 enabled=1
 gpgcheck=1
 gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
-</code></p>
+</code></pre>
 
 <p>You will finally need to add a MongoDB repository. The name of the file should be <code>/etc/yum.repos.d/mongodb.repo</code>) and its contents should be:</p>
 
-<p><code>
-[mongodb]
+<pre><code>[mongodb]
 name=MongoDB Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
 gpgcheck=0
 enabled=1
-</code></p>
+</code></pre>
 
 <h3 id="sync-components-and-consumer-service">Sync Components and Consumer Service</h3>
 
 <p>First of all install the ca_bundle meta-rpm with the following command:</p>
 
-<p><code>
-# yum install ca-policy-egi-core
-</code></p>
+<pre><code># yum install ca-policy-egi-core
+</code></pre>
 
 <p>As a next step you should request and obtain an x509 host certificate from your national IGTF (Grid-related) approved CA and place the key/certificate pair under <code>/etc/grid-security/</code> folder with the following names and permissions:</p>
 
@@ -14361,10 +14322,9 @@ enabled=1
 
 <p>Next, as root user install the following packages via yum:</p>
 
-<p><code>
-# yum install ar-consumer
+<pre><code># yum install ar-consumer
 # yum install ar-sync
-</code></p>
+</code></pre>
 
 <p>The ar-sync package installs components needed for refreshing the current status of the monitored system.</p>
 
@@ -14374,8 +14334,7 @@ enabled=1
 
 <p>Start consumer service and make sure to add it to appropriate run levels:</p>
 
-<p><code>
-# chkconfig ar-consumer on
+<pre><code># chkconfig ar-consumer on
 # service ar-consumer start
-</code>`</p>
-;T;@c:versioni
+</code></pre>
+;T;@cI"2/static/shared/images/argo-arch-overview.png/;T{;{ :versioni

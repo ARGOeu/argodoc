@@ -125,57 +125,51 @@
 
 <p>On your host the next step is to install (as root user) the ar-release package via yum:</p>
 
-<p><code>sh
-# yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
-</code></p>
+<pre><code># yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
+</code></pre>
 
 <p>This package will configure on the host(s) the repository files under <code>/etc/yum.repos.d</code>.</p>
 
 <p>Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:</p>
 
-<p><code>sh
-# yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
-</code></p>
+<pre><code># yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+</code></pre>
 
 <p>You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named <code>/etc/yum.repos.d/cloudera-cdh4.repo</code> place the following contents:</p>
 
-<p><code>
-[cloudera-cdh4]
+<pre><code>[cloudera-cdh4]
 name=Cloudera's Distribution for Hadoop, Version 4
 baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
 gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
 gpgcheck = 1
 enabled = 1
-</code></p>
+</code></pre>
 
 <p>You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named <code>/etc/yum.repos.d/EGI-trustanchors.repo</code> place the following contents:</p>
 
-<p><code>
-[EGI-trustanchors]
+<pre><code>[EGI-trustanchors]
 name=EGI-trustanchors
 baseurl=http://repository.egi.eu/sw/production/cas/1/current/
 enabled=1
 gpgcheck=1
 gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
-</code></p>
+</code></pre>
 
 <p>You will finally need to add a MongoDB repository. The name of the file should be <code>/etc/yum.repos.d/mongodb.repo</code>) and its contents should be:</p>
 
-<p><code>
-[mongodb]
+<pre><code>[mongodb]
 name=MongoDB Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
 gpgcheck=0
 enabled=1
-</code></p>
+</code></pre>
 
 <h3 id="sync-components-and-consumer-service">Sync Components and Consumer Service</h3>
 
 <p>First of all install the ca_bundle meta-rpm with the following command:</p>
 
-<p><code>
-# yum install ca-policy-egi-core
-</code></p>
+<pre><code># yum install ca-policy-egi-core
+</code></pre>
 
 <p>As a next step you should request and obtain an x509 host certificate from your national IGTF (Grid-related) approved CA and place the key/certificate pair under <code>/etc/grid-security/</code> folder with the following names and permissions:</p>
 
@@ -186,10 +180,9 @@ enabled=1
 
 <p>Next, as root user install the following packages via yum:</p>
 
-<p><code>
-# yum install ar-consumer
+<pre><code># yum install ar-consumer
 # yum install ar-sync
-</code></p>
+</code></pre>
 
 <p>The ar-sync package installs components needed for refreshing the current status of the monitored system.</p>
 
@@ -199,10 +192,9 @@ enabled=1
 
 <p>Start consumer service and make sure to add it to appropriate run levels:</p>
 
-<p><code>
-# chkconfig ar-consumer on
+<pre><code># chkconfig ar-consumer on
 # service ar-consumer start
-</code>`</p>
+</code></pre>
 
 
  <!--end item[:slug]-->
@@ -233,7 +225,7 @@ enabled=1
 -->
       <div class="sidebar-module padding10">
           <strong>Contact Us:</strong>
-           <a href="mailto:contact@argodoc.eu" target='blank'>Contact Us</a>
+           <a href="mailto:argo-ggus-support@grnet.gr" target='blank'>Contact Us</a>
       </div><!--sidebar-module-->
 	</div>
   </div><!-- #wrapper -->
@@ -242,7 +234,7 @@ enabled=1
 	<div class="wrap">
 		<p>&nbsp;</p>
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:contact@argodoc.eu" class="site-link" target='_blank'>ARGO Consurtium</a>.</p>
+		<p class="copyright">Copyright &copy; 2014 <a rel="home" href="mailto:argo-ggus-support@grnet.gr" class="site-link" target='_blank'>ARGO Consortium</a>.</p>
 		</div>
 	</div>
 </footer>
