@@ -25,7 +25,12 @@ Put your certificate in p12 format in this directory
     # vi lavoisier-hidden.properties
 
 Finally, complete certificate.password and certificate.password
+Eventually modify the cache.baseDirectory property - if you want to put it elsewhere
 
+    # cd $HOME_LAVOISIER/argo-ui-master/etc
+    # vi lavoisier-service.properties
+
+Complete lavoisier.ssl.trustStore (/etc/grid-security/certificates) , lavoisier.ssl.keyStore (path to p12 certificate) , and lavoisier.ssl.keyStorePassword
 
 Start the service 
 
@@ -33,3 +38,14 @@ Start the service
 - check the logs and access to the interface : `http://yourmachine:8080/lavoisier`
 - if everything goes well `./bin/lavoisier.sh restart`
 
+
+ Useful commands and hints
+
+To change the PI base url : 
+
+    # vi $HOME_LAVOISIER/etc/ARGO_UI/lavoisier-config.properties
+    
+To stop lavoisier : 
+
+    # cd $HOME_LAVOISIER
+    # ./bin/lavoisier.sh stop
