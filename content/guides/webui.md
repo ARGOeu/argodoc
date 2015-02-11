@@ -49,3 +49,7 @@ To stop lavoisier :
 
     # cd $HOME_LAVOISIER
     # ./bin/lavoisier.sh stop
+    
+To modify the list of administrators 
+
+    # vi $HOME_LAVOISIER/etc/ARGO_UI/resources/xml/administrators.xml
