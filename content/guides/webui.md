@@ -24,14 +24,15 @@ Put your certificate in p12 format in this directory
 
     # cd $HOME_LAVOISIER/argo-ui-master/etc
     # vi lavoisier-hidden.properties
-
 Finally, complete certificate.password and certificate.password
 Eventually modify the cache.baseDirectory property - if you want to put it elsewhere
 
+
+
     # cd $HOME_LAVOISIER/argo-ui-master/etc
     # vi lavoisier-service.properties
-
 Complete lavoisier.ssl.trustStore (/etc/grid-security/certificates) , lavoisier.ssl.keyStore (path to p12 certificate) , and lavoisier.ssl.keyStorePassword
+
 
 Start the service 
 
