@@ -2,17 +2,18 @@
 title: Web UI | ARGO
 ---
 
-# Web UI
+## Web UI Description
 
 This document describes the Web UI installation and configuration process. 
-
 
 Web UI module for the ARGO Framework :
 
 * based on Lavoisier Framework - `http://software.in2p3.fr/lavoisier`
 * prerequisites : a server certificate and java
 
-Installation - the `$HOME_LAVOISIER` is the directory where do you install the service
+## Installation 
+
+ `$HOME_LAVOISIER` is the directory where do you install the service
 
     # cd $HOME_LAVOISIER
     # wget https://github.com/ARGOeu/argo-ui/archive/master.zip
@@ -39,7 +40,7 @@ Start the service
 - if everything goes well `./bin/lavoisier.sh restart`
 
 
- Useful commands and hints
+ ## Useful commands and hints
 
 To change the PI base url : 
 
