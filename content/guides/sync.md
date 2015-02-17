@@ -81,7 +81,7 @@ It's a INI file with key, value pairs and sections. Each customer is represented
 
 The name of directory that will be created in an `OutputDir` value is the name of customer. Customer name is a string defined in the section name of the customer, after an underscore. So `CUSTOMER_EGI` will create `EGI` directory in an `OutputDir` value. Following the same logic of naming directories, there will be subdirectories created for each job. So `JOB_Critical` means that there will be `Critical` directory inside of customer's EGI directory.
 
- ## Topology sync
+## Topology sync
 
 Topology is abstracted by the two levels of hierarchy:
 
