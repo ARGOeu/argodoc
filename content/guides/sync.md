@@ -151,3 +151,158 @@ Tags for selecting the groups of endpoints are:
 * `Production = {Y, N}`
 * `Monitored = {Y, N}`
 * `Scope = {EGI, Local}`
+
+## downtime-sync
+
+The downtimes sync downloads the scheduled downtimes for defined date and stores them to a file.
+This application requires host certificates and expects the certificate file to be installed at: `/etc/grid-security/hostkey.pem`, `/etc/grid-security/hostcert.pem`
+
+Usage:
+
+`python downtime_sync -d <date>`
+
+`date` parameter is the date for which downtimes are downloaded. Format is `yyyy-mm-dd`.
+
+Configuration is defined in the source file of the application.
+
+    gocdbHost = 'goc.egi.eu'
+    hostKey = '/etc/grid-security/hostkey.pem'
+    hostCert = '/etc/grid-security/hostcert.pem'
+
+    defaultOutputFileDowntimes = outputDir + '/downtimes_%s.out'
+    # Hostname, Service Type, Start, End
+    defaultOutputFileDowntimesFieldFormat = '%s\001%s\001%s\001%s\r\n'
+
+    outputDir = '/var/lib/ar-sync'
+    avroOutputDir = '/var/lib/ar-sync'
+    avroOutputSchema = '/etc/ar-sync/downtimes.avsc'
+
+The Configuration fields are defined below:
+
+- `gocdbHost` - This field defines the hostname of the GOCDB server.
+- `hostKey` - This field defines the path to host certificate key.
+- `hostCert` - This field defines the path to host certificate.
+- `defaultOutputFileDowntimes` - This field defines the output file name format. The '%s' tag is for the timestamp.
+- `defaultOutputFileDowntimesFieldFormat` - This field defines the output file format for downloaded downtimes.
+- `outputDir` - This field defines the directory path where to log the downloaded downtimes.
+- `avroOutputDir` - This field defines the directory path where to log the downloaded downtimes in avro binary format.
+- `avroOutputSchema` - This field defines the structure of the avro variant of downloaded downtimes.
+
+Pseudocode of the downtimes sync:
+
+    parse input date
+    get downtimes for date
+    foreach downtime in downloaded downtimes
+        if downtime is 'SCHEDULED' and downtime severity is 'OUTAGE'
+            write downtime to log
+
+
+## prefilter - plaintext variant
+
+The prefiltering app loads the list of logged messages and filters the mesages according to downloaded POEM profiles.
+
+Usage:
+
+`python prefilter -d <date>`
+
+`date` parameter is the date for which messages are filtered. Format is yyyy-mm-dd.
+
+Configuration is defined in the source file of the application (`prefilter`).
+
+    # consumer
+    consumerFileDirectory = '/var/lib/ar-consumer'
+    consumerFilename = 'ar-consumer_log_%s-%s-%s.txt'
+    consumerFileFields = 'timestamp;ROC;nagios_host;metricName;serviceType;hostName;metricStatus;voName;voFqan'
+    consumerFileFieldDelimiter = '\001'
+
+    # poem
+    poemFileDirectory = '/var/lib/ar-sync'
+    poemFilename = 'poem_sync_%s_%s_%s.out'
+    poemFileFields = 'server;ngi;profile;service_flavour;metric;vo;fqan'
+    poemFileFieldDelimiter = '\001'
+
+    # output
+    outputFileDirectory = '/var/lib/ar-sync'
+    outputFilename = 'prefilter_%s_%s_%s.out'
+    outputFileFields = 'timestamp;metricName;serviceType;hostName;metricStatus;voName;voFqan;profile'
+    outputFileFormat = '%s\001%s\001%s\001%s\001%s\001%s\001%s\001%s\r\n'
+
+The Configuration fields are defined below:
+
+- `consumerFileDirectory` - This field defines the path to directory in w hich the message log file from the consumer are stored.
+- `consumerFilename` - This field defines the consumer log file name format. The %s tag is used for there
+timestamp.
+- `consumerFileFields` - This field defines consumer log entry fields for each message.
+- `consumerFileFieldDelimiter` - This field defines the message entry delimiter used in the consumer log file.
+- `poemFileDirectory` - This field defines the path to directory in w hich the POEM profile files (from poem-sync) are stored.
+- `poemFilename` - This field defines the POEM profile sync log file name format. The %s tag is used for the timestamp.
+- `poemFileFields` - This field defines POEM profile sync log entry fields for each profile.
+- `poemFileFieldDelimiter` - This field defines the POEM profile entry delimiter used in the POEM profile sync log file.
+- `outputFileDirectory` - This field defines the directory path w here to output the filtered messages.
+- `outputFilename` - This field defines the output file name format. The '%s' tags are used for year month and day (in that order) of the orginal consumer log file.
+- `outputFileFields` - This field defines the output file fields for each filtered message.
+- `outputFileFormat` - This field defines the output file format.
+
+Pseudocode of the prefilter:
+
+    parse input date
+    load NGIs from poem sync
+    forach profile in poem sync
+        create profile tree
+    foreach messsage in consmer log file
+        if message NGI is in loaded NGIs
+            get message server tree from profile tree
+            if server tree exists
+                get message service flavor tree from server tree
+                if service flavor tree exists
+                    get message service metric tree from service flavor tree
+                    if service metric tree exists
+                        if message vo defined
+                            get message vo tree from service metric tree
+                            if vo tree exists
+                                if message fqan defined
+                                get message fqan tree from vo tree
+                                    if fqan tree exists
+                                        set profiles from vo tree
+                                    else
+                                        get profile tree for undefined fqan from vo tree
+                                        set profiles from profile tree
+                        else
+                            get vo tree for undefined vo from service metric tree
+                            set profiles from vo tree
+
+        if profiles set
+            foreach profile in profiles
+                log message to output file
+        else
+            log message to reject log
+
+
+## prefilter-avro - avro variant
+
+Most of logic that apply for plaintext prefilter, apply also for the avro variant of it. Though, there are some slight changes in the configuration of it since avro schema now defines the format of the output.
+
+    # consumer
+    consumerFileDirectory = '/var/lib/ar-consumer'
+    consumerFilename = 'ar-consumer_log_%s-%s-%s.avro'
+
+    # poem
+    poemFileDirectory = '/var/lib/ar-sync'
+    poemFilename = 'poem_sync_%s_%s_%s.out'
+    poemFileFields = 'server;ngi;profile;service_flavour;metric;vo;fqan'
+    poemFileFieldDelimiter = '\001'
+    poemNameMappingFilename = 'poem_name_mapping.cfg'
+
+    # output
+    outputFileDirectory = '/var/lib/ar-sync'
+    outputFilename = 'prefilter_%s_%s_%s.avro'
+    outputSchema = '/etc/ar-consumer/metric_data.avsc'
+
+    # write to standard output
+    writeToStd = 0
+
+    # reject on missing monitoring host
+    rejectMissingMonitoringHost = 1
+
+    # past files checking
+    checkInputFileForDays = 1
