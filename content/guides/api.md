@@ -1,20 +1,15 @@
 ---
 title: API documentation | ARGO
+page_title: API documentation 
+font_title: 'fa fa-cogs'
+description: This document describes the API service, using the HTTP application protocol. This API uses XML as the primary exchange format.
 ---
 
-# API
+## API Data
 
-This document describes the API service, using the HTTP application protocol. 
-
-This API uses XML as the primary exchange format. The base URL is of the following form
-
-    https://<host>:<port>/api/v1/
-
-The default port is 8080
-
-The central instance of the ARGO production service can be queried at:
-
-    https://snf-629551.vm.okeanos.grnet.gr:8080/api/v1/
+| Base URL | <code>https://\<host\>:\<port\>/api/v1/</code> |
+| **Default Port**         | <code>8080</code>  |
+| **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr:8080/api/v1/</code> |
 
 ## GET method
 

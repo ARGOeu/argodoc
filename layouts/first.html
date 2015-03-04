@@ -1,0 +1,80 @@
+<%= render 'head' %>
+<body class="api">
+  <%= render 'header' %>
+  <div class='container-fluid' >
+    <div class='row'>
+      <div class="col-md-2 sidebar" >
+        <%= render 'sidebar' %>
+      </div><!--sidebar-->
+      <div class="col-md-8 main">
+        <% if @item[:page_title] %>	
+          <h1 class="highlight">
+          <% if @item[:font_title] %>
+            <i class='<%=item[:font_title]%>'></i> 
+          <% end %>
+          <%= item[:page_title] %></h1>
+        <% end %>
+        <p class="lead"> <%= item[:description] %></p>
+        <%= yield %>
+        <div style="padding:30px;" class="marketing">
+          <div class="row">
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][0] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][0] %></h2> 
+              <p><%= item[:row_description][0] %></p>
+              <p><a role="button" href="<%= item[:row_link][0] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][1] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][1] %></h2> 
+              <p><%= item[:row_description][1] %></p>
+              <p><a role="button" href="<%= item[:row_link][1] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][2] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][2] %></h2> 
+              <p><%= item[:row_description][2] %></p>
+              <p><a role="button" href="<%= item[:row_link][2] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][3] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][3] %></h2> 
+              <p><%= item[:row_description][3] %></p>
+              <p><a role="button" href="<%= item[:row_link][3] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][4] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][4] %></h2> 
+              <p><%= item[:row_description][4] %></p>
+              <p><a role="button" href="<%= item[:row_link][4] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <i class="fa <%= item[:row_font][5] %> fa-6 fa-blue"></i>  
+              <h2><%= item[:row_title][5] %></h2> 
+              <p><%= item[:row_description][5] %></p>
+              <p><a role="button" href="<%= item[:row_link][5] %>" class="btn btn-default">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+        </div>
+
+
+
+        </div><!--col-md-8-->
+        <div class="col-md-2">&nbsp;</div>
+      </div><!--row-->
+    </div><!--container fluid-->
+  
+<!-- from -->
+      <div class="jumbotron">
+      	<div class="container" style='padding-left:40px;'>
+          <img src='/shared/images/grnet.png' style='padding-left:40px;'/>
+          <img src='/shared/images/cnrs.png' style='padding-left:40px;'/>
+          <img src='/shared/images/srce.png' style='padding-left:40px;'/>
+         </div> <!-- /container -->
+       </div> <!-- jumbotron -->
+<!-- from-->
+  <%= render 'footer' %>
+</body>
+</html>

@@ -1,10 +1,9 @@
 ---
 title: Sync compoments | ARGO
+page_title: Sync compoments
+font_title: 'fa fa-refresh'
+description: This document describes the sync components.
 ---
-
-# Sync compoments
-
-This document describe the sync compoments.
 
 ##  Poem profiles sync
 

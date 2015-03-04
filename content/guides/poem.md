@@ -1,4 +1,9 @@
-# POEM service for ARGO framework
+---
+title: POEM service for ARGO framework
+page_title: POEM service for ARGO framework
+font_title: 'fa fa-check-square-o'
+description: This document describes the POEM service for ARGO framework.
+---
 
 ## Changes
 

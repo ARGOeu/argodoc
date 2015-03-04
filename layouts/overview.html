@@ -1,10 +1,35 @@
-<%= render 'head' %>
-
-<body class="overview">
-	<%= render 'header' %>
-	
-  <%= yield %>
-		
-	<%= render 'footer' %>
+<%= render 'head' %>overview
+<body class="api">
+  <%= render 'header' %>
+  <div class='container-fluid' >
+    <div class='row'>
+      <div class="col-md-2 sidebar" >
+        <%= render 'sidebar' %>
+      </div><!--sidebar-->
+      <div class="col-md-8 main">
+          <% if @item[:page_title] %>	
+            <h1 class="highlight">
+            <% if @item[:font_title] %>
+              <i class='<%=item[:font_title]%>'></i> 
+            <% end %>
+            <%= item[:page_title] %></h1>
+          <% end %>
+          <p class="lead"> <%= item[:description] %></p>
+          <%= yield %>
+        </div><!--col-md-8-->
+        <div class="col-md-2">&nbsp;</div>
+      </div><!--row-->
+    </div><!--container fluid-->
+  
+<!-- from -->
+      <div class="jumbotron">
+      	<div class="container" style='padding-left:40px;'>
+          <img src='/shared/images/grnet.png' style='padding-left:40px;'/>
+          <img src='/shared/images/cnrs.png' style='padding-left:40px;'/>
+          <img src='/shared/images/srce.png' style='padding-left:40px;'/>
+         </div> <!-- /container -->
+       </div> <!-- jumbotron -->
+<!-- from-->
+  <%= render 'footer' %>
 </body>
 </html>

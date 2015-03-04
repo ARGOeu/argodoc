@@ -1,5 +1,6 @@
 ---
 title: Installation | ARGO
+page_title: Installation 
 ---
 
 # Installation
