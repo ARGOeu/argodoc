@@ -11,12 +11,12 @@ about_title: Learn About
 about_subtitle: Availability and reliability monitoring for e-Infrastructures
 about_what_icon: [fa-camera-retro, fa-file-text-o,fa-code]
 about_what_title: [Use Cases, Documentation, Code]
-about_what_desc: [ See how you can benefit from ARGO., Learn how to install, configure and run ARGO.,Get the ARGO source code.]
+about_what_desc: [ See how you can benefit from ARGO., "Learn how to install, configure and run ARGO.",Get the ARGO source code.]
 about_what_url: ['/use-cases/','/overview/', 'https://github.com/ARGOeu']
 row_features: Main Features
-row_title: ['Modular architecture',Horizontal scaling,Message Broker Network ]
-row_subtitle: [ARGO Components.,ARGO Messaging. , A/R Compute Engine. ]
-row_subtitle1: [Modular architecture., Horizontal scaling., Availability and Reliability for distributed services.]
+row_title: ['Modular architecture',Horizontal scaling,Scalable Availability and Reliability computations ]
+row_subtitle: [ARGO Components.,ARGO Messaging. , Compute Engine. ]
+row_subtitle1: [Modular architecture., Horizontal scaling., Availability and Reliability computations.]
 row_description: [ "At its core, ARGO uses a flexible monitoring engine, a powerful analytics engine and a high performance API.<br/><br/>
 
 Embracing a modular, pluggable architecture, ARGO can easily support a wide range of architectures.<br/><br/>
