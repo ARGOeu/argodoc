@@ -1,10 +1,11 @@
 ---
 title: Web UI | ARGO
+page_title: Web UI 
+font_title: 'fa fa-connectdevelop'
+description: This document describes the Web UI installation and configuration process.
 ---
 
 ## Web UI Description
-
-This document describes the Web UI installation and configuration process. 
 
 Web UI module for the ARGO Framework :
 

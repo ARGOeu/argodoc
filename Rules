@@ -3,19 +3,20 @@
 compile '/static/*' do
 end
 
-compile '/guides/examples/*' do
-filter :kramdown
-filter :erb
-filter :colorize_syntax, 
-       :default_colorizer => :pygmentsrb,
-       :pygmentsrb => { :options => { :startinline => 'True' } }
+compile 'overview' do
+  filter :kramdown, :toc_levels => [2]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'first'
 end
+
 compile '/guides/*' do
   filter :kramdown, :toc_levels => [2]
   filter :erb
   filter :colorize_syntax, :default_colorizer => :pygmentsrb
-  layout 'tabs'
+  layout 'guides'
 end
+
 
 compile '*' do
   filter :erb
@@ -27,9 +28,6 @@ end
 
 route '/static/*' do
   item.identifier[7..-2]
-end
-
-route '/guides/examples/*' do
 end
 
 route '*' do

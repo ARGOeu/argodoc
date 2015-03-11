@@ -1,16 +1,27 @@
 <%= render 'head' %>
-
-<body>
-	<%= render 'header' %>
-
-  <div id="wrapper">
-  	<div class="content">
-    	<%= yield %>
-    </div>
-
-		<%= render 'sidebar' %>
-  </div><!-- #wrapper -->
-		
-	<%= render 'footer' %>
+<body class="api">
+  <%= render 'header' %>
+  <div class='container-fluid' >
+    <div class='row'>
+      <div class="col-md-2 sidebar" >
+        <%= render 'sidebar' %>
+      </div><!--sidebar-->
+      <div class="col-md-8 main">
+          <% if @item[:page_title] %>	
+            <h1 class="highlight">
+            <% if @item[:font_title] %>
+              <i class='<%=item[:font_title]%>'></i> 
+            <% end %>
+            <%= item[:page_title] %></h1>
+          <% end %>
+          <p class="lead"> <%= item[:description] %></p>
+          <%= yield %>
+        </div><!--col-md-8-->
+        <div class="col-md-2">&nbsp;</div>
+      </div><!--row-->
+    </div><!--container fluid-->
+  
+    <%= render 'jumbotron' %>
+  <%= render 'footer' %>
 </body>
 </html>

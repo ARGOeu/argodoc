@@ -1,37 +1,36 @@
 ---
 title: ARGO Documentation
 layout: overview
+slider_img: ['/shared/images/slider/14781947981_c6a8103fca_k1.jpg', '/shared/images/slider/tablet-602968_1920.jpg','/shared/images/slider/14185447737_ef38603941_k.jpg']
+slider_title: ['Track Key Performance Indicators','Notification and detailed status reports', 'Monitor SLAs']
+slider_subtitle: ['ARGO can monitor a wide range of platforms and provide operational and business insight for a wide range of built-in and user defined key performance indicators.',
+'Using ARGO operations teams can track the performance and status of each component in the infrastructure, receive notifications and detailed status reports.',
+'Management teams can monitor the availability and reliability of the services from a high level view down to individual system metrics and monitor the conformance of multiple SLAs'
+]
+about_title: Learn About
+about_subtitle: Availability and reliability monitoring for e-Infrastructures
+about_what_icon: [fa-camera-retro, fa-file-text-o,fa-code]
+about_what_title: [Use Cases, Documentation, Code]
+about_what_desc: [ See how you can benefit from ARGO., Learn how to install, configure and run ARGO.,Get the ARGO source code.]
+about_what_url: ['/use-cases/','/overview/', 'https://github.com/ARGOeu']
+row_features: Main Features
+row_title: ['Modular architecture',Horizontal scaling,Message Broker Network ]
+row_subtitle: [ARGO Components.,ARGO Messaging. , A/R Compute Engine. ]
+row_subtitle1: [Modular architecture., Horizontal scaling., Availability and Reliability for distributed services.]
+row_description: [ "At its core, ARGO uses a flexible monitoring engine, a powerful analytics engine and a high performance API.<br/><br/>
+
+Embracing a modular, pluggable architecture, ARGO can easily support a wide range of architectures.<br/><br/>
+
+Out of the box: connectors for POEM, GOCDB, BDII and Gstat.
+" ," ARGO Monitoring Engine can publish monitoring results in real time to any message broker service, which supports the STOMP or AMQP protocol.  <br/><br/>
+Monitoring result collectors can listen on the message broker service,  retrieve the results and forward them to the compute engine.",
+"<strong>Metric profiles </strong><br/> define which metrics are relevant for a specific type of service<br/>
+<strong>Multiple Topologies</strong><br/> can describe simple and complex infrastructures<br/>
+<strong>Multiple Availability Profiles</strong><br/> for flexible definition of business logic<br/>
+<strong>Support of downtimes</strong><br/> allows us to define whether a service is supposed to be unavailable or not? <br/>
+<strong>Custom factors</strong><br/> because not all services have the same importance from SG B <br/>
+<strong>White listing</strong> of monitoring sources<br/>
+<strong>Re-computations</strong> on demand"]
+row_image: ['/shared/images/argo-overview.png','/shared/images/argo-horizontal-scaling.png','/shared/images/argo-ar.png']
+row_image_alt: ['ARGO Platform','ARGO Messaging.Horizontal scaling.','ARGO Compute Engine']
 ---
-
-<div class="wrapper feature">
-	<h1>ARGO Documentation</h1>
-	<a href="/guides/overview/" class="button">Browse the documentation</a>
-	<div class="handle-pid-logo">
-		<img src="/shared/images/argo-arch-overview.png"  />
-		<span class="caption simple-caption">  
-		<p>Evolving Service Availability Monitoring towards a more lightweight and customisable solution</p>  
-		</span> 
-	</div>
-
-
-</div>
-
-<div class="full-width-divider">
-	<ul class="wrapper highlights">
-		<li class="highlight-module">
-			<a href="/guides/overview/"><span class="big-icon glyphicon-book"></span></a>
-			<h2><a href="/guides/overview/">Get Started</a></h2>
-			<p>Get started with ARGO. Browse the documentation</p>
-		</li>
-		<li class="highlight-module">
-			<a href="/guides/api/"><span class="big-icon glyphicon-list-alt"></span></a>
-			<h2><a href="/guides/api/">API</a></h2>
-			<p>Enable the use of ARGO API in your SLA monitoring application</p>
-		</li>
-		<li class="highlight-module">
-			<a href="mailto:argo-ggus-support@grnet.gr" target='blank'><span class="big-icon glyphicon-envelope"></span></a>
-			<h2><a href="mailto:argo-ggus-support@grnet.gr" target="blank">Contact</a></h2>
-			<p>Are you interested in using ARGO for Service Level Monitoring? Send us an <a href='mailto:argo-ggus-support@grnet.gr' target='blank'>email</a>.</p>
-		</li>
-	</ul>
-</div>
