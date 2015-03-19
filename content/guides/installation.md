@@ -5,7 +5,7 @@ page_title: Installation
 
 # Installation
 
-This document will guide you through the installation process. The ARGO A/R components include the following items:
+This document will guide you through the installation process. The ARGO components covered include the following items:
 
 - Sync Components
 - Consumer service
@@ -13,15 +13,15 @@ This document will guide you through the installation process. The ARGO A/R comp
 - API service
 - Web UI service
 
-These can be co-located on a single machine or more. Note that with respect to the Compute Engine Component there are two options, either to use the standalone version or the distributed version. The latter one requires interconnection with a Hadoop cluster. 
+These can be co-located on a single machine or more. Note that with respect to the Compute Engine component operation there are two options, either to use the *standalone* version or the *distributed* version. The latter one requires an interconnection with a working Hadoop cluster. 
 
-The minimum requirements to meet in case of a single machine (standalone version) are the following:
+The minimum requirements to meet in case of a single VM (standalone version) are the following:
 
 - 4 CPUs
 - 8 GB RAM
-- 200 GB Disk
+- >100 GB Disk
 
-For a production scale environment we propose two machines and a Hadoop cluster (distributed version). This is the setup that is used in production for EGI purposes and needs. In this case the minimum requirements are
+For a production scale environment we propose two VMs and a Hadoop cluster (distributed version). The proposed setup in this case is the following:
 
 - Node 1 (Sync components, Consumer service and Hadoop client)
  - 2 CPUs
@@ -32,23 +32,23 @@ For a production scale environment we propose two machines and a Hadoop cluster 
  - 4GB RAM
  - 100 GB Disk
 
-Instructions on setting up follow:
 
 ## Standalone mode
 
-You will need a RHEL 6.x or similar (base installation) to proceed. As a first step make sure that on your host an ntp client service is configured properly. 
+### Prerequisites
+
+- You will need a RHEL 6.x or similar OS (base installation) to proceed. Note that the following instructions have been tested against CentOS 6.x OSes. 
+- Make sure that on your host an ntp client service is configured properly. 
+- Configure the OS firewall to accept incoming `tcp` connections to port `443`.
 
 ### Software Repositories
 
-On your host the next step is to install (as root user) the ar-release package via yum:
+The first step is to install (as root user) the `epel` and `argo` release packages via yum:
 
-    # yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
+    # yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    # yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/i386/ar-release-1.0.0-3.el6.noarch.rpm
 
-This package will configure on the host(s) the repository files under `/etc/yum.repos.d`.
-
-Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:
-
-    # yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+These packages will configure on the host the necessary repository files under `/etc/yum.repos.d`.
 
 You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named `/etc/yum.repos.d/cloudera-cdh4.repo` place the following contents:
 
@@ -59,7 +59,7 @@ You will also need to install the cloudera repository for Hadoop components to b
     gpgcheck = 1
     enabled = 1
 
-You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named `/etc/yum.repos.d/EGI-trustanchors.repo` place the following contents:
+You will also need to install the EGI trust-anchors repository (this is required on the host for communicating with topology providing services). Under a file named `/etc/yum.repos.d/EGI-trustanchors.repo` place the following contents:
 
     [EGI-trustanchors]
     name=EGI-trustanchors
@@ -76,9 +76,9 @@ You will finally need to add a MongoDB repository. The name of the file should b
     gpgcheck=0
     enabled=1
 
-### Sync Components and Consumer Service
+### Before proceeding
 
-First of all install the ca_bundle meta-rpm with the following command:
+Install the `ca-policy-egi-core` meta-rpm with the following command:
 
     # yum install ca-policy-egi-core
 
@@ -87,6 +87,13 @@ As a next step you should request and obtain an x509 host certificate from your 
 * Key file: `/etc/grid-security/hostkey.pem` and permissions: 0400
 * Certificate file: `/etc/grid-security/hostcert.pem` and permissions: 0644
 
+As the ARGO API service also uses a key/certificate pair it is preferable to use the same pair by creating the following two softlinks:
+
+    # ln -s /etc/grid-security/hostkey.pem /etc/pki/tls/private/localhost.key
+    # ln -s /etc/grid-security/hostcert.pem /etc/pki/tls/certs/localhost.crt
+
+### Sync Components and Consumer Service
+
 Next, as root user install the following packages via yum:
 
     # yum install ar-consumer
@@ -94,11 +101,60 @@ Next, as root user install the following packages via yum:
 
 The ar-sync package installs components needed for refreshing the current status of the monitored system.
 
-The ar-consumer service can be configured to connect to a pool of EGI message brokers. By default the config is set to `mq.afroditi.hellasgrid.gr` and `mq.cro-ngi.hr`. 
+The ar-consumer service can be configured to connect to a pool of message brokers. By default the config is set to `mq.afroditi.hellasgrid.gr` and `mq.cro-ngi.hr`. 
 
 This configuration is suggested as it will allow the consumer service to cycle to the next broker in the case the one it is connected to fails for some reason. 
 
 Start consumer service and make sure to add it to appropriate run levels:
 
-    # chkconfig ar-consumer on
     # service ar-consumer start
+    # chkconfig ar-consumer on
+
+### Compute Engine
+
+Install the component:
+
+    # yum install ar-compute
+
+Edit the `/etc/ar-compute-engine.conf` configuration file and 
+
+- set the value of the `mongo_host` variable to `127.0.0.1` like so: `mongo_host=127.0.0.1`
+- set the value of the `mode` variable to `local` like so: `mode=local`
+- set the value of the `prefilter_clean` variable to `false` like so: `prefilter_clean=false`
+
+Under the folder `/etc/cron.d/` place two cronjobs that will handle hourly and daily calculations. 
+
+- for the hourly caclulations edit `/etc/cron.d/ar_job_cycle_hourly` and place the following contents:
+
+    55 * * * * root /usr/libexec/ar-compute/standalone/job_cycle.py -d $(/bin/date --utc  +\%Y-\%m-\%d)
+
+- for the daily caclulations edit `/etc/cron.d/ar_job_cycle_daily` and place the following contents:
+
+    0 0 * * * root /usr/libexec/ar-compute/standalone/job_cycle.py -d $(/bin/date --utc --date '-1 day' +\%Y-\%m-\%d)
+
+
+
+### Datastore
+
+Install MongoDB with the following command:
+
+    # yum install mongodb-org-server mongodb-org
+
+By default, MongoDB will bind to all active network interfaces. As for the standalone installation this is not required you may limit the service to bind to the localhost interface by editing the `/etc/mongod.conf` file and setting the value of the variable `bind_ip` to `127.0.0.1` like so: `bind_ip=127.0.0.1`.
+
+To start and enable the MongoDB service use the following two commands:
+
+    # service mongod start
+    # chkconfig mongod on
+
+
+### Web API service
+
+Install the ARGO web API service with the following command:
+
+    # yum install ar-web-api
+
+Finally, start the service using the following command:
+
+    # start ar-web-api
+
