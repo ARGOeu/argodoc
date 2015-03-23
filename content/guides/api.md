@@ -8,8 +8,8 @@ description: This document describes the API service, using the HTTP application
 ## API Data
 
 | Base URL | <code>https://\<host\>:\<port\>/api/v1/</code> |
-| **Default Port**         | <code>8080</code>  |
-| **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr:8080/api/v1/</code> |
+| **Default Port**         | <code>443</code>  |
+| **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr/api/v1/</code> |
 
 ## GET method
 
