@@ -11,7 +11,7 @@ description: This document describes the API service, using the HTTP application
 | **Default Port**         | <code>443</code>  |
 | **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr/api/v1/</code> |
 
-## GET method
+## GET methods
 
 ### Groups Availability and Reliability
 
@@ -92,47 +92,207 @@ Headers: `Status: 200 OK`
 
 #### Input
 
-    /group_availability
-
-### Input
-
-    /api/v1/service_availability_in_profile?[start_time]&[end_time]&[vo_name]&[profile_name]&[group_type]&[availability_period]&[output]&[namespace]&[group_name]&[service_flavour]&[service_hostname] 
+    /service_flavor_availability?[start_time]&[end_time]&[profile]&[granularity]&[format]&[flavor]&[site]
 
 - mandatory
-  - `start_time`: UTC time in W3C format 
+  - `start_time`: UTC time in W3C format
   - `end_time`: UTC time in W3C format
-  - `vo_name`: Name of the VO requested. May appear more than once. (eg: ops)
-  - `profile_name`: Name of the profile requested. May appear more than once. (eg: CMS_CRITICAL)
-  - `group_type`: Type of the aggregation grouping requested.  May appear more than once. (eg: CMS_Site)
-  - `availability_period`: Results granularity. Possible values: 'HOURLY', 'DAILY', 'WEEKLY', 'MONTHLY'
+  - `profile`: Name of the POEM profile according to which the result was calculated.
 - optional
-  - `output`: Type of the output format. Default: XML, Possible values: XML, json
-  - `namespace`: Profile namespace. May appear more than once. (eg: ch.cern.sam)
-  - `group_name`: Site name. May appear more than once
-  - `service_flavour`: Service flavour name. May appear more than once. (eg: SRMv2)
-  - `service_hostname`: Service hostname. May appear more than once. (eg: ce202.cern.ch)
+  - `granularity`: Possible values: `DAILY`, `MONTHLY`. (default: `DAILY`)
+  - `format`: Default is `XML` (only xml available right now, so the parameter is void thus deactivated for the time being)
+  - `flavor`: ServiceFlavor name or list of ServiceFlavors. If no SF is specified then all flavors within each site are retrieved. 
+  - `site`: Site name or list of sites. If no site is specified then service flavor results are returned for all sites
 
-### Output 
+#### Response
 
-    <pre>
-      <root>
-        <Profile name="A_PROFILE_NAME" namespace="a_namespace.grid.auth.gr" defined_by_vo_name="A_VO">
-          <Service hostname="a_host.grid.auth.gr" type="A_FLAVOR" flavor="A_FLAVOR">
-            <Availability timestamp="2013-08-01T00:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T01:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T02:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T03:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T04:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T05:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T06:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T07:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T08:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            .
-            .
-            .
-          </Service>
-        </Profile>
-      </root>
-    </pre>
+Headers: `Status: 200 OK`
+
+##### Response body 
+
+    <root>
+      <Profile name="A_POEM-PROFILE">
+        <Site Site="A_SITE-NAME">
+          <Flavor Flavor="A_FLAVOR">
+            <Availability timestamp="2015-03" availability="99.99999900000002" reliability="99.99999900000002"/>
+          </Flavor>
+          <Flavor Flavor="B_FLAVOR">
+            <Availability timestamp="2015-03" availability="99.99999900000002" reliability="99.99999900000002"/>
+          </Flavor>
+          .
+          .
+          <Flavor Flavor="N_FLAVOR">
+            <Availability timestamp="2015-03" availability="99.99999900000002" reliability="99.99999900000002"/>
+          </Flavor>
+        </Site>
+      </Profile>
+    </root>
 
 
+### Availability Profiles
+
+#### Input
+
+    /AP
+
+- mandatory
+  - `name`: Profile name (both name and namespace are needed)
+  - `namespace`: Profile namespace (both name and namespace are needed)
+
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    <root>
+      <profile id="some_id" name="name" namespace="namespace" poems="poem_name">
+        <AND>
+          <OR>
+            <Group service_flavor="A_FLAVOR"/>
+            <Group service_flavor="B_FLAVOR"/>
+            <Group service_flavor="C_FLAVOR"/>
+            <Group service_flavor="D_FLAVOR"/>
+            <Group service_flavor="E_FLAVOR"/>
+          </OR>
+          <OR>
+            <Group service_flavor="F_FLAVOR"/>
+            <Group service_flavor="G_FLAVOR"/>
+          </OR>
+          <OR>
+            <Group service_flavor="H_FLAVOR"/>
+          </OR>
+        </AND>
+      </profile>
+      .
+      .
+    </root>
+
+
+### Recalculation requests
+
+#### Input
+
+    /recomputations
+
+
+### List POEM profiles
+
+#### Input
+
+    /poems
+
+
+### Service Metric Status results
+
+#### Input
+
+    /status/timeline/metric?[start_time]&[end_time]&[name]&[host]&[flavor]&[vo]&[profile]
+
+- mandatory:
+  - `start_time`: UTC time in W3C format
+  - `end_time`: UTC time in W3C format
+  - `name`: Metric name
+  - `host`: service host fqdn
+  - `flavor`: service flavor name
+  - `vo`: vo name
+  - `profile`: POEM profile name
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    xml text
+
+### Service Endpoint Status results
+
+#### Input
+
+    /status/timeline/endpoint?[start_time]&[end_time]&[host]&[flavor]&[vo]&[profile]
+
+- mandatory:
+  - `start_time`: UTC time in W3C format
+  - `end_time`: UTC time in W3C format
+  - `host`: service host fqdn
+  - `flavor`: service flavor name
+  - `vo`: vo name
+  - `profile`: POEM profile name
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    xml text
+
+
+### Service Flavor Status results
+
+#### Input
+
+    /status/timeline/flavor?[start_time]&[end_time]&[site]&[flavor]&[vo]&[profile]
+
+- mandatory:
+  - `start_time`: UTC time in W3C format
+  - `end_time`: UTC time in W3C format
+  - `site`: site name
+  - `flavor`: service flavor name
+  - `vo`: vo name
+  - `profile`: POEM profile name
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    xml text
+
+
+
+### Site Status results
+
+#### Input
+
+    /status/timeline/site?[start_time]&[end_time]&[site]&[vo]&[profile]
+
+- mandatory:
+  - `start_time`: UTC time in W3C format
+  - `end_time`: UTC time in W3C format
+  - `site`: site name
+  - `vo`: vo name
+  - `profile`: POEM profile name
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    xml text
+
+
+### Bulk Status results
+
+#### Input
+
+    /status/metrics/timeline/<group>[/<metric>]
+
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    xml text
+
+
+
+## POST methods
+
+### Availability profiles
