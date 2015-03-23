@@ -1,45 +1,61 @@
          <div class="list-group">	
-            <a class="list-group-item disabled blue" href="#">Documentation</a>
+            <a class="list-group-item disabled blue" href="/overview/">Documentation</a>
           <% if @item[:page_title] ==  "Overview" %>	
             <a class="list-group-item active" href="/overview/">Overview</a>
           <% else %>
             <a class="list-group-item" href="/overview/">Overview</a>
           <% end %>
-          <% if @item[:page_title] ==  "Installation" %>	
-            <a class="list-group-item active" href="/guides/installation/">Installation</a>
+            <a class="list-group-item disabled blue" href="/guides/installation/">Installation</a>
+          <% if @item[:page_title] ==  "Installation - Standalone" %>	
+            <a class="list-group-item active" href="/guides/installation/"><em class="fa fa-terminal"></em> Standalone</a>
           <% else %>
-            <a class="list-group-item" href="/guides/installation/">Installation</a>
+            <a class="list-group-item" href="/guides/installation/"><em class="fa fa-terminal"></em> Standalone</a>
           <% end %>
-            <a class="list-group-item disabled blue" href="#">Components</a>
-          <% if @item[:page_title] ==  "Sync compoments" %>	
-            <a class="list-group-item active" href="/guides/sync/"><i class="fa fa-refresh"></i> Sync components</a>
+          <% if @item[:page_title] ==  "Installation for cluster mode" %>	
+            <a class="list-group-item active" href="/guides/installation_cluster/"><em class="fa fa-sitemap"></em> Cluster Mode</a>
           <% else %>
-            <a class="list-group-item" href="/guides/sync/"><i class="fa fa-refresh"></i> Sync components</a>
+            <a class="list-group-item" href="/guides/installation_cluster/"><em class="fa fa-sitemap"></em> Cluster Mode</a>
+          <% end %>
+            <a class="list-group-item disabled blue" href="/guides/sync/">Components</a>
+          <% if @item[:page_title] ==  "Sync compoments" %>	
+            <a class="list-group-item active" href="/guides/sync/"><em class="fa fa-refresh"></em> Sync components</a>
+          <% else %>
+            <a class="list-group-item" href="/guides/sync/"><em class="fa fa-refresh"></em> Sync components</a>
           <% end %>
           <% if @item[:page_title] ==  "POEM service for ARGO framework" %>	
-            <a class="list-group-item active" href="/guides/poem/"><i class="fa fa-check-square-o"></i> Poem service</a>
+            <a class="list-group-item active" href="/guides/poem/"><em class="fa fa-check-square-o"></em> Poem service</a>
           <% else %>
-            <a class="list-group-item" href="/guides/poem/"><i class="fa fa-check-square-o"></i> Poem service</a>
+            <a class="list-group-item" href="/guides/poem/"><em class="fa fa-check-square-o"></em> Poem service</a>
           <% end %>
           <% if @item[:page_title] ==  "Consumer Service" %>	
-            <a class="list-group-item active" href="/guides/consumer/"><i class="fa fa-send-o"></i> Consumer</a>
+            <a class="list-group-item active" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% else %>
-            <a class="list-group-item" href="/guides/consumer/"><i class="fa fa-send-o"></i> Consumer</a>
+            <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
           <% if @item[:page_title] ==  "Compute Engine documentation" %>	
-            <a class="list-group-item active " href="/guides/compute/"><i class="fa fa-cog"></i> Compute Engine</a>
+            <a class="list-group-item active " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% else %>  
-            <a class="list-group-item " href="/guides/compute/"><i class="fa fa-cog"></i> Compute Engine</a>
+            <a class="list-group-item " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% end %>
           <% if @item[:page_title] ==  "API documentation" %>	
             <a class="list-group-item active" href="/guides/api/">
           <% else %>
             <a class="list-group-item" href="/guides/api/" >
           <% end %>
-          <i class="fa fa-cogs"></i> API</a>
+          <em class="fa fa-cogs"></em> API</a>
           <% if @item[:page_title] ==  "Web UI" %>	
-            <a class="list-group-item active" href="/guides/webui/"><i class="fa fa-connectdevelop"></i> Web UI</a>
+            <a class="list-group-item active" href="/guides/webui/"><em class="fa fa-connectdevelop"></em> Web UI</a>
           <% else %>
-            <a class="list-group-item" href="/guides/webui/"><i class="fa fa-connectdevelop"></i> Web UI</a>
+            <a class="list-group-item" href="/guides/webui/"><em class="fa fa-connectdevelop"></em> Web UI</a>
           <% end %>
           </div> <!--list group-->
+          <p>&nbsp;</p>
+
+          <% if @item[:page_title] ==  "Installation for cluster mode" or @item[:page_title] ==  "Installation - Standalone"%>	
+          <div class="bg-info" style='background-color:#eee;'>
+            <a  href="https://github.com/ARGOeu/argo-ansible" target='blank' ><em class='fa fa-github-alt' style='font-size:40px;padding-top:-10px;margin-top:-50px;color:#123f7c;'></em></a>
+            <p class="text-muted" style='padding:10px;'><a  href="https://github.com/ARGOeu/argo-ansible" target='blank' >Fork the github repository and install ARGO via Ansible playbook.</a></p>
+          </div>
+          <% end %>
+
+
