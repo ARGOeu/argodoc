@@ -13,7 +13,7 @@ description: This document describes the API service, using the HTTP application
 
 ## GET method
 
-### Sites Availability and Reliability
+### Groups Availability and Reliability
 
 #### Input
 
@@ -23,7 +23,7 @@ description: This document describes the API service, using the HTTP application
   - `start_time`: UTC time in W3C format 
   - `end_time`: UTC time in W3C format
   - `availability_profile`: Name of the high level profile concatenated with the profile namespace. Each availability profile matches one POEM profile.
-  - `group_type`: If the value is set to `site` then this particular call is invoked.
+  - `group_type`: Valid values are: `site`, `ngi` or `vo`
 - optional
   - `granularity`: Possible values: `DAILY`, `MONTHLY` (default: `DAILY`)
   - `infrastructure`: Filter results based on the name of the infrastructure the site belongs to (default: `Production`)
@@ -31,25 +31,68 @@ description: This document describes the API service, using the HTTP application
   - `monitored`: Filter results based on whether they are monitored sites or not. Possible values: `true`, `false`. (default: `true`)
   - `certification`: Filter results based on the certification status of each site (default: `Certified`)
   - `format`: Default is `XML` (only xml available right now, so the parameter is void thus deactivated for the time being)
-  - `group_name`: Site name or list of sites. If no site is specified then all sites are retrieved. 
+  - `group_name`: Site, NGI or VO name. If no name is specified then all sites, NGIs or VOs are retrieved. 
 
-#### Output
+#### Response
 
-    <pre>
-      <root>
-        <Profile name="A_PROFILE_NAME">
-          <Site site="Site-Name" NGI="NGI-Name" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
-            <Availability timestamp="YYYY-MM" availability="1" reliability="1"/>
-          </Site>
-          <Site site="Site-Name-Another" NGI="NGI-Name-Another" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
-            <Availability timestamp="YYYY-MM" availability="1" reliability="1"/>
-          </Site>
+Headers: `Status: 200 OK`
+
+##### Response body for `group_type=site`
+
+    <root>
+      <Profile name="A_PROFILE_NAME">
+        <Site site="Site-Name" NGI="NGI-Name" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+          <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
+          <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
+        </Site>
+        <Site site="Site-Name-Another" NGI="NGI-Name-Another" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+          <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
+          <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
+        </Site>
+        .
+        .
+        .
+      </Profile>
+    </root>
+
+##### Response body for `group_type=ngi`
+
+    <root>
+      <Profile name="A_PROFILE" namespace="a_namespace.grid.auth.gr">
+        <Ngi NGI="A_NGI">
+          <Availability timestamp="2013-08-01" availability="87.64699776723847" reliability="87.64699776723847">
+          </Availability>
+          <Availability timestamp="2013-08-02" availability="87.63642636198455" reliability="87.63642636198455">
+          </Availability>
+          <Availability timestamp="2013-08-03" availability="11.307937916910474" reliability="11.307937916910474">
+          </Availability>
           .
           .
           .
-        </Profile>
-      </root>
-    </pre>
+          <Availability timestamp="2013-08-09" availability="87.69028873148349" reliability="92.9126400880786">
+          </Availability>
+        </Ngi>
+      </Profile>
+    </root>
+
+
+##### Response body for `group_type=vo`
+
+     <root>
+       <Profile name="A_PROFILE">
+         <Vo VO="ops">
+           <Availability timestamp="2013-11-09" availability="100" reliability="100"></Availability>
+           <Availability timestamp="2013-11-19" availability="50" reliability="100"></Availability>
+           <Availability timestamp="2013-12-09" availability="100" reliability="100"></Availability>
+         </Vo>
+       </Profile>
+     </root>
+
+### NGI Availability and Reliability
+
+#### Input
+
+    /group_availability
 
 ### Input
 
