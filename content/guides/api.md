@@ -170,12 +170,24 @@ Headers: `Status: 200 OK`
     </root>
 
 
-### Recalculation requests
+### Get a list of Recalculation requests
 
 #### Input
 
     /recomputations
 
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    <root>
+      <Request start_time="2013-12-08T12:03:44Z" end_time="2013-12-10T12:03:44Z" reason="some_reason" ngi_name="Some_NGI" status="pending" timestamp="2014-03-07 12:03:44">
+        <Exclude site="site_1"/>
+        <Exclude site="site_2"/>
+      </Request>
+    </root>
 
 ### List POEM profiles
 
@@ -183,8 +195,21 @@ Headers: `Status: 200 OK`
 
     /poems
 
+#### Response
 
-### Service Metric Status results
+Headers: `Status: 200 OK`
+
+##### Response body
+
+    <root>
+      <Poem profile="ch.cern.sam.CLOUD-MON"/>
+      <Poem profile="ch.cern.sam.GLEXEC"/>
+      <Poem profile="ch.cern.sam.OPS_MONITOR"/>
+      .
+      .
+    </root>
+
+### Service Metric Status timeline
 
 #### Input
 
@@ -205,9 +230,25 @@ Headers: `Status: 200 OK`
 
 ##### Response body
 
-    xml text
+    <root>
+      <profile name="POEM_PROFILE">
+        <metric name="A_METRIC" flavor="A_FLAVOR" host="A_HOSTNAME" vo="A_VO" roc="A_ROC" monitoring_host="A_MONHOST">
+          <timeline start_time="2014-10-23T00:00:00Z" end_time="2014-10-24T00:00:00Z">
+            <status timestamp="2014-10-23T00:12:34Z" value="OK" />
+            <status timestamp="2014-10-23T01:12:28Z" value="OK" />
+            <status timestamp="2014-10-23T02:12:31Z" value="CRITICAL" />
+            <status timestamp="2014-10-23T03:12:30Z" value="OK" />
+            <status timestamp="2014-10-23T04:12:25Z" value="OK" />
+            .
+            .
+            .
+            <status timestamp="2014-10-23T23:17:45Z" value="OK" />
+          </timeline>
+        </metric>
+      </profile>
+    </root>
 
-### Service Endpoint Status results
+### Service Endpoint Status timeline
 
 #### Input
 
@@ -227,10 +268,25 @@ Headers: `Status: 200 OK`
 
 ##### Response body
 
-    xml text
+    <root>
+      <profile name="A_POEM">
+        <endpoint host="A_HOST" flavor="A_FLAVOR" vo="A_VO" roc="A_ROC" monitoring_host="A_MONHOST">
+          <timeline start_time="2014-10-23T00:00:00Z" end_time="2014-10-24T00:00:00Z">
+            <status timestamp="2014-10-23T00:12:34Z" value="OK" />
+            <status timestamp="2014-10-23T01:12:20Z" value="WARNING" />
+            <status timestamp="2014-10-23T02:12:31Z" value="CRITICAL" />
+            <status timestamp="2014-10-23T04:12:25Z" value="OK" />
+            .
+            .
+            .
+            <status timestamp="2014-10-23T23:17:45Z" value="OK" />
+          </timeline>
+        </endpoint>
+      </profile>
+    </root>
 
 
-### Service Flavor Status results
+### Service Flavor Status timeline
 
 #### Input
 
@@ -250,11 +306,27 @@ Headers: `Status: 200 OK`
 
 ##### Response body
 
-    xml text
+    <root>
+      <profile name="A_POEM">
+        <flavor name="A_FLAVOR" site="A_SITE-NAME" vo="A_VO" roc="A_ROC" monitoring_host="A_MONHOST">
+          <timeline start_time="2014-10-23T00:00:00Z" end_time="2014-10-24T00:00:00Z">
+            <status timestamp="2014-10-23T00:12:34Z" value="OK" />
+            <status timestamp="2014-10-23T01:12:20Z" value="WARNING" />
+            <status timestamp="2014-10-23T02:12:31Z" value="CRITICAL" />
+            <status timestamp="2014-10-23T04:12:25Z" value="OK" />
+            .
+            .
+            .
+            <status timestamp="2014-10-23T23:17:45Z" value="OK" />
+          </timeline>
+        </flavor>
+      </profile>
+    </root>
 
 
 
-### Site Status results
+
+### Site Status timeline
 
 #### Input
 
@@ -273,15 +345,50 @@ Headers: `Status: 200 OK`
 
 ##### Response body
 
-    xml text
+    <root>
+      <profile name="A_POEM">
+        <site name="A_SITE-NAME" vo="A_VO" roc="A_ROC" monitoring_host="A_MONHOST">
+          <timeline start_time="2014-10-23T00:00:00Z" end_time="2014-10-24T00:00:00Z">
+            <status timestamp="2014-10-23T00:12:34Z" value="OK" />
+            <status timestamp="2014-10-23T01:12:20Z" value="WARNING" />
+            <status timestamp="2014-10-23T02:12:31Z" value="CRITICAL" />
+            <status timestamp="2014-10-23T04:12:25Z" value="OK" />
+            .
+            .
+            .
+            <status timestamp="2014-10-23T23:17:45Z" value="OK" />
+          </timeline>
+        </site>
+      </profile>
+    </root>
 
 
-### Bulk Status results
+
+
+
+## POST methods
+
+### Create a new availability profile
 
 #### Input
 
-    /status/metrics/timeline/<group>[/<metric>]
+    /AP
 
+##### Request headers
+
+    x-api-key: "shared_key_value"
+    Content-Type: application/json
+
+##### Parameters
+
+- Json formatted string:
+
+    { 
+      "name" : <name>, 
+      "namespace" :<namespace>, 
+      "poems" : [<POEM profile>],
+      "groups" : [ [<flavor1>, <flavor2>,... ],...,[<flavorN>] ]
+    }
 
 #### Response
 
@@ -289,10 +396,116 @@ Headers: `Status: 200 OK`
 
 ##### Response body
 
-    xml text
+###### Successful creation of profile
+
+    <root>
+       <Message>Availability Profile record successfully created</Message>
+    </root>
+
+###### Profile exists
+
+    <root>
+       <Message>An availability profile with that name already exists</Message>
+    </root>
+
+
+### Submit a recalculation request
+
+#### Input
+
+    /recomputations
+
+##### Request headers
+
+    x-api-key: "shared_key_value"
+
+##### Parameters
+
+- mandatory
+  - `start_time`: UTC time in W3C format
+  - `end_time`: UTC time in W3C format
+  - `reason`: Explain the need for a recalculation
+  - `ngi_name`: NGI for which the recalculation is requested
+- optional:
+  - `exclude_site`: Site or list of sites to be excluded from recalculation
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+
+## PUT methods
+
+### Update an existing Availability Profile
+
+
+#### Input
+
+    /AP/{id}
+
+##### Request headers
+
+    x-api-key: "shared_key_value"
+    Content-Type: application/json
+
+##### Parameters
+
+- Json formatted string:
+
+    { 
+      "name" : <name>, 
+      "namespace" :<namespace>, 
+      "poems" : [<POEM profile>],
+      "groups" : [ [<flavor1>, <flavor2>,... ],...,[<flavorN>] ]
+    }
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+###### Successful update
+
+    <root>
+       <Message>Update successful</Message>
+    </root>
+
+###### Profile does not exist
+
+    <root>
+       <Message>No profile matching the requested id</Message>
+    </root>
+
+## DELETE methods
+
+### Delete an availability profile
+
+#### Input
+
+    /AP/{id}
+
+##### Request headers
+
+    x-api-key: "shared_key_value"
+
+#### Response
+
+Headers: `Status: 200 OK`
+
+##### Response body
+
+###### Successful delete
+
+    <root>
+       <Message>Delete successful</Message>
+    </root>
+
+###### Profile does not exist
+
+    <root>
+       <Message>No profile matching the requested id</Message>
+    </root>
 
 
 
-## POST methods
-
-### Availability profiles
