@@ -1,6 +1,8 @@
 ---
-title: Installation for cluster mode | ARGO
+title: Installation for cluster mode
 page_title: Installation for cluster mode
+font_title: 'fa fa-sitemap'
+description: This document will guide you through the cluster mode installation process. 
 ---
 
 # Installation (distributed/cluster mode)
@@ -15,11 +17,14 @@ This document will guide you through the installation process. The ARGO componen
 
 For a production scale environment we propose two VMs and a Hadoop cluster (distributed version). The proposed setup in this case is the following:
 
-- Node 1 (Sync components, Consumer service and Hadoop client)
+<strong>Node 1 (Sync components, Consumer service and Hadoop client)</strong>
+
  - 2 CPUs
  - 4GB RAM
  - 100 GB Disk
-- Node 2 (API and Web UI services)
+
+<strong>Node 2 (API and Web UI services)</strong>
+
  - 2 CPUs
  - 4GB RAM
  - 100 GB Disk

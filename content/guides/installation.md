@@ -1,6 +1,8 @@
 ---
 title: Installation | ARGO
-page_title: Installation 
+page_title: Installation - Standalone
+font_title: 'fa fa-terminal'
+description: This document will guide you through the standalone installation process.      
 ---
 
 # Installation
@@ -19,15 +21,18 @@ The minimum requirements to meet in case of a single VM (standalone version) are
 
 - 4 CPUs
 - 8 GB RAM
-- >100 GB Disk
+- \>100 GB Disk
 
 For a production scale environment we propose two VMs and a Hadoop cluster (distributed version). The proposed setup in this case is the following:
 
-- Node 1 (Sync components, Consumer service and Hadoop client)
+<strong>Node 1 (Sync components, Consumer service and Hadoop client)</strong>
+
  - 2 CPUs
  - 4GB RAM
  - 100 GB Disk
-- Node 2 (API and Web UI services)
+
+<strong>Node 2 (API and Web UI services)</strong>
+
  - 2 CPUs
  - 4GB RAM
  - 100 GB Disk
@@ -40,6 +45,8 @@ For a production scale environment we propose two VMs and a Hadoop cluster (dist
 - You will need a RHEL 6.x or similar OS (base installation) to proceed. Note that the following instructions have been tested against CentOS 6.x OSes. 
 - Make sure that on your host an ntp client service is configured properly. 
 - Configure the OS firewall to accept incoming `tcp` connections to port `443`.
+
+
 
 ### Software Repositories
 
@@ -162,9 +169,4 @@ Finally, start the service using the following command:
 
     # start ar-web-api
 
-## Cluster mode
-
-For installing the ARGO components in cluster mode please go through [this guide][l3].
-
-[l3]: /guides/installation_cluster/
 
