@@ -13,6 +13,44 @@ description: This document describes the API service, using the HTTP application
 
 ## GET method
 
+### Sites Availability and Reliability
+
+#### Input
+
+    /group_availability?[start_time]&[end_time]&[availability_profile]&[group_type]&[granularity]&[infrastructure]&[production]&[monitored]&[certification]&[format]&[group_name]
+
+- mandatory
+  - `start_time`: UTC time in W3C format 
+  - `end_time`: UTC time in W3C format
+  - `availability_profile`: Name of the high level profile concatenated with the profile namespace. Each availability profile matches one POEM profile.
+  - `group_type`: If the value is set to `site` then this particular call is invoked.
+- optional
+  - `granularity`: Possible values: `DAILY`, `MONTHLY` (default: `DAILY`)
+  - `infrastructure`: Filter results based on the name of the infrastructure the site belongs to (default: `Production`)
+  - `production`: Filter results based on whether they are production sites or not. Possible values: `true`, `false` (default: `true`)
+  - `monitored`: Filter results based on whether they are monitored sites or not. Possible values: `true`, `false`. (default: `true`)
+  - `certification`: Filter results based on the certification status of each site (default: `Certified`)
+  - `format`: Default is `XML` (only xml available right now, so the parameter is void thus deactivated for the time being)
+  - `group_name`: Site name or list of sites. If no site is specified then all sites are retrieved. 
+
+#### Output
+
+    <pre>
+      <root>
+        <Profile name="A_PROFILE_NAME">
+          <Site site="Site-Name" NGI="NGI-Name" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+            <Availability timestamp="YYYY-MM" availability="1" reliability="1"/>
+          </Site>
+          <Site site="Site-Name-Another" NGI="NGI-Name-Another" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+            <Availability timestamp="YYYY-MM" availability="1" reliability="1"/>
+          </Site>
+          .
+          .
+          .
+        </Profile>
+      </root>
+    </pre>
+
 ### Input
 
     /api/v1/service_availability_in_profile?[start_time]&[end_time]&[vo_name]&[profile_name]&[group_type]&[availability_period]&[output]&[namespace]&[group_name]&[service_flavour]&[service_hostname] 
