@@ -49,13 +49,112 @@ The current raw avro schema file for the metric data is the following:
 }
 ```
 
-This core metric data set is processed and transformed with aditional information provided by the argo-sync components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is provided per-tenant/per-job in the following path
+##### Compute engine's additional input: topology, profiles, factors 
+
+This core metric data set is processed and transformed with aditional information provided by the argo-connector components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is provided per-tenant/per-job in the following path
 `/var/lib/ar-sync/{tenant-name}/{job-name}`
 
 for e.g. for tenant-name=T1 and job-name=JobA the correct path with the sync files is as follows
 `/var/lib/ar-sync/T1/JobA`
 
 Some sync files that concern the whole enviroment such as the downtime information are provided once in the root ar-sync folder `/var/lib/ar-sync/`
+
+##### Topology files
+Topology information is provided by two files: groups of enpoints, groups of groups.
+
+A service endpoint is considered by the engine the simplest item of topology.
+Service endpoint combines the information of hostname+service_name. Service endpoints can be grouped together frorming upper level entities named endpoint groups. For example an oranization's geographical IT site that is being monitored can be considered a group of service endpoints. Information for available endpoint groups is contained in the file group_endpoints
+
+###### group_endpoints.avro
+
+The file uses avro format and contains the following fields:
+- `group` - The name of the group (e.g. MY-SITE-A)
+- `type` - The type of the grouping (e.g. sites)
+- `hostname` - The hostname fqdn part info of the specific endpoint contained in the group
+- `service` - The service name part info of the specific endpoint contained in the group
+- `tags` - (optional) user defined tags providing description metadata
+
+Below is the full description of the group_endpoints.avro specification
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "group_of_service_endpoints",
+ "fields": [
+        {"name": "type", "type": "string"},
+        {"name": "group", "type": "string"},
+        {"name": "service", "type": "string"},
+        {"name": "hostname", "type": "string"},
+        {"name": "tags", "type" : ["null", { "name" : "Tags",
+                                             "type" : "record",
+                                             "fields" : [
+                                                {"name" : "scope", "type" : "string"},
+                                                {"name" : "monitored", "type" : "int"},
+                                                {"name" : "production", "type" : "int"}]}
+                                  ]
+        }
+ ] 
+}
+```
+
+###### group_groups.avro
+
+Service endpoint groups can be further grouped in higher-level entities such as for example nation-wide groups of sites etc. The topology information regarding higher-level groups is contained to the group_groups.avro file. 
+
+The file uses avro format and contains the following fields:
+- `group` - The name of the group (e.g. MY-SITE-A)
+- `type` - The type of the grouping (e.g. sites)
+- `hostname` - The hostname fqdn part info of the specific endpoint contained in the group
+- `service` - The service name part info of the specific endpoint contained in the group
+- `tags` - (optional) user defined tags providing description metadata
+
+Below is the full description of the avro specification
+-`group` - The name of the group (e.g. MY-NATIONAL-GROUP)
+-`type` - The type of grouping (e.g. national entities)
+-`subgroup` - The name of the lower level group contained (e.g. MY-SITE-A)
+-`tags` - (optional) user defined tags providing description metadata
+
+The structure of the specific file gives the ability to define recursively group entities that can be contained as subgroups on other group entities 
+
+an abstract example using cities,nations,continents
+```
+group: 'Athens', type: 'cities', subgroup:'location-1'
+group: 'Athens', type: 'cities', subgroup:'location-2'
+group: 'Athens', type: 'cities', subgroup:'location-3'
+
+group: 'Thessaloniki', type: 'cities', subgroup:'location-5'
+group: 'Thessaloniki', type: 'cities', subgroup:'location-6'
+group: 'Thessaloniki', type: 'cities', subgroup:'location-7'
+
+group: 'Greece', type: 'countries', subgroup: 'Athens'
+group: 'Greece', type: 'countries', subgroup: 'Thessaloniki'
+
+group 'Europe', type: 'continents' subgroup: 'Greece'
+group 'Europe', type: 'continents' subgroup: 'Croatia'
+group 'Europe', type: 'continents' subgroup: 'France'
+...etc
+```
+
+Below is the full avro specification of the group_groups.avro file:
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "group_groups",
+ "fields": [
+    {"name": "type", "type": "string"},
+    {"name": "group", "type": "string"},
+    {"name": "subgroup", "type": "string"},
+    {"name": "tags", "type": {"name" : "Tags",
+                               "type" : "record",
+                               "fields" : [
+                                  {"name" : "scope", "type" : "string"},
+                                  {"name" : "infrastructure", "type" : "string"},
+                                  {"name" : "certification", "type" : "string"}
+                                ]}}
+ ]
+}
+```
+
+
 
 In order for the engine to be able to connect and submit jobs successfully in a hadoop cluster, proper hadoop client configuration files must be present the installed node (`/etc/hadoop/conf/`)
 
