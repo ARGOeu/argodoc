@@ -49,7 +49,7 @@ The current raw avro schema file for the metric data is the following:
 }
 ```
 
-This core metric data set is processed and transformed with aditional information provided by the argo-sync components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is (by default) provided per-tenant/per-job in the following path
+This core metric data set is processed and transformed with aditional information provided by the argo-sync components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is provided per-tenant/per-job in the following path
 `/var/lib/ar-sync/{tenant-name}/{job-name}`
 
 for e.g. for tenant-name=T1 and job-name=JobA the correct path with the sync files is as follows
