@@ -154,7 +154,84 @@ Below is the full avro specification of the group_groups.avro file:
 }
 ```
 
+###### Metric Profiles
 
+Every service type contains a number of metrics that are being checked from the monitoring mechanism. Each metric equals to a specific monitoring check that takes place periodically on the host and has to do with a specific facet of the service's operation (processes,memory,load,files,settings,network etc...)
+
+When wanting to look on the whole status information of the service for a given time it is possible to take into account any number of the metrics available (for e.g. the most critical ones) and compose a view of the service based on those specific metrics selected. This view is dictated by a profile, actually a metric profile which contains information about the service and which metrics are relevant. The metric profile is provided as an avro type file containing the following fields:
+
+- `profile` - name of the profile
+- `service` - name of the specific service
+- `metric` - name of the metric to be taken into account
+- `tags` - (optional) user defined tags 
+
+and the full avro specification:
+
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "metric_profiles",
+ "fields": [
+    {"name": "profile", "type": "string"},
+    {"name": "service", "type": "string"},
+    {"name": "metric", "type": "string"},
+    {"name": "tags", "type" : ["null", {"name" : "Tags",
+                                        "type" : "record",
+                                        "fields" : [
+                                          {"name" : "vo", "type" : "string"},
+                                          {"name" : "fqan", "type" : "string"}]}
+                              ]
+    }
+ ]
+}
+```
+
+###### Weights (factors)
+
+Some group items have an assosiated weight information (factors) on how they contribute when are being aggregated on higher level groups. For example hepspec weights for specific sites when they are aggregated on their contribution on national level groups. The weight information is provided in an avro file format containing the following fields:
+
+- `type` : type of the weight (for e.g. hepspec)
+- `site` : name of the specific site
+- `weight`: number value of the weight
+
+The full avro specification of the weight file:
+
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "weight_sites",
+ "fields": [
+    {"name": "type", "type": "string"},
+    {"name": "site", "type": "string"},
+    {"name": "weight", "type": "string"}
+ ]
+
+```
+
+###### Downtimes
+
+Downtime information: the period (start_time --> end_time) in which a specific service endpoint was in scheduled downtime. This information resided in the corresponding downtime avro file. The file has the following fields:
+
+- `hostname` - the hostname fqdn info part of the specific service endpoint
+- `service` - the service name info part of the specific service endpoint
+- `start_time` - wc3 date/time when the period begins 
+- `end_time` - wc3 date/time when the period ends
+
+The full avro specification of the file is provided below
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "downtimes",
+ "fields": [
+    {"name": "hostname", "type": "string"},
+    {"name": "service", "type": "string"},
+    {"name": "start_time", "type": "string"},
+    {"name": "end_time", "type": "string"}
+ ]
+}
+```
+
+### Hadoop client configuration
 
 In order for the engine to be able to connect and submit jobs successfully in a hadoop cluster, proper hadoop client configuration files must be present the installed node (`/etc/hadoop/conf/`)
 
