@@ -4,9 +4,9 @@ title: Compute Engine documentation | ARGO
 
 # Compute Engine
 
-Ar-Compute-engine is the argo component responsible for performing various transformations and computations on the collected metric data in order to provide availability and reliability metrics. The results produced by the compute-engine are forwarded and stored to the configured datastore (MongoDB)
+Argo-compute-engine is the argo component responsible for performing various transformations and computations on the collected metric data in order to provide availability and reliability metrics. The results produced by the compute-engine are forwarded and stored to the configured datastore (MongoDB)
 
-Ar-Compute-engine uses the hadoop software stack for performing calculations on the metric data as map-reduce jobs. These jobs can also be run locally (single node mode) in the absence of a proper hadoop cluster. Under the hood the engine uses Apache Pig for map-reduce job submission and execution.
+Argo-compute-engine uses the hadoop software stack for performing calculations on the metric data as map-reduce jobs. These jobs can also be run locally (single node mode) in the absence of a proper hadoop cluster. Under the hood the engine uses Apache Pig for map-reduce job submission and execution.
 
 The main engine's input is the metric data collected from the broker network. These files (according to the default configuration of ar-consumer component) reside to the `/var/lib/ar-consumer/` folder.
 
@@ -20,11 +20,11 @@ Some sync files that concern the whole enviroment such as the downtime informati
 
 In order for the engine to be able to connect and submit jobs successfully in a hadoop cluster, proper hadoop client configuration files must be present the installed node (`/etc/hadoop/conf/`)
 
-### Configuration files of ar-compute-engine
+### Configuration files of Argo-compute-engine
 
-With the installation of ar-compute-engine component a main configuration file is deployed in `/etc/ar-compute-engine.conf`. In addition, a directory with supplementary secondary configuration files is created in `/etc/ar-compute/`
+With the installation of Argo-compute-engine component a main configuration file is deployed in `/etc/Argo-compute-engine.conf`. In addition, a directory with supplementary secondary configuration files is created in `/etc/ar-compute/`
 
-##### /etc/ar-compute-engine.conf (Main configuration file)
+##### /etc/Argo-compute-engine.conf (Main configuration file)
 
 This file includes various global parameters used by the engine which are organized in sections, as described next:
 
