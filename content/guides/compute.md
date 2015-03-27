@@ -445,10 +445,6 @@ The outer ***"operation"*** field in the root of the json document is used to de
 
 
 
-
-
-
-
 ### Executable Scripts of the standalone edition
 In the folder `/usr/libexec/ar-compute/standalone/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem). 
 ##### upload_metric.py 
