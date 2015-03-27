@@ -467,11 +467,11 @@ The specific script is used in order to upload daily sync data (relative to a te
 full path: `/usr/libexec/ar-compute/standalone/upload_sync.py` 
 
 parameters:
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `t --tenant {STRING}`  
+- `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
-- `j --job {STRING}`  
+- `-j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
 ##### mongo_clean_ar.py
@@ -479,11 +479,11 @@ The specific script is used if necessary to clean a/r data from the datastore re
 full path: `/usr/libexec/ar-compute/standalone/mongo_clean_ar.py` 
 
 parameters:  
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date (day) to clear the data
 
 optional:
-- `p --profile {STRING}`  
+- `-p --profile {STRING}`  
 specificy the name of an availability profile. If specified only data a/r data regarding the specified profile will be cleared
 
 ##### mongo_clean_status.py
@@ -491,7 +491,7 @@ The specific script is used if necessary to clean status detail data from the da
 full path: `/usr/libexec/ar-compute/standalone/mongo_clean_status.py` 
 
 parameters:  
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date (day) to clear the data
 
 
@@ -500,11 +500,11 @@ The specific script is used to submit a specific a/r calculation job for a speci
 full path: `/usr/libexec/ar-compute/standalone/job_ar.py` 
 
 parameters:
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `t --tenant {STRING}`  
+- `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
-- `j --job {STRING}`  
+- `-j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
 ***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_ar.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
@@ -514,9 +514,9 @@ The specific script is used to submit a specific status detail job for a specifi
 full path: `/usr/libexec/ar-compute/standalone/job_status_detail.py` 
 
 parameters:
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `t --tenant {STRING}`  
+- `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
 
 ***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_statys.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
@@ -530,9 +530,9 @@ The specific script is used of executing the whole daily cycle of jobs for a spe
 full path: `/usr/libexec/ar-compute/standalone/job_cycle.py` 
 
 parameters:
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `t --tenant {STRING}`  
+- `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
 
 ***Note:*** *the script will take care of automatically calling*  ***upload_metric.py*** *,* ***job_status_detail.py*** *and* ***job_ar.py*** *with the correct corresponding parameters in the correct call-order.* 
@@ -543,7 +543,7 @@ The specific script is used of backing up monthly sync data per tenant (for all 
 full path: `/usr/libexec/ar-compute/standalone/sync_backup.py` 
 
 parameters:
-- `d --date {YYYY-MM-DD}`  
+- `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `t --tenant {STRING}`  
+- `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
