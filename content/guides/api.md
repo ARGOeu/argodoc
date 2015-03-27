@@ -15,6 +15,8 @@ description: This document describes the API service, using the HTTP application
 
 ### Groups Availability and Reliability
 
+This method can be used to obtain Availability and Reliablity metrics per group type elements (i.e. Sites, NGIs etc). Results can be retrieved on daily or monthly granularity. 
+
 #### Input
 
     /group_availability?[start_time]&[end_time]&[availability_profile]&[group_type]&[granularity]&[infrastructure]&[production]&[monitored]&[certification]&[format]&[group_name]
@@ -88,7 +90,9 @@ Headers: `Status: 200 OK`
        </Profile>
      </root>
 
-### NGI Availability and Reliability
+### Service flavor Availability and Reliability
+
+This method can be used to obtain Availability and Reliability metrics for Service Flavors per Site. Results can be retrieved on daily or monthly granularity.
 
 #### Input
 
@@ -131,6 +135,8 @@ Headers: `Status: 200 OK`
 
 ### Availability Profiles
 
+This method can be used to retrieve a list of current Availability profiles used by the Compute Engine.
+
 #### Input
 
     /AP
@@ -172,6 +178,8 @@ Headers: `Status: 200 OK`
 
 ### Get a list of Recalculation requests
 
+This method can be used to retrieve a list of current Recalculation requests.
+
 #### Input
 
     /recomputations
@@ -190,6 +198,8 @@ Headers: `Status: 200 OK`
     </root>
 
 ### List POEM profiles
+
+This method can be used to retrieve a list of current POEM profiles.
 
 #### Input
 
@@ -210,6 +220,8 @@ Headers: `Status: 200 OK`
     </root>
 
 ### Service Metric Status timeline
+
+This method may be used to retrieve a specific service metric status timeline (applies on a specific host endpoint and a specific service flavor).
 
 #### Input
 
@@ -250,6 +262,8 @@ Headers: `Status: 200 OK`
 
 ### Service Endpoint Status timeline
 
+This method may be used to retrieve a specific service endpoint status timeline (applies on a specific service flavor).
+
 #### Input
 
     /status/timeline/endpoint?[start_time]&[end_time]&[host]&[flavor]&[vo]&[profile]
@@ -287,6 +301,8 @@ Headers: `Status: 200 OK`
 
 
 ### Service Flavor Status timeline
+
+This method may be used to retrieve a specific service flavor status timeline (applies for a specific site).
 
 #### Input
 
@@ -327,6 +343,8 @@ Headers: `Status: 200 OK`
 
 
 ### Site Status timeline
+
+This method may be used to retrieve a whole site status timeline.
 
 #### Input
 
@@ -370,6 +388,8 @@ Headers: `Status: 200 OK`
 
 ### Create a new availability profile
 
+This method can be used to insert a new Availability Profile onto the Compute Engine.
+
 #### Input
 
     /AP
@@ -411,6 +431,8 @@ Headers: `Status: 200 OK`
 
 ### Submit a recalculation request
 
+This method can be used to insert a new recalculation request onto the Compute Engine.
+
 #### Input
 
     /recomputations
@@ -438,6 +460,7 @@ Headers: `Status: 200 OK`
 
 ### Update an existing Availability Profile
 
+This method can be used to update an existing Availability Profile onto the Compute Engine.
 
 #### Input
 
@@ -480,6 +503,8 @@ Headers: `Status: 200 OK`
 ## DELETE methods
 
 ### Delete an availability profile
+
+This method can be used to delete an existing Availability Profile.
 
 #### Input
 
