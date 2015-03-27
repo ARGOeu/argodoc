@@ -8,9 +8,48 @@ Argo-compute-engine is the argo component responsible for performing various tra
 
 Argo-compute-engine uses the hadoop software stack for performing calculations on the metric data as map-reduce jobs. These jobs can also be run locally (single node mode) in the absence of a proper hadoop cluster. Under the hood the engine uses Apache Pig for map-reduce job submission and execution.
 
-The main engine's input is the metric data collected from the broker network. These files (according to the default configuration of ar-consumer component) reside to the `/var/lib/ar-consumer/` folder.
+##### Compute engines's main input: metric data
 
-This core metric data set is processed and transformed with aditional information provided by the ar-sync components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is (by default) provided per-tenant/per-job in the following path
+The main engine's input is the metric data collected from the argo-consumer component. These files (according to the default configuration of ar-consumer component) reside to the `/var/lib/ar-consumer/` folder.
+
+Metric data come in the form of avro files and contain timestamped status information about the hostname,service and specific checks (metrics) that are being monitored. A typical item of information int the metric data avro file contains the following mandatory fields:
+- `hostname`: the fqdn address of the host being monitored
+- `service`: the name of the specific service being monitored
+- `metric`: the name of the specific metric (check) of the service that is being monitored
+- `timestamp`: time of the monitoring check
+-  `status`: status of the metric during the monitoring check
+
+it also includes the following optional fields
+- `monitoring_host`: the fqdn of the monitoring agent 
+- `summary`: text containing a summary of the monitoring check
+- `message`: text containing the detailed system output message of the monitoring check probe  
+- `tags`: array containing optional user defined tags
+
+The current raw avro schema file for the metric data is the following:
+```
+{"namespace": "argo.avro",
+ "type": "record",
+ "name": "metric_data",
+ "fields": [
+    {"name": "timestamp", "type": "string"},
+    {"name": "service", "type": "string"},
+    {"name": "hostname", "type": "string"},
+    {"name": "metric", "type": "string"},
+    {"name": "status", "type": "string"},
+        {"name": "monitoring_host", "type": ["null", "string"]},
+        {"name": "summary", "type": ["null", "string"]},
+        {"name": "message", "type": ["null", "string"]},
+        {"name": "tags", "type": ["null", {"name" : "Tags",
+                                           "type" : "record",
+                                           "fields" : [
+                                                 {"name" : "roc", "type" : ["null", "string"]},
+                                                 {"name" : "vo", "type" : ["null", "string"]},
+                                                 {"name" : "vo_fqan", "type" : ["null", "string"]}]}]}
+ ]
+}
+```
+
+This core metric data set is processed and transformed with aditional information provided by the argo-sync components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is (by default) provided per-tenant/per-job in the following path
 `/var/lib/ar-sync/{tenant-name}/{job-name}`
 
 for e.g. for tenant-name=T1 and job-name=JobA the correct path with the sync files is as follows
