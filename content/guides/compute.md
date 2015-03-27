@@ -272,7 +272,7 @@ a list already establihed jobs (initially specified in ar-sync components). Name
 specify the sampling period time in minutes
 - `s_interval={INTEGER}`   
 specify the sampling interval time in minutes  
-***Note:*** *the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used: **s_period = 1440** (mins) , **s_interval=5** (mins). so number of sample = 1440/5=288 samples.*
+***Note:*** the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used: **s_period = 1440** (mins) , **s_interval=5** (mins). so number of sample = 1440/5=288 samples.
 
 ######section: `[datastore-mapping]`
 This section contains various optional parameters used for correctly mapping results to expected datastore fieldnames
@@ -507,7 +507,7 @@ a case-sensitive string specifing the name of the tenant
 - `j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
-***Note:*** the script will take care of automatically calling  **upload_sync.py** and **mongo_clean_ar.py** with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.
+***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_ar.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
 
 ##### job_status_detail.py
 The specific script is used to submit a specific status detail job for a specific tenant
@@ -519,7 +519,7 @@ specifies the date of the sync data we want to upload
 - `t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
 
-***Note:*** the script will take care of automatically calling  **upload_sync.py** and **mongo_clean_statys.py**  with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.
+***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_statys.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
 
 ##### job_cycle.py
 The specific script is used of executing the whole daily cycle of jobs for a specific tenant.
@@ -535,7 +535,7 @@ specifies the date of the sync data we want to upload
 - `t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
 
-***Note:*** the script will take care of automatically calling  **upload_metric.py**, **job_status_detail.py** and **job_ar.py** with the correct corresponding parameters in the correct call-order. 
+***Note:*** *the script will take care of automatically calling*  ***upload_metric.py*** *,* ***job_status_detail.py*** *and* ***job_ar.py*** *with the correct corresponding parameters in the correct call-order.* 
 
 ##### sync_backup.py
 The specific script is used of backing up monthly sync data per tenant (for all available jobs) and store them in the HDFS
