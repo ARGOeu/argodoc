@@ -9,7 +9,8 @@ title: Web UI | ARGO
 * prerequisites : a server certificate and java
 
 
-## Installation - the $HOME_LAVOISIER is the directory where do you install the service
+## Installation 
+# the $HOME_LAVOISIER is the directory where do you install the service
 * cd $HOME_LAVOISIER
 * wget https://github.com/ARGOeu/argo-egi-web/archive/master.zip
 * unzip master.zip
@@ -18,14 +19,13 @@ title: Web UI | ARGO
 
 
 ## Configuration 
- # edit lavoisier-hidden.properties
+# edit lavoisier-hidden.properties
 * cd $HOME_LAVOISIER/argo-egi-web-master/etc
 * vi lavoisier-hidden.properties
 * complete certificate.password and certificate.password
 *
 
-## Configuration 
- # edit lavoisier-service.properties
+# edit lavoisier-service.properties
 * cd $HOME_LAVOISIER/argo-egi-web-master/etc
 * vi lavoisier-service.properties
 * lavoisier.ssl.trustStore=path_to_your_ca  (/etc/grid-security/certificates)
@@ -33,7 +33,8 @@ title: Web UI | ARGO
 * lavoisier.ssl.keyStorePassword= password of this certificate
 
 ## Examples
- # Start the service 
+
+# Start the service 
 
 * ./bin/lavoisier.sh console
 * check the logs and access to the interface : http://yourmachine:8080/lavoisier
@@ -41,7 +42,7 @@ title: Web UI | ARGO
 *  ./bin/lavoisier.sh restart
 
 
- # Useful commands and hints
+# Useful commands and hints
 
 * To change the PI base url : vi $HOME_LAVOISIER/etc/ARGO_UI/lavoisier-config.properties
 * to stop lavoisier : 
