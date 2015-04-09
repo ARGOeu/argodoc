@@ -186,3 +186,63 @@ table > tbody > tr > td, table > tbody > tr > th, table > tfoot > tr > td, table
 
 .blue {background-color:#123f7c!important; color:white!important;}
 .sidebar {padding-top:10px;}
+
+.list-group-item-level2 {
+background-color: rgb(245,245,245);
+border: 1px solid #ddd;
+display: block;
+margin-bottom: -1px;
+padding: 10px 15px;
+margin-left:10px;
+position: relative;
+}
+.list-group-item-level2.active, .list-group-item-level2.active:focus, .list-group-item-level2.active:hover {
+  background-color: #337ab7;
+  border-color: #337ab7;
+  color: #fff;
+  z-index: 2;
+}
+
+.caret-up{
+  border-bottom: 5px solid #ffffff;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  content: "";
+  display: inline-block;
+  height: 0;
+  margin-left: 2px;
+  margin-top: 6px;
+  vertical-align: top;
+  width: 0;
+}
+
+tr:first-child td {
+  font-weight: bold;
+}
+
+.documentation h2 {
+  color: #123f7c;
+  padding-top:27px;
+}
+
+.api h2 a {
+  color: #123f7c;
+}
+
+.back-to-top {
+  background: none;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 56px;
+  z-index: 100;
+  display: none;
+  text-decoration: none;
+  color: #ddd;
+}
+
+.back-to-top i {
+    font-size: 60px;
+  }
