@@ -286,6 +286,18 @@ If set to **true** local prefilter file will be automatically cleaned after hdfs
 - `sync_clean={true|false}` 
 - If set to **true** uploaded sync files will be automatically cleaned after a job completion
 
+######section: `[logging]`
+In this section we declare the specific logging options for the compute engine
+
+- `log_mode=syslog|file|none`  
+specifies the log_mode used by compute engine. Default value is `syslog`. If set to `file` compute engine can write directy to a file path defined in the next parameter. If set to `none` no logging is outputed.
+- `log_file=path_to_log_file`   
+Is optional. Must be specified if `log_mode=file`. The compute engine will output log messages to the file path specified as value.
+- `log_level=DEBUG|INFO|WARNING|ERROR|CRITICAL`
+Specify the log level status to be used. Default is `DEBUG`   
+- `hadoop_log_root={log4j.appender},{log4j.appender}`
+Hadoop clients log level and log appender. If the user for example want the hadoop components to log via SYSLOG must make sure to define an appropriate appender  in hadoop log4j.properties file. Then the name of this appender must be added in the above line. For example if the available appenders in the log4j.properties file are SYSLOG and console the above line will be `hadoop_log_root=SYSLOG,console`.
+
 ######section: `[jobs]`
 In this section we declare the specific tenant used in the installation and the set of jobs available (as we described them above in the [_"Tenants and jobs definitions"_](#tenants-and-job-definitions)). 
 
@@ -496,6 +508,7 @@ The outer ***"operation"*** field in the root of the json document is used to de
 
 ### Executable Scripts for cli interaction with the compute engine
 In the folder `/usr/libexec/ar-compute/bin/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem). 
+
 ##### upload_metric.py 
 The specific script is used in order to upload daily metric data (relative to a tenant) to HDFS.   
 full path: `/usr/libexec/ar-compute/bin/upload_metric.py`
@@ -505,6 +518,8 @@ parameters:
 specifies the date of the metric data we want to upload
 - `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant
+
+The upload_metric script will push the latest clean metric data to the hadoop cluster for a specific date
 
 
 ##### upload_sync.py
@@ -519,6 +534,8 @@ a case-sensitive string specifing the name of the tenant
 - `-j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
+The upload_sync script will push the sync data for a specific date,tenant and job to the hadoop cluster before computations.
+
 ##### mongo_clean_ar.py
 The specific script is used if necessary to clean a/r data from the datastore regarding a specific day
 full path: `/usr/libexec/ar-compute/bin/mongo_clean_ar.py` 
@@ -531,6 +548,8 @@ optional:
 - `-p --profile {STRING}`  
 specificy the name of an availability profile. If specified only data a/r data regarding the specified profile will be cleared
 
+The mongo_clean_ar script will clean a/r results from the mongo datastore for a specific date and/or metric profile. It's been called automatically before a/r computations but can be ran also manually. The script will report on the number of records and from which collections will be removed. 
+
 ##### mongo_clean_status.py
 The specific script is used if necessary to clean status detail data from the datastore regarding a specific day
 full path: `/usr/libexec/ar-compute/bin/mongo_clean_status.py` 
@@ -539,6 +558,7 @@ parameters:
 - `-d --date {YYYY-MM-DD}`  
 specifies the date (day) to clear the data
 
+The mongo_clean_status script will clean status detail results from the mongo datastore for a specific date. It's been called automatically before status detail computations but can be ran also manually. The script will report on the number of records and from which collections will be removed. 
 
 ##### job_ar.py
 The specific script is used to submit a specific a/r calculation job for a specific tenant
@@ -553,6 +573,7 @@ a case-sensitive string specifing the name of the tenant
 a case-sensitive string specifing the name of the job
 
 ***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_ar.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
+
 
 ##### job_status_detail.py
 The specific script is used to submit a specific status detail job for a specific tenant
