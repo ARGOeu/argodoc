@@ -3,7 +3,6 @@ title: Compute Engine documentation | ARGO
 ---
 
 # Compute Engine
-
 Argo-compute-engine is the argo component responsible for performing various transformations and computations on the collected metric data in order to provide availability and reliability metrics. The results produced by the compute-engine are forwarded and stored to the configured datastore (MongoDB)
 
 Argo-compute-engine uses the hadoop software stack for performing calculations on the metric data as map-reduce jobs. These jobs can also be run locally (single node mode) in the absence of a proper hadoop cluster. Under the hood the engine uses Apache Pig for map-reduce job submission and execution.
@@ -13,13 +12,15 @@ Argo-compute-engine uses the hadoop software stack for performing calculations o
 The main engine's input is the metric data collected from the argo-consumer component. These files (according to the default configuration of ar-consumer component) reside to the `/var/lib/ar-consumer/` folder.
 
 Metric data come in the form of avro files and contain timestamped status information about the hostname,service and specific checks (metrics) that are being monitored. A typical item of information int the metric data avro file contains the following mandatory fields:
+
 - `hostname`: the fqdn address of the host being monitored
 - `service`: the name of the specific service being monitored
 - `metric`: the name of the specific metric (check) of the service that is being monitored
 - `timestamp`: time of the monitoring check
 -  `status`: status of the metric during the monitoring check
 
-it also includes the following optional fields
+it also includes the following optional fields:
+
 - `monitoring_host`: the fqdn of the monitoring agent 
 - `summary`: text containing a summary of the monitoring check
 - `message`: text containing the detailed system output message of the monitoring check probe  
@@ -68,11 +69,12 @@ Service endpoint combines the information of hostname+service_name. Service endp
 ###### group_endpoints.avro
 
 The file uses avro format and contains the following fields:
-- `group` - The name of the group (e.g. MY-SITE-A)
-- `type` - The type of the grouping (e.g. sites)
-- `hostname` - The hostname fqdn part info of the specific endpoint contained in the group
-- `service` - The service name part info of the specific endpoint contained in the group
-- `tags` - (optional) user defined tags providing description metadata
+
+- `group`: The name of the group (e.g. MY-SITE-A)
+- `type`: The type of the grouping (e.g. sites)
+- `hostname`: The hostname fqdn part info of the specific endpoint contained in the group
+- `service`: The service name part info of the specific endpoint contained in the group
+- `tags`: (optional) user defined tags providing description metadata
 
 Below is the full description of the group_endpoints.avro specification
 ```
@@ -101,17 +103,20 @@ Below is the full description of the group_endpoints.avro specification
 Service endpoint groups can be further grouped in higher-level entities such as for example nation-wide groups of sites etc. The topology information regarding higher-level groups is contained to the group_groups.avro file. 
 
 The file uses avro format and contains the following fields:
-- `group` - The name of the group (e.g. MY-SITE-A)
-- `type` - The type of the grouping (e.g. sites)
-- `hostname` - The hostname fqdn part info of the specific endpoint contained in the group
-- `service` - The service name part info of the specific endpoint contained in the group
-- `tags` - (optional) user defined tags providing description metadata
 
-Below is the full description of the avro specification
--`group` - The name of the group (e.g. MY-NATIONAL-GROUP)
--`type` - The type of grouping (e.g. national entities)
--`subgroup` - The name of the lower level group contained (e.g. MY-SITE-A)
--`tags` - (optional) user defined tags providing description metadata
+- `profile` - name of the profile
+- `group`: The name of the group (e.g. MY-SITE-A)
+- `type`: The type of the grouping (e.g. sites)
+- `hostname`: The hostname fqdn part info of the specific endpoint contained in the group
+- `service`: The service name part info of the specific endpoint contained in the group
+- `tags`: (optional) user defined tags providing description metadata
+
+Below is the full description of the avro specification:
+
+- `group`: The name of the group (e.g. MY-NATIONAL-GROUP)
+- `type`: The type of grouping (e.g. national entities)
+- `subgroup`: The name of the lower level group contained (e.g. MY-SITE-A)
+- `tags`: (optional) user defined tags providing description metadata
 
 The structure of the specific file gives the ability to define recursively group entities that can be contained as subgroups on other group entities 
 
@@ -231,6 +236,26 @@ The full avro specification of the file is provided below
 }
 ```
 
+### Tenants and Job definitions
+Compute engine can be tenant and job aware. Each tenant must be configured properly both in the argo-connector configuration files and then in the argo-compute-engine configuration. 
+
+For each tenant there is at least one or more computational jobs declared. These jobs allow to perform different calculations on the same metric data in order to produce different a/r results based on topology and metric profiles.
+
+For example regarding a specific tenant we might have two jobs defined based on two different metric profiles: __Job_Critical__, __Job_All__ 
+
+The Job_Critical configuration for example will compute a/r results by taking into account the most critical metrics for each service. The __Job_All__ configuration for example will be more strict by using a profile that takes into account all metrics for each service. 
+
+Each Job configuration includes it's own supplementary data: _topology_, _metric profile_, _availability profile_, _weights_, _downtimes_ etc.
+
+Each tenant has it's own folder which contains job subfolders. Each job subfolder contains daily supplementary data files from argo-connectors. The directory structure resembles the following:
+
+- path_to_argo_connector_data
+  + tenantA
+    - Job_Critical
+    - Job_All
+
+The available tenants and job folder hierarchy is produced by the argo-connector configuration. The compute-engine then is properly configured to recognize the available tenants and jobs and pick the relevant files for each computation. 
+
 ### Hadoop client configuration
 
 In order for the engine to be able to connect and submit jobs successfully in a hadoop cluster, proper hadoop client configuration files must be present the installed node (`/etc/hadoop/conf/`)
@@ -262,11 +287,12 @@ If set to **true** local prefilter file will be automatically cleaned after hdfs
 - If set to **true** uploaded sync files will be automatically cleaned after a job completion
 
 ######section: `[jobs]`
+In this section we declare the specific tenant used in the installation and the set of jobs available (as we described them above in the [_"Tenants and jobs definitions"_](#tenants-and-job-definitions)). 
+
 - `tenant={TENANT_NAME}`  
 specify the name of the tenant used in this installation
 - `job_set={JobName1},{JobName2},...{JobNameN}`   
-a list already establihed jobs (initially specified in ar-sync components). Names are case-sensitive
-
+a list already establihed jobs (initially specified in ar-connector components). Names are case-sensitive. For the same tenant multiple jobs can be present. Each job is defined by a set of different argo-connector files (different topologies,metric profiles,weights,etc...). Each job gives the opportunity to calculate a different view base
 ######section: `[sampling]`
 - `s_period={INTEGER}`  
 specify the sampling period time in minutes
