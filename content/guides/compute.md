@@ -419,9 +419,23 @@ The configuration file of the job contains mandatory and optional fields with ri
 "ggroup":"group_of_group_type_name",
 "weight":"weight_factor_type_name",
 ```
+
 In the above snippet are declared the name of the tenant, the name of the job, the name of the specific availability profile used in the job. Also the type of endpoint grouping that will be used is declared here also and the type of upper hierarchical grouping. Also if available here is declared the type of weight factor used for upper level a/r aggregations
 
+- `"tenant"` field is explicitly linked to the value of the tenant declaration of the global ar-compute-engine.conf file [link to description above](#section-jobs)
+
+- `"job"` field is explicitly linked to the name of a job declared in the job_set variable of the global ar-compute-engine.conf file [link to description above](#section-jobs)
+
+- `"aprofile"` field is explicitly linked to one of the availability profile json files declared in the `/etc/ar_compute/` folder and they are described below [link to description further below](#availability-profile-per-tenant-per-job)
+
+- `"egroup"` field is used to declare the endpoint group that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the topology file [group_endpoints.avro](#group_endpointsavro)
+
+- `"ggroup"` field is used to declare the group of groups that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the topology file [group_groups.avro](#group_groupsavro) 
+
+- `"weight"` field is used to declare the type of weight that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the weight (factors) file [weight_sync.avro](#weights-factors) 
+
 In the configuration file are specified the specific tag values that will be used during the job in order to filter metric data.
+
 For eg. 
 ```
 "egroup_tags":{
@@ -430,7 +444,7 @@ For eg.
     "monitored":"Y"
     }
 ```
-In the egroup_tag list are declared values for available tag fields that will be encountered in the endpoint group topology sync file (produced by ar-sync components) 
+In the egroup_tag list are declared values for available tag fields that will be encountered in the endpoint group topology sync file (produced by ar-sync components).These tag fields are explicitly linked to the description of the schema of the [group_endpoints.avro file](#group_endpointsavro) 
 
 ##### Availability Profile (per tenant / per job)
 The availability profile is a json file used per specific job that describes the operations that must take place during aggregating statuses up to endpoint group level. The filename template is specific:
