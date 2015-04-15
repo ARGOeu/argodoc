@@ -313,27 +313,37 @@ specify the sampling interval time in minutes
 ***Note:*** the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used: **s_period = 1440** (mins) , **s_interval=5** (mins). so number of sample = 1440/5=288 samples.
 
 ######section: `[datastore-mapping]`
-This section contains various optional parameters used for correctly mapping results to expected datastore fieldnames
+This section contains various optional parameters used for correctly mapping results to expected datastore collections and fields
+- `service_dest={db_name}.{collection_name}`  
+destination for storing service a/r reports E.g: AR.sfreports
+- `egroup_dest={db_name}.{collection_name}`  
+destination for storing endpoint grouped a/r reports. E.g: AR.sites
+- `sdetail_dest={db_name}.{collection_name}`  
+destination for storing status detailed results
+
+Due to nature of field/value storage in the default datastore (mongodb) a specific schema is used with abbreviated field names for storage optimization.
+For example date->dt, availability profile->ap. 
+The following options define some mapping to shorter datastore fieldnames (mongo related) and is recommended not to be changed. Will be removed in further editions. 
+
 - `e_map={fieldname1},{fieldname2}...,{fieldnameN}`  
-list for mapping group endpoint availability results to datastore fieldname conventions
+When storing endpoint a/r results in mongodb compute engine uses the above field map to store the results using abbreviated fields. the default value is
+`e_map=dt,ap,p,s,n,hs,a,r,up,u,d,m,pr,ss,cs,i,sc`, where dt->date,a->availability etc... (recommended not to be changed)
 - `s_map={fieldname1},{fieldname2}...,{fieldnameN}`  
-list for mapping group service availability results to datastore fieldname conventions  
+When storing service a/r results in mongodb compute engine uses the above field map to store the results using abbreviated fields. the default value is
+`s_map=dt,ap,p,s,n,sf,a,r,up,u,d,m,pr,ss,cs,i,sc`, where dt->date,a->availability etc... (recommended not to be changed)(recommended not to be changed)
+- `sd_map={fieldname1},{fieldname2}`
+When storing status detailed results in mongodb compute engine uses the above field map to store the results using abbreviated fields. the default value is
+`sd_map=ts,s,sum,msg,ps,pts,di,ti`, where ts->timestamp, msg->message etc... (recommended not to be changed)
 - `n_eg={STRING}`
-endpoint group name type used in status detailed calculations
+endpoint group name type used in status detailed calculations. For e.g. `n_eg=site` if site is used as a group type
 - `n_gg={STRING}`
 group of groups name type used in status detailed calculations
 - `n_gg={STRING}`
 group of groups name type used in status detailed calculations
-- `n_alt={STRING}`
+- `n_alt={STRING}` 
 mapping of alternative grouping parameter used in status detail calc.
 - `n_altf={STRING}`
 mapping of alternative grouping parameter used in status detail calc.
-- `service_dest={db_name}.{collection_name}`  
-destination for storing service a/r reports
-- `service_dest={db_name}.{collection_name}`  
-destination for storing endpoint grouped a/r reports
-- `sdetail_dest={db_name}.{collection_name}`  
-destination for storing endpoint grouped a/r reports
 
 #### Contents of /etc/ar-compute directory
 As mentioned above secondary configuration files used by the compute-engine are stored to the /etc/ar-compute directory. Here are files describing the set of status state types used in the monitoring engine, algorithmic operations of how to combine those states, availability profiles & configuration files for available jobs.
