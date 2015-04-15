@@ -11,7 +11,7 @@ Argo-compute-engine uses the hadoop software stack for performing calculations o
 
 The main engine's input is the metric data collected from the argo-consumer component. These files (according to the default configuration of ar-consumer component) reside to the `/var/lib/ar-consumer/` folder.
 
-Metric data come in the form of avro files and contain timestamped status information about the hostname,service and specific checks (metrics) that are being monitored. A typical item of information int the metric data avro file contains the following mandatory fields:
+Metric data come in the form of avro files and contain timestamped status information about the hostname,service and specific checks (metrics) that are being monitored. A typical item of information in the metric data avro file contains the following mandatory fields:
 
 - `hostname`: the fqdn address of the host being monitored
 - `service`: the name of the specific service being monitored
@@ -52,7 +52,7 @@ The current raw avro schema file for the metric data is the following:
 
 ##### Compute engine's additional input: topology, profiles, factors 
 
-This core metric data set is processed and transformed with aditional information provided by the argo-connector components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is provided per-tenant/per-job in the following path
+This core metric data set is processed and transformed with additional information provided by the argo-connector components. Additional information includes topology, grouping of services, weight factors, lists relevant metrics to be considered, etc. This information is provided per-tenant/per-job in the following path
 `/var/lib/ar-sync/{tenant-name}/{job-name}`
 
 for e.g. for tenant-name=T1 and job-name=JobA the correct path with the sync files is as follows
@@ -61,10 +61,10 @@ for e.g. for tenant-name=T1 and job-name=JobA the correct path with the sync fil
 Some sync files that concern the whole enviroment such as the downtime information are provided once in the root ar-sync folder `/var/lib/ar-sync/`
 
 ##### Topology files
-Topology information is provided by two files: groups of enpoints, groups of groups.
+Topology information is provided by two files: groups of endpoints, groups of groups.
 
 A service endpoint is considered by the engine the simplest item of topology.
-Service endpoint combines the information of hostname+service_name. Service endpoints can be grouped together frorming upper level entities named endpoint groups. For example an oranization's geographical IT site that is being monitored can be considered a group of service endpoints. Information for available endpoint groups is contained in the file group_endpoints
+Service endpoint combines the information of hostname+service_name. Service endpoints can be grouped together forming upper level entities named endpoint groups. For example an organization's geographical IT site that is being monitored can be considered a group of service endpoints. Information for available endpoint groups is contained in the file group_endpoints
 
 ###### group_endpoints.avro
 
@@ -245,9 +245,9 @@ For example regarding a specific tenant we might have two jobs defined based on 
 
 The Job_Critical configuration for example will compute a/r results by taking into account the most critical metrics for each service. The __Job_All__ configuration for example will be more strict by using a profile that takes into account all metrics for each service. 
 
-Each Job configuration includes it's own supplementary data: _topology_, _metric profile_, _availability profile_, _weights_, _downtimes_ etc.
+Each Job configuration includes its own supplementary data: _topology_, _metric profile_, _availability profile_, _weights_, _downtimes_ etc.
 
-Each tenant has it's own folder which contains job subfolders. Each job subfolder contains daily supplementary data files from argo-connectors. The directory structure resembles the following:
+Each tenant has its own folder which contains job subfolders. Each job subfolder contains daily supplementary data files from argo-connectors. The directory structure resembles the following:
 
 - path_to_argo_connector_data
   + tenantA
@@ -290,7 +290,7 @@ If set to **true** local prefilter file will be automatically cleaned after hdfs
 In this section we declare the specific logging options for the compute engine
 
 - `log_mode=syslog|file|none`  
-specifies the log_mode used by compute engine. Default value is `syslog`. If set to `file` compute engine can write directy to a file path defined in the next parameter. If set to `none` no logging is outputed.
+specifies the log_mode used by compute engine. Default value is `syslog`. If set to `file` compute engine can write directy to a file path defined in the next parameter. If set to `none` no logging is outputted.
 - `log_file=path_to_log_file`   
 Is optional. Must be specified if `log_mode=file`. The compute engine will output log messages to the file path specified as value.
 - `log_level=DEBUG|INFO|WARNING|ERROR|CRITICAL`
