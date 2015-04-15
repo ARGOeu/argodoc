@@ -494,11 +494,11 @@ The outer ***"operation"*** field in the root of the json document is used to de
 
 
 
-### Executable Scripts of the standalone edition
-In the folder `/usr/libexec/ar-compute/standalone/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem). 
+### Executable Scripts for cli interaction with the compute engine
+In the folder `/usr/libexec/ar-compute/bin/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem). 
 ##### upload_metric.py 
 The specific script is used in order to upload daily metric data (relative to a tenant) to HDFS.   
-full path: `/usr/libexec/ar-compute/standalone/upload_metric.py`
+full path: `/usr/libexec/ar-compute/bin/upload_metric.py`
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
@@ -509,7 +509,7 @@ a case-sensitive string specifing the name of the tenant
 
 ##### upload_sync.py
 The specific script is used in order to upload daily sync data (relative to a tenant and a job) to HDFS.
-full path: `/usr/libexec/ar-compute/standalone/upload_sync.py` 
+full path: `/usr/libexec/ar-compute/bin/upload_sync.py` 
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
@@ -521,7 +521,7 @@ a case-sensitive string specifing the name of the job
 
 ##### mongo_clean_ar.py
 The specific script is used if necessary to clean a/r data from the datastore regarding a specific day
-full path: `/usr/libexec/ar-compute/standalone/mongo_clean_ar.py` 
+full path: `/usr/libexec/ar-compute/bin/mongo_clean_ar.py` 
 
 parameters:  
 - `-d --date {YYYY-MM-DD}`  
@@ -533,7 +533,7 @@ specificy the name of an availability profile. If specified only data a/r data r
 
 ##### mongo_clean_status.py
 The specific script is used if necessary to clean status detail data from the datastore regarding a specific day
-full path: `/usr/libexec/ar-compute/standalone/mongo_clean_status.py` 
+full path: `/usr/libexec/ar-compute/bin/mongo_clean_status.py` 
 
 parameters:  
 - `-d --date {YYYY-MM-DD}`  
@@ -542,7 +542,7 @@ specifies the date (day) to clear the data
 
 ##### job_ar.py
 The specific script is used to submit a specific a/r calculation job for a specific tenant
-full path: `/usr/libexec/ar-compute/standalone/job_ar.py` 
+full path: `/usr/libexec/ar-compute/bin/job_ar.py` 
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
@@ -556,7 +556,7 @@ a case-sensitive string specifing the name of the job
 
 ##### job_status_detail.py
 The specific script is used to submit a specific status detail job for a specific tenant
-full path: `/usr/libexec/ar-compute/standalone/job_status_detail.py` 
+full path: `/usr/libexec/ar-compute/bin/job_status_detail.py` 
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
@@ -567,25 +567,24 @@ a case-sensitive string specifing the name of the tenant
 ***Note:*** *the script will take care of automatically calling*  ***upload_sync.py*** *and* ***mongo_clean_statys.py*** *with the correct corresponding parameters in order to ensure the sync data is uploaded before the job and the old datastore entries are cleaned.*
 
 ##### job_cycle.py
-The specific script is used of executing the whole daily cycle of jobs for a specific tenant.
+The specific script is used of executing the whole daily cycle of jobs.
 - uploads the available metric data
 - calculates the status details
 - for each available job calculates a/r results
 
-full path: `/usr/libexec/ar-compute/standalone/job_cycle.py` 
+full path: `/usr/libexec/ar-compute/bin/job_cycle.py` 
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
-- `-t --tenant {STRING}`  
-a case-sensitive string specifing the name of the tenant  
+
 
 ***Note:*** *the script will take care of automatically calling*  ***upload_metric.py*** *,* ***job_status_detail.py*** *and* ***job_ar.py*** *with the correct corresponding parameters in the correct call-order.* 
 
 ##### sync_backup.py
 The specific script is used of backing up monthly sync data per tenant (for all available jobs) and store them in the HDFS
 
-full path: `/usr/libexec/ar-compute/standalone/sync_backup.py` 
+full path: `/usr/libexec/ar-compute/bin/sync_backup.py` 
 
 parameters:
 - `-d --date {YYYY-MM-DD}`  
