@@ -361,6 +361,13 @@ Based on the availabe states declared in the "states" list are then declared def
  "default_unknown": "UNKNOWN",
 ```
 
+___Note: The importance of the default states___
+_Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service._
+
+- `"default_down": "DOWNTIME"`, _means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state._
+- `"default_missing": "MISSING"`, _means whenever compute engine decides that a service status must declared missing (because there is no information provided from the metric data) will mark it using the "MISSING" state._
+- `"default_unknown": "UNKNOWN"`, _means whenever compute engine decides that must produce a service status to be considered unknown (for e.g. during recomputation requests) will mark it using the "UNKOWN" state._
+
 The available operations are declared in the operations list using truth tables as follows:
 
 ```
