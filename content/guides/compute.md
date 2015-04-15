@@ -314,10 +314,13 @@ specify the sampling interval time in minutes
 
 ######section: `[datastore-mapping]`
 This section contains various optional parameters used for correctly mapping results to expected datastore collections and fields
+
 - `service_dest={db_name}.{collection_name}`  
 destination for storing service a/r reports E.g: AR.sfreports
+
 - `egroup_dest={db_name}.{collection_name}`  
 destination for storing endpoint grouped a/r reports. E.g: AR.sites
+
 - `sdetail_dest={db_name}.{collection_name}`  
 destination for storing status detailed results
 
@@ -387,7 +390,9 @@ ___Note: The importance of the default states___
 _Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service._
 
 - `"default_down": "DOWNTIME"`, _means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state._
+
 - `"default_missing": "MISSING"`, _means whenever compute engine decides that a service status must declared missing (because there is no information provided from the metric data) will mark it using the "MISSING" state._
+
 - `"default_unknown": "UNKNOWN"`, _means whenever compute engine decides that must produce a service status to be considered unknown (for e.g. during recomputation requests) will mark it using the "UNKNOWN" state._
 
 The available operations are declared in the operations list using truth tables as follows:
@@ -479,12 +484,16 @@ The information in the availability profile json file is automatically picked up
 
 - `"name": "string"`  
 the name of the availability profile  
+
 - `"namespace": "string"`  
 the name of the namespace used by the profile  
+
 - `"metric_profile": "string"`  
 the name of the metric profile linked to this availability profile  
+
 - `"metric_ops": "string"`  
 the default operation to be used when aggregating low level metric statuses
+
 - `"group_type": "string"`  
 the default endpoint group type used in aggregation
 
@@ -522,8 +531,10 @@ The specific script is used in order to upload daily metric data (relative to a 
 full path: `/usr/libexec/ar-compute/bin/upload_metric.py`
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date of the metric data we want to upload
+
 - `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant
 
@@ -535,10 +546,13 @@ The specific script is used in order to upload daily sync data (relative to a te
 full path: `/usr/libexec/ar-compute/bin/upload_sync.py` 
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
+
 - `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
+
 - `-j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
@@ -549,10 +563,12 @@ The specific script is used if necessary to clean a/r data from the datastore re
 full path: `/usr/libexec/ar-compute/bin/mongo_clean_ar.py` 
 
 parameters:  
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date (day) to clear the data
 
 optional:
+
 - `-p --profile {STRING}`  
 specify the name of an availability profile. If specified, only a/r data regarding the specified profile will be cleared.
 
@@ -563,6 +579,7 @@ The specific script is used if necessary to clean status detail data from the da
 full path: `/usr/libexec/ar-compute/bin/mongo_clean_status.py` 
 
 parameters:  
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date (day) to clear the data
 
@@ -573,10 +590,13 @@ The specific script is used to submit a specific a/r calculation job for a speci
 full path: `/usr/libexec/ar-compute/bin/job_ar.py` 
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
-specifies the date of the sync data we want to upload  
+specifies the date of the sync data we want to upload 
+
 - `-t --tenant {STRING}`  
-a case-sensitive string specifing the name of the tenant  
+a case-sensitive string specifing the name of the tenant
+
 - `-j --job {STRING}`  
 a case-sensitive string specifing the name of the job
 
@@ -588,8 +608,10 @@ The specific script is used to submit a specific status detail job for a specifi
 full path: `/usr/libexec/ar-compute/bin/job_status_detail.py` 
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
-specifies the date of the sync data we want to upload  
+specifies the date of the sync data we want to upload 
+
 - `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
 
@@ -597,6 +619,7 @@ a case-sensitive string specifing the name of the tenant
 
 ##### job_cycle.py
 The specific script is used of executing the whole daily cycle of jobs.
+
 - uploads the available metric data
 - calculates the status details
 - for each available job calculates a/r results
@@ -604,6 +627,7 @@ The specific script is used of executing the whole daily cycle of jobs.
 full path: `/usr/libexec/ar-compute/bin/job_cycle.py` 
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
 
@@ -616,7 +640,9 @@ The specific script is used of backing up monthly sync data per tenant (for all 
 full path: `/usr/libexec/ar-compute/bin/sync_backup.py` 
 
 parameters:
+
 - `-d --date {YYYY-MM-DD}`  
 specifies the date of the sync data we want to upload  
+
 - `-t --tenant {STRING}`  
 a case-sensitive string specifing the name of the tenant  
