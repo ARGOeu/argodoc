@@ -330,14 +330,12 @@ When storing endpoint a/r results in mongodb compute engine uses the above field
 `e_map=dt,ap,p,s,n,hs,a,r,up,u,d,m,pr,ss,cs,i,sc`, where dt->date,a->availability etc... (recommended not to be changed)
 - `s_map={fieldname1},{fieldname2}...,{fieldnameN}`  
 When storing service a/r results in mongodb compute engine uses the above field map to store the results using abbreviated fields. the default value is
-`s_map=dt,ap,p,s,n,sf,a,r,up,u,d,m,pr,ss,cs,i,sc`, where dt->date,a->availability etc... (recommended not to be changed)(recommended not to be changed)
+`s_map=dt,ap,p,s,n,sf,a,r,up,u,d,m,pr,ss,cs,i,sc`, where dt->date,a->availability etc... (recommended not to be changed)
 - `sd_map={fieldname1},{fieldname2}`
 When storing status detailed results in mongodb compute engine uses the above field map to store the results using abbreviated fields. the default value is
 `sd_map=ts,s,sum,msg,ps,pts,di,ti`, where ts->timestamp, msg->message etc... (recommended not to be changed)
 - `n_eg={STRING}`
 endpoint group name type used in status detailed calculations. For e.g. `n_eg=site` if site is used as a group type
-- `n_gg={STRING}`
-group of groups name type used in status detailed calculations
 - `n_gg={STRING}`
 group of groups name type used in status detailed calculations
 - `n_alt={STRING}` 
