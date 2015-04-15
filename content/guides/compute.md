@@ -332,7 +332,9 @@ The ops files are json filetypes that are used to describe the available status 
 for eg. if the tenant name is T1 the corresponding ops filename will be  
 `T1_ops.json`
 
-###### Contents of an ops file
+###### Contents of an ops file (operations on monitoring statuses)
+During calculations many operations take place among service statuses which need to be described explicitly. Compute engine gives the flexibility to the end user to declare the available monitoring statuses that are produced by the monitoring infrastructure. Then, using the form of simple truth tables the user can describe operations on these statuses and the results of those operations. The available statuses and the available operations are described using json format in ops files:
+
 An ops file contains:
 - the list of available status types 
 - which status type is considered as default in missing circumstances
