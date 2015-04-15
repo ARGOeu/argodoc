@@ -262,9 +262,9 @@ In order for the engine to be able to connect and submit jobs successfully in a 
 
 ### Configuration files of Argo-compute-engine
 
-With the installation of Argo-compute-engine component a main configuration file is deployed in `/etc/Argo-compute-engine.conf`. In addition, a directory with supplementary secondary configuration files is created in `/etc/ar-compute/`
+With the installation of Argo-compute-engine component a main configuration file is deployed in `/etc/ar-compute-engine.conf`. In addition, a directory with supplementary secondary configuration files is created in `/etc/ar-compute/`
 
-##### /etc/Argo-compute-engine.conf (Main configuration file)
+##### /etc/ar-compute-engine.conf (Main configuration file)
 
 This file includes various global parameters used by the engine which are organized in sections, as described next:
 
@@ -388,7 +388,7 @@ _Since compute engine gives the ability to define completely custom states based
 
 - `"default_down": "DOWNTIME"`, _means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state._
 - `"default_missing": "MISSING"`, _means whenever compute engine decides that a service status must declared missing (because there is no information provided from the metric data) will mark it using the "MISSING" state._
-- `"default_unknown": "UNKNOWN"`, _means whenever compute engine decides that must produce a service status to be considered unknown (for e.g. during recomputation requests) will mark it using the "UNKOWN" state._
+- `"default_unknown": "UNKNOWN"`, _means whenever compute engine decides that must produce a service status to be considered unknown (for e.g. during recomputation requests) will mark it using the "UNKNOWN" state._
 
 The available operations are declared in the operations list using truth tables as follows:
 
@@ -448,11 +448,11 @@ In the above snippet are declared the name of the tenant, the name of the job, t
 
 - `"aprofile"` field is explicitly linked to one of the availability profile json files declared in the `/etc/ar_compute/` folder and they are described below [link to description further below](#availability-profile-per-tenant-per-job)
 
-- `"egroup"` field is used to declare the endpoint group that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the topology file [group_endpoints.avro](#group_endpointsavro)
+- `"egroup"` field is used to declare the endpoint group that will be used during computation aggregations. The value corresponds to one of the values present in the field `type` of the topology file [group_endpoints.avro](#group_endpointsavro)
 
-- `"ggroup"` field is used to declare the group of groups that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the topology file [group_groups.avro](#group_groupsavro) 
+- `"ggroup"` field is used to declare the group of groups that will be used during computation aggregations. The value corresponds to one of the values present in the field `type` of the topology file [group_groups.avro](#group_groupsavro) 
 
-- `"weight"` field is used to declare the type of weight that will be used during computation aggregations. The value corresponds to one of the vaules present in the field `type` of the weight (factors) file [weight_sync.avro](#weights-factors) 
+- `"weight"` field is used to declare the type of weight that will be used during computation aggregations. The value corresponds to one of the values present in the field `type` of the weight (factors) file [weight_sync.avro](#weights-factors) 
 
 In the configuration file are specified the specific tag values that will be used during the job in order to filter metric data.
 
@@ -509,7 +509,7 @@ In the availability profile json file also are declared custom grouping of servi
 "operation":"AND"
 ```
 
-In the above example the service types are grouped in two groups: ***my_group_of_services_1*** and ***my_group_of_services_2***. Each group contains a "service" list containing service types included in the group as fields and the operation values in orded to choose who to aggregate the various instances of a specific service. For example if for ***"service_type_A"*** are 3 service endpoints available they are goint to be aggregated using the OR operation. The ***"operation"*** field under each group of services is used to declare the operation that will be used to aggregate the service types under that group.   
+In the above example the service types are grouped in two groups: ***my_group_of_services_1*** and ***my_group_of_services_2***. Each group contains a "service" list containing service types included in the group as fields and the operation values in orded to choose who to aggregate the various instances of a specific service. For example if for ***"service_type_A"*** are 3 service endpoints available, they are going to be aggregated using the OR operation. The ***"operation"*** field under each group of services is used to declare the operation that will be used to aggregate the service types under that group.   
 The outer ***"operation"*** field in the root of the json document is used to declare the operation used to aggregate the various groups in order to produce the final endpoint aggregation result.
 
 
@@ -554,7 +554,7 @@ specifies the date (day) to clear the data
 
 optional:
 - `-p --profile {STRING}`  
-specificy the name of an availability profile. If specified only data a/r data regarding the specified profile will be cleared
+specify the name of an availability profile. If specified, only a/r data regarding the specified profile will be cleared.
 
 The mongo_clean_ar script will clean a/r results from the mongo datastore for a specific date and/or metric profile. It's been called automatically before a/r computations but can be ran also manually. The script will report on the number of records and from which collections will be removed. 
 
