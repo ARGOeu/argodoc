@@ -15,9 +15,3 @@ row_link: ['/guides/api/status-results/', '/guides/api/avail-reliab/', '/guides/
 ---
 
 
-## API Data
-
-| Base URL | <code>https://host:port/api/v1/</code> |
-| **Default Port**         | <code>443</code>  |
-| **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr/api/v1/</code> |
-
