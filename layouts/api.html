@@ -1,0 +1,93 @@
+<%= render 'head' %>
+<body class="api">
+  <%= render 'header' %>
+  <div class='container-fluid' >
+    <div class='row'>
+      <div class="col-md-2 sidebar" >
+        <%= render 'sidebar' %>
+      </div><!--sidebar-->
+      <div class="col-md-8 main">
+        <% if @item[:page_title] %>	
+          <h1 class="highlight">
+          <% if @item[:font_title] %>
+            <em class='<%=item[:font_title]%>'></em> 
+          <% end %>
+          <%= item[:page_title] %></h1>
+        <% end %>
+        <p class="lead"> <%= item[:description] %></p>
+        <%= render 'apidata' %>
+        <%= yield %>
+        <div style="padding:30px;" class="marketing">
+          <div class="row">
+            <div class="col-lg-4">
+              <h2>
+                <a  href="<%= item[:row_link][0] %>" >
+                  <%= item[:row_title][0] %></a>
+              </h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][0] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#1'><strong>GET: </strong>List Service Metric Status Timelines</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#2'><strong>GET: </strong> List Service Endpoint Status Timelines </a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#3'><strong>GET: </strong>List Service Flavor Status Timelines</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#4'><strong>GET: </strong> List Site Status timelines</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <h2><a href="<%= item[:row_link][1] %>" ><%= item[:row_title][1] %></a></h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][1] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#1'><strong>GET: </strong> List Availabilities and Reliabilities for Groups</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#2'><strong>GET: </strong> List Availabilities and Reliabilities for Service Flavors </a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <h2>
+                <a href="<%= item[:row_link][2] %>">
+                  <%= item[:row_title][2] %></a>
+              </h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][2] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#1'><strong>GET: </strong> List Recalculation Requests</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#2'><strong>POST: </strong> Create a new recalculation request </a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-lg-4">
+              <h2>
+              <a href="<%= item[:row_link][3] %>"/>
+                <%= item[:row_title][3] %></a></h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][3] %></a>
+                  <a class="list-group-item-level2" href='<%= item[:row_link][3] %>#1'><strong>GET: </strong> List Availability Profiles</a>
+                  <a class="list-group-item-level2" href='<%= item[:row_link][3] %>#2'><strong>POST: </strong> Create a new availability profile</a>
+                  <a class="list-group-item-level2" href='<%= item[:row_link][3] %>#3'><strong>PUT: </strong> Update an existing Availability Profile</a>
+                  <a class="list-group-item-level2" href='<%= item[:row_link][3] %>#4'><strong>DELETE: </strong> Delete an availability profile</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <h2>
+                <a href="<%= item[:row_link][4] %>">
+                <%= item[:row_title][4] %>
+                </a>
+              </h2>
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][4] %></a>
+                <a  class="list-group-item-level2" href='<%= item[:row_link][4] %>#1'><strong>GET: </strong> List POEM Profiles</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+        </div>
+
+
+
+        </div><!--col-md-8-->
+        <div class="col-md-2">&nbsp;</div>
+      </div><!--row-->
+    </div><!--container fluid-->
+    <%= render 'jumbotron' %>
+  <%= render 'footer' %>
+</body>
+</html>
