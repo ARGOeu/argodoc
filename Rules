@@ -1,6 +1,19 @@
-#!/usr/bin/env ruby
 
 compile '/static/*' do
+end
+
+compile '/guides/api' do
+  filter :kramdown, :toc_levels => [2]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'api'
+end
+
+compile '/guides/api/*' do
+  filter :kramdown, :toc_levels => [2]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'apipages'
 end
 
 compile 'overview' do
@@ -22,7 +35,7 @@ compile '*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
   filter :colorize_syntax,
-    :colorizers => {:javascript => :pygmentsrb}
+         :colorizers => {:javascript => :pygmentsrb}
   layout item[:layout] || 'default'
 end
 
@@ -35,3 +48,4 @@ route '*' do
 end
 
 layout '*', :erb
+
