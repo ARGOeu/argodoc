@@ -13,7 +13,7 @@ Bundle consists of the following connectors: `topology-gocdb-connector.py`, `top
 
 Additionally there is `prefilter-egy.py` component whose role is to filter out the messages coming from the argo-egi-consumer.
 
-Connectors are syncing data on a daily basis. They are aware of the certain customer, associated jobs and their attributes and are generating and placing files into appropriate job folders. Data is written in a binary avro formated file which is suitable for processing at compute side. Topology, downtimes, weights and POEM profile information all together with a prefiltered metric results (status messages), represents an input for argo-compute-engine.
+Connectors are syncing data on a daily basis. They are aware of the certain customer, associated jobs and their attributes and are generating and placing files into appropriate job folders. Data is written in a binary avro formated file which is suitable for processing at compute side. Topology, downtimes, weights and POEM profile information all together with a prefiltered metric results (status messages), represents an input for `argo-compute-engine`.
 
 ## Installation
 
@@ -30,17 +30,19 @@ Configuration of all components is centered around two configuration files: `glo
 
 ### global.conf
 
-Config file is read by _every_ component because every component needs to fetch host certificate to authenticate to a peer and to find correct avro schema. Config options are case insensitive and whole config file is splitted into a few sections:
+Config file is read by _every_ component because every component needs to, al least, fetch host certificate to authenticate to a peer and to find correct avro schema. Additionally, some connectors have default sources of data specified that can be overidden in a next configuration file. Config options are case insensitive and whole config file is splitted into a few sections:
 
 	[DEFAULT]
 	SchemaDir = /etc/argo-egi-connectors/schemas/
 
 Every component generates output file in an avro binary format. This section points to a directory that holds all avro schemas. 
 
-	[URL]
+	[FeedsURL]
 	WeightsGstat = http://gstat2.grid.sinica.edu.tw/gstat/summary/json/
+	TopologyGOCDB = https://goc.egi.eu/gocdbpi/
+	DowntimeGOCDB = https://goc.egi.eu/gocdbpi/
 
-`weights-gstat-connector.py` fetchs its data from a GStat service.
+This section lists default data sources for `weights-gstat-connector.py`, `topology-gocdb-connector.py` and `downtimes-gocdb-connector.py`. For the latter two, URL is a base URL of GOCDB Programmatic Interface. Connectors interally use several GOCDB' methods (`get\_site`, `get\_service\_endpoint`, `get\_service\_group`, `get\_downtime`). 
 
 	[Authentication]
 	HostKey = /etc/grid-security/hostkey.pem
@@ -59,7 +61,7 @@ Each component that talks to GOCDB or POEM peer authenticates itself with a host
 	TopologyVOGroupOfGroups = %(SchemaDir)s/vo_group_groups.avsc
 	WeightsGstat = %(SchemaDir)s/weight_sites.avsc
 
-This section, together with a [DEFAULT] section, constitutes the full path of avro schema file for each component.
+This section, together with a `[DEFAULT]` section, constitutes the full path of avro schema file for each component.
 
 	[Output]
 	DowntimesGOCDB = downtimes_%s.avro
@@ -111,32 +113,33 @@ This will result in the following jobs directories:
 	/var/lib/argo-connectors/EGI/NGI_Testing1
 	/var/lib/argo-connectors/EGI/NGI_Testing2
 
-So there are two customers, EGI and NGI, each one identified with its `[CUSTOMER_*]` section. `CUSTOMER_` is a section keyword and must be specified when one wants to define a new customer section. Each customer has set of jobs listed in `Jobs` option and customer can not exist without associated jobs. The name of the job folder is specified with `Dirname` option of the certain job so JOB\_Test1, identified with `[JOB_Test1]` section, will be named EGI\_Testing1 and it will be placed under EGI/ directory. 
+So there are two customers, EGI and NGI, each one identified with its `[CUSTOMER_*]` section. `CUSTOMER_` is a section keyword and must be specified when one wants to define a new customer. Each customer has set of jobs listed in `Jobs` option and customer can not exist without associated jobs. The name of the job folder is specified with `Dirname` option of the certain job so JOB\_Test1, identified with `[JOB_Test1]` section, will be named EGI\_Testing1 and it will be placed under EGI/ directory. 
 
-Every connector reads this configuration file because it needs to find out the job directory name where to lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the value of the `TopoName` job attribute.
+Every connector reads this configuration file because it needs to find out the job directory name where to lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the job's topology type specified with `TopoType` attribute.
 
 #### Job attributes
 
-Besides `Dirname` option that is common for all connectors, some of them have job attributes that are relevant only for them and upon which they are changing their behaviour. For now, that is the case only for `poem-connector.py`, `topology-gocdb-connector.py` and `topology-vo-connector.py`. Furthermore, as there are two kind of topologies, there are also two set of job attributes and values.
+Besides `Dirname` option that is common for all connectors, some of them have job attributes that are relevant only for them and upon which they are changing their behaviour. Some of those attributes are _mandatory_ like `Profiles` and `TopoType` and the other ones like `TopoSelect*` attributes are optional. Furthermore, as there are two kind of topologies, there are also two set of job attributes and values.
 
 ##### GOCDB topology
 
 	[JOB_EGICloudmon]
 	Dirname = EGI_Cloudmon
 	Profiles = CLOUD-MON
-	TopoName = GOCDB
+	TopoType = GOCDB
+	TopoFeed = https://goc.egi.eu/gocdbpi/
 	TopoFetchType = ServiceGroups
 	TopoSelectGroupOfEndpoints = Monitored:Y, Scope:EGI, Production:Y
 	TopoSelectGroupOfGroups = Monitored:Y, Scope:EGI
 
-This is an example of the job that fetchs topology from GOCD since `TopoName` attribute is set to `GOCDB`. `Profiles` is an attribute relevant to `poem-connector.py` so for this job `poem-connector.py` will write CLOUD-MON profile in EGI_Cloudmon job folder under /EGI directory. `Topo*` attributes are relevant for `topology-gocdb-connector.py`.
+This is an example of the job that fetchs topology from GOCDB since `TopoType` attribute is set to `GOCDB`. `Profiles` is an attribute relevant to `poem-connector.py` so for this job `poem-connector.py` will write CLOUD-MON profile in EGI_Cloudmon job folder under /EGI directory. `Topo*` attributes are relevant for `topology-gocdb-connector.py`. `TopoFeed` attribute in the context of the GOCDB topology is optional. If it's specified, it will override default `TopologyGOCDB` source (specified in `global.conf`) for this job.
 
 Topology is separated in two abstracts:
 
 - group of groups
 - group of service endpoints
 
-Service endpoints are grouped either by the means of _Sites_ or _Service groups_. Those are listed and represented as an upper level abstract of group of service endpoints - group of groups. Customer can fetch either _Sites_ and their corresponding endpoints or _Service groups_ and their corresponding endpoints per job, but not both of them. What is being fetched is specified with `TopoFetchType` option/job attribute. For each abstract there will be written either `TopologyGOCDBGroupOfGroups` or `TopologyGOCDBGroupOfServices`  and `TopologyVOGroupOfEndpoints` files into appropriate job folder. `TopoSelectGroupOfGroups` and `TopoSelectGroupOfEndpoints` options are used for further filtering. Values are set of tags used for picking up matching entity existing in the given abstract. Tags for group of groups are different for Sites and Service groups. In contrary, set of tags for groups of endpoints remains the same no matter what type of fetch customer specified. 
+Service endpoints are grouped either by the means of _Sites_ or _Service groups_. Those are listed and represented as an upper level abstract of group of service endpoints - group of groups. Customer can fetch either _Sites_ and their corresponding endpoints or _Service groups_ and their corresponding endpoints per job, but not both of them. What is being fetched is specified with `TopoFetchType` option/job attribute. For each abstract there will be written either `TopologyGroupOfGroups` or `TopologyGroupOfServices` files into appropriate job folder. `TopoSelectGroupOfGroups` and `TopoSelectGroupOfEndpoints` options are used for further filtering. Values are set of tags used for picking up matching entity existing in the given abstract. Tags for group of groups are different for Sites and Service groups. In contrary, set of tags for groups of endpoints remains the same no matter what type of fetch customer specified. 
 
 So, in a `TopoFetchType` option customer can either specify:
 
@@ -180,13 +183,13 @@ Tags for selecting group of endpoints are:
 	[JOB_BioMedCritical]
 	Dirname = BioMed_Critical
 	Profiles = ROC_CRITICAL
-	TopoName = VOFeed
-	VOFeed = %(BioMed)s
+	TopoType = VOFeed
+	TopoFeed = %(BioMed)s
 	TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
 
-This is an example of the job that is fetching topology from provided VO feed since `TopoName` attribute is set to `VOFeed`. Again, `Profiles` attribute is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`.
+This is an example of the job that is fetching topology from provided VO feed since `TopoType` attribute is set to `VOFeed`. Again, `Profiles` attribute is mandatory and is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`. Contrary to GOCDB topology jobs, `TopoFeed` attribute for jobs dealing with the VO topology is mandatory and must be specified.
 
-VO topology is also separated in two abstracts, group of groups and group of service endpoints, but there are no tags needed since VO itself handles what sites and service endpoints to take into account and defines the VO groups they belong to. `TopoSelectGroupOfGroups` is relevant for `topology-vo-connector.py` which will write VO groups that match the selected types into `TopologyGroupOfGroups` file.
+VO topology is also separated and written in two abstracts, group of groups and group of service endpoints, but there are no tags needed since VO itself handles what sites and service endpoints to take into account and defines the VO groups they belong to. `TopoSelectGroupOfGroups` directs `topology-vo-connector.py` to filter VO groups that match the selected types and write them into `TopologyGroupOfGroups` file. Endpoints are written in `TopologyGroupOfEndpoints` file.
 
 ### poem-connector.conf
 
@@ -257,7 +260,7 @@ customer.conf:
 	[JOB_EGICritical]
 	Dirname = EGI_Critical
 	Profiles = ROC_CRITICAL
-	TopoName = GOCDB
+	TopoType = GOCDB
 	TopoFetchType = Sites
 	#TopoSelectGroupOfEndpoints = Production:Y, Monitored:Y, Scope:EGI
 	TopoSelectGroupOfGroups = Certification:Uncertified, Infrastructure:Test, Scope:EGI
@@ -265,7 +268,7 @@ customer.conf:
 	[JOB_EGICloudmon]
 	Dirname = EGI_Cloudmon
 	Profiles = CLOUD-MON
-	TopoName = GOCDB
+	TopoType = GOCDB
 	TopoFetchType = ServiceGroups
 	TopoSelectGroupOfEndpoints = Monitored:Y, Scope:EGI, Production:N
 	#TopoSelectGroupOfGroups = Monitored:Y, Scope:EGI
@@ -273,15 +276,15 @@ customer.conf:
 	[JOB_BioMedCritical]
 	Dirname = BioMed_Critical
 	Profiles = ROC_CRITICAL
-	TopoName = VOFeed
-	VOFeed = %(BioMed)s
+	TopoType = VOFeed
+	TopoFeed = %(BioMed)s
 	#TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
 
 	[JOB_BioMedCloudmon]
 	Dirname = BioMed_Cloudmon
 	Profiles = CLOUD-MON
-	TopoName = VOFeed
-	VOFeed = %(BioMed)s
+	TopoType = VOFeed
+	TopoFeed = %(BioMed)s
 	#TopoSelectGroupOfGroups = Type:OPS_Tier
 
 Customer jobs:
