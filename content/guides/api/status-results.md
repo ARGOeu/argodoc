@@ -22,18 +22,19 @@ This method may be used to retrieve a specific service metric status timeline (a
 
 ### Input
 
-    /status/timeline/metric?[start_time]&[end_time]&[name]&[host]&[flavor]&[vo]&[profile]
+    /status/metrics/timeline/{group}?[group_type]&[start_time]&[end_time]&[name]&[host]&[flavor]&[vo]&[profile]
 
 #### Parameters
 
 | Type | Description | Required | Default value |
+|`group_type`| `ngi`, `site` or `host`| YES ||
 |`start_time`| UTC time in W3C format| YES ||
 |`end_time`| UTC time in W3C format| YES| |
-|`name`| Metric name| YES| |
-|`host`| service host fqdn | YES| |
-|`flavor`| service flavor name | YES| |
-|`vo`| vo name | YES| |
-|`profile`| POEM profile name | YES| |
+|`name`| Metric name| NO| |
+|`host`| service host fqdn | NO| |
+|`flavor`| service flavor name | NO| |
+|`vo`| vo name | NO| |
+|`profile`| POEM profile name | NO| |
 
 ### Response
 
