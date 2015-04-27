@@ -187,9 +187,24 @@ Tags for selecting group of endpoints are:
 	TopoFeed = %(BioMed)s
 	TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
 
-This is an example of the job that is fetching topology from provided VO feed since `TopoType` attribute is set to `VOFeed`. Again, `Profiles` attribute is mandatory and is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`. Contrary to GOCDB topology jobs, `TopoFeed` attribute for jobs dealing with the VO topology is mandatory and must be specified.
+This is an example of the job that is fetching topology from provided VO feed since `TopoType` attribute is set to `VOFeed`. Again, `Profiles` attribute is mandatory and is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`. Contrary to GOCDB topology jobs, `TopoFeed` attribute for jobs dealing with the VO topology is _mandatory_ and must be specified.
 
 VO topology is also separated and written in two abstracts, group of groups and group of service endpoints, but there are no tags needed since VO itself handles what sites and service endpoints to take into account and defines the VO groups they belong to. `TopoSelectGroupOfGroups` directs `topology-vo-connector.py` to filter VO groups that match the selected types and write them into `TopologyGroupOfGroups` file. Endpoints are written in `TopologyGroupOfEndpoints` file.
+
+##### Data feeds
+
+Source of the data for other connectors like `weights-gstat-connector.py` and `downtimes-gocdb-connector.py` are optional and can be specified per job. If specified, they will override the default source of data in `global.conf`. Example:
+
+	[JOB_BioMedCritical]
+	Dirname = BioMed_Critical
+	Profiles = ROC_CRITICAL
+	TopoType = VOFeed
+	TopoFeed = %(BioMed)s
+	TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
+	WeightsFeed = http://gstat2.grid.sinica.edu.tw/gstat/summary/json/ 
+	DowntimesFeed = https://goc.egi.eu/gocdbpi/
+
+`WeightsFeed` and `DowntimesFeed` are alternative data feeds for this job for connectors `weights-gstat-connector.py` and `downtimes-gocdb-connector.py`, respectively.
 
 ### poem-connector.conf
 
