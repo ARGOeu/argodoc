@@ -68,17 +68,18 @@ This method may be used to retrieve a specific service endpoint status timeline 
 
 ### Input
 
-    /status/timeline/endpoint?[start_time]&[end_time]&[host]&[flavor]&[vo]&[profile]
+    /status/endpoints/timeline/{group}?[start_time]&[end_time]&[vo]&[profile]&[group_type]
 
 #### Parameters
 
 | Type | Description | Required | Default value |
 |`start_time`| UTC time in W3C format| YES ||
 |`end_time`| UTC time in W3C format| YES| |
-|`host`| service host fqdn | YES| |
-|`flavor`| service flavor name | YES| |
-|`vo`| vo name | YES| |
-|`profile`| POEM profile name | YES| |
+|`vo`| vo name | NO| `ops` |
+|`profile`| POEM profile name | NO | `ch.cern.sam.ROC_CRITICAL` |
+|`group_type`| `ngi` or `site` | NO | `site` |
+
+Depending on the `group_type`, `{group}` is the name of the group (for example `HG-03-AUTH` when `group_type=site` or `NGI_GRNET` when `group_type=ngi`). 
 
 ### Response
 
