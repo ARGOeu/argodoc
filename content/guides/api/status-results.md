@@ -73,9 +73,9 @@ This method may be used to retrieve a specific service endpoint status timeline 
 #### Parameters
 
 | Type | Description | Required | Default value |
-|`start_time`| UTC time in W3C format| YES ||
+|`start_time`| UTC time in W3C format| YES | |
 |`end_time`| UTC time in W3C format| YES| |
-|`vo`| vo name | NO| `ops` |
+|`vo`| vo name | NO | `ops` |
 |`profile`| POEM profile name | NO | `ch.cern.sam.ROC_CRITICAL` |
 |`group_type`| `ngi` or `site` | NO | `site` |
 
@@ -87,23 +87,70 @@ Headers: `Status: 200 OK`
 
 #### Response body
 
+##### `group_type=site`
+
     <root>
-      <profile name="A_POEM">
-        <endpoint host="A_HOST" flavor="A_FLAVOR" vo="A_VO" roc="A_ROC" monitoring_host="A_MONHOST">
-          <timeline start_time="2014-10-23T00:00:00Z" end_time="2014-10-24T00:00:00Z">
-            <status timestamp="2014-10-23T00:12:34Z" value="OK" />
-            <status timestamp="2014-10-23T01:12:20Z" value="WARNING" />
-            <status timestamp="2014-10-23T02:12:31Z" value="CRITICAL" />
-            <status timestamp="2014-10-23T04:12:25Z" value="OK" />
-            .
-            .
-            .
-            <status timestamp="2014-10-23T23:17:45Z" value="OK" />
-          </timeline>
-        </endpoint>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="HG-03-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <endpoint hostname="cream.afroditi.hellasgrid.gr" service="CREAM-CE">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T01:28:44Z" status="UNKNOWN"/>
+                  <status timestamp="2015-02-04T02:23:45Z" status="OK"/>
+                  .
+                  . status results for given endpoint
+                  .
+                </endpoint>
+              </group>
+              <group name="SRMv2" type="service_type">
+                <endpoint hostname="se01.afroditi.hellasgrid.gr" service="SRMv2">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T21:57:05Z" status="OK"/>
+                </endpoint>
+              </group>
+              <group name="Site-BDII" type="service_type">
+                <endpoint hostname="sbdii.afroditi.hellasgrid.gr" service="Site-BDII">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T22:13:56Z" status="OK"/>
+                </endpoint>
+              </group>
+            </group>
+          </group>
+        </group>
       </profile>
     </root>
 
+##### `group_type=ngi`
+
+    
+    <root>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="GR-01-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <endpoint hostname="cream01.grid.auth.gr" service="CREAM-CE">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T22:28:21Z" status="OK"/>
+                  .
+                  . status results for given endpoint
+                  .
+                </endpoint>
+              </group>
+              <group name="SRMv2" type="service_type">
+              .
+              .  other service flavors
+              .
+            </group>
+            .
+            .  other sites within specified NGI
+            .
+          </group>
+        </group>
+      </profile>
+    </root>
 
 <a id="3"></a>
 
