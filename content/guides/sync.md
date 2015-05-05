@@ -7,11 +7,11 @@ description: This document describes the available connectors for data in EGI in
 
 ## Description
 
-argo-egi-connectors is a bundle of connectors/sync components for various data sources established in EGI infrastructure, most notably GOCDB (EGI topology, downtimes), but there's also support for fetching alternative EGI topology via various VO feeds, weights information via GStat service and POEM metric profiles.
+`argo-egi-connectors` is a bundle of connectors/sync components for various data sources established in EGI infrastructure, most notably GOCDB (EGI topology, downtimes), but there's also support for fetching alternative EGI topology via various VO feeds, weights information via GStat service and POEM metric profiles.
 
 Bundle consists of the following connectors: `topology-gocdb-connector.py`, `topology-vo-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, `poem-connector.py`
 
-Additionally there is `prefilter-egy.py` component whose role is to filter out the messages coming from the argo-egi-consumer.
+Additionally there is `prefilter-egi.py` component whose role is to filter out the messages coming from the `argo-egi-consumer`.
 
 Connectors are syncing data on a daily basis. They are aware of the certain customer, associated jobs and their attributes and are generating and placing files into appropriate job folders. Data is written in a binary avro formated file which is suitable for processing at compute side. Topology, downtimes, weights and POEM profile information all together with a prefiltered metric results (status messages), represents an input for `argo-compute-engine`.
 
@@ -22,7 +22,7 @@ Installation narrows down to simply installing the package:
 
 Components require avro package to be installed/available.
 
-Configuration files are placed under `/etc/argo-egi-connectors`, components under `/usr/libexec/argo-egi-connectors`. Cronjobs are placed under `/etc/cron.d` and are configured to be executed once per day. Installation also creates an empty `/var/lib/argo-connectors/EGI` directory where components will put their files.
+Configuration files are placed under `/etc/argo-egi-connectors`, components under `/usr/libexec/argo-egi-connectors`. Cronjobs are placed under `/etc/cron.d` and are configured to be executed once per day. Installation also creates an empty `/var/lib/argo-connectors/` directory where components will put their files.
 
 ## Configuration
 
@@ -30,19 +30,12 @@ Configuration of all components is centered around two configuration files: `glo
 
 ### global.conf
 
-Config file is read by _every_ component because every component needs to, al least, fetch host certificate to authenticate to a peer and to find correct avro schema. Additionally, some connectors have default sources of data specified that can be overidden in a next configuration file. Config options are case insensitive and whole config file is splitted into a few sections:
+Config file is read by _every_ component because every component needs to, at least, fetch host certificate to authenticate to a peer and to find correct avro schema. Additionally, some connectors have default sources of data specified that can be overidden in a next configuration file. Config options are case insensitive and whole config file is splitted into a few sections:
 
 	[DEFAULT]
 	SchemaDir = /etc/argo-egi-connectors/schemas/
 
 Every component generates output file in an avro binary format. This section points to a directory that holds all avro schemas. 
-
-	[FeedsURL]
-	WeightsGstat = http://gstat2.grid.sinica.edu.tw/gstat/summary/json/
-	TopologyGOCDB = https://goc.egi.eu/gocdbpi/
-	DowntimeGOCDB = https://goc.egi.eu/gocdbpi/
-
-This section lists default data sources for `weights-gstat-connector.py`, `topology-gocdb-connector.py` and `downtimes-gocdb-connector.py`. For the latter two, URL is a base URL of GOCDB Programmatic Interface. Connectors interally use several GOCDB' methods (`get\_site`, `get\_service\_endpoint`, `get\_service\_group`, `get\_downtime`). 
 
 	[Authentication]
 	HostKey = /etc/grid-security/hostkey.pem
@@ -54,14 +47,11 @@ Each component that talks to GOCDB or POEM peer authenticates itself with a host
 	DowntimesGOCDB = %(SchemaDir)s/downtimes.avsc
 	Poem = %(SchemaDir)s/metric_profiles.avsc
 	Prefilter = %(SchemaDir)s/metric_data.avsc
-	TopologyGOCDBGroupOfEndpoints = %(SchemaDir)s/group_endpoints.avsc
-	TopologyGOCDBGroupOfGroups = %(SchemaDir)s/group_groups-sites.avsc
-	TopologyGOCDBGroupOfServices = %(SchemaDir)s/group_groups-services.avsc
-	TopologyVOGroupOfEndpoints = %(SchemaDir)s/vo_group_endpoints.avsc
-	TopologyVOGroupOfGroups = %(SchemaDir)s/vo_group_groups.avsc
+	TopologyGroupOfEndpoints = %(SchemaDir)s/group_endpoints.avsc
+	TopologyGroupOfGroups = %(SchemaDir)s/group_groups.avsc
 	WeightsGstat = %(SchemaDir)s/weight_sites.avsc
 
-This section, together with a `[DEFAULT]` section, constitutes the full path of avro schema file for each component.
+This section, together with a `[DEFAULT]` section, constitutes the full path of avro schema file for each component. Avro schema files define the format of the data that each component is writing. `Topology*` schemas are common to `topology-gocdb-connector.py` and `topology-vo-connector.py` because there is a need of compute side to not make a difference between two topologies `Prefilter` schema is taken from `argo-egi-consumer` since `prefilter-egi.py` filters its metric results and need to write them in the same format.
 
 	[Output]
 	DowntimesGOCDB = downtimes_%s.avro
@@ -82,12 +72,10 @@ This configuration file lists all customers, their jobs and appropriate attribut
 
 #### Directory structure
 
-Job folders for each customer are placed under the same `EGI/` directory and names are read from config file. Segment of configuration file that reflects the creation of directories is for example: 
-
-	[DIR]
-	OutputDir = /var/lib/argo-connectors/EGI/
+Job folders for each customer are placed under the customer's `OutputDir` directory and appropriate directory names are read from the config file. Segment of configuration file that reflects the creation of directories is for example: 
 
 	[CUSTOMER_EGI]
+	OutputDir = /var/lib/argo-connectors/EGI
 	Jobs = JOB_Test1, JOB_Test2
 
 	[JOB_Test1]
@@ -98,6 +86,7 @@ Job folders for each customer are placed under the same `EGI/` directory and nam
 
 
 	[CUSTOMER_NGI]
+	OutputDir = /var/lib/argo-connectors/NGI
 	Jobs = Job_Test3, JOB_Test4
 
 	[JOB_Test3]
@@ -110,12 +99,12 @@ This will result in the following jobs directories:
 
 	/var/lib/argo-connectors/EGI/EGI_Testing1
 	/var/lib/argo-connectors/EGI/EGI_Testing2
-	/var/lib/argo-connectors/EGI/NGI_Testing1
-	/var/lib/argo-connectors/EGI/NGI_Testing2
+	/var/lib/argo-connectors/NGI/NGI_Testing1
+	/var/lib/argo-connectors/NGI/NGI_Testing2
 
-So there are two customers, EGI and NGI, each one identified with its `[CUSTOMER_*]` section. `CUSTOMER_` is a section keyword and must be specified when one wants to define a new customer. Each customer has set of jobs listed in `Jobs` option and customer can not exist without associated jobs. The name of the job folder is specified with `Dirname` option of the certain job so JOB\_Test1, identified with `[JOB_Test1]` section, will be named EGI\_Testing1 and it will be placed under EGI/ directory. 
+So there are two customers, EGI and NGI, each one identified with its `[CUSTOMER_*]` section. `CUSTOMER_` is a section keyword and must be specified when one wants to define a new customer. Each customer has two mandatory options: `OutputDir` and `Jobs`. With `OutputDir` option, customer defines his directory where he'll write job folders and other data. Customer must also specify set of jobs listed in `Jobs` options since it can not exist without associated jobs. The name of the job folder is specified with `Dirname` option of the certain job so `JOB\_Test1`, identified with `[JOB_Test1]` section, will be named `EGI_Testing1` and it will be placed under customer's `/var/lib/argo-connectors/EGI/` directory. Each component will firstly try to create described directory structure if it doesn't exist yet. Only afterward it will write its data. 
 
-Every connector reads this configuration file because it needs to find out the job directory name where to lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the job's topology type specified with `TopoType` attribute.
+Every connector reads this configuration file because it needs to find out how many customers are there and what are theirs customer and job directory names where they will lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI (taken from GOCDB) is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the job's topology type specified with `TopoType` attribute.
 
 #### Job attributes
 
@@ -132,14 +121,14 @@ Besides `Dirname` option that is common for all connectors, some of them have jo
 	TopoSelectGroupOfEndpoints = Monitored:Y, Scope:EGI, Production:Y
 	TopoSelectGroupOfGroups = Monitored:Y, Scope:EGI
 
-This is an example of the job that fetchs topology from GOCDB since `TopoType` attribute is set to `GOCDB`. `Profiles` is an attribute relevant to `poem-connector.py` so for this job `poem-connector.py` will write CLOUD-MON profile in EGI_Cloudmon job folder under /EGI directory. `Topo*` attributes are relevant for `topology-gocdb-connector.py`. `TopoFeed` attribute in the context of the GOCDB topology is optional. If it's specified, it will override default `TopologyGOCDB` source (specified in `global.conf`) for this job.
+This is an example of the job that fetchs topology from GOCDB since `TopoType` attribute is set to `GOCDB`. `Profiles` is an attribute relevant to `poem-connector.py` so for this job `poem-connector.py` will write CLOUD-MON profile in EGI_Cloudmon job folder under /EGI directory. `Topo*` attributes are relevant for `topology-gocdb-connector.py`. `TopoFeed` attribute in the context of the GOCDB topology is optional. If it's specified, it will override default source of topology which is https://goc.egi.eu/gocdbpi/
 
 Topology is separated in two abstracts:
 
 - group of groups
 - group of service endpoints
 
-Service endpoints are grouped either by the means of _Sites_ or _Service groups_. Those are listed and represented as an upper level abstract of group of service endpoints - group of groups. Customer can fetch either _Sites_ and their corresponding endpoints or _Service groups_ and their corresponding endpoints per job, but not both of them. What is being fetched is specified with `TopoFetchType` option/job attribute. For each abstract there will be written either `TopologyGroupOfGroups` or `TopologyGroupOfServices` files into appropriate job folder. `TopoSelectGroupOfGroups` and `TopoSelectGroupOfEndpoints` options are used for further filtering. Values are set of tags used for picking up matching entity existing in the given abstract. Tags for group of groups are different for Sites and Service groups. In contrary, set of tags for groups of endpoints remains the same no matter what type of fetch customer specified. 
+Service endpoints are grouped either by the means of _Sites_ or _Service groups_. Those are listed and represented as an upper level abstract of group of service endpoints - group of groups. Customer can fetch either _Sites_ and their corresponding endpoints or _Service groups_ and their corresponding endpoints per job, but not both of them. What is being fetched is specified with `TopoFetchType` option/job attribute. For each abstract there will be written `TopologyGroupOfGroups` and `TopologyGroupOfEndpoints` filenames (specified in `global.conf`) into appropriate job folder. `TopoSelectGroupOfGroups` and `TopoSelectGroupOfEndpoints` options are used for further filtering. Values are set of tags used for picking up matching entity existing in the given abstract. Tags for group of groups are different for Sites and Service groups. In contrary, set of tags for groups of endpoints remains the same no matter what type of fetch customer specified.
 
 So, in a `TopoFetchType` option customer can either specify:
 
@@ -148,13 +137,9 @@ So, in a `TopoFetchType` option customer can either specify:
 
 ###### Tags
 
-Tags represent a fine-grained control of what is being written in output files. It's a convenient way of 
-selecting only certain entities, being it Sites, Service groups or Service endpoints based on appropriate
-criteria. Tags are optional so if a certain tag for a corresponding entity is omitted, than filtering is 
-not done. In that case, it can be considered that entity is fetched for all its values of an omitted tag.
+Tags represent a fine-grained control of what is being written in output files. It's a convenient way of selecting only certain entities, being it Sites, Service groups or Service endpoints based on appropriate criteria. Tags are optional so if a certain tag for a corresponding entity is omitted, than filtering is not done. In that case, it can be considered that entity is fetched for all its values of an omitted tag.
 
-Group of group tags are different for a different type of fetch. Tags and values for a different entities
-are:
+Group of group tags are different for a different type of fetch. Tags and values for a different entities are:
 
 ####### Sites
 
@@ -187,13 +172,13 @@ Tags for selecting group of endpoints are:
 	TopoFeed = %(BioMed)s
 	TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
 
-This is an example of the job that is fetching topology from provided VO feed since `TopoType` attribute is set to `VOFeed`. Again, `Profiles` attribute is mandatory and is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`. Contrary to GOCDB topology jobs, `TopoFeed` attribute for jobs dealing with the VO topology is _mandatory_ and must be specified.
+This is an example of the job that is fetching topology from provided VO feed since `TopoType` attribute is set to `VOFeed`. Again, `Profiles` attribute is mandatory and is relevant to `poem-connector.py` which will write ROC\_CRITICAL profile in BioMed\_Critical job folder. `Topo*` attributes are relevant for `topology-vo-connector.py`. Contrary to GOCDB topology jobs, `TopoFeed` attribute for jobs dealing with the VO topology is _mandatory_ and must be specified. Although same topology feed can be specified across multiple jobs, internally, data from one feed is fetched only once and is further filtered and written for every job. 
 
-VO topology is also separated and written in two abstracts, group of groups and group of service endpoints, but there are no tags needed since VO itself handles what sites and service endpoints to take into account and defines the VO groups they belong to. `TopoSelectGroupOfGroups` directs `topology-vo-connector.py` to filter VO groups that match the selected types and write them into `TopologyGroupOfGroups` file. Endpoints are written in `TopologyGroupOfEndpoints` file.
+VO topology is also separated and written in two abstracts, group of groups and group of service endpoints, but there are no tags since VO itself filters and handles what sites and service endpoints to take into account and defines the VO groups they belong to. With that being said, there is a `TopoSelectGroupOfGroups` option available which is used to pick up VO groups based on their type. VO groups are entities existing in the group of group abstract of topology. In the example above, `topology-vo-connector.py` will pick up VO groups that match `OPS_Site` and `OPS_Tier` types and write them into `TopologyGroupOfGroups` file. Endpoints are written in `TopologyGroupOfEndpoints` file.
 
 ##### Data feeds
 
-Source of the data for other connectors like `weights-gstat-connector.py` and `downtimes-gocdb-connector.py` are optional and can be specified per job. If specified, they will override the default source of data in `global.conf`. Example:
+Source of the data for other connectors like `weights-gstat-connector.py` and `downtimes-gocdb-connector.py` are optional and can be specified per job. If specified, they will override their default source of data. Example:
 
 	[JOB_BioMedCritical]
 	Dirname = BioMed_Critical
@@ -231,14 +216,14 @@ This section defines the URL where POEM server is located and all VOes for which
 	Host = poem2
 	VO = vo3, vo4
 
-POEM profile can be defined on multiple POEM servers. Each POEM server can further extend it with a custom combinations of metrics and service flavours. To distinguish POEM profile defined on multiple POEM servers, namespace must be used. One must be aware of the namespace that POEM server exposes and specify it in `FetchProfiles` section:
+Same POEM profile can be defined on multiple POEM servers. Each POEM server can further extend it with a custom combinations of metrics and service flavours. To distinguish POEM profile defined on multiple POEM servers, namespace must be used. One must be aware of the namespace that POEM server exposes and specify it in `FetchProfiles` section:
 
 	[FetchProfiles]
 	List = CH.CERN.SAM.ROC, CH.CERN.SAM.ROC_OPERATORS, CH.CERN.SAM.ROC_CRITICAL, CH.CERN.SAM.OPS_MONITOR, CH.CERN.SAM.OPS_MONITOR_CRITICAL, CH.CERN.SAM.GLEXEC, CH.CERN.SAM.CLOUD-MON
 
 #### Prefilter data
 
-`poem-connector.py` also generates plaintext `PrefilterPoem` file on a daily basis and places it under EGI/ directory. Content of the file is controlled in `[PrefilterData]` section:
+`poem-connector.py` also generates plaintext `PrefilterPoem` file (specified in `global.conf`) on a daily basis for each customer and places it under customer's directory. Content of the file is controlled in `[PrefilterData]` section:
 
 	[PrefilterData]
 	AllowedNGI = http://mon.egi.eu/nagios-roles.conf
@@ -250,14 +235,14 @@ POEM profile can be defined on multiple POEM servers. Each POEM server can furth
 
 `AllowedNGI` option defines remote config file that states all allowed NGIes and corresponding nagios boxes. All of them will be expanded and listed together with the information from `AllowedNGIProfiles` POEM profiles (metrics, service flavours, VOes). 
 
-`AllNGI1` option is similar in sense that it will extended specified nagios box with the information from `AllNGIProfiles1` POEM profiles.
+`AllNGI1` option is similar in sense that it will extended specified nagios box (monitoring instance) with the information from `AllNGIProfiles1` POEM profiles. Multiple `AllNGI*` options can be specified and they must come in pair fashion so for every `AllNGI[n]` option, there must exist `AllNGIProfiles[n]` option that is related to it.
 
 With all these informations written in `PrefilterPoem` file, `prefilter-egi.py` can do its work, so it will filter consumer messages if:
 
-- message that enter into broker network doesn't come from allowed NGI or nagios box for certain NGI is incorrectly specified 
-- status message is response to metric not found in a fetched service flavour 
-- status message's service flavour is not registered in any fetched POEM profile
-- status message is registered for different VO, not specified in `VO` option of `[PoemServer]` section 
+- message that enter into broker network doesn't come from allowed NGI or nagios box for certain NGI is incorrectly specified
+- metric result is response to metric not found in a fetched service flavour
+- metric result's service flavour is not registered in any fetched POEM profile
+- metric result is registered for different VO, not specified in `VO` option of any `[PoemServer]` section
 
 ## Examples
 
@@ -293,7 +278,7 @@ customer.conf:
 	Profiles = ROC_CRITICAL
 	TopoType = VOFeed
 	TopoFeed = %(BioMed)s
-	#TopoSelectGroupOfGroups = Type:(OPS_Tier, OPS_Site)
+	TopoSelectGroupOfGroups = Type:OPS_Site
 
 	[JOB_BioMedCloudmon]
 	Dirname = BioMed_Cloudmon
@@ -324,6 +309,7 @@ Customer jobs:
 Prefilter data:
 
 	/var/lib/argo-connectors/EGI/poem_sync_2015_04_07.out
+	/var/lib/argo-connectors/EGI/prefilter_2015_04_07.avro
 
 
 For customer's job JOB_EGICritical, we are selecting only those sites that match `Certification:Uncertified`,  `Infrastructure:Test` and `Scope:EGI`, so in `TopologyGroupOfGroups` file there will be only those sites listed:
@@ -331,10 +317,19 @@ For customer's job JOB_EGICritical, we are selecting only those sites that match
 	 % avro cat /var/lib/argo-connectors/EGI/EGI_Critical/group_groups_2015_04_07.avro | tail -n 1
 	 {"group": "Russia", "tags": {"scope": "EGI", "infrastructure": "Test", "certification": "Uncertified"}, "type": "NGI", "subgroup": "SU-Protvino-IHEP"}
 
- For customer's JOB_EGICloudmon, we are selecting only those service endpoints that match `Monitored:Y`, `Scope:EGI`, `Production:N`:
+ For customer's JOB\_EGICloudmon, we are selecting only those service endpoints that match `Monitored:Y`, `Scope:EGI`, `Production:N`:
 
 	 % avro cat /var/lib/argo-connectors/EGI/EGI_Cloudmon/group_endpoints_2015_04_07.avro
 	 {"group": "ROC_RU_SERVICE", "hostname": "ce.ngc6475.ihep.su", "type": "SERVICEGROUPS", "service": "Top-BDII", "tags": {"scope": "EGI", "production": 0, "monitored": 1}}
+
+JOB\_BioMedCritical is taking into account only OPS\_Site VO groups:
+
+	% avro cat /var/lib/argo-connectors/EGI/BioMed_Critical/group_groups_2015_04_07.avro | tail -n 5
+	{"group": "SAMPA", "tags": null, "type": "OPS_Site", "subgroup": "SAMPA"}
+	{"group": "UPJS-Kosice", "tags": null, "type": "OPS_Site", "subgroup": "UPJS-Kosice"}
+	{"group": "GR-06-IASA", "tags": null, "type": "OPS_Site", "subgroup": "GR-06-IASA"}
+	{"group": "FI_HIP_T2", "tags": null, "type": "OPS_Site", "subgroup": "FI_HIP_T2"}
+	{"group": "UKI-SOUTHGRID-RALPP", "tags": null, "type": "OPS_Site", "subgroup": "UKI-SOUTHGRID-RALPP"}
 
 JOB_BioMedCloudmon requires only CLOUD-MON POEM profile so in `Poem` file you have:
 
@@ -353,3 +348,16 @@ Downtimes:
 	/var/lib/argo-connectors/EGI/EGI_Critical/downtimes_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Cloudmon/downtimes_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Critical/downtimes_2015_04_07.avro
+
+## Links
+
+Connectors are using following GOCDB PI methods:
+
+https://wiki.egi.eu/wiki/GOCDB/PI/get_downtime_method
+https://wiki.egi.eu/wiki/GOCDB/PI/get_service_endpoint_method
+https://wiki.egi.eu/wiki/GOCDB/PI/get_service_group
+https://wiki.egi.eu/wiki/GOCDB/PI/get_site_method
+
+Construction of VO feeds:
+
+https://twiki.cern.ch/twiki/bin/view/Main/ATPVOFeeds
