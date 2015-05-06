@@ -44,17 +44,17 @@ Every component generates output file in an avro binary format. This section poi
 Each component that talks to GOCDB or POEM peer authenticates itself with a host certificate.
 
 	[AvroSchemas]
-	DowntimesGOCDB = %(SchemaDir)s/downtimes.avsc
+	Downtimes = %(SchemaDir)s/downtimes.avsc
 	Poem = %(SchemaDir)s/metric_profiles.avsc
 	Prefilter = %(SchemaDir)s/metric_data.avsc
 	TopologyGroupOfEndpoints = %(SchemaDir)s/group_endpoints.avsc
 	TopologyGroupOfGroups = %(SchemaDir)s/group_groups.avsc
-	WeightsGstat = %(SchemaDir)s/weight_sites.avsc
+	Weights = %(SchemaDir)s/weight_sites.avsc
 
-This section, together with a `[DEFAULT]` section, constitutes the full path of avro schema file for each component. Avro schema files define the format of the data that each component is writing. `Topology*` schemas are common to `topology-gocdb-connector.py` and `topology-vo-connector.py` because there is a need of compute side to not make a difference between two topologies `Prefilter` schema is taken from `argo-egi-consumer` since `prefilter-egi.py` filters its metric results and need to write them in the same format.
+This section, together with a `[DEFAULT]` section, constitutes the full path of avro schema file for each component. Avro schema files define the format of the data that each component is writing. `Topology*` schemas are common to `topology-gocdb-connector.py` and `topology-vo-connector.py` because there is a need of compute side to not make a difference between two topologies. `Prefilter` schema is taken from `argo-egi-consumer` since `prefilter-egi.py` filters its metric results and needs to write them in the same format.
 
 	[Output]
-	DowntimesGOCDB = downtimes_%s.avro
+	Downtimes = downtimes_%s.avro
 	Poem = poem_sync_%s.avro
 	Prefilter = prefilter_%s.avro
 	PrefilterConsumerFilePath = /var/lib/ar-consumer/ar-consumer_log_%s.avro
@@ -62,7 +62,7 @@ This section, together with a `[DEFAULT]` section, constitutes the full path of 
 	PrefilterPoemNameMapping = poem_name_mapping.cfg
 	TopologyGroupOfEndpoints = group_endpoints_%s.avro
 	TopologyGroupOfGroups = group_groups_%s.avro
-	WeightsGstat = weights_%s.avro
+	Weights = weights_%s.avro
 
 Section lists all the filenames that each component is generating. Directory is purposely omitted because it's implicitly found in next configuration file. Exception is a `PrefilterConsumerFilePath` and `PrefilterPoem` options that tells the `prefilter-egi.py` where to look for its input files. `%s` is a string placeholder that will be replaced by the date timestamp in format `year_month_day`.
 
@@ -104,7 +104,7 @@ This will result in the following jobs directories:
 
 So there are two customers, EGI and NGI, each one identified with its `[CUSTOMER_*]` section. `CUSTOMER_` is a section keyword and must be specified when one wants to define a new customer. Each customer has two mandatory options: `OutputDir` and `Jobs`. With `OutputDir` option, customer defines his directory where he'll write job folders and other data. Customer must also specify set of jobs listed in `Jobs` options since it can not exist without associated jobs. The name of the job folder is specified with `Dirname` option of the certain job so `JOB\_Test1`, identified with `[JOB_Test1]` section, will be named `EGI_Testing1` and it will be placed under customer's `/var/lib/argo-connectors/EGI/` directory. Each component will firstly try to create described directory structure if it doesn't exist yet. Only afterward it will write its data. 
 
-Every connector reads this configuration file because it needs to find out how many customers are there and what are theirs customer and job directory names where they will lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI (taken from GOCDB) is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the job's topology type specified with `TopoType` attribute.
+Every connector reads this configuration file because it needs to find out how many customers are there and what are theirs customer and job directory names where they will lay down its files. So `poem-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, all of them are writing theirs data in each job directory for each customer. Topology for EGI (fetched from GOCDB) is different than one for the VO so exceptions to this are `topology-gocdb-connector.py` and `topology-vo-connector.py`. They are writing data for a job based on the job's topology type specified with `TopoType` attribute.
 
 #### Job attributes
 
