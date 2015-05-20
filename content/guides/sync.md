@@ -9,24 +9,44 @@ description: This document describes the available connectors for data in EGI in
 
 `argo-egi-connectors` is a bundle of connectors/sync components for various data sources established in EGI infrastructure, most notably GOCDB (EGI topology, downtimes), but there's also support for fetching alternative EGI topology via various VO feeds, weights information via GStat service and POEM metric profiles.
 
-Bundle consists of the following connectors: `topology-gocdb-connector.py`, `topology-vo-connector.py`, `downtimes-gocdb-connector.py`, `weights-gstat-connector.py`, `poem-connector.py`
+Bundle consists of the following connectors: 
 
-Additionally there is `prefilter-egi.py` component whose role is to filter out the messages coming from the `argo-egi-consumer`.
+ - `topology-gocdb-connector.py` 
+ - `topology-vo-connector.py` 
+ - `downtimes-gocdb-connector.py` 
+ - `weights-gstat-connector.py` 
+ - `poem-connector.py`
+ - `prefilter-egy.py`: component whose role is to filter out the messages coming from the `argo-egi-consumer`.
+
 
 Connectors are syncing data on a daily basis. They are aware of the certain customer, associated jobs and their attributes and are generating and placing files into appropriate job folders. Data is written in a binary avro formated file which is suitable for processing at compute side. Topology, downtimes, weights and POEM profile information all together with a prefiltered metric results (status messages), represents an input for `argo-compute-engine`.
 
 ## Installation
 
 Installation narrows down to simply installing the package:
+	
 	`yum -y install argo-egi-connectors`
 
-Components require avro package to be installed/available.
+**`Components require avro package to be installed/available.`**
 
-Configuration files are placed under `/etc/argo-egi-connectors`, components under `/usr/libexec/argo-egi-connectors`. Cronjobs are placed under `/etc/cron.d` and are configured to be executed once per day. Installation also creates an empty `/var/lib/argo-connectors/` directory where components will put their files.
+
+| File Types | Destination |
+| Configuration files|  `/etc/argo-egi-connectors`|
+| Components|  `/usr/libexec/argo-egi-connectors`|
+| Cronjobs (configured to be executed once per day) | `/etc/cron.d` |
+| Directory where components will put their files| `/var/lib/argo-connectors/EGI`|
 
 ## Configuration
 
 Configuration of all components is centered around two configuration files: `global.conf` and `customer.conf`. Those files contains some shared config options and sections and are _read by every component_. There's also a third one `poem-connector.conf`, specific only for `poem-connector.py` because it needs some special treatment not available in first two's.
+
+| Configuration file | Description | Shortcut |
+| `global.conf` | Config file is read by every component because every component needs to fetch host certificate to authenticate to a peer and to find correct avro schema. |<a href="#sync1">Description</a>|
+| `customer.conf` | This configuration file lists all EGI jobs, their attributes and also all VOes and theirs set of jobs and attributes. | <a href="#sync2">Description</a>|
+| `poem-connector.conf` | This configuration file is central configuration for poem-connector.py | <a href="#sync3">Description</a>|
+
+
+<a id="sync1"></a>
 
 ### global.conf
 
@@ -65,6 +85,8 @@ This section, together with a `[DEFAULT]` section, constitutes the full path of 
 	Weights = weights_%s.avro
 
 Section lists all the filenames that each component is generating. Directory is purposely omitted because it's implicitly found in next configuration file. Exception is a `PrefilterConsumerFilePath` and `PrefilterPoem` options that tells the `prefilter-egi.py` where to look for its input files. `%s` is a string placeholder that will be replaced by the date timestamp in format `year_month_day`.
+
+<a id="sync2"></a>
 
 ### customer.conf
 
@@ -141,20 +163,20 @@ Tags represent a fine-grained control of what is being written in output files. 
 
 Group of group tags are different for a different type of fetch. Tags and values for a different entities are:
 
-####### Sites
+**Sites**
 
 * Certification = `{Certified, Uncertified, Closed, Suspended, Candidate}`
 * Infrastructure = `{Production, Test}`
 * Scope = `{EGI, Local}`
 
-####### ServiceGroups
+**ServiceGroups**
 
 * Monitored = `{Y, N}`
 * Scope = `{EGI, Local}`
 
 Tags for selecting group of endpoints are:
 
-####### Service Endpoints
+**Service Endpoints**
 
 * Production = `{Y, N}`
 * Monitored = `{Y, N}`
@@ -190,6 +212,8 @@ Source of the data for other connectors like `weights-gstat-connector.py` and `d
 	DowntimesFeed = https://goc.egi.eu/gocdbpi/
 
 `WeightsFeed` and `DowntimesFeed` are alternative data feeds for this job for connectors `weights-gstat-connector.py` and `downtimes-gocdb-connector.py`, respectively.
+
+<a id="sync3"></a>
 
 ### poem-connector.conf
 
@@ -246,8 +270,27 @@ With all these informations written in `PrefilterPoem` file, `prefilter-egi.py` 
 
 ## Examples
 
-customer.conf:
+<div role="tabpanel">
 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#customer.conf" aria-controls="customer.conf" role="tab" data-toggle="tab">customer.conf</a></li>
+    <li role="presentation"><a href="#customer-jobs" aria-controls="customer-jobs" role="tab" data-toggle="tab">Customer jobs</a></li>
+    <li role="presentation"><a href="#prefilterdata" aria-controls="prefilterdata" role="tab" data-toggle="tab">Prefilter data</a></li>
+    <li role="presentation"><a href="#JOB_Critical" aria-controls="JOB_Critical" role="tab" data-toggle="tab">EGI JOB_Critical</a></li>
+    <li role="presentation"><a href="#JOB_Cloudmon" aria-controls="JOB_Cloudmon" role="tab" data-toggle="tab">EGI JOB_Cloudmon</a></li>
+    <li role="presentation"><a href="#JOB_BioMedCritical" aria-controls="JOB_BioMedCritical" role="tab" data-toggle="tab">JOB_BioMedCritical</a></li>
+    <li role="presentation"><a href="#JOB_BioMedCloudmon" aria-controls="JOB_BioMedCloudmon" role="tab" data-toggle="tab">VO JOB_BioMedCloudmon</a></li>
+    <li role="presentation"><a href="#downtimes" aria-controls="downtimes" role="tab" data-toggle="tab">Downtimes</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="customer.conf">
+<p>&nbsp;</p>
+<strong>customer.conf:</strong>
+<p>&nbsp;</p>
+<pre>
 	[DEFAULT]
 	BioMed = http://kosjenka.srce.hr/~eimamagi/ops.feed.xml
 
@@ -286,9 +329,15 @@ customer.conf:
 	TopoType = VOFeed
 	TopoFeed = %(BioMed)s
 	#TopoSelectGroupOfGroups = Type:OPS_Tier
+</pre>
 
-Customer jobs:
+    </div>
+    <div role="tabpanel" class="tab-pane" id="customer-jobs">
 
+<p>&nbsp;</p>
+<strong>Customer jobs:</strong>
+<p>&nbsp;</p>
+<pre>
 	/var/lib/argo-connectors/EGI/BioMed_Cloudmon/group_endpoints_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Cloudmon/group_groups_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Cloudmon/poem_sync_2015_04_07.avro
@@ -305,25 +354,51 @@ Customer jobs:
 	/var/lib/argo-connectors/EGI/EGI_Critical/group_groups_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/EGI_Critical/poem_sync_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/EGI_Critical/weights_2015_04_07.avro
+</pre>
 
-Prefilter data:
+    </div>
+    <div role="tabpanel" class="tab-pane" id="prefilterdata">
+
+<p>&nbsp;</p>
+
+<strong>Prefilter data:</strong>
+
+<p>&nbsp;</p>
+<pre>
 
 	/var/lib/argo-connectors/EGI/poem_sync_2015_04_07.out
 	/var/lib/argo-connectors/EGI/prefilter_2015_04_07.avro
 
+</pre>
+</div>
+ <div role="tabpanel" class="tab-pane" id="JOB_Critical">
 
+<p>&nbsp;</p>
 For customer's job JOB_EGICritical, we are selecting only those sites that match `Certification:Uncertified`,  `Infrastructure:Test` and `Scope:EGI`, so in `TopologyGroupOfGroups` file there will be only those sites listed:
-
+<p>&nbsp;</p>
+<pre>
 	 % avro cat /var/lib/argo-connectors/EGI/EGI_Critical/group_groups_2015_04_07.avro | tail -n 1
 	 {"group": "Russia", "tags": {"scope": "EGI", "infrastructure": "Test", "certification": "Uncertified"}, "type": "NGI", "subgroup": "SU-Protvino-IHEP"}
+</pre>
+<p>&nbsp;</p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="JOB_Cloudmon">
+<p>&nbsp;</p>
+ For customer's JOB_EGICloudmon, we are selecting only those service endpoints that match `Monitored:Y`, `Scope:EGI`, `Production:N`:
 
- For customer's JOB\_EGICloudmon, we are selecting only those service endpoints that match `Monitored:Y`, `Scope:EGI`, `Production:N`:
+<p>&nbsp;</p>
 
-	 % avro cat /var/lib/argo-connectors/EGI/EGI_Cloudmon/group_endpoints_2015_04_07.avro
+<pre>	 % avro cat /var/lib/argo-connectors/EGI/EGI_Cloudmon/group_endpoints_2015_04_07.avro
 	 {"group": "ROC_RU_SERVICE", "hostname": "ce.ngc6475.ihep.su", "type": "SERVICEGROUPS", "service": "Top-BDII", "tags": {"scope": "EGI", "production": 0, "monitored": 1}}
+</pre>
 
-JOB\_BioMedCritical is taking into account only OPS\_Site VO groups:
-
+<p>&nbsp;</p>
+</div>
+    <div role="tabpanel" class="tab-pane" id="JOB_BioMedCritical">
+<p>&nbsp;</p>
+JOB_BioMedCritical is taking into account only OPS\_Site VO groups:
+<p>&nbsp;</p>
+<pre>
 	% avro cat /var/lib/argo-connectors/EGI/BioMed_Critical/group_groups_2015_04_07.avro | tail -n 5
 	{"group": "SAMPA", "tags": null, "type": "OPS_Site", "subgroup": "SAMPA"}
 	{"group": "UPJS-Kosice", "tags": null, "type": "OPS_Site", "subgroup": "UPJS-Kosice"}
@@ -331,33 +406,48 @@ JOB\_BioMedCritical is taking into account only OPS\_Site VO groups:
 	{"group": "FI_HIP_T2", "tags": null, "type": "OPS_Site", "subgroup": "FI_HIP_T2"}
 	{"group": "UKI-SOUTHGRID-RALPP", "tags": null, "type": "OPS_Site", "subgroup": "UKI-SOUTHGRID-RALPP"}
 
+</pre>
+<p>&nbsp;</p>
+</div>
+   <div role="tabpanel" class="tab-pane" id="JOB_BioMedCloudmon">
+<p>&nbsp;</p>
 JOB_BioMedCloudmon requires only CLOUD-MON POEM profile so in `Poem` file you have:
-
+<p>&nbsp;</p>
+<pre>
 	 % avro cat  /var/lib/argo-connectors/EGI/BioMed_Cloudmon/poem_sync_2015_04_07.avro | tail -n 5
 	 {"profile": "ch.cern.sam.CLOUD-MON", "metric": "eu.egi.cloud.Perun-Check", "service": "egi.Perun", "tags": {"fqan": "", "vo": "ops"}}
 	 {"profile": "ch.cern.sam.CLOUD-MON", "metric": "eu.egi.cloud.APEL-Pub", "service": "eu.egi.cloud.accounting", "tags": {"fqan": "", "vo": "ops"}}
 	 {"profile": "ch.cern.sam.CLOUD-MON", "metric": "org.nagios.Broker-TCP", "service": "eu.egi.cloud.broker.compss", "tags": {"fqan": "", "vo": "ops"}}
 	 {"profile": "ch.cern.sam.CLOUD-MON", "metric": "org.nagios.Broker-TCP", "service": "eu.egi.cloud.broker.proprietary.slipstream", "tags": {"fqan": "", "vo": "ops"}}
 	 {"profile": "ch.cern.sam.CLOUD-MON", "metric": "org.nagios.Broker-TCP", "service": "eu.egi.cloud.broker.vmdirac", "tags": {"fqan": "", "vo": "ops"}}
+</pre>
+<p>&nbsp;</p>
+</div>
 
-Downtimes:
-
+<div role="tabpanel" class="tab-pane" id="downtimes">
+<p>&nbsp;</p>
+<strong>Downtimes:</strong>
+<p>&nbsp;</p>
+<pre>
 	% /usr/libexec/argo-egi-connectors/downtimes-gocdb-connector.py -d 2015-04-07
 	% find /var/lib/argo-connectors -name '*downtimes*'
 	/var/lib/argo-connectors/EGI/EGI_Cloudmon/downtimes_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/EGI_Critical/downtimes_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Cloudmon/downtimes_2015_04_07.avro
 	/var/lib/argo-connectors/EGI/BioMed_Critical/downtimes_2015_04_07.avro
+</pre>
+</div>
+  </div>
+
+</div>
 
 ## Links
 
 Connectors are using following GOCDB PI methods:
 
-https://wiki.egi.eu/wiki/GOCDB/PI/get_downtime_method
-https://wiki.egi.eu/wiki/GOCDB/PI/get_service_endpoint_method
-https://wiki.egi.eu/wiki/GOCDB/PI/get_service_group
-https://wiki.egi.eu/wiki/GOCDB/PI/get_site_method
+- [GOCDB - get_downtime_method](https://wiki.egi.eu/wiki/GOCDB/PI/get_downtime_method)
+- [GOCDB - get_service_endpoint_method](https://wiki.egi.eu/wiki/GOCDB/PI/get_service_endpoint_method)
+- [GOCDB - get_service_group](https://wiki.egi.eu/wiki/GOCDB/PI/get_service_group)
+- [GOCDB - get_site_method](https://wiki.egi.eu/wiki/GOCDB/PI/get_site_method)
 
-Construction of VO feeds:
-
-https://twiki.cern.ch/twiki/bin/view/Main/ATPVOFeeds
+[Construction of VO feeds](https://twiki.cern.ch/twiki/bin/view/Main/ATPVOFeeds)

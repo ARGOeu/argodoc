@@ -1,0 +1,76 @@
+<%= render 'head' %>
+<body class="api">
+  <%= render 'header' %>
+  <div class='container-fluid' >
+    <div class='row'>
+      <div class="col-md-2 sidebar" >
+        <%= render 'sidebar' %>
+      </div><!--sidebar-->
+      <div class="col-md-8 main">
+        <% if @item[:page_title] %>	
+          <h1 class="highlight">
+          <% if @item[:font_title] %>
+            <em class='<%=item[:font_title]%>'></em> 
+          <% end %>
+          <%= item[:page_title] %></h1>
+        <% end %>
+        <p class="lead"> <%= item[:description] %></p>
+        <%= yield %>
+        <div style="padding:30px;" class="marketing">
+          <div class="row">
+            <div class="col-lg-4">
+              <h2>
+                <a  href="<%= item[:row_link][0] %>" >
+                  <%= item[:row_title][0] %></a>
+              </h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][0] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#metric'>Metric Data</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#topology'>Topology Files </a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#Profiles'>Metric Profiles</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#Weights'>Weights (factors)</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][0] %>#Downtimes'>Downtimes</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <h2><a href="<%= item[:row_link][1] %>" ><%= item[:row_title][1] %></a></h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][1] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#etcar-compute-engineconf-main-configuration-file'>Main configuration file</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#parameters-for-section-default'>Parameters for section [default]</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#parameters-for-section-logging'>Parameters for section [logging]</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#parameters-for-section-jobs'>Parameters for section [jobs]</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#parameters-for-section-sampling'>Parameters for section [sampling]</a>                
+		<a class="list-group-item-level2" href='<%= item[:row_link][1] %>#parameters-for-section-datastore-mapping'>Parameters for section [datastore-mapping]</a>
+
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#ops-files-per-tenant'>Ops Files (per tenant)</a>                
+		<a class="list-group-item-level2" href='<%= item[:row_link][1] %>#config-file-per-tenant-per-job'>Config File (per tenant/ per job)</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][1] %>#availability-profile-per-tenant--per-job'>Availability Profile (per tenant / per job)</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <h2>
+                <a href="<%= item[:row_link][2] %>">
+                  <%= item[:row_title][2] %></a>
+              </h2> 
+              <div class="list-group">
+                <a class="list-group-item disabled"><%= item[:row_description][2] %></a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#metric'>upload_metric.py</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#sync'> upload_sync.py</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#ar'> mongo_clean_ar.py</a>
+                <a class="list-group-item-level2" href='<%= item[:row_link][2] %>#status'> mongo_clean_status.py</a>
+              </div>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+        </div>
+
+
+
+        </div><!--col-md-8-->
+        <div class="col-md-2">&nbsp;</div>
+      </div><!--row-->
+    </div><!--container fluid-->
+    <%= render 'jumbotron' %>
+  <%= render 'footer' %>
+</body>
+</html>

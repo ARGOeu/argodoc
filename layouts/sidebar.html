@@ -17,10 +17,10 @@
             <a class="list-group-item" href="/guides/installation_cluster/"><em class="fa fa-sitemap"></em> Cluster Mode</a>
           <% end %>
             <a class="list-group-item disabled blue" href="/guides/sync/">Components</a>
-          <% if @item[:page_title] ==  "Sync compoments" %>	
-            <a class="list-group-item active" href="/guides/sync/"><em class="fa fa-refresh"></em> Sync components</a>
+          <% if @item[:page_title] ==  "EGI connectors" %>	
+            <a class="list-group-item active" href="/guides/sync/"><em class="fa fa-refresh"></em> EGI Connectors</a>
           <% else %>
-            <a class="list-group-item" href="/guides/sync/"><em class="fa fa-refresh"></em> Sync components</a>
+            <a class="list-group-item" href="/guides/sync/"><em class="fa fa-refresh"></em> EGI Connectors</a>
           <% end %>
           <% if @item[:page_title] ==  "POEM service for ARGO framework" %>	
             <a class="list-group-item active" href="/guides/poem/"><em class="fa fa-check-square-o"></em> Poem service</a>
@@ -32,11 +32,38 @@
           <% else %>
             <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
-          <% if @item[:page_title] ==  "Compute Engine documentation" %>	
+          <% if (@item[:page_title] ==  "Compute Engine documentation") || 
+          (@item[:page_title] == "Compute Engine Input") ||
+  	  (@item[:page_title] == "Compute engine job configurations") ||
+	  (@item[:page_title] == "Compute - Cli interaction" ) %>	
             <a class="list-group-item active " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% else %>  
             <a class="list-group-item " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% end %>
+  	  <div id='caret-data1'>
+            <% if @item[:page_title] ==  "Compute Engine Input" %>
+              <a class="list-group-item-level2 active"  href="/guides/compute/compute-input/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/compute/compute-input/">
+            <% end %>
+            <em class="fa fa-cog"></em> Compute Engine Input </a>
+ 	    <% if @item[:page_title] ==  "Compute engine job configurations" %>
+              <a class="list-group-item-level2 active"  href="/guides/compute/compute-job-configuration/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/compute/compute-job-configuration/">
+            <% end %>
+            <em class="fa fa-cog"></em> Compute engine job configurations </a>
+
+ 
+ 	    <% if @item[:page_title] ==  "Compute - Cli interaction" %>
+              <a class="list-group-item-level2 active"  href="/guides/compute/cli-interaction/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/compute/cli-interaction/">
+            <% end %>
+            <em class="fa fa-cog"></em> Compute Engine CLI </a>
+
+
+	  </div>
           <% if (@item[:page_title] == "API documentation") || 
           (@item[:page_title] == "API - Status results") ||
           (@item[:page_title] == "API - Availabilities & Reliabilities") ||
