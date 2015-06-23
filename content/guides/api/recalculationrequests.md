@@ -47,7 +47,8 @@ This method can be used to insert a new recalculation request onto the Compute E
 
 #### Request headers
 
-    x-api-key: "shared_key_value"
+    x-api-key: shared_key_value
+    Content-Type: application/json
 
 #### Parameters
 
@@ -56,7 +57,7 @@ This method can be used to insert a new recalculation request onto the Compute E
 |`end_time`| UTC time in W3C format | YES | |
 |`reason`| Explain the need for a recalculation | YES | |
 |`ngi_name`| NGI for which the recalculation is requested | YES | |
-|`exclude_site`| Site or list of sites to be excluded from recalculation | NO | |
+|`exclude_site`| Site to be excluded from recalculation. If more than one sites are to be excluded use the parameter as many times as needed within the same API call | NO | |
 
 ### Response
 
