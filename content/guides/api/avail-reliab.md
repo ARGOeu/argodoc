@@ -8,62 +8,72 @@ description: API calls for retrieving computed Availabilities and Reliabilities
 ## API Calls
 
 | Name  | Description | Shortcut |
-| GET: List Availabilities and Reliabilities for Groups | This method can be used to obtain Availability and Reliablity metrics per group type elements (i.e. Sites, NGIs etc). Results can be retrieved on daily or monthly granularity.  |<a href="#1"> Description</a>|
+| GET: List Availabilities and Reliabilities for Groups | The following methods can be used to obtain Availability and Reliablity metrics per group type elements (i.e. Endpoint Groups, Group of Endpoint Groups etc). Results can be retrieved on daily or monthly granularity.  |<a href="#1"> Description</a>|
 | GET: List Availabilities and Reliabilities for Service Flavors | This method can be used to obtain Availability and Reliability metrics for Service Flavors per Site. Results can be retrieved on daily or monthly granularity. | <a href="#2"> Description</a>|
 
 <a id="1"></a>
 
-## GET: List Availabilities and Reliabilities for Groups
+## GET: List Availabilities and Reliabilities for Endpoint Groups, Group of Endpoint Groups
 
-This method can be used to obtain Availability and Reliablity metrics per group type elements (i.e. Sites, NGIs etc). Results can be retrieved on daily or monthly granularity. 
+The following methods can be used to obtain Availability and Reliability metrics per group type elements (i.e. Endpoint Groups, Group of Endpoint Groups etc). Results can be retrieved on daily or monthly granularity.
 
 ### Input
 
-    /group_availability?[start_time]&[end_time]&[availability_profile]&[group_type]&[granularity]&[infrastructure]&[production]&[monitored]&[certification]&[format]&[group_name]
+Endpoint Groups
+    /endpoint_group_availability?[start_time]&[end_time]&[job]&[granularity]&[format]&[group_name]&[supergroup_name]
 
 ### Parameters
 
 | Type | Description | Required | Default value |
 |`start_time`| UTC time in W3C format| YES ||
 |`end_time`| UTC time in W3C format| YES| |
-|`availability_profile`| Name of the high level profile concatenated with the profile namespace. Each availability profile matches one POEM profile.| YES| |
-|`group_type`|  Valid values are: `site`, `ngi` or `vo` | YES| |
-|`granularity`| Possible values: `DAILY`, `MONTHLY` | NO| `DAILY`|
-|`infrastructure`| Filter results based on the name of the infrastructure the site belongs to | NO| `Production` |
-|`production`| Filter results based on whether they are production sites or not. Possible values: `true`, `false` | NO| `true` |
-|`monitored`| Filter results based on whether they are monitored sites or not. Possible values: `true`, `false`. | NO| `true` |
-|`certification`| Filter results based on the certification status of each site  | NO| `Certified` |
+|`job`| Name of the job that contains all the information about the profile, filter tags etc. | YES| |
 |`format`| Only xml available right now, so the parameter is void thus deactivated for the time being  | NO| `XML` |
-|`group_name`| Site, NGI or VO name. If no name is specified then all sites, NGIs or VOs are retrieved. |NO| |
+|`group_name`| Name of the Endpoint Groups. If no name is specified then all Endpoint Groups are retrieved. |NO| |
+|`supergroup_name`| Name of the group that groups the Endpoint Groups. If no name is specified then all groups are retrieved. |NO| |
+
+### Input
+
+Group of Endpoint Groups
+    /group_groups_availability?[start_time]&[end_time]&[job]&[granularity]&[format]&[group_name]
+
+### Parameters
+
+| Type | Description | Required | Default value |
+|`start_time`| UTC time in W3C format| YES ||
+|`end_time`| UTC time in W3C format| YES| |
+|`job`| Name of the job that contains all the information about the profile, filter tags etc. | YES| |
+|`format`| Only xml available right now, so the parameter is void thus deactivated for the time being  | NO| `XML` |
+|`group_name`| Name of the group that groups the Endpoint Groups. If no name is specified then all groups are retrieved. |NO| |
 
 
 ### Response
 
 Headers: `Status: 200 OK`
 
-#### Response body for `group_type=site`
+#### Response body for `/endpoint_group_availability` API call
 
     <root>
-      <Profile name="A_PROFILE_NAME">
-        <Site site="Site-Name" NGI="NGI-Name" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+      <Job name="Job_A">
+        <EndpointGroup name="Site-Name" SuperGroup="SuperGroup-A">
           <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
           <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
-        </Site>
-        <Site site="Site-Name-Another" NGI="NGI-Name-Another" infastructure="Type" scope="Scope" site_scope="Any" production="Y" monitored="Y" certification_status="Certified">
+        </EndpointGroup>
+        <EndpointGroup name="Site-Name-Another" SuperGroup="SuperGroup-B">
           <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
           <Availability timestamp="YYYY-MM-DD" availability="1" reliability="1"/>
-        </Site>
+        </EndpointGroup>
         .
         .
         .
-      </Profile>
+      </Job>
     </root>
 
-#### Response body for `group_type=ngi`
+#### Response body for `/group_groups_availability` API call
 
     <root>
-      <Profile name="A_PROFILE" namespace="a_namespace.grid.auth.gr">
-        <Ngi NGI="A_NGI">
+      <Job name="Job_A">
+        <SuperGroup name="GROUP_A">
           <Availability timestamp="2013-08-01" availability="87.64699776723847" reliability="87.64699776723847">
           </Availability>
           <Availability timestamp="2013-08-02" availability="87.63642636198455" reliability="87.63642636198455">
@@ -75,8 +85,8 @@ Headers: `Status: 200 OK`
           .
           <Availability timestamp="2013-08-09" availability="87.69028873148349" reliability="92.9126400880786">
           </Availability>
-        </Ngi>
-      </Profile>
+        </SuperGroup>
+      </Job>
     </root>
 
 
@@ -118,7 +128,7 @@ This method can be used to obtain Availability and Reliability metrics for Servi
 
 Headers: `Status: 200 OK`
 
-#### Response body 
+#### Response body
 
     <root>
       <Profile name="A_POEM-PROFILE">
@@ -137,5 +147,3 @@ Headers: `Status: 200 OK`
         </Site>
       </Profile>
     </root>
-
-
