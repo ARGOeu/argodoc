@@ -25,7 +25,7 @@ This method can be used to retrieve a list of current Availability profiles used
 
     /AP?[name]&[namespace]
 
-### Parameters
+#### Parameters
 
 | Type | Description | Required | Default value |
 |`name`| Profile name (both name and namespace are needed) | YES| |
@@ -72,11 +72,6 @@ This method can be used to insert a new Availability Profile onto the Compute En
 
     /AP
 
-#### Request headers
-
-    x-api-key: "shared_key_value"
-    Content-Type: application/json
-
 #### Parameters (Json formatted string)
 
     { 
@@ -91,6 +86,11 @@ This method can be used to insert a new Availability Profile onto the Compute En
 |`namespace`| Profile namespace (both name and namespace are needed) | YES| |
 |`poems`| Low level profile matching checks with service flavors | YES| |
 |`groups`|  Group of service flavors groups  | YES| |
+
+#### Request headers
+
+    x-api-key: "shared_key_value"
+    Content-Type: application/json
 
 #### Example 
 
@@ -146,11 +146,6 @@ This method can be used to update an existing Availability Profile onto the Comp
 
     /AP/{id}
 
-#### Request headers
-
-    x-api-key: "shared_key_value"
-    Content-Type: application/json
-
 #### Parameters ( Json formatted string) 
 
     { 
@@ -161,14 +156,13 @@ This method can be used to update an existing Availability Profile onto the Comp
     }
 
 
-
-#### Input parameters
+##### Input parameters
 
 | Type | Description | Required | Default value |
 | id | The availability profile id | YES | | 
 
 
-#### JSON parameters
+##### JSON parameters
 
 | Type | Description | Required | Default value |
 |`name`| Profile name (both name and namespace are needed) | YES| |
@@ -177,6 +171,11 @@ This method can be used to update an existing Availability Profile onto the Comp
 |`groups`|  Group of service flavors groups  | YES| |
 
 Check the POST: Create a new availability profile example. 
+
+#### Request headers
+
+    x-api-key: "shared_key_value"
+    Content-Type: application/json
 
 ### Response
 
