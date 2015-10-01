@@ -68,6 +68,7 @@
 	  </div>
           <% if (@item[:page_title] == "API documentation") || 
           (@item[:page_title] == "API - Status results") ||
+          (@item[:page_title] == "API - Metric result") ||
           (@item[:page_title] == "API - Availabilities & Reliabilities") ||
           (@item[:page_title] == "API - Recalculation Requests") ||
           (@item[:page_title] == "API - Availability Profiles") ||
@@ -93,6 +94,13 @@
               <a class="list-group-item-level2"  href="/guides/api/avail-reliab/">
             <% end %>
             <em class="fa fa-cogs"></em> API - Availabilities & Reliabilities</a>
+
+            <% if @item[:page_title] ==  "API - Metric Result" %>
+              <a class="list-group-item-level2 active"  href="/guides/api/metric-result/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/api/metric-result/">
+            <% end %>
+            <em class="fa fa-cogs"></em> Metric Result</a>
 
             <% if @item[:page_title] ==  "API - Recalculation Requests" %>
               <a class="list-group-item-level2 active"  href="/guides/api/recalculationrequests/">
