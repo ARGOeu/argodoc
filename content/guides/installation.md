@@ -123,6 +123,11 @@ Start consumer service and make sure to add it to appropriate run levels:
 
 ### Compute Engine
 
+Install (via `pip`) the latest version of the pymongo library:
+
+    # yum install python-pip
+    # pip install --upgrade pymongo
+
 Install the component:
 
     # yum install ar-compute
