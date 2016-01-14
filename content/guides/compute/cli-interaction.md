@@ -7,7 +7,7 @@ description: This document describes the Executable Scripts for cli interaction 
 
 ## Executable Scripts for cli interaction with the compute engine
 
-In the folder `/usr/libexec/ar-compute/bin/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem).
+In the folder `/usr/libexec/ar-compute/bin/` reside executable scripts that can be used for uploading metric data and sync data to the hadoop cluster (HDFS Filesystem). . 
 
 | Script | Description | Shortcut 
 |--------|-------------|----------
