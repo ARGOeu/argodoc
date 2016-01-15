@@ -9,7 +9,6 @@ description: This document describes the job configurations
 
 
 |Job Configuration |  Description | Shortcut |
-|------------------|--------------|----------|
 | `/etc/ar-compute-engine.conf` | This file includes various global parameters used by the engine which are organized in sections, as described next:|[Description](#compute-engine-conf)|
 | `{TENANT_NAME}_ops.json` | The ops files are json filetypes that are used to describe the available status types encountered in the monitoring environment of a tenant and also the available algorithmic operations available to use in status aggregations. |[Description](#tenant-ops-conf)|
 |`{TENANT_NAME}_{JOB_ID}_cfg.json` | A job config file is a json file that contains specific information needed during the job run such as grouping parameters, the name of the availability profile used and many more. |[Description](#tenant-jobid-conf)|
@@ -48,7 +47,6 @@ The main configuration files includes various global parameters used by the engi
 #### `[default]`
 
 | Name | Type | Description | Required|
-|------|------|-------------|---------|
 |`mongo_host`| String | Specify the ip address of the datastore node (running mongodb) | `YES` |
 |`mongo_port`| String |Specify the port number of the datastore node (running mongodb) | `YES` |
 | `mode` | String| The mode the engine runs. There are two available options: _cluster_ and _local_: `cluster`: If the mode is specified as _cluster_, the engine runs connecting to an existing hadoop cluster. It expects that the hadoop client is properly installed and configured. `local` : If the mode is specified as _local_, the engine runs local node. | `YES`|
@@ -62,30 +60,31 @@ The main configuration files includes various global parameters used by the engi
 In this section we declare the specific logging options for the compute engine
 
 | Name | Type | Description | Required|
-|------|------|-------------|---------|
 |`log_mode`| String | This parameter specifies the log_mode used by the compute engine. Possible values: `syslog` (default), `file`, `none`. a) `syslog`: the compute engine is configured to use the syslog facility, b) `file`: the compute engine can write directly to a file defined by `log_file`,  c) `none`: the compute engine does not output any logs| `YES`|
 |`log_file`| String | This parameter must be specified if `log_mode=file`. The file which the compute engine will use in order to write logging information |`NO`|
 |`log_level`| String | Possible values: `DEBUG` (default), `INFO`, `WARNING`, `ERROR`, `CRITICAL`. Defines the log level that is used by the  compute engine.|`YES`|
 |`hadoop_log_root` | String | Hadoop clients log level and log appender. If the user wants the hadoop components to log via SYSLOG must make sure to define an appropriate appender  in hadoop log4j.properties file. The name of this appender must be added in this parameter.|`YES`|
 
   For example at `hadoop_log_root` if the available appenders in the log4j.properties file are SYSLOG and console the above line will be:
-   ```
-   hadoop_log_root=SYSLOG,console
-   ```
 
+
+	   hadoop_log_root=SYSLOG,console
+   
+   
 #### `[jobs]`
 
 In this section we declare the specific tenant used in the installation and the set of jobs available (as we described them above in the [_"Tenant and Report configuration"_](#tenant-and-report-configuration)).
 
+
 | Name | Type | Description | Required|
-|------|------|-------------|---------|
 |`tenants`| List | Comma separated list with the names of the available tenants. For eg: `tenants=tenantFoo,tenantBar`|`YES`|
 | `{tenant-name}_jobs`| List | For each tenant: a comma separated job list with the names of the available reports to be produced. Names are case-sensitive. Each tenant can have multiple report configurations. Each report configuration is defined by a set of  topologies, metric profiles, weights etc. For eg: `tenantFoo_jobs=Major,Minor,ExampleA,Critical`| `YES`|
 | `{tenant-name}_prefilter`| Path(String) | For each tenant: An optional attribute that specifies the path of a prefilter wrapper - if and only if the tenant requires it. For eg: `tenantFoo_prefilter=/path/to/the/prefilter/script`| `NO`|
+
+
 #### `[sampling]`
 
 | Name | Type | Description | Required|
-|------|------|-------------|---------|
 | `s_period` |  minutes |The sampling period time in minutes | `YES`|
 | `s_interval` | minutes |The sampling interval time in minutes | `YES`|
 
@@ -141,7 +140,6 @@ The ARGO Compute Engine requires the user to define a mapping for the default_do
 > Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service.
 
 | Name | Description |
-|------|-------------|
 | `"default_down": "DOWNTIME"` | Means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state. |
 | `"default_missing": "MISSING"` | Means whenever compute engine decides that a service status must declared missing (because there is no information provided from the metric data) will mark it using the "MISSING" state. |
 | `"default_unknown: "UNKNOWN"` | Means whenever compute engine decides that must produce a service status to be considered unknown (for e.g. during recomputation requests) will mark it using the "UNKNOWN" state. |
@@ -190,7 +188,6 @@ The configuration file of the job contains mandatory and optional fields with ri
 In the above snippet we have declared the name of the tenant, the name of the job, the name of the specific availability profile used in the job. Also the type of endpoint grouping that will be used is declared here and the type of upper hierarchical grouping. Also if available here is declared the type of weight factor used for upper level A/R aggregations
 
 | Name | Description |
-|------|-------------|
 | `"tenant"` | This field is explicitly linked to the value of the tenant declaration of the global ar-compute-engine.conf file [link to description above](/#parameters-for-section-jobs) |
 | `"job"` | This field is explicitly linked to the name of a job declared in the job_set variable of the global ar-compute-engine.conf file [link to description above](#parameters-for-section-jobs) |
 | `"aprofile"` | This field is explicitly linked to one of the availability profile json files declared in the `/etc/ar_compute/` folder and they are described below [link to description further below](#availability-profile-per-tenant--per-job) |
@@ -220,7 +217,6 @@ The availability profile is a json file used per specific job that describes the
 The information in the availability profile JSON file is automatically picked up by the compute-engine during computations.
 
 | Name | Type | Description |
-|------|------|-------------|
 | `"name"` | string | The name of the availability profile |
 | `"namespace"` | string | The name of the namespace used by the profile |
 | `"metric_profile"` | string | The name of the metric profile linked to this availability profile |
