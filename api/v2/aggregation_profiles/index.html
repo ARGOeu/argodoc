@@ -92,40 +92,15 @@
             
                 <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#get-list-aggregation-profiles">GET: List Aggregation Profiles</a></li>
+                    <li><a class="toctree-l4" href="#get-list-aggregation-profiles">[GET]: List Aggregation Profiles</a></li>
                 
-                    <li><a class="toctree-l4" href="#input">Input</a></li>
+                    <li><a class="toctree-l4" href="#get-list-a-specific-aggregation-profile">[GET]: List A Specific Aggregation profile</a></li>
                 
-                    <li><a class="toctree-l4" href="#response">Response</a></li>
+                    <li><a class="toctree-l4" href="#post-create-a-new-aggregation-profile">[POST]: Create a new Aggregation Profile</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#get-list-a-specific-aggregation-profile">GET: List A Specific Aggregation profile</a></li>
+                    <li><a class="toctree-l4" href="#put-update-information-on-an-existing-aggregation-profile">[PUT]: Update information on an existing aggregation profile</a></li>
                 
-                    <li><a class="toctree-l4" href="#input_1">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_1">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#post-create-a-new-aggregation-profile">POST: Create a new Aggregation Profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_2">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_2">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#put-update-information-on-an-existing-aggregation-profile">PUT: Update information on an existing aggregation profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_3">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_3">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#delete-delete-an-existing-aggregation-profile">DELETE: Delete an existing aggregation profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_4">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_4">Response</a></li>
+                    <li><a class="toctree-l4" href="#delete-delete-an-existing-aggregation-profile">[DELETE]: Delete an existing aggregation profile</a></li>
                 
             
             </ul>
@@ -232,9 +207,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="get-list-aggregation-profiles">GET: List Aggregation Profiles</h1>
+<h2 id="get-list-aggregation-profiles">[GET]: List Aggregation Profiles</h2>
 <p>This method can be used to retrieve a list of current  aggregation profiles</p>
-<h2 id="input">Input</h2>
+<h3 id="input">Input</h3>
 <pre><code>GET /aggregation_profiles
 </code></pre>
 
@@ -255,15 +230,15 @@
 </tr>
 </tbody>
 </table>
-<h3 id="request-headers">Request headers</h3>
+<h4 id="request-headers">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response">Response</h2>
+<h3 id="response">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body">Response body</h3>
+<h4 id="response-body">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -360,21 +335,21 @@ Accept: application/json
 </code></pre>
 
 <p><a id='2'></a></p>
-<h1 id="get-list-a-specific-aggregation-profile">GET: List A Specific Aggregation profile</h1>
+<h2 id="get-list-a-specific-aggregation-profile">[GET]: List A Specific Aggregation profile</h2>
 <p>This method can be used to retrieve specific aggregation profile based on its id</p>
-<h2 id="input_1">Input</h2>
+<h3 id="input_1">Input</h3>
 <pre><code>GET /aggregation_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_1">Request headers</h3>
+<h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_1">Response</h2>
+<h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_1">Response body</h3>
+<h4 id="response-body_1">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -429,19 +404,19 @@ Accept: application/json
 </code></pre>
 
 <p><a id='3'></a></p>
-<h1 id="post-create-a-new-aggregation-profile">POST: Create a new Aggregation Profile</h1>
+<h2 id="post-create-a-new-aggregation-profile">[POST]: Create a new Aggregation Profile</h2>
 <p>This method can be used to insert a new aggregation profile</p>
-<h2 id="input_2">Input</h2>
+<h3 id="input_2">Input</h3>
 <pre><code>POST /aggregation_profiles
 </code></pre>
 
-<h3 id="request-headers_2">Request headers</h3>
+<h4 id="request-headers_2">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="post-body">POST BODY</h3>
+<h4 id="post-body">POST BODY</h4>
 <pre><code class="json">{
    &quot;name&quot;: &quot;new_aggregation_profile&quot;,
    &quot;namespace&quot;: &quot;test&quot;,
@@ -485,9 +460,9 @@ Accept: application/json
   }
 </code></pre>
 
-<h2 id="response_2">Response</h2>
+<h3 id="response_2">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_2">Response body</h3>
+<h4 id="response-body_2">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -504,19 +479,19 @@ Accept: application/json
 </code></pre>
 
 <p><a id='4'></a></p>
-<h1 id="put-update-information-on-an-existing-aggregation-profile">PUT: Update information on an existing aggregation profile</h1>
+<h2 id="put-update-information-on-an-existing-aggregation-profile">[PUT]: Update information on an existing aggregation profile</h2>
 <p>This method can be used to update information on an existing aggregation profile</p>
-<h2 id="input_3">Input</h2>
+<h3 id="input_3">Input</h3>
 <pre><code>PUT /aggregation_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_3">Request headers</h3>
+<h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="put-body">PUT BODY</h3>
+<h4 id="put-body">PUT BODY</h4>
 <pre><code class="json">{
    &quot;name&quot;: &quot;updated_profile&quot;,
    &quot;namespace&quot;: &quot;test&quot;,
@@ -560,9 +535,9 @@ Accept: application/json
   }
 </code></pre>
 
-<h2 id="response_3">Response</h2>
+<h3 id="response_3">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_3">Response body</h3>
+<h4 id="response-body_3">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -579,21 +554,21 @@ Accept: application/json
 </code></pre>
 
 <p><a id='5'></a></p>
-<h1 id="delete-delete-an-existing-aggregation-profile">DELETE: Delete an existing aggregation profile</h1>
+<h2 id="delete-delete-an-existing-aggregation-profile">[DELETE]: Delete an existing aggregation profile</h2>
 <p>This method can be used to delete an existing aggregation profile</p>
-<h2 id="input_4">Input</h2>
+<h3 id="input_4">Input</h3>
 <pre><code>DELETE /aggregation_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_4">Request headers</h3>
+<h4 id="request-headers_4">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_4">Response</h2>
+<h3 id="response_4">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_4">Response body</h3>
+<h4 id="response-body_4">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {

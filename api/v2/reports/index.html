@@ -106,33 +106,13 @@
             
                 <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#get-list-recomputation-requests">GET: List Recomputation Requests</a></li>
+                    <li><a class="toctree-l4" href="#get-list-recomputation-requests">[GET]: List Recomputation Requests</a></li>
                 
-                    <li><a class="toctree-l4" href="#input">Input</a></li>
+                    <li><a class="toctree-l4" href="#post-create-a-new-report">[POST]: Create a new report</a></li>
                 
-                    <li><a class="toctree-l4" href="#response">Response</a></li>
+                    <li><a class="toctree-l4" href="#put-update-an-existing-report">[PUT]: Update an existing report</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#post-create-a-new-report">POST: Create a new report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_1">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_1">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#put-update-an-existing-report">PUT: Update an existing report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_2">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_2">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#delete-delete-an-existing-report">DELETE: Delete an existing report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_3">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_3">Response</a></li>
+                    <li><a class="toctree-l4" href="#delete-delete-an-existing-report">[DELETE]: Delete an existing report</a></li>
                 
             
             </ul>
@@ -216,24 +196,24 @@
 </tbody>
 </table>
 <p><a id='1'></a></p>
-<h1 id="get-list-recomputation-requests">GET: List Recomputation Requests</h1>
+<h2 id="get-list-recomputation-requests">[GET]: List Recomputation Requests</h2>
 <p>This method can be used to retrieve a list of existing reports or a single report according to its ID.</p>
-<h2 id="input">Input</h2>
-<h3 id="url">URL</h3>
+<h3 id="input">Input</h3>
+<h4 id="url">URL</h4>
 <pre><code>/reports
 or
 /reports/{id}
 </code></pre>
 
-<h3 id="request-headers">Request headers</h3>
+<h4 id="request-headers">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response">Response</h2>
+<h3 id="response">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body">Response body</h3>
+<h4 id="response-body">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
     &quot;status&quot;: {
@@ -290,20 +270,20 @@ Accept: application/json
 </code></pre>
 
 <p><a id='2'></a></p>
-<h1 id="post-create-a-new-report">POST: Create a new report</h1>
+<h2 id="post-create-a-new-report">[POST]: Create a new report</h2>
 <p>This method can be used to create a new report</p>
-<h2 id="input_1">Input</h2>
-<h3 id="url_1">URL</h3>
+<h3 id="input_1">Input</h3>
+<h4 id="url_1">URL</h4>
 <pre><code>/reports
 </code></pre>
 
-<h3 id="request-headers_1">Request headers</h3>
+<h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="request-body">Request Body</h3>
+<h4 id="request-body">Request Body</h4>
 <pre><code class="json">{
     &quot;info&quot;: {
         &quot;name&quot;: &quot;Report_A&quot;,
@@ -344,9 +324,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h2 id="response_1">Response</h2>
+<h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
-<h3 id="response-body_1">Response Body</h3>
+<h4 id="response-body_1">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Successfully Created Report&quot;,
@@ -362,20 +342,20 @@ Accept: application/json
 </code></pre>
 
 <p><a id='3'></a></p>
-<h1 id="put-update-an-existing-report">PUT: Update an existing report</h1>
+<h2 id="put-update-an-existing-report">[PUT]: Update an existing report</h2>
 <p>This method can be used to update an existing report. This will replace all the fields in the record so all the old fields that need to be kept must be included in the json of the update request body</p>
-<h2 id="input_2">Input</h2>
-<h3 id="url_2">URL</h3>
+<h3 id="input_2">Input</h3>
+<h4 id="url_2">URL</h4>
 <pre><code>/reports/{id}
 </code></pre>
 
-<h3 id="request-headers_2">Request headers</h3>
+<h4 id="request-headers_2">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="request-body_1">Request Body</h3>
+<h4 id="request-body_1">Request Body</h4>
 <pre><code class="json">{
     &quot;info&quot;: {
         &quot;name&quot;: &quot;newname&quot;,
@@ -419,9 +399,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h2 id="response_2">Response</h2>
+<h3 id="response_2">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_2">Response Body</h3>
+<h4 id="response-body_2">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Report was successfully updated&quot;,
@@ -431,22 +411,22 @@ Accept: application/json
 </code></pre>
 
 <p><a id='4'></a></p>
-<h1 id="delete-delete-an-existing-report">DELETE: Delete an existing report</h1>
+<h2 id="delete-delete-an-existing-report">[DELETE]: Delete an existing report</h2>
 <p>This method can be used to update an existing report</p>
-<h2 id="input_3">Input</h2>
-<h3 id="url_3">URL</h3>
+<h3 id="input_3">Input</h3>
+<h4 id="url_3">URL</h4>
 <pre><code>/reports/{id}
 </code></pre>
 
-<h3 id="request-headers_3">Request headers</h3>
+<h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_3">Response</h2>
+<h3 id="response_3">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_3">Response Body</h3>
+<h4 id="response-body_3">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Report was successfully deleted&quot;,
