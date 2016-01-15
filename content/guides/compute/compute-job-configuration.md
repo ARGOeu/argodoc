@@ -89,13 +89,12 @@ In this section we declare the specific tenant used in the installation and the 
 | `s_interval` | minutes |The sampling interval time in minutes | `YES`|
 
 
-> **Note**
->
-> the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used
-> - `s_period = 1440`
-> - `s_interval = 5`
->
-> so number of samples = 1440/5 = 288
+**Note**
+the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used
+ - `s_period = 1440`
+ - `s_interval = 5`
+
+ so number of samples = 1440/5 = 288
 
 
 ### `/etc/ar-compute/`
@@ -135,7 +134,9 @@ The ARGO Compute Engine requires the user to define a mapping for the default_do
 	"default_missing": "MISSING",
 	"default_unknown": "UNKNOWN",
 
- **Note: The importance of the default states** : Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service.
+ **Note: The importance of the default states** :
+  Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service.
+
 
 | Name | Description |
 | `"default_down": "DOWNTIME"` | Means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state. |
