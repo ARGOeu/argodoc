@@ -1,5 +1,6 @@
 
 
+
 # Prerequisites
 
 - You will need a RHEL 6.x or similar OS (base installation) to proceed. Note that the following instructions have been tested against CentOS 6.x OSes.
@@ -32,11 +33,6 @@ You will also need to install the EGI trust-anchors repository (this is required
 
 
 # Installation
-
-Install (via `pip`) the latest version of the pymongo library:
-
-    # yum install python-pip
-    # pip install --upgrade pymongo
 
 Install (via `pip`) the latest version of the pymongo library:
 
