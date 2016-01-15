@@ -59,8 +59,7 @@ Edit the `/etc/ar-compute-engine.conf` configuration file and
 
 Under the folder `/etc/cron.d/` place two cronjobs that will handle hourly and daily calculations.
 
-- for the daily caclulations edit `/etc/cron.d/ar_job_cycle_daily` and place the following contents:
-
+For the daily caclulations edit `/etc/cron.d/ar_job_cycle_daily` and place the following contents.
 	
 	0 0 * * * root /usr/libexec/ar-compute/standalone/job_cycle.py -d $(/bin/date --utc --date '-1 day' +\%Y-\%m-\%d)
 
