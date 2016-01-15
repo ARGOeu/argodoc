@@ -50,10 +50,12 @@ The current **raw avro schema file** for the metric data is the following:
 	    { "name": "monitoring_host", "type": ["null", "string"]},
 	    { "name": "summary", "type": ["null", "string"]},
 	    { "name": "message", "type": ["null", "string"]},
-	    { "name": "tags", "type" : ["null", { "name" : "Tags",
+	    { "name": "tags", "type" : ["null", 
+	       { "name" : "Tags",
 	       "type" : "map",
 	       "values" : ["int", "string"]
-		}
+            }
+      
 	      ]
 	    }
 	  ]
