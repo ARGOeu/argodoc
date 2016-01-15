@@ -91,6 +91,7 @@ In this section we declare the specific tenant used in the installation and the 
 
 **Note**
 the number of samples used in a/r calculations is determined by the s_period/s_interval value. Default values used
+
  - `s_period = 1440`
  - `s_interval = 5`
 
