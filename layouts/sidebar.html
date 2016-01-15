@@ -21,6 +21,7 @@
             <a class="list-group-item active" href="/guides/egi-connectors/"><em class="fa fa-refresh"></em> EGI Connectors</a>
           <% else %>
             <a class="list-group-item" href="/guides/egi-connectors/"><em class="fa fa-refresh"></em> EGI Connectors</a>
+
           <% end %>
           <% if @item[:page_title] ==  "POEM service for ARGO framework" %>	
             <a class="list-group-item active" href="/guides/poem/"><em class="fa fa-check-square-o"></em> Poem service</a>
@@ -33,8 +34,7 @@
             <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
           <% if (@item[:page_title] ==  "Compute Engine documentation") || 
-          (@item[:page_title] == "Compute Engine") ||
-          (@item[:page_title] == "Compute Engine Info") ||
+
           (@item[:page_title] == "Compute Engine Input") ||
   	  (@item[:page_title] == "Compute engine job configurations") ||
 	  (@item[:page_title] == "Compute - Cli interaction" ) %>	
@@ -43,7 +43,6 @@
             <a class="list-group-item " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% end %>
   	  <div id='caret-data1'>
-
             <% if @item[:page_title] ==  "Compute Engine Input" %>
               <a class="list-group-item-level2 active"  href="/guides/compute/compute-input/">
             <% else %>

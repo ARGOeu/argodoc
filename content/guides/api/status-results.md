@@ -23,6 +23,8 @@ This method may be used to retrieve a specific service metric status timeline (a
 
 ### Input
 
+    /status/metrics/timeline/{group}?[start_time]&[end_time]&[vo]&[profile]&[group_type]
+
 
 #### List All metrics:
 
@@ -37,13 +39,13 @@ This method may be used to retrieve a specific service metric status timeline (a
 #### Path Parameters
 
 | Type | Description | Required | Default value |
-|------|-------------|----------|---------------|
-|`report`| name of the report used | YES | |
-|`group_type`| type of endpoint group| YES |  |
-|`group_name`| name of endpoint group| YES |  |
-|`service_type`| type of endpoint group| YES |  |
-|`hostname`| hostname of service endpoint| YES |  |
-|`metric_name`| name of the metric| NO |  |
+|`start_time`| UTC time in W3C format| YES |  |
+|`end_time`| UTC time in W3C format| YES |  |
+|`vo`| vo name | NO | `ops` |
+|`profile`| POEM profile name | NO| `ch.cern.sam.ROC_CRITICAL` |
+|`group_type`| `ngi`, `site` or `host`| NO | `site` |
+
+Depending on the `group_type`, `{group}` is the name of the group (for example `NGI_GRNET` when `group_type=ngi`, `HG-03-AUTH` when `group_type=site` or `cream.afroditi.hellasgrid.gr` when `group_type=host`). 
 
 
 #### Url Parameters
@@ -73,85 +75,66 @@ Status: 200 OK
 
 #### Response body
 
-##### List All metrics: - Example 
+##### `group_type=site`
 
-###### Request:
+    <root>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="HG-03-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <host name="cream.afroditi.hellasgrid.gr">
+                  <metric name="emi.cream.CREAMCE-JobSubmit">
+                    <status timestamp="2015-02-03T22:58:39Z" status="OK"/>
+                    <status timestamp="2015-02-04T02:23:45Z" status="OK"/>
+                    .
+                    .  status results
+                    .
+                  </metric>
+                  .
+                  .  metrics
+                  .
+                </host>
+                .
+                .  hosts (endpoints)
+                .
+              </group>
+              .
+              .  service flavors
+              .
+            </group>
+          </group>
+        </group>
+      </profile>
+    </root>
 
-URL:
+##### `group_type=host`
 
-	/status/EGI_CRITICAL/SITES/HG-03-AUTH/services/CREAM-CE/endpoints/cream01.afroditi.gr/metrics?start_time=2015-05-01T00:00:00Z&end_time=2015-05-01T23:59:59Z
+    <root>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="HG-03-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <host name="cream.afroditi.hellasgrid.gr">
+                  <metric name="emi.cream.CREAMCE-JobSubmit">
+                    <status timestamp="2015-02-03T22:58:39Z" status="OK"/>
+                    <status timestamp="2015-02-04T02:23:45Z" status="OK"/>
+                    .
+                    .  status results
+                    .
+                  </metric>
+                  .
+                  .  other metrics (i.e. probes) results
+                  .
+                </host>
+              </group>
+            </group>
+          </group>
+        </group>
+      </profile>
+    </root>
 
-Headers:
-
-	x-api-key:"INSERTTENANTKEYHERE"
-	Accept:"application/xml"
-
-###### Example Response:
-
-Code:
-```
-Status: 200 OK
-```
-
-###### Reponse body:
-
-	<root>
-		<group name="HG-03-AUTH" type="SITES">
-			<group name="CREAM-CE" type="service">
-				<endpoint name="cream01.afroditi.gr">
-					<metric name="emi.cream.CREAMCE-JobSubmit">
-						<status timestamp="2015-04-30T23:59:00Z" status="OK"></status>
-						<status timestamp="2015-05-01T01:00:00Z" status="CRITICAL"></status>
-						<status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
-					</metric>
-					<metric name="emi.wn.WN-Bi">
-						<status timestamp="2015-04-30T22:59:00Z" status="OK"></status>
-						<status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
-						<status timestamp="2015-05-01T03:00:00Z" status="OK"></status>
-					</metric>
-				</endpoint>
-			</group>
-		</group>
-	</root>
-
-
-#### List specific metric 
-(`metric_name=emi.cream.CREAM-CE-JobSubmit`):
-
-##### Example Request:
-
-URL:
-
-	/status/EGI_CRITICAL/SITES/HG-03-AUTH/services/CREAM-CE/endpoints/cream01.afroditi.gr/metrics/emi.cream.CREAMCE-JobSubmit?start_time=2015-05-01T00:00:00Z&end_time=2015-05-01T23:59:59Z
-
-Headers:
-
-	x-api-key:"INSERTTENANTKEYHERE"
-	Accept:"application/xml"
-
-##### Example Response:
-
-Code:
-```
-Status: 200 OK
-```
-
-Reponse body:
-
-
-	<root>
-		<group name="HG-03-AUTH" type="SITES">
-			<group name="CREAM-CE" type="service">
-				<endpoint name="cream01.afroditi.gr">
-					<metric name="emi.cream.CREAMCE-JobSubmit">
-						<status timestamp="2015-04-30T23:59:00Z" status="OK"></status>
-						<status timestamp="2015-05-01T01:00:00Z" status="CRITICAL"></status>
-						<status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
-					</metric>
-				</endpoint>
-			</group>
-		</group>
-	</root>
 
 
 <a id="2"></a>
@@ -162,7 +145,8 @@ This method may be used to retrieve a specific service endpoint status timeline 
 
 ### Input
 
-##### List All endpoints:
+    /status/endpoints/timeline/{group}?[start_time]&[end_time]&[vo]&[profile]&[group_type]
+
 
 	/status/{report}/{group_type}/{group_name}/services/{service_type}/endpoints?[start_time]&[end_time]
 
@@ -173,12 +157,14 @@ This method may be used to retrieve a specific service endpoint status timeline 
 #### Path Parameters
 
 | Type | Description | Required | Default value |
-|------|-------------|----------|---------------|
-|`report`| name of the report used | YES | |
-|`group_type`| type of endpoint group| YES |  |
-|`group_name`| name of endpoint group| YES |  |
-|`service_type`| type of endpoint group| YES |  |
-|`hostname`| hostname of service endpoint| NO |  |
+|`start_time`| UTC time in W3C format| YES | |
+|`end_time`| UTC time in W3C format| YES| |
+|`vo`| vo name | NO | `ops` |
+|`profile`| POEM profile name | NO | `ch.cern.sam.ROC_CRITICAL` |
+|`group_type`| `ngi` or `site` | NO | `site` |
+
+Depending on the `group_type`, `{group}` is the name of the group (for example `HG-03-AUTH` when `group_type=site` or `NGI_GRNET` when `group_type=ngi`). 
+
 
 #### Url Parameters
 
@@ -282,7 +268,70 @@ Reponse body:
 	</root>
 
 
+##### `group_type=site`
 
+    <root>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="HG-03-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <endpoint hostname="cream.afroditi.hellasgrid.gr" service="CREAM-CE">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T01:28:44Z" status="UNKNOWN"/>
+                  <status timestamp="2015-02-04T02:23:45Z" status="OK"/>
+                  .
+                  . status results for given endpoint
+                  .
+                </endpoint>
+              </group>
+              <group name="SRMv2" type="service_type">
+                <endpoint hostname="se01.afroditi.hellasgrid.gr" service="SRMv2">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T21:57:05Z" status="OK"/>
+                </endpoint>
+              </group>
+              <group name="Site-BDII" type="service_type">
+                <endpoint hostname="sbdii.afroditi.hellasgrid.gr" service="Site-BDII">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T22:13:56Z" status="OK"/>
+                </endpoint>
+              </group>
+            </group>
+          </group>
+        </group>
+      </profile>
+    </root>
+
+##### `group_type=ngi`
+
+    
+    <root>
+      <profile name="ch.cern.sam.ROC_CRITICAL">
+        <group name="ops" type="vo">
+          <group name="NGI_GRNET" type="ngi">
+            <group name="GR-01-AUTH" type="site">
+              <group name="CREAM-CE" type="service_type">
+                <endpoint hostname="cream01.grid.auth.gr" service="CREAM-CE">
+                  <status timestamp="2015-02-04T00:00:00Z" status="OK"/>
+                  <status timestamp="2015-02-04T22:28:21Z" status="OK"/>
+                  .
+                  . status results for given endpoint
+                  .
+                </endpoint>
+              </group>
+              <group name="SRMv2" type="service_type">
+              .
+              .  other service flavors
+              .
+            </group>
+            .
+            .  other sites within specified NGI
+            .
+          </group>
+        </group>
+      </profile>
+    </root>
 
 <a id="3"></a>
 
@@ -292,7 +341,8 @@ This method may be used to retrieve a specific service flavor status timeline (a
 
 ### Input
 
-##### List All service types:
+    /status/services/timeline/{group}?[start_time]&[end_time]&[vo]&[profile]&[group_type]
+
 
 	/status/{report}/{group_type}/{group_name}/services[start_time]&[end_time]
 
@@ -303,11 +353,14 @@ This method may be used to retrieve a specific service flavor status timeline (a
 #### Path Parameters
 
 | Type | Description | Required | Default value |
-|------|-------------|----------|---------------|
-|`report`| name of the report used | YES | |
-|`group_type`| type of endpoint group| YES |  |
-|`group_name`| name of endpoint group| YES |  |
-|`service_type`| type of endpoint group| NO |  |
+|`start_time`| UTC time in W3C format| YES ||
+|`end_time`| UTC time in W3C format| YES| |
+|`vo`| vo name | NO | `ops` |
+|`profile`| POEM profile name | NO | `ch.cern.sam.ROC_CRITICAL` |
+|`group_type`| `site` or `ngi` | NO | `site` |
+
+Depending on the `group_type`, `{group}` is the name of the group (for example `HG-03-AUTH` when `group_type=site` or `NGI_GRNET` when `group_type=ngi`).
+
 
 #### Url Parameters
 
@@ -530,19 +583,21 @@ This method may be used to retrieve a detailed metric result.
 
 ### Input
 
-    /status/metrics/msg/{hostname}/{service_flavor}/{metric}?[exec_time]&[job]
+    /status/sites/timeline/{group}?[start_time]&[end_time]&[site]&[vo]&[profile]
+
 
 
 #### Parameters
 
 | Type | Description | Required | Default value |
-|------|-------------|----------|---------------|
-|`exec_time`| UTC time in W3C format| YES |  |
-|`job`| Job (view) name | YES |  |
+|`start_time`| UTC time in W3C format| YES ||
+|`end_time`| UTC time in W3C format| YES| |
+|`vo`| vo name | NO | `ops` |
+|`profile`| POEM profile name | NO | `ch.cern.sam.ROC_CRITICAL` |
+|`group_type`| `site` or `ngi` | NO | `site` |
 
-#### Request headers
+Depending on the `group_type`, `{group}` is the name of the group (for example `HG-03-AUTH` when `group_type=site` or `NGI_GRNET` when `group_type=ngi`).
 
-    x-api-key: "tenant_key_value"
 
 ### Response
 
