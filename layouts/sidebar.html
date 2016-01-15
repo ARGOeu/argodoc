@@ -34,15 +34,21 @@
             <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
           <% if (@item[:page_title] ==  "Compute Engine documentation") || 
-
-          (@item[:page_title] == "Compute Engine Input") ||
-  	  (@item[:page_title] == "Compute engine job configurations") ||
-	  (@item[:page_title] == "Compute - Cli interaction" ) %>	
+          	(@item[:page_title] == "Compute Engine Input") ||
+          	(@item[:page_title] == "Compute - Installation") ||
+  	  		(@item[:page_title] == "Compute engine job configurations") ||
+	  		(@item[:page_title] == "Compute - Cli interaction" ) %>	
             <a class="list-group-item active " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% else %>  
             <a class="list-group-item " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% end %>
   	  <div id='caret-data1'>
+  	      <% if @item[:page_title] ==  "Compute - Installation" %>
+              <a class="list-group-item-level2 active"  href="/guides/compute/installation/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/compute/installation/">
+            <% end %>
+            <em class="fa fa-cog"></em> Compute engine Installation </a>
             <% if @item[:page_title] ==  "Compute Engine Input" %>
               <a class="list-group-item-level2 active"  href="/guides/compute/compute-input/">
             <% else %>
