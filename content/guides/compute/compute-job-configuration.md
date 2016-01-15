@@ -135,9 +135,7 @@ The ARGO Compute Engine requires the user to define a mapping for the default_do
 	"default_missing": "MISSING",
 	"default_unknown": "UNKNOWN",
 
-> **Note: The importance of the default states**
->
-> Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service.
+ **Note: The importance of the default states** : Since compute engine gives the ability to define completely custom states based on your monitoring infrastructure output we must also tag some custom states with specific meaning. These states might not be present in the monitoring messages but are produced during computations by the compute engine according to a specific logic. So we need to "tie" some of the custom status we declare to a specific default state of service.
 
 | Name | Description |
 | `"default_down": "DOWNTIME"` | Means that whenever compute engine needs to produce a status for a scheduled downtime will mark it using the "DOWNTIME" state. |
