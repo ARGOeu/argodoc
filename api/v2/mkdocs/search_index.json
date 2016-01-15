@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Index", 
+            "text": "Index\n\n\nAPI Endpoints - Description\n\n\n\n\nRecomputations Requests\n\n\nResults\n\n\nStatus results\n\n\nMetric Profiles\n\n\nAggregation Profiles\n\n\nOperations Profiles\n\n\nReports\n\n\nTenants", 
             "title": "Home"
         }, 
         {
             "location": "/#index", 
             "text": "", 
             "title": "Index"
+        }, 
+        {
+            "location": "/#api-endpoints-description", 
+            "text": "Recomputations Requests  Results  Status results  Metric Profiles  Aggregation Profiles  Operations Profiles  Reports  Tenants", 
+            "title": "API Endpoints - Description"
         }, 
         {
             "location": "/recomputations/", 
