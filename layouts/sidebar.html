@@ -74,12 +74,7 @@
 
 	  </div>
           <% if (@item[:page_title] == "API documentation") || 
-          (@item[:page_title] == "API - Status results") ||
-          (@item[:page_title] == "API - Metric result") ||
-          (@item[:page_title] == "API - Availabilities & Reliabilities") ||
-          (@item[:page_title] == "API - Recalculation Requests") ||
-          (@item[:page_title] == "API - Availability Profiles") ||
-          (@item[:page_title] == "API - POEM Profiles")
+          (@item[:page_title] == "API Installation") 
           %>
             <a class="list-group-item active" href="/guides/api/" id='caretclick' data-caret='open'>
           <% else %>
@@ -88,48 +83,12 @@
           <em class="fa fa-cogs"></em> API <span class="caret" ></span></a>
 
           <div id='caret-data'>
-            <% if @item[:page_title] ==  "API - Status results" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/status-results/">
+            <% if @item[:page_title] ==  "API Installation" %>
+              <a class="list-group-item-level2 active"  href="/guides/api/installation/">
             <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/status-results/">
+              <a class="list-group-item-level2"  href="/guides/api/installation/">
             <% end %>
-            <em class="fa fa-cogs"></em> API - Status results</a>
-
-            <% if @item[:page_title] ==  "API - Availabilities & Reliabilities" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/avail-reliab/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/avail-reliab/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Availabilities & Reliabilities</a>
-
-            <% if @item[:page_title] ==  "API - Metric Result" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/metric-result/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/metric-result/">
-            <% end %>
-            <em class="fa fa-cogs"></em> Metric Result</a>
-
-            <% if @item[:page_title] ==  "API - Recalculation Requests" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/recalculationrequests/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/recalculationrequests/">
-            <% end %>
-            <em class="fa fa-cogs"></em> Recalculation Requests</a>
-
-            <% if @item[:page_title] ==  "API - Availability Profiles" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/availabilityprofs/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/availabilityprofs/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Availability Profiles</a>
-
-            <% if @item[:page_title] ==  "API - POEM Profiles" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/poemprofiles/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/poemprofiles/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - POEM Profiles</a>
-
+            <em class="fa fa-cogs"></em> API - Installation</a>
         </div>
           <% if @item[:page_title] ==  "Web UI" %>	
             <a class="list-group-item active" href="/guides/webui/"><em class="fa fa-connectdevelop"></em> Web UI</a>
