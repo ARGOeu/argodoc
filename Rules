@@ -2,20 +2,6 @@
 compile '/static/*' do
 end
 
-compile '/guides/api' do
-  filter :kramdown, :toc_levels => [2]
-  filter :erb
-  filter :colorize_syntax, :default_colorizer => :pygmentsrb
-  layout 'api'
-end
-
-compile '/guides/api/*' do
-  filter :kramdown, :toc_levels => [2]
-  filter :erb
-  filter :colorize_syntax, :default_colorizer => :pygmentsrb
-  layout 'apipages'
-end
-
 compile 'overview' do
   filter :kramdown, :toc_levels => [2]
   filter :erb

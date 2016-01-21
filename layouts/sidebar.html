@@ -76,20 +76,12 @@
           <% if (@item[:page_title] == "API documentation") || 
           (@item[:page_title] == "API Installation") 
           %>
-            <a class="list-group-item active" href="/guides/api/" id='caretclick' data-caret='open'>
+            <a class="list-group-item active" href="/guides/api/" >
           <% else %>
-            <a class="list-group-item" href="/guides/api/" id='caretclick' data-caret='open'> 
+            <a class="list-group-item" href="/guides/api/"> 
           <% end %>
           <em class="fa fa-cogs"></em> API <span class="caret" ></span></a>
 
-          <div id='caret-data'>
-            <% if @item[:page_title] ==  "API Installation" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/installation/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/installation/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Installation</a>
-        </div>
           <% if @item[:page_title] ==  "Web UI" %>	
             <a class="list-group-item active" href="/guides/webui/"><em class="fa fa-connectdevelop"></em> Web UI</a>
           <% else %>
