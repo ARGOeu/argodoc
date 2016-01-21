@@ -112,5 +112,5 @@ And the API can be started by issuing the command:
 
 ## Links and further reading
 
-[](TODO: Add link to swagger) 
+- [Swagger : API Demo](http://arpi.afroditi.hellasgrid.gr:8080/)
 
