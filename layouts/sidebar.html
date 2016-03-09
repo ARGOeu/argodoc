@@ -16,11 +16,12 @@
           <% else %>
             <a class="list-group-item" href="/guides/installation_cluster/"><em class="fa fa-sitemap"></em> Cluster Mode</a>
           <% end %>
-            <a class="list-group-item disabled blue" href="/guides/sync/">Components</a>
+            <a class="list-group-item disabled blue" href="/guides/egi-connectors/">Components</a>
           <% if @item[:page_title] ==  "EGI connectors" %>	
-            <a class="list-group-item active" href="/guides/sync/"><em class="fa fa-refresh"></em> EGI Connectors</a>
+            <a class="list-group-item active" href="/guides/egi-connectors/"><em class="fa fa-refresh"></em> EGI Connectors</a>
           <% else %>
-            <a class="list-group-item" href="/guides/sync/"><em class="fa fa-refresh"></em> EGI Connectors</a>
+            <a class="list-group-item" href="/guides/egi-connectors/"><em class="fa fa-refresh"></em> EGI Connectors</a>
+
           <% end %>
           <% if @item[:page_title] ==  "POEM service for ARGO framework" %>	
             <a class="list-group-item active" href="/guides/poem/"><em class="fa fa-check-square-o"></em> Poem service</a>
@@ -33,87 +34,54 @@
             <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
           <% if (@item[:page_title] ==  "Compute Engine documentation") || 
-          (@item[:page_title] == "Compute Engine Input") ||
-  	  (@item[:page_title] == "Compute engine job configurations") ||
-	  (@item[:page_title] == "Compute - Cli interaction" ) %>	
-            <a class="list-group-item active " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
+          	(@item[:page_title] == "Compute Engine Input") ||
+          	(@item[:page_title] == "Compute - Installation") ||
+  	  		(@item[:page_title] == "Compute engine job configurations") ||
+	  		(@item[:page_title] == "Compute Engine Info") ||
+			(@item[:page_title] == "Compute - Cli interaction" ) %>	
+            <a class="list-group-item active " href="/guides/argo-compute-engine/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% else %>  
-            <a class="list-group-item " href="/guides/compute/"><em class="fa fa-cog"></em> Compute Engine</a>
+            <a class="list-group-item " href="/guides/argo-compute-engine/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% end %>
   	  <div id='caret-data1'>
+  	      <% if @item[:page_title] ==  "Compute - Installation" %>
+              <a class="list-group-item-level2 active"  href="/guides/argo-compute-engine/installation/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/argo-compute-engine/installation/">
+            <% end %>
+            <em class="fa fa-cog"></em> Installation </a>
             <% if @item[:page_title] ==  "Compute Engine Input" %>
-              <a class="list-group-item-level2 active"  href="/guides/compute/compute-input/">
+              <a class="list-group-item-level2 active"  href="/guides/argo-compute-engine/input/">
             <% else %>
-              <a class="list-group-item-level2"  href="/guides/compute/compute-input/">
+              <a class="list-group-item-level2"  href="/guides/argo-compute-engine/input/">
             <% end %>
-            <em class="fa fa-cog"></em> Compute Engine Input </a>
+            <em class="fa fa-cog"></em> Input </a>
  	    <% if @item[:page_title] ==  "Compute engine job configurations" %>
-              <a class="list-group-item-level2 active"  href="/guides/compute/compute-job-configuration/">
+              <a class="list-group-item-level2 active"  href="/guides/argo-compute-engine/report-configuration/">
             <% else %>
-              <a class="list-group-item-level2"  href="/guides/compute/compute-job-configuration/">
+              <a class="list-group-item-level2"  href="/guides/argo-compute-engine/report-configuration/">
             <% end %>
-            <em class="fa fa-cog"></em> Compute engine job configurations </a>
+            <em class="fa fa-cog"></em> Report configurations </a>
 
  
  	    <% if @item[:page_title] ==  "Compute - Cli interaction" %>
-              <a class="list-group-item-level2 active"  href="/guides/compute/cli-interaction/">
+              <a class="list-group-item-level2 active"  href="/guides/argo-compute-engine/cli-interaction/">
             <% else %>
-              <a class="list-group-item-level2"  href="/guides/compute/cli-interaction/">
+              <a class="list-group-item-level2"  href="/guides/argo-compute-engine/cli-interaction/">
             <% end %>
-            <em class="fa fa-cog"></em> Compute Engine CLI </a>
+            <em class="fa fa-cog"></em> CLI </a>
 
 
 	  </div>
           <% if (@item[:page_title] == "API documentation") || 
-          (@item[:page_title] == "API - Status results") ||
-          (@item[:page_title] == "API - Availabilities & Reliabilities") ||
-          (@item[:page_title] == "API - Recalculation Requests") ||
-          (@item[:page_title] == "API - Availability Profiles") ||
-          (@item[:page_title] == "API - POEM Profiles")
+          (@item[:page_title] == "API Installation") 
           %>
-            <a class="list-group-item active" href="/guides/api/" id='caretclick' data-caret='open'>
+            <a class="list-group-item active" href="/guides/api/" >
           <% else %>
-            <a class="list-group-item" href="/guides/api/" id='caretclick' data-caret='open'> 
+            <a class="list-group-item" href="/guides/api/"> 
           <% end %>
-          <em class="fa fa-cogs"></em> API <span class="caret" ></span></a>
+          <em class="fa fa-cogs"></em> API</a>
 
-          <div id='caret-data'>
-            <% if @item[:page_title] ==  "API - Status results" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/status-results/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/status-results/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Status results</a>
-
-            <% if @item[:page_title] ==  "API - Availabilities & Reliabilities" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/avail-reliab/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/avail-reliab/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Availabilities & Reliabilities</a>
-
-            <% if @item[:page_title] ==  "API - Recalculation Requests" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/recalculationrequests/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/recalculationrequests/">
-            <% end %>
-            <em class="fa fa-cogs"></em> Recalculation Requests</a>
-
-            <% if @item[:page_title] ==  "API - Availability Profiles" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/availabilityprofs/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/availabilityprofs/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - Availability Profiles</a>
-
-            <% if @item[:page_title] ==  "API - POEM Profiles" %>
-              <a class="list-group-item-level2 active"  href="/guides/api/poemprofiles/">
-            <% else %>
-              <a class="list-group-item-level2"  href="/guides/api/poemprofiles/">
-            <% end %>
-            <em class="fa fa-cogs"></em> API - POEM Profiles</a>
-
-        </div>
           <% if @item[:page_title] ==  "Web UI" %>	
             <a class="list-group-item active" href="/guides/webui/"><em class="fa fa-connectdevelop"></em> Web UI</a>
           <% else %>
