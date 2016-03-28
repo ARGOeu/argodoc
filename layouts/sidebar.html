@@ -38,7 +38,8 @@
           	(@item[:page_title] == "Compute - Installation") ||
   	  		(@item[:page_title] == "Compute engine job configurations") ||
 	  		(@item[:page_title] == "Compute Engine Info") ||
-			(@item[:page_title] == "Compute - Cli interaction" ) %>	
+			(@item[:page_title] == "Compute - Cli interaction" ) || 
+			(@item[:page_title] == "Compute Engine Ingestion | Flume Decode Interceptor" ) %>	
             <a class="list-group-item active " href="/guides/argo-compute-engine/"><em class="fa fa-cog"></em> Compute Engine</a>
           <% else %>  
             <a class="list-group-item " href="/guides/argo-compute-engine/"><em class="fa fa-cog"></em> Compute Engine</a>
@@ -70,6 +71,13 @@
               <a class="list-group-item-level2"  href="/guides/argo-compute-engine/cli-interaction/">
             <% end %>
             <em class="fa fa-cog"></em> CLI </a>
+
+ 	    <% if @item[:page_title] ==  "Compute Engine Ingestion | Flume Decode Interceptor" %>
+              <a class="list-group-item-level2 active"  href="/guides/argo-compute-engine/flume_decode_interceptor/">
+            <% else %>
+              <a class="list-group-item-level2"  href="/guides/argo-compute-engine/flume_decode_interceptor/">
+            <% end %>
+            <em class="fa fa-cog"></em> Flume Decode Interceptor</a>
 
 
 	  </div>
