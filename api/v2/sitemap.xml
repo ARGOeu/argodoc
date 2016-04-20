@@ -73,4 +73,20 @@
     </url>
     
 
+    
+    <url>
+     <loc>http://argoeu.github.io//errors/</loc>
+     <lastmod>2016-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//validations/</loc>
+     <lastmod>2016-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
 </urlset>
