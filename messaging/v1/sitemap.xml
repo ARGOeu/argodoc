@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://argoeu.github.io//</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//overview/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//msg_backend/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//msg_flow/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//auth/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//api_basic/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//api_auth/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//api_topics/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//api_subs/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://argoeu.github.io//api_errors/</loc>
+     <lastmod>2016-05-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
