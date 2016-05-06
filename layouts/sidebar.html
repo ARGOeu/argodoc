@@ -33,6 +33,12 @@
           <% else %>
             <a class="list-group-item" href="/guides/consumer/"><em class="fa fa-send-o"></em> Consumer</a>
           <% end %>
+          <% if @item[:page_title] ==  "Messaging Service" %>	
+            <a class="list-group-item active " href="/guides/messaging/"><em class="fa fa-comments-o"></em> Messaging Service</a>
+          <% else %>  
+            <a class="list-group-item " href="/guides/messaging/"><em class="fa fa-comments-o"></em> Messaging Service</a>
+          <% end %>
+          
           <% if (@item[:page_title] ==  "Compute Engine documentation") || 
           	(@item[:page_title] == "Compute Engine Input") ||
           	(@item[:page_title] == "Compute - Installation") ||
