@@ -173,13 +173,16 @@
 <p>The first step for using the messaging API is to edit the main configuration file.</p>
 <p>The ARGO Messaging Service main configuration file is config.json. An example configuration is listed below:</p>
 <pre><code class="json">{
+  &quot;bind_ip&quot;:&quot;&quot;,
   &quot;port&quot;:8080,
   &quot;broker_host&quot;:&quot;localhost:9092&quot;,
   &quot;store_host&quot;:&quot;localhost&quot;,
   &quot;store_db&quot;:&quot;argo_msg&quot;,
   &quot;use_authorization&quot;:true,
   &quot;use_authentication&quot;:true,
-  &quot;use_ack&quot;:true
+  &quot;use_ack&quot;:true,
+  &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
+  &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;
 }
 </code></pre>
 
@@ -192,6 +195,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>bind_ip</td>
+<td>the ip address to listen to.</td>
+</tr>
 <tr>
 <td>port</td>
 <td>The port where the API will listen to</td>
@@ -219,6 +226,14 @@
 <tr>
 <td>use_ack</td>
 <td>If true, API will boot with acknowledgement support when consuming messages</td>
+</tr>
+<tr>
+<td>certificate</td>
+<td>path to the node's TLS certificate file</td>
+</tr>
+<tr>
+<td>certificate_key</td>
+<td>path to the certificate's private key</td>
 </tr>
 </tbody>
 </table>
