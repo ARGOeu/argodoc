@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Recomputations Requests - Web Api documentation [V2]</title>
+  <title>Metrics - Web Api documentation [V2]</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Recomputations Requests";
+    var mkdocs_page_name = "Metrics";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -57,19 +57,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Recomputations Requests</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#recomputations-requests">Recomputations Requests</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-recomputation-requests">[GET]: List Recomputation Requests</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-create-a-new-recomputation-request">[POST]: Create a new recomputation request</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../recomputations/">Recomputations Requests</a>
         
     </li>
 <li>
@@ -138,8 +127,17 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Metrics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#metric-results">Metric results</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-metric-result">[GET]: Metric Result</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -166,7 +164,7 @@
     
       
     
-    <li>Recomputations Requests</li>
+    <li>Metrics</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -180,93 +178,15 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="recomputations-requests">Recomputations Requests</h1>
-<p>API Calls for listing existing and creating new recomputation requests</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Shortcut</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET: List Recomputation Requests</td>
-<td>This method can be used to retrieve a list of current Recomputation requests.</td>
-<td><a href="#1"> Description</a></td>
-</tr>
-<tr>
-<td>POST: Create a new recomputation request</td>
-<td>This method can be used to insert a new recomputation request onto the Compute Engine.</td>
-<td><a href="#2"> Description</a></td>
-</tr>
-</tbody>
-</table>
-<p><a id='1'></a></p>
-<h2 id="get-list-recomputation-requests">[GET]: List Recomputation Requests</h2>
-<p>This method can be used to retrieve a list of current Recomputation requests.</p>
+                <h1 id="metric-results">Metric results</h1>
+<p>API call for retrieving detailed metric result.</p>
+<h2 id="get-metric-result">[GET]: Metric Result</h2>
+<p>This method may be used to retrieve a specific service metric result.</p>
 <h3 id="input">Input</h3>
-<pre><code>GET /recomputations
+<pre><code>/metric_result/{hostname}/{metric_name}?[exec_time]
 </code></pre>
 
-<h4 id="request-headers">Request headers</h4>
-<pre><code>x-api-key: shared_key_value
-Accept: application/json
-</code></pre>
-
-<h3 id="response">Response</h3>
-<p>Headers: <code>Status: 200 OK</code></p>
-<h4 id="response-body">Response body</h4>
-<p>Json Response</p>
-<pre><code class="json">{
-&quot;root&quot;: [
-     {
-          &quot;requester_name&quot;: &quot;Arya Stark&quot;,
-          &quot;requester_email&quot;: &quot;astark@shadowguild.com&quot;,
-          &quot;reason&quot;: &quot;power cuts&quot;,
-          &quot;start_time&quot;: &quot;2015-01-10T12:00:00Z&quot;,
-          &quot;end_time&quot;: &quot;2015-01-30T23:00:00Z&quot;,
-          &quot;report&quot;: &quot;EGI_Critical&quot;,
-          &quot;exclude&quot;: [
-           &quot;Gluster&quot;
-          ],
-          &quot;status&quot;: &quot;running&quot;,
-          &quot;timestamp&quot;: &quot;2015-02-01 14:58:40&quot;
-     }
- ]
-}
-</code></pre>
-
-<p>Xml Response</p>
-<pre><code class="xml">&lt;root&gt;
-    &lt;Result&gt;
-        &lt;requester_name&gt;Arya Stark&lt;/requester_name&gt;
-        &lt;requester_email&gt;astark@shadowguild.com&lt;/requester_email&gt;
-        &lt;reason&gt;power cuts&lt;/reason&gt;
-        &lt;start_time&gt;2015-01-10T12:00:00Z&lt;/start_time&gt;
-        &lt;end_time&gt;2015-01-30T23:00:00Z&lt;/end_time&gt;
-        &lt;report&gt;EGI_Critical&lt;/report&gt;
-        &lt;exclude&gt;Gluster&lt;/exclude&gt;
-        &lt;status&gt;running&lt;/status&gt;
-        &lt;timestamp&gt;2015-02-01 14:58:40&lt;/timestamp&gt;
-    &lt;/Result&gt;
-&lt;/root&gt;
-</code></pre>
-
-<p><a id='2'></a></p>
-<h2 id="post-create-a-new-recomputation-request">[POST]: Create a new recomputation request</h2>
-<p>This method can be used to insert a new recomputation request onto the Compute Engine.</p>
-<h3 id="input_1">Input</h3>
-<pre><code>POST /recomputations
-</code></pre>
-
-<h4 id="request-headers_1">Request headers</h4>
-<pre><code>x-api-key: shared_key_value
-Accept: application/json
-</code></pre>
-
-<h4 id="parameters">Parameters</h4>
+<h4 id="path-parameters">Path Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -278,39 +198,78 @@ Accept: application/json
 </thead>
 <tbody>
 <tr>
-<td><code>start_time</code></td>
-<td>UTC time in W3C format</td>
+<td><code>hostname</code></td>
+<td>hostname of service endpoint</td>
 <td>YES</td>
 <td></td>
 </tr>
 <tr>
-<td><code>end_time</code></td>
-<td>UTC time in W3C format</td>
+<td><code>metric_name</code></td>
+<td>name of the metric</td>
 <td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>reason</code></td>
-<td>Explain the need for a recomputation</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>report</code></td>
-<td>Report for which the recomputation is requested</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>exclude</code></td>
-<td>Groups to be excluded from recomputation. If more than one group are to be excluded use the parameter as many times as needed within the same API call</td>
-<td>NO</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3 id="response_1">Response</h3>
-<p>Headers: <code>Status: 201 Created</code></p>
+<h4 id="url-parameters">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec_time</code></td>
+<td>The execution date of query in zulu format</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Notes</em></strong>:
+<code>exec_time</code> : The execution date of query in zulu format. In order to get the correct execution time get status results for all metrics (under a given endpoint, service and endpoint group). ( GET /status/{report_name}/{lgroup_type}/{lgroup_name}/services/{service_name}/endpoints/{endpoint_name}/metrics List)</p>
+<h4 id="headers">Headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+</code></pre>
+
+<h4 id="response-code">Response Code</h4>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h3 id="response-body">Response body</h3>
+<h6 id="example-request">Example Request:</h6>
+<p>URL:</p>
+<pre><code>/api/v2/metric_result/www.example.com/httpd_check?exec_time=2015-06-20T12:00:00Z
+</code></pre>
+
+<p>Headers:</p>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+
+</code></pre>
+
+<h6 id="example-response">Example Response:</h6>
+<p>Code:</p>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<p>Reponse body:</p>
+<pre><code> &lt;root&gt;
+   &lt;host name=&quot;www.example.com&quot;&gt;
+     &lt;metric name=&quot;httpd_check&quot;&gt;
+       &lt;status timestamp=&quot;2015-06-20T12:00:00Z&quot; value=&quot;CRITICAL&quot;&gt;
+     &lt;summary&gt;httpd status is CRITICAL&lt;/summary&gt;
+     &lt;message&gt;httpd service seems down. Failed to connect to port 80.&lt;/message&gt;
+       &lt;/status&gt;
+     &lt;/metric&gt;
+   &lt;/host&gt;
+ &lt;/root&gt;
+</code></pre>
               
             </div>
           </div>
@@ -318,10 +277,8 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../results/" class="btn btn-neutral float-right" title="Results"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../validations/" class="btn btn-neutral" title="Validation Checks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -351,10 +308,8 @@ Accept: application/json
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../validations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../results/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
