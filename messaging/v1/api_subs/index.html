@@ -119,6 +119,8 @@
                 
                     <li><a class="toctree-l4" href="#delete-manage-subscriptions-delete-subscriptions">[DELETE] Manage Subscriptions - Delete Subscriptions</a></li>
                 
+                    <li><a class="toctree-l4" href="#post-modify-push-configuration">[POST] Modify Push Configuration</a></li>
+                
                     <li><a class="toctree-l4" href="#post-pull-messages-from-a-subscription-consume">[POST] Pull messages from a subscription (Consume)</a></li>
                 
                     <li><a class="toctree-l4" href="#post-sending-an-ack">[POST] Sending an ACK</a></li>
@@ -183,7 +185,7 @@
 <li>subscription_name: The subscription name to create</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;  -d 'PUTBODY' 
+<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;  -d 'PUTBODY'
     &quot; https://{URL}/v1/projects/EGI/subscriptions/alert_engine ?key=S3CR3T&quot;`
 </code></pre>
 
@@ -215,7 +217,7 @@
 <li>Project_name: Name of the project to list the subscriptions</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot; 
+<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;
   -d '' &quot; https://{URL}/v1/projects/EGI/subscriptions/?key=S3CR3T&quot;
 </code></pre>
 
@@ -253,13 +255,13 @@ http://{URL}/v1/projects/EGI/subscriptions/alert_engine?key=S3CR3T
 Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="post-pull-messages-from-a-subscription-consume">[POST] Pull messages from a subscription (Consume)</h2>
-<p>This request consumes messages from a subscription in a project with a POST request</p>
+<h2 id="post-modify-push-configuration">[POST] Modify Push Configuration</h2>
+<p>This request modifies the push configuration of a subscription</p>
 <h3 id="request_3">Request</h3>
-<p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:pull</code></p>
+<p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:modifyPushConfig</code></p>
 <h3 id="post-body">Post body:</h3>
 <pre><code class="json">{
- &quot;maxMessages&quot;: &quot;1&quot;,
+  &quot;pushConfig&quot;: {&quot;pushEndpoint&quot;: &quot;&quot;}
 }
 </code></pre>
 
@@ -267,18 +269,50 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>subscription_name: The subscription name to consume</li>
-<li>maxMessages: the max number of messages to consume</li>
+<li>pushConfig: configuration including pushEndpoint for the remote endpoint to receive the messages</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot; 
+<p>`curl -X POST -H "Content-Type: application/json"<br />
+-d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:modifyPushConfig?key=S3CR3T"</p>
+<pre><code>
+### post body:
+```json
+{
+  &quot;pushConfig&quot;: {&quot;pushEndpoint&quot;: &quot;host:example.com:8080/path/to/hook&quot;}
+}
+</code></pre>
+
+<h3 id="responses_3">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-pull-messages-from-a-subscription-consume">[POST] Pull messages from a subscription (Consume)</h2>
+<p>This request consumes messages from a subscription in a project with a POST request</p>
+<h3 id="request_4">Request</h3>
+<p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:pull</code></p>
+<h3 id="post-body_1">Post body:</h3>
+<pre><code class="json">{
+ &quot;maxMessages&quot;: &quot;1&quot;,
+}
+</code></pre>
+
+<h3 id="where_4">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>subscription_name: The subscription name to consume</li>
+<li>maxMessages: the max number of messages to consume</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;
   -d POSTDATA https://{URL}/v1/projects/EGI/subscriptions/alert_engine:pull?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="post-body_1">post body:</h3>
+<h3 id="post-body_2">post body:</h3>
 <p>{
  "maxMessages": "1",
 }</p>
-<h3 id="responses_3">Responses</h3>
+<h3 id="responses_4">Responses</h3>
 <p><code>200 OK</code></p>
 <pre><code class="json">{
   &quot;receivedMessages&quot;: [
@@ -299,13 +333,13 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="errors_3">Errors</h3>
+<h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-sending-an-ack">[POST] Sending an ACK</h2>
 <p>This request sends an ack that the message has been  received</p>
-<h3 id="request_4">Request</h3>
+<h3 id="request_5">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:acknowledge</code></p>
-<h3 id="post-body_2">Post body:</h3>
+<h3 id="post-body_3">Post body:</h3>
 <pre><code class="json">{
   &quot;ackIds&quot;: [
   &quot;dQNNHlAbEGEIBE...&quot;
@@ -314,13 +348,13 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="where_4">Where</h3>
+<h3 id="where_5">Where</h3>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>subscription_name: The subscription name to consume</li>
 <li>ackIds: the ids of the messages</li>
 </ul>
-<h3 id="example-request_4">Example request</h3>
+<h3 id="example-request_5">Example request</h3>
 <p>`curl -X POST -H "Content-Type: application/json"<br />
 -d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:acknowledge?key=S3CR3T"</p>
 <pre><code>
@@ -334,10 +368,10 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="responses_4">Responses</h3>
+<h3 id="responses_5">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
-<h3 id="errors_4">Errors</h3>
+<h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
