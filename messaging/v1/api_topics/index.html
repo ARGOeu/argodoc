@@ -183,7 +183,7 @@
 <li>Topic_name: The topic name to create</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot; 
+<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;
  -d '' &quot; https://{URL}/v1/projects/EGI/topics/monitoring?key=S3CR3T&quot;`
 </code></pre>
 
@@ -281,16 +281,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <pre><code class="json">{
 &quot;messages&quot;: [
     {
-        &quot;attributes&quot;: [
-        {
-                &quot;key&quot;: &quot;infrastructure&quot;,
-                &quot;value&quot;: &quot;testing&quot;
-        },
-        {
-&quot;key&quot;: &quot;description&quot;,
-            &quot;value&quot;:&quot;this message is used for testing purposes&quot;
+        &quot;attributes&quot;: {
+        &quot;attr1&quot;:&quot;test1&quot;,
+        &quot;attr2&quot;:&quot;test2&quot;
         }
-    ],
+    ,
  &quot;data&quot;:&quot;U28geW91IHdlbnQgYWhlYWQgYW5kIGRlY29kZWQgdGhpcywgeW91IGNvdWxkbid0IHJlc2lzdCBlaCA/&quot;
 
     }
