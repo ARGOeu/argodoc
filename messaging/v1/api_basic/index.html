@@ -175,7 +175,7 @@
 <pre><code class="json">{
   &quot;bind_ip&quot;:&quot;&quot;,
   &quot;port&quot;:8080,
-  &quot;broker_host&quot;:&quot;localhost:9092&quot;,
+  &quot;zookeer_hosts&quot;:[&quot;localhost&quot;],
   &quot;store_host&quot;:&quot;localhost&quot;,
   &quot;store_db&quot;:&quot;argo_msg&quot;,
   &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
@@ -201,8 +201,8 @@
 <td>The port where the API will listen to</td>
 </tr>
 <tr>
-<td>broker_host</td>
-<td>Address:port of the broker instance</td>
+<td>zookeeper_hosts</td>
+<td>List of zookeeper instances that are used to sync kafka</td>
 </tr>
 <tr>
 <td>store_host</td>
