@@ -220,7 +220,7 @@
 </table>
 <p><a id='1'></a></p>
 <h3 id="start_time"><code>start_time</code></h3>
-<p>The <code>start_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the starting time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>. </p>
+<p>The <code>start_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the starting time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>.</p>
 <p>In case the parameter is not provided the following response is returned</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -255,7 +255,7 @@
 
 <p><a id='2'></a></p>
 <h3 id="end_time"><code>end_time</code></h3>
-<p>The <code>end_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the ending time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>. </p>
+<p>The <code>end_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the ending time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>.</p>
 <p>In case the parameter is not provided the following response is returned</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -342,7 +342,7 @@
 
 <p><a id='4'></a></p>
 <h3 id="granularity"><code>granularity</code></h3>
-<p>The <code>granularity</code> query parameter is used <em>optionally</em> under the <code>/results</code> resource to indicate the granularity level. It's value may be either monthly or daily. If not set by the user <code>monthly</code> is used. </p>
+<p>The <code>granularity</code> query parameter is used <em>optionally</em> under the <code>/results</code> resource to indicate the granularity level. It's value may be either monthly or daily. If not set by the user <code>monthly</code> is used.</p>
 <p>In case the parameter value is malformed (neither <code>daily</code> nor <code>monthly</code>) the following response is returned:</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -354,6 +354,22 @@
    &quot;message&quot;: &quot;Wrong Granularity&quot;,
    &quot;code&quot;: &quot;400&quot;,
    &quot;details&quot;: &quot;%s is not accepted as granularity parameter, please provide either daily or monthly&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p>The Granularity parameter is only relevant for a/r result requests. For status requests granularity is not supported. In order to avoid confusion, if a user provides granularity parameter during status requests the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;Granularity parameter should not be used in status results&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Granularity parameter is valid only for a/r result requests, not for status results&quot;
   }
  ]
 }
@@ -378,7 +394,7 @@
 </table>
 <p><a id='5'></a></p>
 <h3 id="accept"><code>Accept</code></h3>
-<p>The <code>Accept</code> header is compulsory to use under all api resources. Its value may be either <code>application/json</code> or <code>application/xml</code>. </p>
+<p>The <code>Accept</code> header is compulsory to use under all api resources. Its value may be either <code>application/json</code> or <code>application/xml</code>.</p>
 <p>In case the Accept header is not provided or is provided but is malformed the following error response is returned by the api:</p>
 <pre><code class="json">{
  &quot;status&quot;: {
