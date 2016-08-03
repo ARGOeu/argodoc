@@ -260,8 +260,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="request_3">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:modifyPushConfig</code></p>
 <h3 id="post-body">Post body:</h3>
-<pre><code class="json">{
-  &quot;pushConfig&quot;: {&quot;pushEndpoint&quot;: &quot;&quot;}
+<pre><code>json
+{
+  &quot;pushConfig&quot;: {  &quot;pushEndpoint&quot;: &quot;&quot;,
+                   &quot;retryPolicy&quot;: { &quot;type&quot;: &quot;linear&quot;, &quot;period&quot;: 300 }
+  }
 }
 </code></pre>
 
@@ -269,16 +272,16 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>subscription_name: The subscription name to consume</li>
-<li>pushConfig: configuration including pushEndpoint for the remote endpoint to receive the messages</li>
+<li>pushConfig: configuration including pushEndpoint for the remote endpoint to receive the messages. Also includes retryPolicy (type of retryPolicy and period parameters)</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<p>`curl -X POST -H "Content-Type: application/json"<br />
--d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:modifyPushConfig?key=S3CR3T"</p>
-<pre><code>
-### post body:
-```json
-{
-  &quot;pushConfig&quot;: {&quot;pushEndpoint&quot;: &quot;host:example.com:8080/path/to/hook&quot;}
+<p><code>curl -X POST -H "Content-Type: application/json"  
+-d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:modifyPushConfig?key=S3CR3T"</code></p>
+<h3 id="post-body_1">post body:</h3>
+<pre><code class="json">{
+  &quot;pushConfig&quot;: {&quot;pushEndpoint&quot;: &quot;host:example.com:8080/path/to/hook&quot;,
+                 &quot;retryPolicy&quot;:  { &quot;type&quot;: &quot;linear&quot;, &quot;period&quot;: 300 }
+  }
 }
 </code></pre>
 
@@ -291,7 +294,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>This request consumes messages from a subscription in a project with a POST request</p>
 <h3 id="request_4">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:pull</code></p>
-<h3 id="post-body_1">Post body:</h3>
+<h3 id="post-body_2">Post body:</h3>
 <pre><code class="json">{
  &quot;maxMessages&quot;: &quot;1&quot;,
 }
@@ -308,7 +311,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
   -d POSTDATA https://{URL}/v1/projects/EGI/subscriptions/alert_engine:pull?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="post-body_2">post body:</h3>
+<h3 id="post-body_3">post body:</h3>
 <p>{
  "maxMessages": "1",
 }</p>
@@ -339,7 +342,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>This request sends an ack that the message has been  received</p>
 <h3 id="request_5">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:acknowledge</code></p>
-<h3 id="post-body_3">Post body:</h3>
+<h3 id="post-body_4">Post body:</h3>
 <pre><code class="json">{
   &quot;ackIds&quot;: [
   &quot;dQNNHlAbEGEIBE...&quot;
