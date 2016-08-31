@@ -179,7 +179,8 @@
   &quot;store_host&quot;:&quot;localhost&quot;,
   &quot;store_db&quot;:&quot;argo_msg&quot;,
   &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
-  &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;
+  &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;,
+  &quot;per_resource_auth&quot;:true
 }
 </code></pre>
 
@@ -219,6 +220,10 @@
 <tr>
 <td>certificate_key</td>
 <td>path to the certificate's private key</td>
+</tr>
+<tr>
+<td>per_resource_auth</td>
+<td>enable authorization per resource (topic/subscription)</td>
 </tr>
 </tbody>
 </table>
