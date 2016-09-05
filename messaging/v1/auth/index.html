@@ -363,6 +363,17 @@
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_1">Errors</h3>
+<p>If the to-be updated ACL contains users that are non-existent in the project the API returns the following error:
+<code>404 NOT_FOUND</code></p>
+<pre><code>{
+   &quot;error&quot;: {
+      &quot;code&quot;: 404,
+      &quot;message&quot;: &quot;User(s): UserFoo1,UserFoo2 do not exist&quot;,
+      &quot;status&quot;: &quot;NOT_FOUND&quot;
+   }
+}
+</code></pre>
+
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-list-acl-of-a-given-subscription">[GET] List ACL of a given subscription</h2>
 <p>The following request returns a list of authorized users for a given subscription</p>
@@ -415,6 +426,17 @@
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_3">Errors</h3>
+<p>If the to-be updated ACL contains users that are non-existent in the project the API returns the following error:
+<code>404 NOT_FOUND</code></p>
+<pre><code>{
+   &quot;error&quot;: {
+      &quot;code&quot;: 404,
+      &quot;message&quot;: &quot;User(s): UserFoo1,UserFoo2 do not exist&quot;,
+      &quot;status&quot;: &quot;NOT_FOUND&quot;
+   }
+}
+</code></pre>
+
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
