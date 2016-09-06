@@ -165,24 +165,7 @@
             <div class="section">
               
                 <h1 id="errors">Errors</h1>
-<p>In case of Error during handling user’s request the API responds using the following schema</p>
-<pre><code class="json">{
-   &quot;error&quot;: {
-      &quot;code&quot;: 500,
-      &quot;message&quot;: &quot;Something bad happened&quot;,
-      &quot;errors&quot;: [
-         {
-            &quot;message&quot;: &quot;Something bad happened&quot;,
-            &quot;domain&quot;: &quot;global&quot;,
-            &quot;reason&quot;: &quot;backend&quot;
-         }
-      ],
-      &quot;status&quot;: &quot;INTERNAL&quot;
-   }
-}
-</code></pre>
-
-<p>Most of the times the errors array is empty thus omitted such as:</p>
+<p>In case of Error during handling user’s request the API responds using the following schema:</p>
 <pre><code class="json">{
    &quot;error&quot;: {
       &quot;code&quot;: 500,
@@ -193,45 +176,96 @@
 </code></pre>
 
 <h2 id="captured-errors-from-usage-scenarios">Captured Errors from usage scenarios</h2>
-<h3 id="put-topic-with-the-same-name">Put topic with the same name</h3>
-<pre><code class="json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 409,
-    &quot;message&quot;: &quot;Topic already exists&quot;,
-    &quot;status&quot;: &quot;ALREADY_EXISTS&quot;
-  }
-}
-</code></pre>
-
-<h3 id="put-subscription-with-the-same-name">Put subscription with the same name</h3>
-<pre><code class="json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 409,
-    &quot;message&quot;: &quot;Subscription already exists&quot;,
-    &quot;status&quot;: &quot;ALREADY_EXISTS&quot;
-  }
-}
-</code></pre>
-
-<h3 id="invalid-topics-name">Invalid Topics name</h3>
-<pre><code class="json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 400,
-    &quot;message&quot;: &quot;Invalid topics name&quot;,
-    &quot;status&quot;: &quot;INVALID_ARGUMENT&quot;
-  }
-}
-</code></pre>
-
-<h3 id="get-a-subscription-that-doesnt-exist">Get a subscription that doesn’t exist</h3>
-<pre><code class="json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 404,
-    &quot;message&quot;: &quot;Subscription does not exist&quot;,
-    &quot;status&quot;: &quot;NOT_FOUND&quot;
-  }
-}
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Code</th>
+<th>Response</th>
+<th>Related Requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Topic already exists</td>
+<td>409</td>
+<td><code>{"error":{"code":409,"message":"Topic already exists","status":"ALREADY_EXISTS"}}</code></td>
+<td>Create Topic (PUT)</td>
+</tr>
+<tr>
+<td>Subscription already exists</td>
+<td>409</td>
+<td><code>{"error":{"code":409,"message":"Subscription already exists","status":"ALREADY_EXISTS"}}</code></td>
+<td>Create Subscription (PUT)</td>
+</tr>
+<tr>
+<td>Invalid Topics Name</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Invalid topics name","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Create Subscription (PUT)</td>
+</tr>
+<tr>
+<td>Topic Doesn't Exist</td>
+<td>404</td>
+<td><code>{"error":{"code":404,"message":"Topic does not exist","status":"NOT_FOUND"}}</code></td>
+<td>Show specific Topic  (GET)</td>
+</tr>
+<tr>
+<td>Invalid Topic ACL arguments</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Invalid Topic ACL Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Modify Topic ACL (POST)</td>
+</tr>
+<tr>
+<td>Subscription Doesn't Exist</td>
+<td>404</td>
+<td><code>{"error":{"code":404,"message":"Subscription does not exist","status":"NOT_FOUND"}}</code></td>
+<td>Show specific Subscription  (GET)</td>
+</tr>
+<tr>
+<td>Invalid Subscription Arguments</td>
+<td>400</td>
+<td><code>{"error":{"code":404,"message":"Invalid Subscription Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Create Subscription (POST), Modify Push Configuration (POST)</td>
+</tr>
+<tr>
+<td>Invalid Subscription ACL arguments</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Invalid Subscription ACL Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Modify Subscription ACL (POST)</td>
+</tr>
+<tr>
+<td>Invalid ACK Parameter</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Invalid ack parameter","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Subscription Acknowledge (POST)</td>
+</tr>
+<tr>
+<td>Invalid ACK id</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Invalid ack id parameter","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Subscription Acknowledge (POST)</td>
+</tr>
+<tr>
+<td>Invalid pull parameters</td>
+<td>400</td>
+<td><code>{"error":{"code":400,"message":"Pull Parameters Invalid","status":"INVALID_ARGUMENT"}}</code></td>
+<td>Subscription Pull (POST)</td>
+</tr>
+<tr>
+<td>Unauthorized</td>
+<td>401</td>
+<td><code>{"error":{"code":401,"message":"Unauthorized","status":"UNAUTHORIZED"}}</code></td>
+<td>All requests <em>(if a user is not authenticated)</em></td>
+</tr>
+<tr>
+<td>Forbidden Access to Resource</td>
+<td>403</td>
+<td><code>{"error":{"code":403,"message":"Access to this resource is forbidden","status":"FORBIDDEN"}}</code></td>
+<td>All requests <em>(if a user is forbidden to access the resource)</em></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
