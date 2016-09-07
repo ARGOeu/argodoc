@@ -120,7 +120,7 @@
             
                 <li class="toctree-l3"><a href="#errors">Errors</a></li>
                 
-                    <li><a class="toctree-l4" href="#captured-errors-from-usage-scenarios">Captured Errors from usage scenarios</a></li>
+                    <li><a class="toctree-l4" href="#error-codes">Error Codes</a></li>
                 
             
             </ul>
@@ -175,13 +175,14 @@
 }
 </code></pre>
 
-<h2 id="captured-errors-from-usage-scenarios">Captured Errors from usage scenarios</h2>
+<h2 id="error-codes">Error Codes</h2>
+<p>The following error codes are the possinble errors of all methods</p>
 <table>
 <thead>
 <tr>
 <th>Error</th>
 <th>Code</th>
-<th>Response</th>
+<th>Status</th>
 <th>Related Requests</th>
 </tr>
 </thead>
@@ -189,85 +190,85 @@
 <tr>
 <td>Topic already exists</td>
 <td>409</td>
-<td><code>{"error":{"code":409,"message":"Topic already exists","status":"ALREADY_EXISTS"}}</code></td>
+<td>ALREADY_EXISTS</td>
 <td>Create Topic (PUT)</td>
 </tr>
 <tr>
 <td>Subscription already exists</td>
 <td>409</td>
-<td><code>{"error":{"code":409,"message":"Subscription already exists","status":"ALREADY_EXISTS"}}</code></td>
+<td>ALREADY_EXISTS</td>
 <td>Create Subscription (PUT)</td>
 </tr>
 <tr>
 <td>Invalid Topics Name</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Invalid topics name","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Create Subscription (PUT)</td>
 </tr>
 <tr>
 <td>Topic Doesn't Exist</td>
 <td>404</td>
-<td><code>{"error":{"code":404,"message":"Topic does not exist","status":"NOT_FOUND"}}</code></td>
+<td>NOT_FOUND</td>
 <td>Show specific Topic  (GET)</td>
 </tr>
 <tr>
 <td>Invalid Topic ACL arguments</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Invalid Topic ACL Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Modify Topic ACL (POST)</td>
 </tr>
 <tr>
 <td>Subscription Doesn't Exist</td>
 <td>404</td>
-<td><code>{"error":{"code":404,"message":"Subscription does not exist","status":"NOT_FOUND"}}</code></td>
+<td>NOT_FOUND</td>
 <td>Show specific Subscription  (GET)</td>
 </tr>
 <tr>
 <td>Message size to large</td>
 <td>413</td>
-<td><code>{"error":{"code":413,"message":"Message size too large","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Topic Publish (POST)</td>
 </tr>
 <tr>
 <td>Invalid Subscription Arguments</td>
 <td>400</td>
-<td><code>{"error":{"code":404,"message":"Invalid Subscription Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Create Subscription (POST), Modify Push Configuration (POST)</td>
 </tr>
 <tr>
 <td>Invalid Subscription ACL arguments</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Invalid Subscription ACL Arguments","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Modify Subscription ACL (POST)</td>
 </tr>
 <tr>
 <td>Invalid ACK Parameter</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Invalid ack parameter","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Subscription Acknowledge (POST)</td>
 </tr>
 <tr>
 <td>Invalid ACK id</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Invalid ack id parameter","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Subscription Acknowledge (POST)</td>
 </tr>
 <tr>
 <td>Invalid pull parameters</td>
 <td>400</td>
-<td><code>{"error":{"code":400,"message":"Pull Parameters Invalid","status":"INVALID_ARGUMENT"}}</code></td>
+<td>INVALID_ARGUMENT</td>
 <td>Subscription Pull (POST)</td>
 </tr>
 <tr>
 <td>Unauthorized</td>
 <td>401</td>
-<td><code>{"error":{"code":401,"message":"Unauthorized","status":"UNAUTHORIZED"}}</code></td>
+<td>UNAUTHORIZED</td>
 <td>All requests <em>(if a user is not authenticated)</em></td>
 </tr>
 <tr>
 <td>Forbidden Access to Resource</td>
 <td>403</td>
-<td><code>{"error":{"code":403,"message":"Access to this resource is forbidden","status":"FORBIDDEN"}}</code></td>
+<td>FORBIDDEN</td>
 <td>All requests <em>(if a user is forbidden to access the resource)</em></td>
 </tr>
 </tbody>
