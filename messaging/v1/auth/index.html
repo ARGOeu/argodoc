@@ -313,16 +313,21 @@
 <h2 id="per-resource-authorization">Per Resource Authorization</h2>
 <p>Messaging API provides the option to control in finer detail access on resources such as topics and subscriptions for users(clients) that are producers or subscribers. Each resource (topic/subscription) comes with an access list (ACL) that contains producers or subscribers that are eligible to use that resource (when publishing or pulling messages respectively). Users with the admin role are able to modify Access lists for topics and subscriptions on the project they belong. In order for the feature to be available Messaging API should have the config parameter <code>per_resource_auth</code> set to <code>true</code></p>
 <h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
-<p>The following request returns a list of authorized users (publishers) of a given topic</p>
+<p>Please refer to section <a href="../api_topics/#get-list-acl-of-a-given-topic">Topics:List ACL of a given topic </a>.</p>
+<h2 id="post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</h2>
+<p>Please refer to section <a href="../api_topics/#post-modify-acl-of-a-given-topic">Topics:Modify ACL of a given topic </a>.</p>
+<h2 id="get-list-acl-of-a-given-subscription">[GET] List ACL of a given subscription</h2>
+<p>The following request returns a list of authorized users for a given subscription</p>
 <h3 id="request">Request</h3>
-<p><code>GET /v1/projects/{project_name}/topics/{topic_name}:acl</code></p>
+<p><code>GET /v1/projects/{project_name}/subscriptions/{sub_name}:acl</code></p>
 <h3 id="where">Where</h3>
 <ul>
-<li>Project_name: name of the project</li>
-<li>topic_name: name of the topic</li>
+<li>Project_name: Name of the project</li>
+<li>sub_name: name of the subscription</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code>curl  -H &quot;Content-Type: application/json&quot; https://{URL}/v1/projects/EGI/topics/monitoring:acl?key=S3CR3T&quot;`
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d { POSTDATA } https://{URL}/v1/projects/EGI/subscriptions/monitoring:acl?key=S3CR3T&quot;`
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -337,14 +342,14 @@
 
 <h3 id="errors">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</h2>
-<p>The following request Modifies the authorized users list of a given topic</p>
+<h2 id="post-modify-acl-of-a-given-subscription">[POST] Modify ACL of a given subscription</h2>
+<p>The following request Modifies the authorized users list of a given subscription</p>
 <h3 id="request_1">Request</h3>
-<p><code>POST /v1/projects/{project_name}/topics/{topic_name}:modifyAcl</code></p>
+<p><code>POST /v1/projects/{project_name}/subscriptions/{sub_name}:modifyAcl</code></p>
 <h3 id="where_1">Where</h3>
 <ul>
 <li>Project_name: Name of the project</li>
-<li>topic_name: name of the topic</li>
+<li>sub_name: name of the subpscription</li>
 </ul>
 <h3 id="post-data">Post data</h3>
 <pre><code>{
@@ -355,77 +360,13 @@
 </code></pre>
 
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } https://{URL}/v1/projects/EGI/topics/monitoring:modifyAcl?key=S3CR3T&quot;`
+<pre><code>curl -H &quot;Content-Type: application/json&quot;  https://{URL}/v1/projects/EGI/subscriptions/monitoring:modifyAcl?key=S3CR3T&quot;`
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_1">Errors</h3>
-<p>If the to-be updated ACL contains users that are non-existent in the project the API returns the following error:
-<code>404 NOT_FOUND</code></p>
-<pre><code>{
-   &quot;error&quot;: {
-      &quot;code&quot;: 404,
-      &quot;message&quot;: &quot;User(s): UserFoo1,UserFoo2 do not exist&quot;,
-      &quot;status&quot;: &quot;NOT_FOUND&quot;
-   }
-}
-</code></pre>
-
-<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="get-list-acl-of-a-given-subscription">[GET] List ACL of a given subscription</h2>
-<p>The following request returns a list of authorized users for a given subscription</p>
-<h3 id="request_2">Request</h3>
-<p><code>GET /v1/projects/{project_name}/subscriptions/{sub_name}:acl</code></p>
-<h3 id="where_2">Where</h3>
-<ul>
-<li>Project_name: Name of the project</li>
-<li>sub_name: name of the subscription</li>
-</ul>
-<h3 id="example-request_2">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } https://{URL}/v1/projects/EGI/subscriptions/monitoring:acl?key=S3CR3T&quot;`
-</code></pre>
-
-<h3 id="responses_2">Responses</h3>
-<p>Success Response
-<code>200 OK</code></p>
-<pre><code>{
- &quot;authorized_users&quot;: [
-  &quot;UserA&quot;,&quot;UserB&quot;
- ]
-}
-</code></pre>
-
-<h3 id="errors_2">Errors</h3>
-<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="post-modify-acl-of-a-given-subscription">[POST] Modify ACL of a given subscription</h2>
-<p>The following request Modifies the authorized users list of a given subscription</p>
-<h3 id="request_3">Request</h3>
-<p><code>POST /v1/projects/{project_name}/subscriptions/{sub_name}:modifyAcl</code></p>
-<h3 id="where_3">Where</h3>
-<ul>
-<li>Project_name: Name of the project</li>
-<li>sub_name: name of the subpscription</li>
-</ul>
-<h3 id="post-data_1">Post data</h3>
-<pre><code>{
-&quot;authorized_users&quot;: [
- &quot;UserX&quot;,&quot;UserY&quot;
-]
-}
-</code></pre>
-
-<h3 id="example-request_3">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;  https://{URL}/v1/projects/EGI/subscriptions/monitoring:modifyAcl?key=S3CR3T&quot;`
-</code></pre>
-
-<h3 id="responses_3">Responses</h3>
-<p>Success Response
-<code>200 OK</code></p>
-<h3 id="errors_3">Errors</h3>
 <p>If the to-be updated ACL contains users that are non-existent in the project the API returns the following error:
 <code>404 NOT_FOUND</code></p>
 <pre><code>{
