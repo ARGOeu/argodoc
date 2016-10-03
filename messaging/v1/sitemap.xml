@@ -67,6 +67,14 @@
 
     
     <url>
+     <loc>http://argoeu.github.io//api_projects/</loc>
+     <lastmod>2016-10-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>http://argoeu.github.io//api_topics/</loc>
      <lastmod>2016-10-03</lastmod>
      <changefreq>daily</changefreq>
