@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "ARGO Messaging Service Documentation\n\n\n\n\nOverview and Introduction\n\n\nMessaging Backend: Apache Kafka\n\n\nMessaging API flow\n\n\nAuthentication \n Authorization\n\n\n\n\nArgo Messaging API\n\n\n\n\nBasic Information\n\n\nAPI Error Messages\n\n\n\n\nAPI Calls\n\n\n\n\nAuthentication\n\n\nTopics\n\n\nSubscriptions", 
+            "text": "ARGO Messaging Service Documentation\n\n\n\n\nOverview and Introduction\n\n\nMessaging Backend: Apache Kafka\n\n\nMessaging API flow\n\n\nAuthentication \n Authorization\n\n\n\n\nArgo Messaging API\n\n\n\n\nBasic Information\n\n\nAPI Error Messages\n\n\n\n\nAPI Calls\n\n\n\n\nAuthentication\n\n\nProjects\n\n\nTopics\n\n\nSubscriptions", 
             "title": "Home"
         }, 
         {
@@ -17,7 +17,7 @@
         }, 
         {
             "location": "/#api-calls", 
-            "text": "Authentication  Topics  Subscriptions", 
+            "text": "Authentication  Projects  Topics  Subscriptions", 
             "title": "API Calls"
         }, 
         {
