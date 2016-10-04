@@ -119,6 +119,8 @@
                 
                     <li><a class="toctree-l4" href="#post-manage-projects-create-new-project">[POST] Manage Projects - Create new project</a></li>
                 
+                    <li><a class="toctree-l4" href="#put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</a></li>
+                
             
             </ul>
         
@@ -185,13 +187,13 @@
                 <h1 id="project-api-calls">Project Api Calls</h1>
 <p>ARGO Messaging Service supports project entities as a basis of organizing and isolating groups of users &amp; resources</p>
 <h2 id="get-manage-projects-list-all-projects">[GET] Manage Projects - List all projects</h2>
-<p>This request lists all avaliable projects in the service</p>
+<p>This request lists all available projects in the service</p>
 <h3 id="request">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects&quot;
+<pre><code>GET &quot;/v1/projects&quot;
 </code></pre>
 
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects?key=S3CR3T&quot;
 </code></pre>
 
@@ -199,7 +201,7 @@
 <p>If successful, the response contains a list of all available projects</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code>{
+<pre><code class="json">{
  &quot;projects&quot;: [
     {
        &quot;name&quot;: &quot;PROJECT_1&quot;,
@@ -229,7 +231,7 @@
 <h2 id="get-manage-projects-list-a-specific-project">[GET] Manage Projects - List a specific project</h2>
 <p>This request lists information about a specific project</p>
 <h3 id="request_1">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}&quot;
+<pre><code>GET &quot;/v1/projects/{project_name}&quot;
 </code></pre>
 
 <h3 id="where">Where</h3>
@@ -237,7 +239,7 @@
 <li>Project_name: Name of the project to get information on</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -257,7 +259,7 @@
 <h2 id="post-manage-projects-create-new-project">[POST] Manage Projects - Create new project</h2>
 <p>This request creates a new project with the given project_name with a POST request</p>
 <h3 id="request_2">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}&quot;
 </code></pre>
 
 <h3 id="where_1">Where</h3>
@@ -271,7 +273,7 @@
 </code></pre>
 
 <h3 id="example-request_2">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
  -d POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -280,11 +282,52 @@
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/PROJET_NEW&quot;
+ &quot;name&quot;: &quot;projects/PROJET_NEW&quot;,
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;userA&quot;,
+ &quot;description&quot;: &quot;brand new project&quot;
 }
 </code></pre>
 
 <h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</h2>
+<p>This request updates information (such as name,description) on an existing project (PUT)</p>
+<h3 id="request_3">Request</h3>
+<pre><code class="json">PUT &quot;/v1/projects/{project_name}&quot;
+</code></pre>
+
+<h3 id="where_2">Where</h3>
+<ul>
+<li>Project_name: Name of the project to create</li>
+</ul>
+<h3 id="put-body">PUT body:</h3>
+<pre><code class="json">{
+  &quot;name&quot;:&quot;new project name&quot;,
+  &quot;description&quot; : &quot;a simple description&quot;
+}
+</code></pre>
+
+<h3 id="example-request_3">Example request</h3>
+<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
+ -d POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_3">Responses</h3>
+<p>If successful, the response contains the newly created project</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;name&quot;: &quot;projects/PROJET_NEW_UPDATED&quot;,
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-13T23:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;userA&quot;,
+ &quot;description&quot;: &quot;description project updated&quot;
+}
+</code></pre>
+
+<h3 id="errors_1">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
