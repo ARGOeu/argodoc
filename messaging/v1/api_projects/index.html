@@ -121,6 +121,8 @@
                 
                     <li><a class="toctree-l4" href="#put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</a></li>
                 
+                    <li><a class="toctree-l4" href="#delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</a></li>
+                
             
             </ul>
         
@@ -201,7 +203,9 @@
 <p>If successful, the response contains a list of all available projects</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code class="json">{
+<pre><code>json
+
+{
  &quot;projects&quot;: [
     {
        &quot;name&quot;: &quot;PROJECT_1&quot;,
@@ -228,6 +232,8 @@
 }
 </code></pre>
 
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-manage-projects-list-a-specific-project">[GET] Manage Projects - List a specific project</h2>
 <p>This request lists information about a specific project</p>
 <h3 id="request_1">Request</h3>
@@ -239,15 +245,18 @@
 <li>Project_name: Name of the project to get information on</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
+<pre><code>
+curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/projects/BRAND_NEW?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
 <p>If successful, the response contains information about the specific project</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code class="json">{
+<pre><code>json
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; ARGO-510 Implement API Call to create projects
+{
    &quot;name&quot;: &quot;BRAND_NEW&quot;,
    &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
    &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
@@ -256,6 +265,8 @@
 }
 </code></pre>
 
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-manage-projects-create-new-project">[POST] Manage Projects - Create new project</h2>
 <p>This request creates a new project with the given project_name with a POST request</p>
 <h3 id="request_2">Request</h3>
@@ -290,7 +301,7 @@
 }
 </code></pre>
 
-<h3 id="errors">Errors</h3>
+<h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</h2>
 <p>This request updates information (such as name,description) on an existing project (PUT)</p>
@@ -327,7 +338,27 @@
 }
 </code></pre>
 
-<h3 id="errors_1">Errors</h3>
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</h2>
+<p>This request deletes a specific project</p>
+<h3 id="request_4">Request</h3>
+<pre><code class="json">DELETE &quot;/v1/projects/{project_name}&quot;
+</code></pre>
+
+<h3 id="where_3">Where</h3>
+<ul>
+<li>Project_name: Name of the project to delete</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
+-d '' &quot;https://{URL}/v1/projects/EGI?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_4">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
