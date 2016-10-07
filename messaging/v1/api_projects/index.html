@@ -203,8 +203,7 @@
 <p>If successful, the response contains a list of all available projects</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code>json
-
+<pre><code class="json">
 {
  &quot;projects&quot;: [
     {
@@ -245,8 +244,7 @@
 <li>Project_name: Name of the project to get information on</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>
-curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/BRAND_NEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -254,9 +252,7 @@ curl -X GET -H &quot;Content-Type: application/json&quot;
 <p>If successful, the response contains information about the specific project</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code>json
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; ARGO-510 Implement API Call to create projects
-{
+<pre><code class="json">{
    &quot;name&quot;: &quot;BRAND_NEW&quot;,
    &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
    &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
@@ -293,7 +289,7 @@ curl -X GET -H &quot;Content-Type: application/json&quot;
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/PROJET_NEW&quot;,
+ &quot;name&quot;: &quot;PROJET_NEW&quot;
  &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
  &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
  &quot;created_by&quot;: &quot;userA&quot;,
@@ -326,11 +322,11 @@ curl -X GET -H &quot;Content-Type: application/json&quot;
 </code></pre>
 
 <h3 id="responses_3">Responses</h3>
-<p>If successful, the response contains the newly created project</p>
+<p>If successful, the response contains the newly updated</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/PROJET_NEW_UPDATED&quot;,
+ &quot;name&quot;: &quot;PROJET_NEW_UPDATED&quot;,
  &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
  &quot;modified_on&quot;: &quot;2009-11-13T23:00:00Z&quot;,
  &quot;created_by&quot;: &quot;userA&quot;,
