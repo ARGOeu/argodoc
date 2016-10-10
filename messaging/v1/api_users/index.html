@@ -123,7 +123,7 @@
                 
                     <li><a class="toctree-l4" href="#post-manage-users-refresh-token">[POST] Manage Users - Refresh token</a></li>
                 
-                    <li><a class="toctree-l4" href="#post-manage-users-delete-user">[POST] Manage Users - Delete User</a></li>
+                    <li><a class="toctree-l4" href="#delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</a></li>
                 
             
             </ul>
@@ -296,7 +296,7 @@
 <h2 id="get-manage-users-list-a-specific-user">[GET] Manage Users - List a specific user</h2>
 <p>This request lists information about a specific user in the service</p>
 <h3 id="request_1">Request</h3>
-<pre><code>POST &quot;/v1/users/{user_name}&quot;
+<pre><code>GET &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
 <h3 id="where">Where</h3>
@@ -304,7 +304,7 @@
 <li>user_name: Name of the user</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users/UserA?key=S3CR3T&quot;
 </code></pre>
 
@@ -361,14 +361,16 @@
 <li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
 </ul>
 <h5 id="available-roles">Available Roles</h5>
-<p>ARGO Messaging Service has the following predefined project roles:
-- project_admin
-- admin
-- viewer
-- consumer
-- producer
-and the following service-wide role:
-- service_admin</p>
+<p>ARGO Messaging Service has the following predefined project roles:</p>
+<ul>
+<li>project_admin: </li>
+<li>admin</li>
+<li>viewer</li>
+<li>consumer</li>
+<li>producer
+and the following service-wide role:</li>
+<li>service_admin: a super admin that manages projects, users, and topics, subscriptions of all projects.</li>
+</ul>
 <h3 id="example-request_2">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;
@@ -505,7 +507,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="post-manage-users-delete-user">[POST] Manage Users - Delete User</h2>
+<h2 id="delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</h2>
 <p>This request deletes an existing user</p>
 <h3 id="request_5">Request</h3>
 <pre><code class="json">DELETE &quot;/v1/users/{user_name}&quot;
@@ -516,8 +518,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <li>user_name: Name of the user</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code>json
-curl -X DELETE -H &quot;Content-Type: application/json&quot;
+<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO/users/USER2?key=S3CR3T&quot;
 </code></pre>
 
