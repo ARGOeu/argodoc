@@ -285,7 +285,7 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-                &quot;producer&quot;
+                &quot;publisher&quot;
              ]
           }
        ],
@@ -369,15 +369,43 @@
 </ul>
 <h5 id="available-roles">Available Roles</h5>
 <p>ARGO Messaging Service has the following predefined project roles:</p>
-<ul>
-<li>project_admin: </li>
-<li>admin</li>
-<li>viewer</li>
-<li>consumer</li>
-<li>producer
-and the following service-wide role:</li>
-<li>service_admin: a super admin that manages projects, users, and topics, subscriptions of all projects.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project_admin</td>
+<td>Users that have the <code>project_admin</code> role are assigned to projects which are able to modify or delete. Also they are able to manage resources such as topics and subscriptions (CRUD) and also manage ACLs on those resources as well</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td>Users that have the <code>consumer</code> role are only able to pull messages from subscriptions that are authorized to use (based on ACLs)</td>
+</tr>
+<tr>
+<td>publisher</td>
+<td>Users that have the <code>publisher</code> role are only able to publish messages on topics that are authorized to use (based on ACLs)</td>
+</tr>
+</tbody>
+</table>
+<p>and the following service-wide role:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service_admin</td>
+<td>Users with <code>service_admin</code> role operate service wide. They are able to create, modify and delete projects. Also they are able to create, modify and delete users and assign them to projects.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="example-request_2">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;
@@ -437,15 +465,6 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <li>email: User's email</li>
 <li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
 </ul>
-<h5 id="available-roles_1">Available Roles</h5>
-<p>ARGO Messaging Service has the following predefined project roles:
-- project_admin
-- admin
-- viewer
-- consumer
-- producer
-and the following service-wide role:
-- service_admin</p>
 <h3 id="example-request_3">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;

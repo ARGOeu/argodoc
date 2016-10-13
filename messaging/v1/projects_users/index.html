@@ -92,6 +92,8 @@
             
                 <li class="toctree-l3"><a href="#initial-project-and-user-management">Initial Project and user management</a></li>
                 
+                    <li><a class="toctree-l4" href="#available-roles">Available Roles</a></li>
+                
                     <li><a class="toctree-l4" href="#a-typical-quick-start-scenario">A typical quick-start scenario</a></li>
                 
             
@@ -195,6 +197,45 @@
                 <h1 id="initial-project-and-user-management">Initial Project and user management</h1>
 <p>ARGO Messaging Service configuration includes the <code>service_token</code> parameter. Administrators can use this
 feature to define and use an access token for initial project and user configuration.</p>
+<h2 id="available-roles">Available Roles</h2>
+<p>ARGO Messaging Service has the following predefined project roles:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project_admin</td>
+<td>Users that have the <code>project_admin</code> role are assigned to projects which are able to modify or delete. Also they are able to manage resources such as topics and subscriptions (CRUD) and also manage ACLs on those resources as well</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td>Users that have the <code>consumer</code> role are only able to pull messages from subscriptions that are authorized to use (based on ACLs)</td>
+</tr>
+<tr>
+<td>publisher</td>
+<td>Users that have the <code>publisher</code> role are only able to publish messages on topics that are authorized to use (based on ACLs)</td>
+</tr>
+</tbody>
+</table>
+<p>and the following service-wide role:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service_admin</td>
+<td>Users with <code>service_admin</code> role operate service wide. They are able to create, modify and delete projects. Also they are able to create, modify and delete users and assign them to projects.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="a-typical-quick-start-scenario">A typical quick-start scenario</h2>
 <p>After a fresh install of the argo-messaging , the <code>service_token</code> configuration parameter can be used to create the first <code>service_admin</code> user of the service</p>
 <p>First a service token must be defined in the config.json as such:
@@ -290,7 +331,7 @@ feature to define and use an access token for initial project and user configura
 }
 </code></pre>
 
-<h3 id="create-a-consumer-user-and-a-producer-user-in-project-demo">Create a consumer user and a producer user in project DEMO</h3>
+<h3 id="create-a-consumer-user-and-a-publisher-user-in-project-demo">Create a consumer user and a publisher user in project DEMO</h3>
 <p>Usually a project will have also publisher and consumer accounts for clients that either are authorized to publish or consume messages. The user <code>demo_service_admin</code> can create a <code>publisher_DEMO</code> and <code>consumer_DEMO</code> for project <code>DEMO</code> as such:</p>
 <p>To create the <code>publisher_DEMO</code> user:</p>
 <pre><code>POST https://{URL}/v1/users/publisher_DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
