@@ -86,6 +86,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../projects_users/">Project & User management guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../publisher/">Publisher Guide</a>
         
     </li>
@@ -201,7 +208,8 @@
   &quot;store_db&quot;:&quot;argo_msg&quot;,
   &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
   &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;,
-  &quot;per_resource_auth&quot;:true
+  &quot;per_resource_auth&quot;:true,
+  &quot;service_token&quot;:&quot;S0M3T0K3N&quot;
 }
 </code></pre>
 
@@ -245,6 +253,10 @@
 <tr>
 <td>per_resource_auth</td>
 <td>enable authorization per resource (topic/subscription)</td>
+</tr>
+<tr>
+<td>service_token</td>
+<td>(optional) If set, enables full service-wide access to the api to initialize projects,users and resources</td>
 </tr>
 </tbody>
 </table>
