@@ -203,7 +203,8 @@
 <pre><code class="json">{
   &quot;bind_ip&quot;:&quot;&quot;,
   &quot;port&quot;:8080,
-  &quot;zookeer_hosts&quot;:[&quot;localhost&quot;],
+  &quot;zookeeper_hosts&quot;:[&quot;localhost&quot;],
+  &quot;kafka_znode&quot;:&quot;&quot;,
   &quot;store_host&quot;:&quot;localhost&quot;,
   &quot;store_db&quot;:&quot;argo_msg&quot;,
   &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
@@ -233,6 +234,10 @@
 <tr>
 <td>zookeeper_hosts</td>
 <td>List of zookeeper instances that are used to sync kafka</td>
+</tr>
+<tr>
+<td>kafka_znode</td>
+<td>The znode under which Kafka writes its data on Zookeeper. Default is "" meaning the root node</td>
 </tr>
 <tr>
 <td>store_host</td>
