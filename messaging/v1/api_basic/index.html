@@ -212,7 +212,8 @@
   &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
   &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;,
   &quot;per_resource_auth&quot;:true,
-  &quot;service_token&quot;:&quot;S0M3T0K3N&quot;
+  &quot;service_token&quot;:&quot;S0M3T0K3N&quot;,
+  &quot;log_level&quot;:&quot;INFO&quot;
 }
 </code></pre>
 
@@ -265,6 +266,10 @@
 <td>service_token</td>
 <td>(optional) If set, enables full service-wide access to the api to initialize projects,users and resources</td>
 </tr>
+<tr>
+<td>log_level</td>
+<td>set the desired log level (defaults to "INFO")</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Location of config.json</strong>: API will look first for config.json locally in the folder where the executable runs and then in the <code>/etc/argo-messaging/</code>  location.</p>
@@ -280,6 +285,7 @@ if the user issues</p>
 --certificate-key string   certificate key file *.key (default &quot;/etc/pki/tls/private/localhost.key&quot;)
 --config-dir string        directory path to an alternative json config file
 --kafka-znode string       kafka zookeeper node name
+--log-level string         set the desired log level
 --per-resource-auth        enable per resource authentication (default true)
 --port int                 port number to listen to (default 8080)
 --service-key string       service token definition for immediate full api access
