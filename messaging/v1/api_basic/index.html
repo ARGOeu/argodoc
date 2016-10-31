@@ -108,6 +108,8 @@
                 
                     <li><a class="toctree-l4" href="#configuration-file-configjson">Configuration file: config.json</a></li>
                 
+                    <li><a class="toctree-l4" href="#command-line-parameters">Command line parameters</a></li>
+                
             
             </ul>
         
@@ -266,6 +268,32 @@
 </tbody>
 </table>
 <p><strong>Location of config.json</strong>: API will look first for config.json locally in the folder where the executable runs and then in the <code>/etc/argo-messaging/</code>  location.</p>
+<h2 id="command-line-parameters">Command line parameters</h2>
+<p>Apart from configuration file, argo-messaging service accepts configuration parameters in the command line. The list of the available command line parameters is displayed
+if the user issues</p>
+<pre><code>./argo-messaging-service --help
+</code></pre>
+
+<p>The available command line parameters are listed as follows:</p>
+<pre><code>--bind-ip string           ip address to listen to (default &quot;localhost&quot;)
+--certificate string       certificate file *.crt (default &quot;/etc/pki/tls/certs/localhost.crt&quot;)
+--certificate-key string   certificate key file *.key (default &quot;/etc/pki/tls/private/localhost.key&quot;)
+--config-dir string        directory path to an alternative json config file
+--kafka-znode string       kafka zookeeper node name
+--per-resource-auth        enable per resource authentication (default true)
+--port int                 port number to listen to (default 8080)
+--service-key string       service token definition for immediate full api access
+--store-db string          datastore (mongodb) database name (default &quot;argo_msg&quot;)
+--store-host string        datastore (mongodb) host (default &quot;localhost&quot;)
+--zookeeper-hosts value    list of zookeeper hosts to connect to (default [localhost])
+</code></pre>
+
+<p>User can optionally specifiy an alternative configuration file directory with the use of the <code>--config-dir</code> parameter
+For example:</p>
+<pre><code>./argo-messaging-service --config-dir=/root/alternative/config/
+</code></pre>
+
+<p>The <code>/root/alternative/config/config.json</code> must exist</p>
               
             </div>
           </div>
