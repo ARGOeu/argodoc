@@ -216,8 +216,8 @@
 <li>Create a project: Project entities is used as a basis of organizing and isolating groups of users &amp; resources</li>
 <li>Create a project_admin user: Users that have the project_admin have, by default, all capabilities in their project. They can also manage resources such as topics and subscriptions (CRUD) and also manage ACLs (users) on those resources as well.</li>
 <li>Create a topic: The main resource that is scoped in a project, and can hold messages.</li>
-<li>Create a subscription: A subscription is the main resource from which users consume messages. </li>
-<li>Create users for the new resources: Usually a project has  publisher and consumer accounts for clients that either are authorized to publish or consume messages. </li>
+<li>Create a subscription: A subscription is the main resource from which users consume messages.</li>
+<li>Create users for the new resources: Usually a project has  publisher and consumer accounts for clients that either are authorized to publish or consume messages.</li>
 </ul>
 <h2 id="configure-service_token">Configure <code>service_token</code></h2>
 <p>ARGO Messaging Service configuration includes the <code>service_token</code> parameter. This <code>service_token</code> configuration parameter can be used to create the first <code>service_admin</code> user of the service</p>
@@ -238,13 +238,13 @@
 
 <p>The service token in this example has the value: <code>S3CR3T</code>
 This <code>service_token</code> is authorized for all available actions (projects,users,topics,subscriptions).</p>
-<p>In order to enable the use of this <code>service_token</code> you must restart the service. </p>
+<p>In order to enable the use of this <code>service_token</code> you must restart the service.</p>
 <pre><code>service argo-messaging restart
 </code></pre>
 
 <h2 id="create-a-service_admin-user">Create a service_admin user</h2>
 <p>The service_token is intended to be used for the first initialization of the API. The first thing the service needs is a user with all possible capabilities, which is a <code>service_admin</code>.
-Now even though no user has been initialized in the service, the administrator can use the ARGO Messaging API Call with service_token <code>S3CR3T</code> to create the user. 
+Now even though no user has been initialized in the service, the administrator can use the ARGO Messaging API Call with service_token <code>S3CR3T</code> to create the user.
 The service_admin will be able to further define projects and other users.</p>
 <p>Using the service_token an admin can create a new service_admin user with the username <code>demo_service_admin</code> by calling:</p>
 <pre><code>POST https://{URL}/v1/users/demo_service_admin?key=S3CR3T
@@ -266,7 +266,9 @@ The service_admin will be able to further define projects and other users.</p>
   &quot;email&quot;: &quot;sadmin@mail.example.foo&quot;,
   &quot;service_roles&quot;: [
     &quot;service_admin&quot;
-  ]
+  ],
+  &quot;created_on&quot;: &quot;2016-10-13T11:19:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T11:19:07Z&quot;
 }
 </code></pre>
 
@@ -278,16 +280,16 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
 </code></pre>
 
 <p>with the following POST BODY:</p>
-<pre><code>{
+<pre><code class="json">{
    &quot;description&quot;:&quot;my first demo project&quot;
 }
 </code></pre>
 
 <p>and the response:</p>
-<pre><code>{
+<pre><code class="json">{
   &quot;name&quot;: &quot;DEMO&quot;,
-  &quot;created_on&quot;: &quot;2016-10-13T12:19:07.341+03:00&quot;,
-  &quot;modified_on&quot;: &quot;2016-10-13T12:19:07.341+03:00&quot;,
+  &quot;created_on&quot;: &quot;2016-10-13T12:19:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:19:07Z&quot;,
   &quot;created_by&quot;: &quot;demo_service_admin&quot;,
   &quot;description&quot;: &quot;my first demo project&quot;
 }
@@ -321,7 +323,10 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
   &quot;name&quot;: &quot;admin_DEMO&quot;,
   &quot;token&quot;: &quot;6311196665befcc1523b8e013979347b8780254c&quot;,
   &quot;email&quot;: &quot;demoadmin@mail.example.foo&quot;,
-  &quot;service_roles&quot;: []
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:29:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:29:07Z&quot;,
+  &quot;created_by&quot;: &quot;demo_service_admin&quot;
 }
 </code></pre>
 
@@ -345,13 +350,13 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
 </code></pre>
 
 <p>with POST Body:</p>
-<pre><code>{
+<pre><code class="json">{
    &quot;topic&quot;:&quot;projects/DEMO/topic/topic101&quot;
 }
 </code></pre>
 
 <p>and response:</p>
-<pre><code>{
+<pre><code class="json">{
   &quot;name&quot;: &quot;/projects/DEMO/subscriptions/sub101&quot;,
   &quot;topic&quot;: &quot;/projects/DEMO/topics/topic101&quot;,
   &quot;pushConfig&quot;: {
@@ -377,7 +382,7 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
 </code></pre>
 
 <p>resulting in response:</p>
-<pre><code>{
+<pre><code class="json">{
   &quot;projects&quot;: [
     {
       &quot;project&quot;: &quot;DEMO&quot;,
@@ -389,11 +394,14 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
   &quot;name&quot;: &quot;publisher_DEMO&quot;,
   &quot;token&quot;: &quot;915dff62846dd1d790b4296c034c184fa3a859b6&quot;,
   &quot;email&quot;: &quot;demopublisher@mail.example.foo&quot;,
-  &quot;service_roles&quot;: []
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:39:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:39:07Z&quot;,
+  &quot;created_by&quot; : &quot;demo_service_admin&quot;
 }
 </code></pre>
 
-<p>To create the <code>conumer_DEMO</code> user:</p>
+<p>To create the <code>consumer_DEMO</code> user:</p>
 <pre><code>POST https://{URL}/v1/users/consumer_DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
 </code></pre>
 
@@ -417,7 +425,10 @@ For more details visit the <a href="../api_users/">API Users</a> to see all poss
   &quot;name&quot;: &quot;consumer_DEMO&quot;,
   &quot;token&quot;: &quot;dba38fd1a45337a617a59e7278c756f23642e9e7&quot;,
   &quot;email&quot;: &quot;democonsumer@mail.example.foo&quot;,
-  &quot;service_roles&quot;: []
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:40:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:40:07Z&quot;,
+  &quot;created_by&quot; : &quot;demo_service_admin&quot;
 }
 </code></pre>
 

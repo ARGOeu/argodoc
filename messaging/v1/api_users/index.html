@@ -224,49 +224,56 @@
     {
        &quot;projects&quot;: [
           {
-            &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-                &quot;project_admin&quot;
+              &quot;project_admin&quot;
              ]
           }
        ],
        &quot;name&quot;: &quot;Test&quot;,
        &quot;token&quot;: &quot;S3CR3T&quot;,
        &quot;email&quot;: &quot;Test@test.com&quot;,
-       &quot;service_roles&quot;:[]
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
     },
     {
        &quot;projects&quot;: [
           {
-            &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-                &quot;project_admin&quot;
+               &quot;project_admin&quot;
              ]
           }
        ],
        &quot;name&quot;: &quot;UserA&quot;,
        &quot;token&quot;: &quot;S3CR3T1&quot;,
        &quot;email&quot;: &quot;foo-email&quot;,
-       &quot;service_roles&quot;:[]
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
     },
     {
        &quot;projects&quot;: [
           {
-            &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-                &quot;project_admin&quot;
+               &quot;project_admin&quot;
              ]
           }
        ],
        &quot;name&quot;: &quot;UserB&quot;,
        &quot;token&quot;: &quot;S3CR3T2&quot;,
        &quot;email&quot;: &quot;foo-email&quot;,
-       &quot;service_roles&quot;:[]
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
     },
     {
        &quot;projects&quot;: [
           {
-            &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
                 &quot;consumer&quot;
              ]
@@ -275,7 +282,10 @@
        &quot;name&quot;: &quot;UserX&quot;,
        &quot;token&quot;: &quot;S3CR3T3&quot;,
        &quot;email&quot;: &quot;foo-email&quot;,
-       &quot;service_roles&quot;:[]
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
     },
     {
        &quot;projects&quot;: [
@@ -289,7 +299,10 @@
        &quot;name&quot;: &quot;UserZ&quot;,
        &quot;token&quot;: &quot;S3CR3T4&quot;,
        &quot;email&quot;: &quot;foo-email&quot;,
-       &quot;service_roles&quot;:[]
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
     }
  ]
 }
@@ -328,7 +341,9 @@
  &quot;name&quot;: &quot;UserA&quot;,
  &quot;token&quot;: &quot;S3CR3T1&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
- &quot;service_roles&quot;:[]
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
 }
 </code></pre>
 
@@ -423,7 +438,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;name&quot;: &quot;USERNEW&quot;,
  &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
- &quot;service_roles&quot;:[]
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
 }
 </code></pre>
 
@@ -480,7 +498,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;name&quot;: &quot;CHANGED_NAME&quot;,
  &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
- &quot;service_roles&quot;:[]
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-11T10:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
 }
 </code></pre>
 
@@ -518,7 +539,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;name&quot;: &quot;USER2&quot;,
  &quot;token&quot;: &quot;NEWRANDOMTOKEN&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
- &quot;service_roles&quot;:[]
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-11T12:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
 }
 </code></pre>
 
