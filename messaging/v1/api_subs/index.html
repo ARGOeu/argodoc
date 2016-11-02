@@ -350,7 +350,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:pull</code></p>
 <h3 id="post-body_2">Post body:</h3>
 <pre><code class="json">{
- &quot;maxMessages&quot;: &quot;1&quot;,
+ &quot;maxMessages&quot;: &quot;1&quot;
 }
 </code></pre>
 
@@ -367,7 +367,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
 <h3 id="post-body_3">post body:</h3>
 <p>{
- "maxMessages": "1",
+ "maxMessages": "1"
 }</p>
 <h3 id="responses_5">Responses</h3>
 <p><code>200 OK</code></p>
@@ -412,12 +412,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>ackIds: the ids of the messages</li>
 </ul>
 <h3 id="example-request_6">Example request</h3>
-<p>`curl -X POST -H "Content-Type: application/json"<br />
--d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:acknowledge?key=S3CR3T"</p>
-<pre><code>
-### post body:
-```json
-{
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d POSTDATA http://{URL}/v1/projects/EGI/subscriptions/alert_engine:acknowledge?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_5">post body:</h3>
+<pre><code class="json">{
  &quot;ackIds&quot;: [
   &quot;dQNNHlAbEGEIBE...&quot;
  ],
