@@ -256,7 +256,7 @@ A topic name must be scoped to a project.</p>
 </ul>
 <h3 id="example-request">Example request</h3>
 <pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;
- -d '' &quot; https://{URL}/v1/projects/EGI/topics/monitoring?key=S3CR3T&quot;
+ &quot; https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -264,7 +264,7 @@ A topic name must be scoped to a project.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/EGI/topics/monitoring&quot;
+ &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;
 }
 </code></pre>
 
@@ -283,7 +283,7 @@ A topic name must be scoped to a project.</p>
 </ul>
 <h3 id="example-request_1">Example request</h3>
 <pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
--d '' &quot;https://{URL}/v1/projects/EGI/topics/monitoring?key=S3CR3T&quot;
+-d '' &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
@@ -304,7 +304,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 </ul>
 <h3 id="example-request_2">Example request</h3>
 <pre><code class="json">curl -H &quot;Content-Type: application/json&quot;  
--d '' &quot; https://{URL}/v1/projects/EGI/topics/monitoring?key=S3CR3T&quot;
+ &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_2">Responses</h3>
@@ -312,7 +312,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/EGI/topics/monitoring&quot;
+ &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;
 }
 </code></pre>
 
@@ -329,8 +329,8 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;  
--d '' &quot; https://{URL}/v1/projects/EGI/topics/?key=S3CR3T&quot;`
+<pre><code class="json">curl -H &quot;Content-Type: application/json&quot; 
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&quot;`
 </code></pre>
 
 <h3 id="responses_3">Responses</h3>
@@ -339,10 +339,10 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <pre><code class="json">{
   &quot;topics&quot;: [
     {
-      &quot;name&quot;:&quot;/project/EGI/topics/monitoring&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;
     },
     {
-      &quot;name&quot;:&quot;/project/EGI/topics/accounting&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
     },
      ]
 }
@@ -382,7 +382,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 </blockquote>
 <h3 id="example-request_4">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/EGI/topics/monitoring:publish?key=S3CR3T&quot;
+-d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_4">Responses</h3>
@@ -409,7 +409,8 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>topic_name: name of the topic</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot; &quot;https://{URL}/v1/projects/EGI/topics/monitoring:acl?key=S3CR3T&quot;
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot; 
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_5">Responses</h3>
@@ -446,7 +447,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
 <h3 id="example-request_6">Example request</h3>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/EGI/topics/monitoring:modifyAcl?key=S3CR3T&quot;
+-d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_6">Responses</h3>
