@@ -192,6 +192,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../qa_general_questions/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../qa_ruby/">Ruby</a>
         
     </li>
@@ -398,7 +405,9 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>Project_name: Name of the project</li>
 <li>subscription_name: The subscription name to consume</li>
 <li>maxMessages: the max number of messages to consume</li>
+<li>returnImmediately: (true or false) to prevent the subscriber from waiting if the queue is currently empty.</li>
 </ul>
+<p>You can specify the max number of messages returned by one call by setting maxMessages field. By default, the server will keep the connection open until at least one message is received; you can optionally set the returnImmediately field to true to prevent the subscriber from waiting if the queue is currently empty.</p>
 <h3 id="example-request_5">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;
   -d POSTDATA https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:pull?key=S3CR3T&quot;
