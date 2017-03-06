@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Metrics - Web Api documentation [V2]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Metrics";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../recomputations/">Recomputations Requests</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../results/">Results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../status/">Status Results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../metric_profiles/">Metric Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../operations_profiles/">Operations Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../reports/">Reports</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tenants/">Tenants</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../errors/">Error Codes</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../validations/">Validation Checks</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Metrics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#metric-results">Metric results</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-metric-result">[GET]: Metric Result</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Web Api documentation [V2]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Metrics</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="metric-results">Metric results</h1>
+<p>API call for retrieving detailed metric result.</p>
+<h2 id="get-metric-result">[GET]: Metric Result</h2>
+<p>This method may be used to retrieve a specific service metric result.</p>
+<h3 id="input">Input</h3>
+<pre><code>/metric_result/{hostname}/{metric_name}?[exec_time]
+</code></pre>
+
+<h4 id="path-parameters">Path Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hostname</code></td>
+<td>hostname of service endpoint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metric_name</code></td>
+<td>name of the metric</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="url-parameters">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec_time</code></td>
+<td>The execution date of query in zulu format</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Notes</em></strong>:
+<code>exec_time</code> : The execution date of query in zulu format. In order to get the correct execution time get status results for all metrics (under a given endpoint, service and endpoint group). ( GET /status/{report_name}/{lgroup_type}/{lgroup_name}/services/{service_name}/endpoints/{endpoint_name}/metrics List)</p>
+<h4 id="headers">Headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+</code></pre>
+
+<h4 id="response-code">Response Code</h4>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h3 id="response-body">Response body</h3>
+<h6 id="example-request">Example Request:</h6>
+<p>URL:</p>
+<pre><code>/api/v2/metric_result/www.example.com/httpd_check?exec_time=2015-06-20T12:00:00Z
+</code></pre>
+
+<p>Headers:</p>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+
+</code></pre>
+
+<h6 id="example-response">Example Response:</h6>
+<p>Code:</p>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<p>Reponse body:</p>
+<pre><code> &lt;root&gt;
+   &lt;host name=&quot;www.example.com&quot;&gt;
+     &lt;metric name=&quot;httpd_check&quot;&gt;
+       &lt;status timestamp=&quot;2015-06-20T12:00:00Z&quot; value=&quot;CRITICAL&quot;&gt;
+     &lt;summary&gt;httpd status is CRITICAL&lt;/summary&gt;
+     &lt;message&gt;httpd service seems down. Failed to connect to port 80.&lt;/message&gt;
+       &lt;/status&gt;
+     &lt;/metric&gt;
+   &lt;/host&gt;
+ &lt;/root&gt;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../validations/" class="btn btn-neutral" title="Validation Checks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2015 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../validations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

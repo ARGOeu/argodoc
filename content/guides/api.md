@@ -1,57 +1,115 @@
 ---
 title: API documentation | ARGO
+layout: api
 page_title: API documentation 
 font_title: 'fa fa-cogs'
 description: This document describes the API service, using the HTTP application protocol. This API uses XML as the primary exchange format.
 ---
 
-## API Data
+## Description
 
-| Base URL | <code>https://\<host\>:\<port\>/api/v1/</code> |
-| **Default Port**         | <code>8080</code>  |
-| **Central instance of the ARGO production service** |  <code>https://snf-629551.vm.okeanos.grnet.gr:8080/api/v1/</code> |
+The ARGO Web API provides the Serving Layer of ARGO. It is comprised of a high
+performance and scalable data store and a multi-tenant REST HTTP API, which is
+used for retrieving the Status, Availability and Reliability reports and the
+actual raw metric results.
 
-## GET method
+## Installation
 
-### Input
+### RPM install
 
-    /api/v1/service_availability_in_profile?[start_time]&[end_time]&[vo_name]&[profile_name]&[group_type]&[availability_period]&[output]&[namespace]&[group_name]&[service_flavour]&[service_hostname] 
+You will need a RHEL 6.x or similar (base installation) to proceed. As a first
+step make sure that on your host an ntp client service is configured properly. 
 
-- mandatory
-  - `start_time`: UTC time in W3C format 
-  - `end_time`: UTC time in W3C format
-  - `vo_name`: Name of the VO requested. May appear more than once. (eg: ops)
-  - `profile_name`: Name of the profile requested. May appear more than once. (eg: CMS_CRITICAL)
-  - `group_type`: Type of the aggregation grouping requested.  May appear more than once. (eg: CMS_Site)
-  - `availability_period`: Results granularity. Possible values: 'HOURLY', 'DAILY', 'WEEKLY', 'MONTHLY'
-- optional
-  - `output`: Type of the output format. Default: XML, Possible values: XML, json
-  - `namespace`: Profile namespace. May appear more than once. (eg: ch.cern.sam)
-  - `group_name`: Site name. May appear more than once
-  - `service_flavour`: Service flavour name. May appear more than once. (eg: SRMv2)
-  - `service_hostname`: Service hostname. May appear more than once. (eg: ce202.cern.ch)
+#### Software Repositories
 
-### Output 
+On your host the next step is to install (as root user) the ar-release package
+via yum:
 
-    <pre>
-      <root>
-        <Profile name="A_PROFILE_NAME" namespace="a_namespace.grid.auth.gr" defined_by_vo_name="A_VO">
-          <Service hostname="a_host.grid.auth.gr" type="A_FLAVOR" flavor="A_FLAVOR">
-            <Availability timestamp="2013-08-01T00:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T01:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T02:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T03:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T04:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T05:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T06:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T07:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            <Availability timestamp="2013-08-01T08:00:00Z" availability="1" reliability="1" maintenance="-1"></Availability>
-            .
-            .
-            .
-          </Service>
-        </Profile>
-      </root>
-    </pre>
+    yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
 
+This package will configure on the host(s) the repository files under `/etc/yum.repos.d`.
 
+Also install the EPEL repository. This can be done by installing the
+epel-release package for the appropriate OS. For example:
+
+    yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+
+Then you can install the ARGO Web API using yum:
+
+    yum install argo-web-api
+
+### Manual build
+
+1. Install Golang and bzr library
+
+2. Install godep tool
+
+        go get github.com/tools/godep
+
+3. Create a new work space:
+
+        mkdir ~/go-workspace
+        export GOPATH=~/go-workspace
+        export PATH=$PATH:GOPATH
+
+  You may add the `export` lines into the `~/.bashrc` or the `~/.bash_profile` file to have the `GOPATH` and `PATH` environment variables properly setup upon every login.
+
+4. Get the latest version and all dependencies (Using Godep):
+
+        godep update ...
+
+5. To build the service use the following command:
+
+        go build
+
+6. To run the service use the following command:
+
+        ./argo-web-api
+
+7. To run the unit-tests with coverage results:
+
+        gocov test ./... | gocov-xml > coverage.xml
+
+8. To generate and serve godoc (@port 6060)
+
+        godoc -http=:6060
+
+## Configuration
+
+The ARGO Web API uses TLS connections and it requires the existence of valid
+X.509v3 certificate and the corresponding private key.
+
+For a list of options use the following command:
+
+    ./argo-web-api -h
+
+## Examples
+
+With the following configuration, the API binds to TCP port 443 on all the
+available IPs and uses the certificate in `/etc/pki/tls/certs/cert.crt` and its
+corresponding private key in `/etc/pki/tls/certs/priv.key`.
+
+    [server]
+    bindip = ""
+    port = 443
+    maxprocs = 4
+    cache = false
+    lrucache = 700000000
+    gzip = true
+    cert = /etc/pki/tls/certs/localhost.crt
+    privkey = /etc/pki/tls/private/localhost.key
+    reqsizelimit = 1073741824
+    enable_cors = false
+
+    [mongodb]
+    host = "127.0.0.1"
+    port = 27017
+    db = "argo_core"
+
+And the API can be started by issuing the command:
+
+    service argo-web-api start
+
+## Links and further reading
+
+- [Swagger : API Demo](https://api-doc.argo.grnet.gr/argo-web-api/)

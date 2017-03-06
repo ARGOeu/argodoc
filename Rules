@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 
 compile '/static/*' do
 end
@@ -22,7 +21,7 @@ compile '*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
   filter :colorize_syntax,
-    :colorizers => {:javascript => :pygmentsrb}
+         :colorizers => {:javascript => :pygmentsrb}
   layout item[:layout] || 'default'
 end
 
@@ -35,3 +34,4 @@ route '*' do
 end
 
 layout '*', :erb
+

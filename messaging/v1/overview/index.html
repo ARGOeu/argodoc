@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview and Introduction - AMS documentation [V1]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Overview and Introduction";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="./" class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Basic Information</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Overview and Introduction</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#terminology">Terminology</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#the-argo-messaging-service">The ARGO Messaging Service</a></li>
+                
+                    <li><a class="toctree-l4" href="#topics">Topics</a></li>
+                
+                    <li><a class="toctree-l4" href="#subscriptions">Subscriptions</a></li>
+                
+                    <li><a class="toctree-l4" href="#pull-vs-push-subscriptions">Pull vs Push Subscriptions</a></li>
+                
+                    <li><a class="toctree-l4" href="#messages">Messages</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_flow/">Messaging API flow</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth/">Authentication & Authorization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../projects_users/">Project & User management guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>How to Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../publisher/">Publisher Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API & References</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_basic/">API Basic Information</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_auth/">API Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_users/">API Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_projects/">API Projects</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_topics/">API Topics</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_errors/">API Error Messages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Q&A</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_general_questions/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_ruby/">Ruby</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="./">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="./">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Basic Information &raquo;</li>
+        
+      
+    
+    <li>Overview and Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>The Messaging Services is implemented as a Publish/Subscribe Service. Instead of focusing on a single Messaging API specification for handling the logic of publishing/subscribing to the broker network the API focuses on creating nodes of Publishers and Subscribers as a Service.</p>
+<h1 id="terminology">Terminology</h1>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project</td>
+<td>ARGO Messaging Service uses the notion of ‘projects’ for each tenant and can support multiple projects each one containing multiple topics/subscriptions and users on the same Kafka backend.</td>
+</tr>
+<tr>
+<td>topic</td>
+<td>A named resource to which messages are sent by publishers. A topic name must be scoped to a project.</td>
+</tr>
+<tr>
+<td>subscription</td>
+<td>A named resource representing the stream of messages from a single, specific topic, to be delivered to the subscribing application. A subscription name  must be scoped to a project.</td>
+</tr>
+<tr>
+<td>ackDeadlineSeconds</td>
+<td>Time window in seconds during which client can send an acknowledgement to notify the Service that a message has been successfully received</td>
+</tr>
+<tr>
+<td>ack</td>
+<td>Acknowledgement issued by the client that the message has been received</td>
+</tr>
+<tr>
+<td>pushConfig</td>
+<td>Contains information about the push endpoint</td>
+</tr>
+<tr>
+<td>pushEndpoint</td>
+<td>Webhook URL which will receive the messages</td>
+</tr>
+<tr>
+<td>Message</td>
+<td>The combination of data and (optional) attributes that a publisher sends to a topic and is eventually delivered to subscribers.</td>
+</tr>
+<tr>
+<td>Messages - messageId</td>
+<td>Id of the message - GENERATED by the api</td>
+</tr>
+<tr>
+<td>Messages - data</td>
+<td>Data payload ALWAYS encoded in Base64</td>
+</tr>
+<tr>
+<td>Messages - attributes</td>
+<td>Dictionary with key/value metadata - OPTIONAL</td>
+</tr>
+<tr>
+<td>Messages - publishTime</td>
+<td>Timestamp when the message was published, in UTC Zulu time format - detailed to nanoseconds. - GENERATED BY THE API (UTC+2 at devel infrastructure)</td>
+</tr>
+<tr>
+<td>AMS</td>
+<td>ARGO Messaging Service</td>
+</tr>
+<tr>
+<td>maxMessages</td>
+<td>the max number of messages returned by one call by setting maxMessages field (when a client pull messages from a subscription).</td>
+</tr>
+<tr>
+<td>returnImmediately</td>
+<td>By default, the server will keep the connection open until at least one message is received; you can optionally set the returnImmediately field to true to prevent the subscriber from waiting if the queue is currently empty. (when a client pull messages from a subscription).</td>
+</tr>
+</tbody>
+</table>
+<h1 id="the-argo-messaging-service">The ARGO Messaging Service</h1>
+<p>The ARGO Messaging Service is a Publish/Subscribe Service, which implements the Google PubSub protocol. It provides an HTTP API that enables Users/Systems to implement message oriented service using the Publish/Subscribe Model over plain HTTP.</p>
+<p>In the Publish/Subscribe paradigm, Publishers are users/systems that can send messages to named-channels called Topics. Subscribers are users/systems that create Subscriptions to specific topics and receive messages.</p>
+<h2 id="topics">Topics</h2>
+<p>Topics are resources that can hold messages. Publishers (users/systems) can create topics on demand and name them (Usually with names that make sense and express the class of messages delivered in the topic)</p>
+<h2 id="subscriptions">Subscriptions</h2>
+<p>In order for a user to be able to consume messages, he must first create a subscription. Subscriptions are resources that can be created by users   on demand and are attached to specific topics. Each topic can have multiple subscriptions but each subscription can be attached to just one topic. Subscriptions allows Subscribers to incrementally consume messages, at their own pace, while the progress is automatically tracked for each subscription.</p>
+<h2 id="pull-vs-push-subscriptions">Pull vs Push Subscriptions</h2>
+<p>Pub/Sub supports both push and pull message delivery. In push delivery, the Pub/Sub initiates requests to your subscriber application to deliver messages. In pull delivery, your subscription application initiates requests to the Pub/Sub server to retrieve messages.</p>
+<h3 id="pull-subscriptions">Pull subscriptions</h3>
+<p>Pull subscriptions can be configured to require that message deliveries are acknowledged by the Subscribers. If an acknowledgement is made, subscription can resume progressing and send the next available messages. If no acknowledgement is made subscription pauses progressing and re-sends the same messages.</p>
+<p>In a pull subscription, the subscribing application explicitly calls the API pull method, which requests delivery of a message in the subscription queue. The Pub/Sub server responds with the message (or an error if the queue is empty), and an ack ID. The subscriber then explicitly calls the acknowledge method, using the returned ack ID, to acknowledge receipt.</p>
+<h3 id="push-subscriptions">Push subscriptions</h3>
+<p>In a push subscription, the Pub/Sub server sends a request to the subscriber application, at a preconfigured endpoint. The subscriber's HTTP response serves as an implicit acknowledgement: a success response indicates that the message has been successfully processed and the Pub/Sub system can delete it from the subscription; a non-success response indicates that the Pub/Sub server should resend it (implicit "nack"). To ensure that subscribers can handle the message flow, the Pub/Sub dynamically adjusts the flow of requests and uses an algorithm to rate-limit retries.</p>
+<blockquote>
+<p>In the current implementation of the AMS there is support only for pull subscriptions.
+Support for pull subscription will be available in the next versions.</p>
+</blockquote>
+<h2 id="messages">Messages</h2>
+<p>In the ARGO Messaging Service each message has an identifier, data (payload) and metadata (optional). The metadata are stored in a attribute dictionary as key/value pairs. The message is represented in json format as follows:</p>
+<pre><code class="json"> {
+   &quot;messageId&quot;: &quot;12&quot;,
+   &quot;data&quot;: &quot;YmFzZTY0&quot;,
+   &quot;attributes&quot;: [
+     {
+       &quot;key&quot;: &quot;attribute1&quot;,
+       &quot;value&quot;: &quot;value1&quot;
+     },
+     {
+       &quot;key&quot;: &quot;attribute2&quot;,
+       &quot;value&quot;: &quot;value2&quot;
+     }
+   ],
+   &quot;publishTime&quot;:&quot;2016-03-15T17:11:34.035345612Z&quot;  
+ }
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>messageId</td>
+<td>Id of the message - GENERATED by the ARGO Messaging Service. Judging from interaction with the service emulator locally and with the service itself online, yes the messages were identified with sequential numbers.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Data payload ALWAYS encoded in Base64</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>Dictionary with key/value metadata - OPTIONAL</td>
+</tr>
+<tr>
+<td>publishTime</td>
+<td>Timestamp when the message was published, in UTC Zulu time format - detailed to nanoseconds. - GENERATED BY THE API</td>
+</tr>
+</tbody>
+</table>
+<h3 id="message-acknowledgement-deadline">Message acknowledgement deadline</h3>
+<p>The ack deadline is the number of seconds after delivery, during which the subscriber must acknowledge the receipt of a pull or push message. If a subscriber does not respond with an explicit acknowledge (for a pull subscriber) or with a success response code (for a push subscriber) by this deadline, the server will attempt to resend the message. By default this deadline is 10 seconds.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../msg_backend/" class="btn btn-neutral float-right" title="Messaging Backend - Apache Kafka"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="../msg_backend/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

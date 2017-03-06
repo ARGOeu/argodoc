@@ -158,3 +158,12 @@ box-shadow: 1px 1px 1px 1px #ccc;
 cursor: pointer;
 }
 
+.list-group-item-level2 {
+  background-color: #ddd;
+  border: 1px solid #337ab7;
+  display: block;
+  margin-bottom: -1px;
+  padding: 10px 15px;
+  margin-left:10px;
+  position: relative;
+}

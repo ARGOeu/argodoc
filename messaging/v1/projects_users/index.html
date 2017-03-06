@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project & User management guide - AMS documentation [V1]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Project & User management guide";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../overview/" class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Basic Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview and Introduction</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_flow/">Messaging API flow</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth/">Authentication & Authorization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Project & User management guide</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#initial-project-and-user-management">Initial Project and user management</a></li>
+                
+                    <li><a class="toctree-l4" href="#a-typical-quick-start-scenario">A typical quick-start scenario</a></li>
+                
+                    <li><a class="toctree-l4" href="#configure-service_token">Configure service_token</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-a-service_admin-user">Create a service_admin user</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-a-project">Create a project</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-a-project_admin">Create a project_admin</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-a-topic">Create a topic</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-a-subscription">Create a subscription</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-users-for-the-new-resources">Create users for the new resources</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>How to Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../publisher/">Publisher Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API & References</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_basic/">API Basic Information</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_auth/">API Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_users/">API Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_projects/">API Projects</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_topics/">API Topics</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_errors/">API Error Messages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Q&A</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_general_questions/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_ruby/">Ruby</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../overview/">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../overview/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Basic Information &raquo;</li>
+        
+      
+    
+    <li>Project & User management guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="initial-project-and-user-management">Initial Project and user management</h1>
+<p>This document describes some of the more advanced setup you may need to do while configuring and deploying the ARGO Messaging Service.</p>
+<h2 id="a-typical-quick-start-scenario">A typical quick-start scenario</h2>
+<p>After a fresh install of the ARGO Messaging Service, the steps you need to follow are:</p>
+<ul>
+<li>Configure <code>service_token</code>: to enable the service.</li>
+<li>Create a service_admin user: to start managing the service.</li>
+<li>Create a project: Project entities is used as a basis of organizing and isolating groups of users &amp; resources</li>
+<li>Create a project_admin user: Users that have the project_admin have, by default, all capabilities in their project. They can also manage resources such as topics and subscriptions (CRUD) and also manage ACLs (users) on those resources as well.</li>
+<li>Create a topic: The main resource that is scoped in a project, and can hold messages.</li>
+<li>Create a subscription: A subscription is the main resource from which users consume messages.</li>
+<li>Create users for the new resources: Usually a project has  publisher and consumer accounts for clients that either are authorized to publish or consume messages.</li>
+</ul>
+<h2 id="configure-service_token">Configure <code>service_token</code></h2>
+<p>ARGO Messaging Service configuration includes the <code>service_token</code> parameter. This <code>service_token</code> configuration parameter can be used to create the first <code>service_admin</code> user of the service</p>
+<p>First a service token must be defined in the config.json as such:</p>
+<pre><code>{
+  &quot;bind_ip&quot;:&quot;&quot;,
+  &quot;port&quot;:8080,
+  &quot;zookeeper_hosts&quot;:[&quot;localhost&quot;],
+  &quot;kafka_znode&quot;:&quot;&quot;,
+  &quot;store_host&quot;:&quot;localhost&quot;,
+  &quot;store_db&quot;:&quot;argo_msg&quot;,
+  &quot;certificate&quot;:&quot;/etc/pki/tls/certs/localhost.crt&quot;,
+  &quot;certificate_key&quot;:&quot;/etc/pki/tls/private/localhost.key&quot;,
+  &quot;per_resource_auth&quot;:&quot;true&quot;,
+  &quot;service_token&quot;:&quot;S3CR3T&quot;
+}
+</code></pre>
+
+<p>The service token in this example has the value: <code>S3CR3T</code>
+This <code>service_token</code> is authorized for all available actions (projects,users,topics,subscriptions).</p>
+<p>In order to enable the use of this <code>service_token</code> you must restart the service.</p>
+<pre><code>service argo-messaging restart
+</code></pre>
+
+<h2 id="create-a-service_admin-user">Create a service_admin user</h2>
+<p>The service_token is intended to be used for the first initialization of the API. The first thing the service needs is a user with all possible capabilities, which is a <code>service_admin</code>.
+Now even though no user has been initialized in the service, the administrator can use the ARGO Messaging API Call with service_token <code>S3CR3T</code> to create the user.
+The service_admin will be able to further define projects and other users.</p>
+<p>Using the service_token an admin can create a new service_admin user with the username <code>demo_service_admin</code> by calling:</p>
+<pre><code>POST https://{URL}/v1/users/demo_service_admin?key=S3CR3T
+</code></pre>
+
+<p>with the following POST BODY:</p>
+<pre><code class="json">{
+   &quot;email&quot;:&quot;sadmin@mail.example.foo&quot;,
+   &quot;service_roles&quot;:[&quot;service_admin&quot;]
+}
+</code></pre>
+
+<p>It is important to mention that the user has the <strong>"service_admin"</strong> role defined in the service_roles list in order to be a service_admin.</p>
+<p>The response:</p>
+<pre><code class="json">{
+  &quot;projects&quot;: [],
+  &quot;name&quot;: &quot;demo_service_admin&quot;,
+  &quot;token&quot;: &quot;904c56cc6e2b1955dbd98ace80a45be8238432fc&quot;,
+  &quot;email&quot;: &quot;sadmin@mail.example.foo&quot;,
+  &quot;service_roles&quot;: [
+    &quot;service_admin&quot;
+  ],
+  &quot;created_on&quot;: &quot;2016-10-13T11:19:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T11:19:07Z&quot;
+}
+</code></pre>
+
+<p>The generated token <code>904c56cc6e2b1955dbd98ace80a45be8238432fc</code> can be used to authenticate the new user.
+For more details visit the <a href="../api_users/">API Users</a> to see all possible actions for users.</p>
+<h2 id="create-a-project">Create a project</h2>
+<p>Using the <code>demo_service_admin</code> account, the user can create the first project (ex named 'DEMO') by issuing:</p>
+<pre><code>POST https://{URL}/v1/projects/DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
+</code></pre>
+
+<p>with the following POST BODY:</p>
+<pre><code class="json">{
+   &quot;description&quot;:&quot;my first demo project&quot;
+}
+</code></pre>
+
+<p>and the response:</p>
+<pre><code class="json">{
+  &quot;name&quot;: &quot;DEMO&quot;,
+  &quot;created_on&quot;: &quot;2016-10-13T12:19:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:19:07Z&quot;,
+  &quot;created_by&quot;: &quot;demo_service_admin&quot;,
+  &quot;description&quot;: &quot;my first demo project&quot;
+}
+</code></pre>
+
+<p>Response informs that the project has been indeed <code>created_by</code> the <code>demo_service_admin</code> user.</p>
+<p>For more details visit the <a href="../api_projects/">API Projects</a> to see all possible actions for projects.</p>
+<h2 id="create-a-project_admin">Create a project_admin</h2>
+<p>Service_admin users are not attached to specific projects. Instead each project should have a <code>project_admin</code> user that will manage topics, subscriptions and ACLs on those resources. To create a <code>project_admin</code> user in project <code>DEMO</code>, the user <code>demo_service_admin</code> will issue:</p>
+<pre><code>POST https://{URL}/v1/users/admin_DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
+</code></pre>
+
+<p>with the following POST BODY:</p>
+<pre><code class="json">{
+   &quot;email&quot;:&quot;demoadmin@mail.example.foo&quot;,
+   &quot;projects&quot;:[{&quot;project&quot;:&quot;DEMO&quot;,&quot;roles&quot;:[&quot;project_admin&quot;]}]
+}
+</code></pre>
+
+<p>The user definition (in POST body) should have the field <code>projects</code> defined. The field accepts a list of tuple items (project,roles) which describe each project that the user participates to and under which roles. A user can have multiple roles in a project and also participate in multiple projects as well. In this example, the user must participate in project <code>DEMO</code> and under the role of <code>project_admin</code>.</p>
+<p>The response:</p>
+<pre><code class="json">{
+  &quot;projects&quot;: [
+    {
+      &quot;project&quot;: &quot;DEMO&quot;,
+      &quot;roles&quot;: [
+        &quot;project_admin&quot;
+      ]
+    }
+  ],
+  &quot;name&quot;: &quot;admin_DEMO&quot;,
+  &quot;token&quot;: &quot;6311196665befcc1523b8e013979347b8780254c&quot;,
+  &quot;email&quot;: &quot;demoadmin@mail.example.foo&quot;,
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:29:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:29:07Z&quot;,
+  &quot;created_by&quot;: &quot;demo_service_admin&quot;
+}
+</code></pre>
+
+<p>For more details visit the <a href="../api_users/">API Users</a> to see all possible actions for users.</p>
+<h2 id="create-a-topic">Create a topic</h2>
+<p>Service_admin users don't manage resources such as topics/subscriptions. Instead in each project the project_admin is eligible for creating (and managing) topics and subscriptions. To create a new topic (named <code>topic101</code>) as <code>admin_DEMO</code> user in project <code>DEMO</code> the user issues:</p>
+<pre><code>PUT https://{URL}/v1/projects/DEMO/topics/topic101?key=6311196665befcc1523b8e013979347b8780254c
+</code></pre>
+
+<p>with response:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;/projects/DEMO/topics/topic101&quot;
+}
+</code></pre>
+
+<p>Notice that the token used in api <code>key</code> changes to that of the <code>admin_DEMO</code> user</p>
+<p>For more details visit the <a href="../api_topics/">API Topics</a> to see all possible actions for topics.</p>
+<h2 id="create-a-subscription">Create a subscription</h2>
+<p>To create a new subscription (named <code>sub101</code>) to topic <code>topic101</code> of project <code>DEMO</code> the <code>admin_DEMO</code> user issues:</p>
+<pre><code>PUT https://{URL}/v1/projects/DEMO/subscriptions/subs101?key=6311196665befcc1523b8e013979347b8780254c
+</code></pre>
+
+<p>with POST Body:</p>
+<pre><code class="json">{
+   &quot;topic&quot;:&quot;projects/DEMO/topic/topic101&quot;
+}
+</code></pre>
+
+<p>and response:</p>
+<pre><code class="json">{
+  &quot;name&quot;: &quot;/projects/DEMO/subscriptions/sub101&quot;,
+  &quot;topic&quot;: &quot;/projects/DEMO/topics/topic101&quot;,
+  &quot;pushConfig&quot;: {
+    &quot;pushEndpoint&quot;: &quot;&quot;,
+    &quot;retryPolicy&quot;: {}
+  },
+  &quot;ackDeadlineSeconds&quot;: 10
+}
+</code></pre>
+
+<p>For more details visit the <a href="../api_subs/">API Subscriptions</a> to see all possible actions for Subscriptions.</p>
+<h2 id="create-users-for-the-new-resources">Create users for the new resources</h2>
+<p>Usually a project will have also publisher and consumer accounts for clients that either are authorized to publish or consume messages. The user <code>demo_service_admin</code> can create a <code>publisher_DEMO</code> and <code>consumer_DEMO</code> for project <code>DEMO</code> as such:</p>
+<p>To create the <code>publisher_DEMO</code> user:</p>
+<pre><code>POST https://{URL}/v1/users/publisher_DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
+</code></pre>
+
+<p>with POST Body:</p>
+<pre><code class="json">{
+   &quot;email&quot;:&quot;demopublisher@mail.example.foo&quot;,
+   &quot;projects&quot;:[{&quot;project&quot;:&quot;DEMO&quot;,&quot;roles&quot;:[&quot;publisher&quot;]}]
+}
+</code></pre>
+
+<p>resulting in response:</p>
+<pre><code class="json">{
+  &quot;projects&quot;: [
+    {
+      &quot;project&quot;: &quot;DEMO&quot;,
+      &quot;roles&quot;: [
+        &quot;publisher&quot;
+      ]
+    }
+  ],
+  &quot;name&quot;: &quot;publisher_DEMO&quot;,
+  &quot;token&quot;: &quot;915dff62846dd1d790b4296c034c184fa3a859b6&quot;,
+  &quot;email&quot;: &quot;demopublisher@mail.example.foo&quot;,
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:39:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:39:07Z&quot;,
+  &quot;created_by&quot; : &quot;demo_service_admin&quot;
+}
+</code></pre>
+
+<p>To create the <code>consumer_DEMO</code> user:</p>
+<pre><code>POST https://{URL}/v1/users/consumer_DEMO?key=904c56cc6e2b1955dbd98ace80a45be8238432fc
+</code></pre>
+
+<p>with POST Body:</p>
+<pre><code class="json">{
+   &quot;email&quot;:&quot;democonsumer@mail.example.foo&quot;,
+   &quot;projects&quot;:[{&quot;project&quot;:&quot;DEMO&quot;,&quot;roles&quot;:[&quot;consumer&quot;]}]
+}
+</code></pre>
+
+<p>resulting in response:</p>
+<pre><code class="json">{
+  &quot;projects&quot;: [
+    {
+      &quot;project&quot;: &quot;DEMO&quot;,
+      &quot;roles&quot;: [
+        &quot;consumer&quot;
+      ]
+    }
+  ],
+  &quot;name&quot;: &quot;consumer_DEMO&quot;,
+  &quot;token&quot;: &quot;dba38fd1a45337a617a59e7278c756f23642e9e7&quot;,
+  &quot;email&quot;: &quot;democonsumer@mail.example.foo&quot;,
+  &quot;service_roles&quot;: [],
+  &quot;created_on&quot;: &quot;2016-10-13T12:40:07Z&quot;,
+  &quot;modified_on&quot;: &quot;2016-10-13T12:40:07Z&quot;,
+  &quot;created_by&quot; : &quot;demo_service_admin&quot;
+}
+</code></pre>
+
+<p>For more details visit the <a href="../api_users/">API Users</a> to see all possible actions for users.</p>
+<h3 id="modify-topic-acl-to-give-access-to-publisher">Modify topic ACL to give access to publisher</h3>
+<p>In order to give access to user <code>publisher_DEMO</code> to topic <code>topic101</code>, the user <code>admin_DEMO</code> must modify the topic's ACL as such:</p>
+<pre><code>POST https://{URL}/v1/projects/DEMO/topics/topic101:modifyAcl?key=6311196665befcc1523b8e013979347b8780254c
+</code></pre>
+
+<p>with POST body:</p>
+<pre><code class="json">{
+   &quot;authorized_users&quot;:[&quot;publisher_DEMO&quot;]
+}
+</code></pre>
+
+<p>and empty response with <code>200 OK</code></p>
+<p>Now the user <code>publisher_DEMO</code> will be authorized to call action <code>topic:publish</code> on <code>topic101</code> and send messages</p>
+<h3 id="modify-subscription-acl-to-give-access-to-consumer">Modify subscription ACL to give access to consumer</h3>
+<p>In order to give access to user <code>consumer_DEMO</code> to subscription <code>sub101</code>, the user <code>admin_DEMO</code> must modify the subscription's  ACL as such:</p>
+<pre><code>POST https://{URL}/v1/projects/DEMO/subscriptions/sub101:modifyAcl?key=6311196665befcc1523b8e013979347b8780254c
+</code></pre>
+
+<p>with POST body:</p>
+<pre><code class="json">{
+   &quot;authorized_users&quot;:[&quot;consumer_DEMO&quot;]
+}
+</code></pre>
+
+<p>and empty response with <code>200 OK</code></p>
+<p>Now the user <code>consumer_DEMO</code> will be authorized to call action <code>subscription:pull</code> on <code>sub101</code> and consume messages</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../publisher/" class="btn btn-neutral float-right" title="Publisher Guide"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../auth/" class="btn btn-neutral" title="Authentication & Authorization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../auth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../publisher/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

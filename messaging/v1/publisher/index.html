@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Publisher Guide - AMS documentation [V1]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Publisher Guide";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../overview/" class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Basic Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview and Introduction</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_flow/">Messaging API flow</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth/">Authentication & Authorization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../projects_users/">Project & User management guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>How to Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Publisher Guide</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#publisher-guide">Publisher Guide</a></li>
+                
+                    <li><a class="toctree-l4" href="#before-you-start">Before you start</a></li>
+                
+                    <li><a class="toctree-l4" href="#start-publishing">Start publishing</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API & References</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_basic/">API Basic Information</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_auth/">API Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_users/">API Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_projects/">API Projects</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_topics/">API Topics</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_errors/">API Error Messages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Q&A</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_general_questions/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_ruby/">Ruby</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../overview/">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../overview/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>How to Guides &raquo;</li>
+        
+      
+    
+    <li>Publisher Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="publisher-guide">Publisher Guide</h1>
+<p>Publishers can send messages to named-channels called Topics. </p>
+<h2 id="before-you-start">Before you start</h2>
+<p>In order to get an account on the ARGO Messaging Service, submit a request through the <a href="https://docs.google.com/forms/d/e/1FAIpQLScfMCYPkUqUa5lT046RK1yCR4yn6M96WbgD5DMlNJ-zRFHSRA/viewform">ARGO Messaging Service account form</a></p>
+<p>Upon account approval, you will receive information via e-mail about your new project along with an API token.</p>
+<h2 id="start-publishing">Start publishing</h2>
+<p>When everything is set up you can start by following the general flow for a publisher:</p>
+<p><strong>Step 1:</strong> Create a topic</p>
+<p>For more details visit section <a href="../api_topics/#put-manage-topics-create-new-topic">Topics: Create a topic</a></p>
+<p><strong>Step 2:</strong> Create a subscription</p>
+<p>A Topic without at least one Subscription act like black holes. Publishers can send messages to those topics, but the messages will not be retrievable. In order to be able to publish and consume messages, at least one Subscription must created to the Topic that you are publishing messages to. By default, a Subscription is created in pull mode, meaning that consumers can query the Messaging API and retrieve the messages that are published to the Topic that the Subscription is configured for. More information about how create a Subscription, visit section <a href="../api_subs/#put-manage-subscriptions-create-subscriptions">Subscriptions: Create a subscription</a></p>
+<p><strong>Step 3:</strong> Start publishing messages</p>
+<p>The ARGO Messaging Service accepts JSON over HTTP. In order to publish messages you have to represent them using the following schema:</p>
+<pre><code class="json">{
+  &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;messages&quot;: {
+      &quot;type&quot;: &quot;array&quot;,
+      &quot;items&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;anyOf&quot;: [{
+          &quot;properties&quot;: {
+            &quot;data&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;contentEncoding&quot;: &quot;base64&quot;,
+              &quot;minLength&quot;: 1
+            },
+          },
+          &quot;required&quot;: [&quot;data&quot;]
+        },{
+          &quot;properties&quot;: {
+            &quot;attributes&quot;: {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;minProperties&quot;: 1,
+              &quot;properties&quot;: {}
+            }
+          },
+          &quot;required&quot;: [&quot;attributes&quot;]
+        }]
+      }
+    }
+  },
+  &quot;required&quot;: [
+    &quot;messages&quot;
+  ]
+}
+</code></pre>
+
+<p>The JSON body send to the ARGO Messaging Service may contain one or more messages. Each message can have:</p>
+<ul>
+<li>attributes: optional key value pair of metadata you desire</li>
+<li>data: the data of the message.</li>
+</ul>
+<p>The data must be base64-encoded, and can not exceed 10MB after encoding. Note that the message payload must not be empty; it must contain either a non-empty data field, or at least one attribute.</p>
+<p>Below you can find an example, in which a user publishes two messages in one call:</p>
+<pre><code class="json">{
+  &quot;messages&quot;: [
+  {
+    &quot;attributes&quot;:
+    {
+      &quot;station&quot;:&quot;NW32ZC&quot;,
+      &quot;status&quot;:&quot;PROD&quot;
+    },
+    &quot;data&quot;:&quot;U28geW91IHdlbnQgYWhlYWQgYW5kIGRlY29kZWQgdGhpcywgeW91IGNvdWxkbid0IHJlc2lzdCBlaCA/&quot;
+  },
+  {
+    &quot;attributes&quot;:
+    {
+      &quot;station&quot;:&quot;GHJ32&quot;,
+      &quot;status&quot;:&quot;TEST&quot;
+    },
+    &quot;data&quot;:&quot;U28geW91IHdlbnQgYWhlYWQgYW5kIGRlY29kZWQgdGhpcywgeW91IGNvdWxkbid0IHJlc2lzdCBlaCA/&quot;
+  }
+  ]
+}
+</code></pre>
+
+<p>You can publish and consume any kind of data through the ARGO Messaging Service (as long as the base64 encoded payload is not larger than the maximum acceptable size).</p>
+<p>For more details visit section <a href="../api_topics/#post-publish-messages-to-a-topic">Topics: Publish message/s to a topic</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api_basic/" class="btn btn-neutral float-right" title="API Basic Information"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../projects_users/" class="btn btn-neutral" title="Project & User management guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../projects_users/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../api_basic/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Users - AMS documentation [V1]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API Users";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../overview/" class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Basic Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview and Introduction</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msg_flow/">Messaging API flow</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth/">Authentication & Authorization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../projects_users/">Project & User management guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>How to Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../publisher/">Publisher Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API & References</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_basic/">API Basic Information</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_auth/">API Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">API Users</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#user-api-calls">User Api Calls</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-manage-users-list-all-users">[GET] Manage Users - List all users</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-manage-users-list-a-specific-user">[GET] Manage Users - List a specific user</a></li>
+                
+                    <li><a class="toctree-l4" href="#post-manage-users-create-new-user">[POST] Manage Users - Create new user</a></li>
+                
+                    <li><a class="toctree-l4" href="#put-manage-users-update-a-user">[PUT] Manage Users - Update a user</a></li>
+                
+                    <li><a class="toctree-l4" href="#post-manage-users-refresh-token">[POST] Manage Users - Refresh token</a></li>
+                
+                    <li><a class="toctree-l4" href="#delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_projects/">API Projects</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_topics/">API Topics</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_errors/">API Error Messages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Q&A</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_general_questions/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_ruby/">Ruby</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../overview/">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../overview/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API & References &raquo;</li>
+        
+      
+    
+    <li>API Users</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="user-api-calls">User Api Calls</h1>
+<p>ARGO Messaging Service supports calls for creating and modifing users</p>
+<h2 id="get-manage-users-list-all-users">[GET] Manage Users - List all users</h2>
+<p>This request lists all available users in the service</p>
+<h3 id="request">Request</h3>
+<pre><code class="json">GET &quot;/v1/users&quot;
+</code></pre>
+
+<h3 id="example-request">Example request</h3>
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/users?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses">Responses</h3>
+<p>If successful, the response contains a list of all available users in the service</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;users&quot;: [
+    {
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;roles&quot;: [
+              &quot;project_admin&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;Test&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;Test@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+    },
+    {
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;roles&quot;: [
+               &quot;project_admin&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;UserA&quot;,
+       &quot;token&quot;: &quot;S3CR3T1&quot;,
+       &quot;email&quot;: &quot;foo-email&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+    },
+    {
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;roles&quot;: [
+               &quot;project_admin&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;UserB&quot;,
+       &quot;token&quot;: &quot;S3CR3T2&quot;,
+       &quot;email&quot;: &quot;foo-email&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
+    },
+    {
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;UserX&quot;,
+       &quot;token&quot;: &quot;S3CR3T3&quot;,
+       &quot;email&quot;: &quot;foo-email&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
+    },
+    {
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO&quot;,
+             &quot;roles&quot;: [
+                &quot;publisher&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;UserZ&quot;,
+       &quot;token&quot;: &quot;S3CR3T4&quot;,
+       &quot;email&quot;: &quot;foo-email&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;created_by&quot;: &quot;UserA&quot;
+    }
+ ]
+}
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-manage-users-list-a-specific-user">[GET] Manage Users - List a specific user</h2>
+<p>This request lists information about a specific user in the service</p>
+<h3 id="request_1">Request</h3>
+<pre><code>GET &quot;/v1/users/{user_name}&quot;
+</code></pre>
+
+<h3 id="where">Where</h3>
+<ul>
+<li>user_name: Name of the user</li>
+</ul>
+<h3 id="example-request_1">Example request</h3>
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/users/UserA?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_1">Responses</h3>
+<p>If successful, the response contains information about the specific user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project_uuid&quot;: &quot;ARGO&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;name&quot;: &quot;UserA&quot;,
+ &quot;token&quot;: &quot;S3CR3T1&quot;,
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-users-create-new-user">[POST] Manage Users - Create new user</h2>
+<p>This request creates a new user in a project</p>
+<h3 id="request_2">Request</h3>
+<pre><code class="json">POST &quot;/v1/users/{user_name}&quot;
+</code></pre>
+
+<h3 id="post-body">Post body:</h3>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project&quot;: &quot;ARGO&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[]
+}
+</code></pre>
+
+<h3 id="where_1">Where</h3>
+<ul>
+<li>user_name: Name of the user</li>
+<li>projects: A list of Projects &amp; associated roles that the user has on those projects</li>
+<li>email: User's email</li>
+<li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
+</ul>
+<h5 id="available-roles">Available Roles</h5>
+<p>ARGO Messaging Service has the following predefined project roles:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project_admin</td>
+<td>Users that have the <code>project_admin</code> have, by default, all capabilities in their project. They can also manage resources such as topics and subscriptions (CRUD) and also manage ACLs (users) on those resources as well</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td>Users that have the <code>consumer</code> role are only able to pull messages from subscriptions that are authorized to use (based on ACLs)</td>
+</tr>
+<tr>
+<td>publisher</td>
+<td>Users that have the <code>publisher</code> role are only able to publish messages on topics that are authorized to use (based on ACLs)</td>
+</tr>
+</tbody>
+</table>
+<p>and the following service-wide role:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service_admin</td>
+<td>Users with <code>service_admin</code> role operate service wide. They are able to create, modify and delete projects. Also they are able to create, modify and delete users and assign them to projects.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-request_2">Example request</h3>
+<pre><code>json
+curl -X POST -H &quot;Content-Type: application/json&quot;
+ -d POSTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_2">Responses</h3>
+<p>If successful, the response contains the newly created project</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project&quot;: &quot;ARGO&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;name&quot;: &quot;USERNEW&quot;,
+ &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
+}
+</code></pre>
+
+<h3 id="errors_2">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="put-manage-users-update-a-user">[PUT] Manage Users - Update a user</h2>
+<p>This request updates an existing user's information</p>
+<h3 id="request_3">Request</h3>
+<pre><code class="json">PUT &quot;/v1/users/{user_name}&quot;
+</code></pre>
+
+<h3 id="put-body">Put body:</h3>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project&quot;: &quot;ARGO2&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;name&quot;: &quot;CHANGED_NAME&quot;,
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[]
+}
+</code></pre>
+
+<h3 id="where_2">Where</h3>
+<ul>
+<li>user_name: Name of the user</li>
+<li>projects: A list of Projects &amp; associated roles that the user has on those projects</li>
+<li>email: User's email</li>
+<li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
+</ul>
+<h3 id="example-request_3">Example request</h3>
+<pre><code>json
+curl -X POST -H &quot;Content-Type: application/json&quot;
+ -d PUTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_3">Responses</h3>
+<p>If successful, the response contains the newly created project</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project&quot;: &quot;ARGO2&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;name&quot;: &quot;CHANGED_NAME&quot;,
+ &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-11T10:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
+}
+</code></pre>
+
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-users-refresh-token">[POST] Manage Users - Refresh token</h2>
+<p>This request refreshes an existing user's token</p>
+<h3 id="request_4">Request</h3>
+<pre><code class="json">POST &quot;/v1/users/{user_name}:refreshToken&quot;
+</code></pre>
+
+<h3 id="where_3">Where</h3>
+<ul>
+<li>user_name: Name of the user</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code>json
+curl -X POST -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/ARGO/users/USER2:refreshToken?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_4">Responses</h3>
+<p>If successful, the response contains the newly created project</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;projects&quot;: [
+    {
+       &quot;project&quot;: &quot;ARGO&quot;,
+       &quot;roles&quot;: [
+          &quot;project_admin&quot;
+       ]
+    }
+ ],
+ &quot;name&quot;: &quot;USER2&quot;,
+ &quot;token&quot;: &quot;NEWRANDOMTOKEN&quot;,
+ &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;service_roles&quot;:[],
+ &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+ &quot;modified_on&quot;: &quot;2009-11-11T12:00:00Z&quot;,
+ &quot;created_by&quot;: &quot;UserA&quot;
+}
+</code></pre>
+
+<h3 id="errors_4">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</h2>
+<p>This request deletes an existing user</p>
+<h3 id="request_5">Request</h3>
+<pre><code class="json">DELETE &quot;/v1/users/{user_name}&quot;
+</code></pre>
+
+<h3 id="where_4">Where</h3>
+<ul>
+<li>user_name: Name of the user</li>
+</ul>
+<h3 id="example-request_5">Example request</h3>
+<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/ARGO/users/USER2?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>If successful, the response returns empty</p>
+<p>Success Response
+<code>200 OK</code></p>
+<h3 id="errors_5">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api_projects/" class="btn btn-neutral float-right" title="API Projects"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../api_auth/" class="btn btn-neutral" title="API Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../api_auth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../api_projects/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

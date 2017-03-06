@@ -1,58 +1,55 @@
 ---
 title: Web UI | ARGO
-page_title: Web UI 
-font_title: 'fa fa-connectdevelop'
-description: This document describes the Web UI installation and configuration process.
 ---
 
-## Web UI Description
+## Description
+# Web UI module for the ARGO Framework
 
-Web UI module for the ARGO Framework :
-
-* based on Lavoisier Framework - `http://software.in2p3.fr/lavoisier`
+* based on Lavoisier Framework - http://software.in2p3.fr/lavoisier
 * prerequisites : a server certificate and java
 
+
 ## Installation 
-
- `$HOME_LAVOISIER` is the directory where do you install the service
-
-    # cd $HOME_LAVOISIER
-    # wget https://github.com/ARGOeu/argo-ui/archive/master.zip
-    # unzip master.zip
-    # mkdir certificate
-
-Put your certificate in p12 format in this directory
-
-    # cd $HOME_LAVOISIER/argo-ui-master/etc
-    # vi lavoisier-hidden.properties
-Finally, complete certificate.password and certificate.password
-Eventually modify the cache.baseDirectory property - if you want to put it elsewhere
+### the $HOME_LAVOISIER is the directory where do you install the service
+* cd $HOME_LAVOISIER
+* wget https://github.com/ARGOeu/argo-egi-web/archive/master.zip
+* unzip master.zip
+* mkdir certificate
+* put your certificate in p12 format in this directory
 
 
+## Configuration 
+### edit lavoisier-hidden.properties
+* cd $HOME_LAVOISIER/argo-egi-web-master/etc
+* vi lavoisier-hidden.properties
+* complete certificate.password and certificate.password
+*
 
-    # cd $HOME_LAVOISIER/argo-ui-master/etc
-    # vi lavoisier-service.properties
-Complete lavoisier.ssl.trustStore (/etc/grid-security/certificates) , lavoisier.ssl.keyStore (path to p12 certificate) , and lavoisier.ssl.keyStorePassword
+### edit lavoisier-service.properties
+* cd $HOME_LAVOISIER/argo-egi-web-master/etc
+* vi lavoisier-service.properties
+* lavoisier.ssl.trustStore=path_to_your_ca  (/etc/grid-security/certificates)
+* lavoisier.ssl.keyStore= path to the lavoisier certificate
+* lavoisier.ssl.keyStorePassword= password of this certificate
+
+## Examples
+
+### Start the service 
+
+* ./bin/lavoisier.sh console
+* check the logs and access to the interface : http://yourmachine:8080/lavoisier
+* if everything goes well 
+*  ./bin/lavoisier.sh restart
 
 
-Start the service 
+### Useful commands and hints
 
-- `./bin/lavoisier.sh console`
-- check the logs and access to the interface : `http://yourmachine:8080/lavoisier`
-- if everything goes well `./bin/lavoisier.sh restart`
+* To change the PI base url : vi $HOME_LAVOISIER/etc/ARGO_UI/lavoisier-config.properties
+* to stop lavoisier : 
+cd $HOME_LAVOISIER
+./bin/lavoisier.sh stop
 
 
- ## Useful commands and hints
+## Links and further reading
 
-To change the PI base url : 
-
-    # vi $HOME_LAVOISIER/etc/ARGO_UI/lavoisier-config.properties
-    
-To stop lavoisier : 
-
-    # cd $HOME_LAVOISIER
-    # ./bin/lavoisier.sh stop
-    
-To modify the list of administrators 
-
-    # vi $HOME_LAVOISIER/etc/ARGO_UI/resources/xml/administrators.xml
+* http://software.in2p3.fr/lavoisier/

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Validation Checks - Web Api documentation [V2]</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Validation Checks";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../recomputations/">Recomputations Requests</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../results/">Results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../status/">Status Results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../metric_profiles/">Metric Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../operations_profiles/">Operations Profiles</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../reports/">Reports</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tenants/">Tenants</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../errors/">Error Codes</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Validation Checks</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#api-validations">API Validations</a></li>
+                
+                    <li><a class="toctree-l4" href="#parameters-validations">Parameters validations</a></li>
+                
+                    <li><a class="toctree-l4" href="#headers-validations">Headers validations</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../metrics/">Metrics</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Web Api documentation [V2]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Validation Checks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api-validations">API Validations</h1>
+<h2 id="parameters-validations">Parameters validations</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Affected Resources</th>
+<th>Verb</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start_time</code></td>
+<td><code>/results</code>, <code>/status</code></td>
+<td>GET</td>
+<td><a href="#1">Description</a></td>
+</tr>
+<tr>
+<td><code>end_time</code></td>
+<td><code>/results</code>, <code>/status</code></td>
+<td>GET</td>
+<td><a href="#2">Description</a></td>
+</tr>
+<tr>
+<td><code>exec_time</code></td>
+<td><code>/metric_result</code></td>
+<td>GET</td>
+<td><a href="#3">Description</a></td>
+</tr>
+<tr>
+<td><code>granularity</code></td>
+<td><code>/results</code></td>
+<td>GET</td>
+<td><a href="#4">Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id='1'></a></p>
+<h3 id="start_time"><code>start_time</code></h3>
+<p>The <code>start_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the starting time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>.</p>
+<p>In case the parameter is not provided the following response is returned</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;start_time not set&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Please use start_time url parameter in zulu format (like 2006-01-02T15:04:05Z) to indicate the query start time&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p>In case the parameter value is malformed (not in zulu expected format) the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;start_time parsing error&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Error parsing date string %s please use zulu format like 2006-01-02T15:04:05Z&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p><a id='2'></a></p>
+<h3 id="end_time"><code>end_time</code></h3>
+<p>The <code>end_time</code> query parameter is used under the <code>/results</code> and <code>/status</code> resources to define the ending time of the query used to match A/R or status results respectively. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>.</p>
+<p>In case the parameter is not provided the following response is returned</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;end_time not set&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Please use end_time url parameter in zulu format (like 2006-01-02T15:04:05Z) to indicate the query end time&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p>In case the parameter value is malformed (not in zulu expected format) the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;end_time parsing error&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Error parsing date string %s please use zulu format like 2006-01-02T15:04:05Z&quot;
+  }
+ ]
+}
+</code></pre>
+
+<h4 id="no-time-span-set">No time span set</h4>
+<p>In case neither the <code>start_time</code> nor the <code>end_time</code> parameters are defined the following response is returned by the api:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;No time span set&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Please use start_time and end_time url parameters to set the prefered time span&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p><a id='3'></a></p>
+<h3 id="exec_time"><code>exec_time</code></h3>
+<p>The <code>exec_time</code> query parameter is used under the <code>/metric_result</code> resource to define the execution time of the metric result to fetch from the datastore. The value should be given in zulu format like so: <code>2006-01-02T15:04:05Z</code>.</p>
+<p>In case the parameter is not provided the following response is returned</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;exec_time not set&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Please use exec_time url parameter in zulu format (like 2006-01-02T15:04:05Z) to indicate the exact probe execution time&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p>In case the parameter value is malformed (not in zulu expected format) the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;exec_time parsing error&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Error parsing date string %s please use zulu format like 2006-01-02T15:04:05Z&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p><a id='4'></a></p>
+<h3 id="granularity"><code>granularity</code></h3>
+<p>The <code>granularity</code> query parameter is used <em>optionally</em> under the <code>/results</code> resource to indicate the granularity level. It's value may be either monthly or daily. If not set by the user <code>monthly</code> is used.</p>
+<p>In case the parameter value is malformed (neither <code>daily</code> nor <code>monthly</code>) the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;Wrong Granularity&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;%s is not accepted as granularity parameter, please provide either daily or monthly&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p>The Granularity parameter is only relevant for a/r result requests. For status requests granularity is not supported. In order to avoid confusion, if a user provides granularity parameter during status requests the following response is returned:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Bad Request&quot;,
+  &quot;code&quot;: &quot;400&quot;
+ },
+ &quot;errors&quot;: [
+  {
+   &quot;message&quot;: &quot;Granularity parameter should not be used in status results&quot;,
+   &quot;code&quot;: &quot;400&quot;,
+   &quot;details&quot;: &quot;Granularity parameter is valid only for a/r result requests, not for status results&quot;
+  }
+ ]
+}
+</code></pre>
+
+<h2 id="headers-validations">Headers validations</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Affected Resources</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Accept</code></td>
+<td>All</td>
+<td><a href="#5">Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id='5'></a></p>
+<h3 id="accept"><code>Accept</code></h3>
+<p>The <code>Accept</code> header is compulsory to use under all api resources. Its value may be either <code>application/json</code> or <code>application/xml</code>.</p>
+<p>In case the Accept header is not provided or is provided but is malformed the following error response is returned by the api:</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Not Acceptable Content Type&quot;,
+  &quot;code&quot;: &quot;406&quot;,
+  &quot;details&quot;: &quot;Accept header provided did not contain any valid content types. Acceptable content types are 'application/xml' and 'application/json'&quot;
+ }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../metrics/" class="btn btn-neutral float-right" title="Metrics"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../errors/" class="btn btn-neutral" title="Error Codes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2015 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../errors/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../metrics/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

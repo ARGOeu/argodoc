@@ -1,65 +1,73 @@
 ---
-title: Installation | ARGO
-page_title: Installation 
+title: Installation for standalone mode
+page_title: Installation for standalone mode
+font_title: 'fa fa-sitemap'
+description: This document will guide you through the standalone mode installation process. 
 ---
 
-# Installation
+# Installation (standalone mode)
 
-This document will guide you through the installation process. The ARGO A/R components include the following items:
+This document will guide you through the installation process. The ARGO components that will be installed on the node include the following items:
 
-- Sync Components
 - Consumer service
+- Connectors
 - Compute Engine
-- API service
-- Web UI service
+- Web API service
 
-These can be co-located on a single machine or more. Note that with respect to the Compute Engine Component there are two options, either to use the standalone version or the distributed version. The latter one requires interconnection with a Hadoop cluster. 
+For a production environment we propose having one node with the following minimum specifications:
 
-The minimum requirements to meet in case of a single machine (standalone version) are the following:
-
-- 4 CPUs
-- 8 GB RAM
-- 200 GB Disk
-
-For a production scale environment we propose two machines and a Hadoop cluster (distributed version). This is the setup that is used in production for EGI purposes and needs. In this case the minimum requirements are
-
-- Node 1 (Sync components, Consumer service and Hadoop client)
- - 2 CPUs
- - 4GB RAM
- - 100 GB Disk
-- Node 2 (API and Web UI services)
- - 2 CPUs
- - 4GB RAM
+ - 4 CPUs
+ - 8GB RAM
  - 100 GB Disk
 
-Instructions on setting up follow:
+You are stronly encouraged to use the Ansible based deployment playbook available on [github][argo-ansible].
+ 
+If you are not familiar with Ansible or would rather follow the step-by-step guide continue reading. 
 
-## Standalone mode
+[argo-ansible]: https://github.com/ARGOeu/argo-ansible
 
-You will need a RHEL 6.x or similar (base installation) to proceed. As a first step make sure that on your host an ntp client service is configured properly. 
 
-### Software Repositories
+# Prerequisites
 
-On your host the next step is to install (as root user) the ar-release package via yum:
+- You will need a RHEL 6.x or similar OS (base installation) to proceed. Note that the following instructions have been tested against CentOS 6.x OSes.
+- Make sure that on your host an ntp client service is configured properly.
+- You will need an x509 key/certificate pair in order to proceed. 
 
-    # yum install http://rpm.hellasgrid.gr/mash/centos6-arstats/x86_64/ar-release-1.0.0-3.21.el6.noarch.rpm
+The first step is to install (as root user) the EPEL repository definitions via yum:
 
-This package will configure on the host(s) the repository files under `/etc/yum.repos.d`.
+    # yum install epel-release
 
-Also install the EPEL repository. This can be done by installing the epel-release package for the appropriate OS. For example:
+Create a new file with filename `/etc/yum.repos.d/argo.repo` and place within it the following contents:
 
-    # yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+    [argo-prod]
+    name=ARGO Product Repository
+    baseurl=http://rpm.hellasgrid.gr/mash/centos6-arstats/$basearch
+    enabled=0
+    gpgcheck=0
+    
+    [argo-devel]
+    name=ARstats Development Repository
+    baseurl=http://rpm.hellasgrid.gr/mash/centos6-arstats-devel/$basearch
+    enabled=0
+    gpgcheck=0
 
-You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a file named `/etc/yum.repos.d/cloudera-cdh4.repo` place the following contents:
+You will also need to install the cloudera repository for Hadoop components to be retrieved (although you will not install any Hadoop cluster, some libraries from the Hadoop ecosystem are needed). Under a new file named `/etc/yum.repos.d/cloudera-cdh5.repo` place the following contents:
 
-    [cloudera-cdh4]
-    name=Cloudera's Distribution for Hadoop, Version 4
-    baseurl=http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/4/
-    gpgkey = http://archive.cloudera.com/cdh4/redhat/6/$basearch/cdh/RPM-GPG-KEY-cloudera
+    [cloudera-cdh5]
+    name=Cloudera's Distribution for Hadoop, Version 5
+    baseurl=http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
+    gpgkey =  http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera
     gpgcheck = 1
-    enabled = 1
 
-You will also need to install the EGI trust anchors repository (this is needed on the host for communicating with GOCDB PI service). Under a file named `/etc/yum.repos.d/EGI-trustanchors.repo` place the following contents:
+You will need to add the MongoDB (version 3) repository. The name of the file should be `/etc/yum.repos.d/mongodb_3.repo` and its contents should be:
+
+    [mongodb-org-3.0]
+    name=MongoDB Repository
+    baseurl=http://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
+    gpgcheck=0
+    enabled=1
+
+Lastly, you need to also install the EGI trustanchors repository (this is required on the host for communicating with topology providing services). Under a new file named `/etc/yum.repos.d/EGI-trustanchors.repo` place the following contents:
 
     [EGI-trustanchors]
     name=EGI-trustanchors
@@ -68,37 +76,86 @@ You will also need to install the EGI trust anchors repository (this is needed o
     gpgcheck=1
     gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
 
-You will finally need to add a MongoDB repository. The name of the file should be `/etc/yum.repos.d/mongodb.repo`) and its contents should be:
 
-    [mongodb]
-    name=MongoDB Repository
-    baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
-    gpgcheck=0
-    enabled=1
+# Packages
 
-### Sync Components and Consumer Service
+Install (via `pip`) the latest version of the pymongo library:
 
-First of all install the ca_bundle meta-rpm with the following command:
+    # yum install python-pip
+    # pip install --upgrade pymongo
 
-    # yum install ca-policy-egi-core
+Install avro and the ARGO components:
 
-As a next step you should request and obtain an x509 host certificate from your national IGTF (Grid-related) approved CA and place the key/certificate pair under `/etc/grid-security/` folder with the following names and permissions:
+    # yum install avro --enablerepo=argo-prod
+    # yum install argo-egi-consumer --enablerepo=argo-prod
+    # yum install argo-egi-connectors --enablerepo=argo-prod
+    # yum install ar-compute --enablerepo=argo-prod
+    # yum install mongodb-org-server-3.0.7 mongodb-org-3.0.7
+    # yum install argo-web-api --enablerepo=argo-prod
 
-* Key file: `/etc/grid-security/hostkey.pem` and permissions: 0400
-* Certificate file: `/etc/grid-security/hostcert.pem` and permissions: 0644
+# Configuration
 
-Next, as root user install the following packages via yum:
+## Connectors configuration
 
-    # yum install ar-consumer
-    # yum install ar-sync
+The argo-egi-connectors package installs components needed for fetching complimentary to the Compute Engine data from sources of truth (i.e. GOCDB service, POEM service etc). By default the connectors are configured to fetch this information on a daily basis. For configuration details of the connectors visit [this][internal_l1] page. 
 
-The ar-sync package installs components needed for refreshing the current status of the monitored system.
+[internal_l1]: /guides/egi-connectors/
 
-The ar-consumer service can be configured to connect to a pool of EGI message brokers. By default the config is set to `mq.afroditi.hellasgrid.gr` and `mq.cro-ngi.hr`. 
+## Consumer configuration
 
-This configuration is suggested as it will allow the consumer service to cycle to the next broker in the case the one it is connected to fails for some reason. 
+The argo-egi-consumer service can be configured to connect to one or more message brokers. By default the configuration will connect to `mq.afroditi.hellasgrid.gr` and `mq.cro-ngi.hr`. 
 
-Start consumer service and make sure to add it to appropriate run levels:
+This configuration (having the consumer connected to two or more broker instances) is suggested as it will allow the consumer service to cycle to the next broker in the case the one it is connected to fails for any reason. For further configuration details of the consumer service please refer [here][internal_l2]. 
 
-    # chkconfig ar-consumer on
-    # service ar-consumer start
+[internal_l2]: /guides/consumer/
+
+After applying the necessary configurations start the consumer service and add it to appropriate run levels, so that it starts upon the next reboot. 
+
+    # service argo-egi-consumer start
+    # chkconfig argo-egi-consumer on
+
+
+## CE configuration
+
+Edit the `/etc/ar-compute-engine.conf` configuration file and
+
+- set the value of the `mongo_host` variable to `127.0.0.1`
+- set the value of the `mode` variable to `local`
+- set the values of the `prefilter_clean` and `sync_clean` variables to either `true` of `false`
+
+All configuration options are described in detail [here][internal_l3]
+
+[internal_l3]: /guides/compute/compute-job-configuration/
+
+Under the folder `/etc/cron.d/` place two cronjobs that will handle hourly and daily calculations. 
+
+Under the folder `/etc/cron.d/` place two cronjobs that will handle hourly and daily calculations.
+
+For the daily caclulations edit `/etc/cron.d/ar_job_cycle_daily` and place the following contents:
+
+    0 0 * * * root /usr/libexec/ar-compute/standalone/job_cycle.py -d $(/bin/date --utc --date '-1 day' +\%Y-\%m-\%d)
+
+Optionally, for having hourly caclulations edit `/etc/cron.d/ar_job_cycle_hourly` and place the following contents:
+
+    55 * * * * root /usr/libexec/ar-compute/standalone/job_cycle.py -d $(/bin/date --utc  +\%Y-\%m-\%d)
+
+###  Log files
+
+The compute engine uses by default the system syslog to log any messages. You may change this behaviour by editing the configucation file `/etc/ar-compute-engine.conf`. You may also wish to change the logging level by setting the `log_level` value to your preference.
+
+## Web API and datastore configurations
+
+Edit the `/etc/mongod.conf` file and set the value of the variable `bindIp` to `27.0.0.1`. 
+
+To start and enable the MongoDB service use the following two commands:
+
+    # service mongod start
+    # chkconfig mongod on
+
+The Web API has a single configuration file: `/etc/argo-web-api.conf`. Make sure that in the `[server]` section the variables `cert` and `key` point to the public x509 certificate and private rsa key files respectively. For further configuration options visit [this][internal_l4] page.
+
+[internal_l4]: /guides/api
+
+Finally, start the Web API service using the following command:
+
+    # start argo-web-api
