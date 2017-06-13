@@ -169,6 +169,10 @@
                 
                     <li><a class="toctree-l4" href="#post-sending-an-ack">[POST] Sending an ACK</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-get-offsets">[GET] Get Offsets</a></li>
+                
+                    <li><a class="toctree-l4" href="#post-modify-offsets">[POST] Modify Offsets</a></li>
+                
             
             </ul>
         
@@ -441,7 +445,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-sending-an-ack">[POST] Sending an ACK</h2>
-<p>Messages retrieved from a pull subscription can be acknowledged by sending message with an array of ackIDs. </p>
+<p>Messages retrieved from a pull subscription can be acknowledged by sending message with an array of ackIDs.</p>
 <h3 id="request_6">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:acknowledge</code></p>
 <h3 id="post-body_4">Post body:</h3>
@@ -476,6 +480,73 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_6">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-get-offsets">[GET] Get Offsets</h2>
+<p>This request returns the min, max and current offset of a subscription</p>
+<h3 id="request_7">Request</h3>
+<p><code>GET /v1/projects/{project_name}/subscriptions/{subscription_name}:Offsets</code></p>
+<h3 id="post-body_6">Post body:</h3>
+<pre><code>{
+  &quot;max&quot;: 14,
+  &quot;min&quot;: 0,
+  &quot;current&quot;: 4
+}
+</code></pre>
+
+<h3 id="where_7">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>subscription_name: The subscription name to consume</li>
+</ul>
+<h3 id="example-request_7">Example request</h3>
+<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;  
+-d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:offsets?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_7">post body:</h3>
+<pre><code>{
+  &quot;max&quot;: 14,
+  &quot;min&quot;: 0,
+  &quot;current&quot;: 4
+}
+</code></pre>
+
+<h3 id="responses_7">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_7">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-modify-offsets">[POST] Modify Offsets</h2>
+<p>This request modifies the current offset of a subscription</p>
+<h3 id="request_8">Request</h3>
+<p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:modifyOFfset</code></p>
+<h3 id="post-body_8">Post body:</h3>
+<pre><code>{
+ &quot;offset&quot;:3
+}
+</code></pre>
+
+<h3 id="where_8">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>subscription_name: The subscription name to consume</li>
+<li>offset_config: an offset number in int64</li>
+</ul>
+<h3 id="example-request_8">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyOffset?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_9">post body:</h3>
+<pre><code>{
+  &quot;offset&quot;:14
+}
+</code></pre>
+
+<h3 id="responses_8">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_8">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
