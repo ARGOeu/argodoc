@@ -173,6 +173,8 @@
                 
                     <li><a class="toctree-l4" href="#post-modify-offsets">[POST] Modify Offsets</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-subscription-metrics">[GET] Subscription Metrics</a></li>
+                
             
             </ul>
         
@@ -547,6 +549,33 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Success Response
 Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_8">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-subscription-metrics">[GET] Subscription Metrics</h2>
+<p>The following request returns related metrics for the specific subscription: for eg the number of consumed messages</p>
+<h3 id="request_9">Request</h3>
+<pre><code>GET &quot;/v1/projects/{project_name}/subscriptions/{sub_name}:metrics&quot;
+</code></pre>
+
+<h3 id="where_9">Where</h3>
+<ul>
+<li>Project_name: name of the project</li>
+<li>sub_name: name of the subscription</li>
+</ul>
+<h3 id="example-request_9">Example request</h3>
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/monitoring:metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_9">Responses</h3>
+<p>If successful it returns the number of messages consumed in the specific subscription
+Success Response
+<code>200 OK</code></p>
+<pre><code>{
+  &quot;number_of_messages&quot;:12
+}
+</code></pre>
+
+<h3 id="errors_9">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
