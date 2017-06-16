@@ -492,11 +492,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 </code></pre>
 
 <h3 id="responses_7">Responses</h3>
-<p>If successful it returns the number of messages published in the specific topic.</p>
+<p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code>{
-  &quot;number_of_messages&quot;:4
+  &quot;number_of_messages&quot;:4,
+  &quot;total_bytes&quot;:54
 }
 </code></pre>
 
