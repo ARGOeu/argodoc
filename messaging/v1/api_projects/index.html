@@ -432,7 +432,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 </code></pre>
 
 <h3 id="responses_5">Responses</h3>
-<p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
+<p>If successful it returns projects related metrics (number of topics, number of subscriptions).</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code>{
@@ -445,14 +445,29 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
          &quot;resource_name&quot;: &quot;ARGO&quot;,
          &quot;timeseries&quot;: [
             {
-               &quot;timestamp&quot;: &quot;2017-06-23T04:50:02Z&quot;,
+               &quot;timestamp&quot;: &quot;2017-06-23T05:47:13Z&quot;,
                &quot;value&quot;: 3
             }
          ],
          &quot;description&quot;: &quot;Counter that displays the number of topics belonging to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project&quot;,
+         &quot;resource_name&quot;: &quot;ARGO&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-23T05:47:13Z&quot;,
+               &quot;value&quot;: 4
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions belonging to the specific project&quot;
       }
    ]
 }
+
 </code></pre>
 
 <h3 id="errors_5">Errors</h3>
