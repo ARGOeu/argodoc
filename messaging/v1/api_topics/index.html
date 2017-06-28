@@ -496,9 +496,52 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code>{
-  &quot;number_of_messages&quot;:4,
-  &quot;total_bytes&quot;:54
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;topic.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 1
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions belonging to a specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number number of messages published to the specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_bytes&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the total size of data (in bytes) published to the specific topic&quot;
+      }
+   ]
 }
+
 </code></pre>
 
 <h3 id="errors_7">Errors</h3>
