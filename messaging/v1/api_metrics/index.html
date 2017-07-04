@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ruby - AMS documentation [V1]</title>
+  <title>API Operational Metrics - AMS documentation [V1]</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Ruby";
+    var mkdocs_page_name = "API Operational Metrics";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -155,8 +155,17 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../api_metrics/">API Operational Metrics</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">API Operational Metrics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#operational-metrics-api-calls">Operational Metrics API Calls</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-get-operational-metrics">[GET] Get Operational Metrics</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -184,17 +193,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Ruby</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#qa-ruby">Q&amp;A :: Ruby</a></li>
-                
-                    <li><a class="toctree-l4" href="#base64-encoded-string-in-ruby">Base64 encoded string in Ruby</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../qa_ruby/">Ruby</a>
         
     </li>
 
@@ -224,11 +224,11 @@
     
       
         
-          <li>Q&A &raquo;</li>
+          <li>API & References &raquo;</li>
         
       
     
-    <li>Ruby</li>
+    <li>API Operational Metrics</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -242,16 +242,60 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="qa-ruby">Q&amp;A :: Ruby</h1>
-<p>Questions and answers based on problems encountered during implementation. </p>
-<h2 id="base64-encoded-string-in-ruby">Base64 encoded string in Ruby</h2>
-<p>The inbuilt Base64 library in Ruby is adding some '\n's.</p>
-<p>We advice you to use <strong>Base64.strict_encode64()</strong>, which does not add newlines. </p>
-<p><a href="http://ruby-doc.org/stdlib/libdoc/base64/rdoc/classes/Base64.html">The Ruby docs</a> are somewhat confusing, the b64encode method is supposed to add a newline for every 60th character, and the example for the encode64 method is actually using the b64encode method. It seems the pack("m") method for the Array class used by encode64 also adds the newlines. I would consider it a design bug that this is not optional.</p>
-<p>You could either remove the newlines yourself, or if you're using rails, there's <a href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Base64/Encoding.html">ActiveSupport::CoreExtensions::Base64::Encoding</a> with the encode64s method.</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/2620975/strange-n-in-base64-encoded-string-in-ruby">Solution at Stackoverflow</a></li>
-</ul>
+                <h1 id="operational-metrics-api-calls">Operational Metrics API Calls</h1>
+<p>Operational Metrics include metrics related to the CPU or memory usage of the ams nodes</p>
+<h2 id="get-get-operational-metrics">[GET] Get Operational Metrics</h2>
+<p>This request gets a list of operational metrics for the specific ams servcice</p>
+<h3 id="request">Request</h3>
+<pre><code class="json">GET &quot;/v1/metrics&quot;
+</code></pre>
+
+<h3 id="example-request">Example request</h3>
+<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses">Responses</h3>
+<p>If successful, the response returns a list of related operational metrics</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;ams_node.cpu_usage&quot;,
+         &quot;metric_type&quot;: &quot;percentage&quot;,
+         &quot;value_type&quot;: &quot;float64&quot;,
+         &quot;resource_type&quot;: &quot;ams_node&quot;,
+         &quot;resource_name&quot;: &quot;host.foo&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
+               &quot;value&quot;: 0.2
+            }
+         ],
+         &quot;description&quot;: &quot;Percentage value that displays the CPU usage of ams service in the specific node&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;ams_node.memory_usage&quot;,
+         &quot;metric_type&quot;: &quot;percentage&quot;,
+         &quot;value_type&quot;: &quot;float64&quot;,
+         &quot;resource_type&quot;: &quot;ams_node&quot;,
+         &quot;resource_name&quot;: &quot;host.foo&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
+               &quot;value&quot;: 0.1
+            }
+         ],
+         &quot;description&quot;: &quot;Percentage value that displays the Memory usage of ams service in the specific node&quot;
+      }
+   ]
+}
+
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
           </div>
@@ -259,8 +303,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../api_errors/" class="btn btn-neutral float-right" title="API Error Messages"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../qa_general_questions/" class="btn btn-neutral" title="General"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../api_subs/" class="btn btn-neutral" title="API Subscriptions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -290,8 +336,10 @@
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../qa_general_questions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../api_subs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../api_errors/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
