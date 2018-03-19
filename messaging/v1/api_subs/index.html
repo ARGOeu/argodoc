@@ -169,8 +169,21 @@
                 
                     <li><a class="toctree-l4" href="#post-sending-an-ack">[POST] Sending an ACK</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-get-offsets">[GET] Get Offsets</a></li>
+                
+                    <li><a class="toctree-l4" href="#post-modify-offsets">[POST] Modify Offsets</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-subscription-metrics">[GET] Subscription Metrics</a></li>
+                
             
             </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_metrics/">API Operational Metrics</a>
         
     </li>
 
@@ -265,7 +278,7 @@
 <h3 id="put-body">PUT  BODY</h3>
 <pre><code class="json">{
  &quot;topic&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;,
- &quot;ack&quot;:10
+ &quot;ackDeadlineSeconds&quot;:10
 }
 </code></pre>
 
@@ -441,7 +454,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-sending-an-ack">[POST] Sending an ACK</h2>
-<p>Messages retrieved from a pull subscription can be acknowledged by sending message with an array of ackIDs. </p>
+<p>Messages retrieved from a pull subscription can be acknowledged by sending message with an array of ackIDs.</p>
 <h3 id="request_6">Request</h3>
 <p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:acknowledge</code></p>
 <h3 id="post-body_4">Post body:</h3>
@@ -477,6 +490,129 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <code>200 OK</code></p>
 <h3 id="errors_6">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-get-offsets">[GET] Get Offsets</h2>
+<p>This request returns the min, max and current offset of a subscription</p>
+<h3 id="request_7">Request</h3>
+<p><code>GET /v1/projects/{project_name}/subscriptions/{subscription_name}:Offsets</code></p>
+<h3 id="post-body_6">Post body:</h3>
+<pre><code>{
+  &quot;max&quot;: 14,
+  &quot;min&quot;: 0,
+  &quot;current&quot;: 4
+}
+</code></pre>
+
+<h3 id="where_7">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>subscription_name: The subscription name to consume</li>
+</ul>
+<h3 id="example-request_7">Example request</h3>
+<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;  
+-d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:offsets?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_7">post body:</h3>
+<pre><code>{
+  &quot;max&quot;: 14,
+  &quot;min&quot;: 0,
+  &quot;current&quot;: 4
+}
+</code></pre>
+
+<h3 id="responses_7">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_7">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-modify-offsets">[POST] Modify Offsets</h2>
+<p>This request modifies the current offset of a subscription</p>
+<h3 id="request_8">Request</h3>
+<p><code>POST /v1/projects/{project_name}/subscriptions/{subscription_name}:modifyOFfset</code></p>
+<h3 id="post-body_8">Post body:</h3>
+<pre><code>{
+ &quot;offset&quot;:3
+}
+</code></pre>
+
+<h3 id="where_8">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>subscription_name: The subscription name to consume</li>
+<li>offset_config: an offset number in int64</li>
+</ul>
+<h3 id="example-request_8">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyOffset?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_9">post body:</h3>
+<pre><code>{
+  &quot;offset&quot;:14
+}
+</code></pre>
+
+<h3 id="responses_8">Responses</h3>
+<p>Success Response
+Code: <code>200 OK</code>, Empty response if successful.</p>
+<h3 id="errors_8">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-subscription-metrics">[GET] Subscription Metrics</h2>
+<p>The following request returns related metrics for the specific subscription: for eg the number of consumed messages</p>
+<h3 id="request_9">Request</h3>
+<pre><code>GET &quot;/v1/projects/{project_name}/subscriptions/{sub_name}:metrics&quot;
+</code></pre>
+
+<h3 id="where_9">Where</h3>
+<ul>
+<li>Project_name: name of the project</li>
+<li>sub_name: name of the subscription</li>
+</ul>
+<h3 id="example-request_9">Example request</h3>
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/monitoring:metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_9">Responses</h3>
+<p>If successful it returns the number of messages consumed in the specific subscription
+Success Response
+<code>200 OK</code></p>
+<pre><code>{
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;subscription.number_of_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;subscription&quot;,
+         &quot;resource_name&quot;: &quot;sub1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T14:20:38Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number number of messages published to the specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_bytes&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;sub1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T14:20:38Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the total size of data (in bytes) published to the specific topic&quot;
+      }
+   ]
+}
+</code></pre>
+
+<h3 id="errors_9">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
           </div>
@@ -484,7 +620,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api_errors/" class="btn btn-neutral float-right" title="API Error Messages"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api_metrics/" class="btn btn-neutral float-right" title="API Operational Metrics"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../api_topics/" class="btn btn-neutral" title="API Topics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -520,7 +656,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
         <span><a href="../api_topics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../api_errors/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../api_metrics/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

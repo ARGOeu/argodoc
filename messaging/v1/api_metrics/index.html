@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Error Messages - AMS documentation [V1]</title>
+  <title>API Operational Metrics - AMS documentation [V1]</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API Error Messages";
+    var mkdocs_page_name = "API Operational Metrics";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -155,24 +155,24 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../api_metrics/">API Operational Metrics</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">API Operational Metrics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#operational-metrics-api-calls">Operational Metrics API Calls</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-get-operational-metrics">[GET] Get Operational Metrics</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API Error Messages</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#errors">Errors</a></li>
-                
-                    <li><a class="toctree-l4" href="#error-codes">Error Codes</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../api_errors/">API Error Messages</a>
         
     </li>
 
@@ -228,7 +228,7 @@
         
       
     
-    <li>API Error Messages</li>
+    <li>API Operational Metrics</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -242,121 +242,60 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="errors">Errors</h1>
-<p>In case of Error during handling user’s request the API responds using the following schema:</p>
-<pre><code class="json">{
-   &quot;error&quot;: {
-      &quot;code&quot;: 500,
-      &quot;message&quot;: &quot;Something bad happened&quot;,
-      &quot;status&quot;: &quot;INTERNAL&quot;
-   }
-}
+                <h1 id="operational-metrics-api-calls">Operational Metrics API Calls</h1>
+<p>Operational Metrics include metrics related to the CPU or memory usage of the ams nodes</p>
+<h2 id="get-get-operational-metrics">[GET] Get Operational Metrics</h2>
+<p>This request gets a list of operational metrics for the specific ams servcice</p>
+<h3 id="request">Request</h3>
+<pre><code class="json">GET &quot;/v1/metrics&quot;
 </code></pre>
 
-<h2 id="error-codes">Error Codes</h2>
-<p>The following error codes are the possinble errors of all methods</p>
-<table>
-<thead>
-<tr>
-<th>Error</th>
-<th>Code</th>
-<th>Status</th>
-<th>Related Requests</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ack Timeout</td>
-<td>408</td>
-<td>TIMEOUT</td>
-<td>Acknowledge Message (POST) - <a href="../overview/#Message-acknowledgement-deadline">more info</a></td>
-</tr>
-<tr>
-<td>Topic already exists</td>
-<td>409</td>
-<td>ALREADY_EXISTS</td>
-<td>Create Topic (PUT)</td>
-</tr>
-<tr>
-<td>Subscription already exists</td>
-<td>409</td>
-<td>ALREADY_EXISTS</td>
-<td>Create Subscription (PUT)</td>
-</tr>
-<tr>
-<td>Invalid Topics Name</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Create Subscription (PUT)</td>
-</tr>
-<tr>
-<td>Topic Doesn't Exist</td>
-<td>404</td>
-<td>NOT_FOUND</td>
-<td>Show specific Topic  (GET)</td>
-</tr>
-<tr>
-<td>Invalid Topic ACL arguments</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Modify Topic ACL (POST)</td>
-</tr>
-<tr>
-<td>Subscription Doesn't Exist</td>
-<td>404</td>
-<td>NOT_FOUND</td>
-<td>Show specific Subscription  (GET)</td>
-</tr>
-<tr>
-<td>Message size to large</td>
-<td>413</td>
-<td>INVALID_ARGUMENT</td>
-<td>Topic Publish (POST)</td>
-</tr>
-<tr>
-<td>Invalid Subscription Arguments</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Create Subscription (POST), Modify Push Configuration (POST)</td>
-</tr>
-<tr>
-<td>Invalid Subscription ACL arguments</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Modify Subscription ACL (POST)</td>
-</tr>
-<tr>
-<td>Invalid ACK Parameter</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Subscription Acknowledge (POST)</td>
-</tr>
-<tr>
-<td>Invalid ACK id</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Subscription Acknowledge (POST)</td>
-</tr>
-<tr>
-<td>Invalid pull parameters</td>
-<td>400</td>
-<td>INVALID_ARGUMENT</td>
-<td>Subscription Pull (POST)</td>
-</tr>
-<tr>
-<td>Unauthorized</td>
-<td>401</td>
-<td>UNAUTHORIZED</td>
-<td>All requests <em>(if a user is not authenticated)</em></td>
-</tr>
-<tr>
-<td>Forbidden Access to Resource</td>
-<td>403</td>
-<td>FORBIDDEN</td>
-<td>All requests <em>(if a user is forbidden to access the resource)</em></td>
-</tr>
-</tbody>
-</table>
+<h3 id="example-request">Example request</h3>
+<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses">Responses</h3>
+<p>If successful, the response returns a list of related operational metrics</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;ams_node.cpu_usage&quot;,
+         &quot;metric_type&quot;: &quot;percentage&quot;,
+         &quot;value_type&quot;: &quot;float64&quot;,
+         &quot;resource_type&quot;: &quot;ams_node&quot;,
+         &quot;resource_name&quot;: &quot;host.foo&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
+               &quot;value&quot;: 0.2
+            }
+         ],
+         &quot;description&quot;: &quot;Percentage value that displays the CPU usage of ams service in the specific node&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;ams_node.memory_usage&quot;,
+         &quot;metric_type&quot;: &quot;percentage&quot;,
+         &quot;value_type&quot;: &quot;float64&quot;,
+         &quot;resource_type&quot;: &quot;ams_node&quot;,
+         &quot;resource_name&quot;: &quot;host.foo&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
+               &quot;value&quot;: 0.1
+            }
+         ],
+         &quot;description&quot;: &quot;Percentage value that displays the Memory usage of ams service in the specific node&quot;
+      }
+   ]
+}
+
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
           </div>
@@ -364,10 +303,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../qa_general_questions/" class="btn btn-neutral float-right" title="General"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api_errors/" class="btn btn-neutral float-right" title="API Error Messages"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../api_metrics/" class="btn btn-neutral" title="API Operational Metrics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_subs/" class="btn btn-neutral" title="API Subscriptions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -397,10 +336,10 @@
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../api_metrics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../api_subs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../qa_general_questions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../api_errors/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

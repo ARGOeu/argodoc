@@ -162,6 +162,8 @@
                 
                     <li><a class="toctree-l4" href="#post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-topic-metrics">[GET] Topic Metrics</a></li>
+                
             
             </ul>
         
@@ -171,6 +173,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_metrics/">API Operational Metrics</a>
         
     </li>
 
@@ -336,7 +345,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot; 
+<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&quot;`
 </code></pre>
 
@@ -405,7 +414,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
-<p>The following request returns a list of authorized users (publishers) of a given topic. </p>
+<p>The following request returns a list of authorized users (publishers) of a given topic.</p>
 <h3 id="request_5">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:acl&quot;
 </code></pre>
@@ -416,7 +425,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>topic_name: name of the topic</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot; 
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
@@ -472,6 +481,77 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-topic-metrics">[GET] Topic Metrics</h2>
+<p>The following request returns related metrics for the specific topic: for eg the number of published messages</p>
+<h3 id="request_7">Request</h3>
+<pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:metrics&quot;
+</code></pre>
+
+<h3 id="where_7">Where</h3>
+<ul>
+<li>Project_name: name of the project</li>
+<li>topic_name: name of the topic</li>
+</ul>
+<h3 id="example-request_7">Example request</h3>
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_7">Responses</h3>
+<p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code>{
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;topic.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 1
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions belonging to a specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number number of messages published to the specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_bytes&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-27T10:20:18Z&quot;,
+               &quot;value&quot;: 0
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the total size of data (in bytes) published to the specific topic&quot;
+      }
+   ]
+}
+
+</code></pre>
+
+<h3 id="errors_7">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>

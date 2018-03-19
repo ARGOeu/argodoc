@@ -138,6 +138,8 @@
                 
                     <li><a class="toctree-l4" href="#get-manage-users-list-a-specific-user">[GET] Manage Users - List a specific user</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-manage-users-list-a-specific-user-by-token">[GET] Manage Users - List a specific user by token</a></li>
+                
                     <li><a class="toctree-l4" href="#post-manage-users-create-new-user">[POST] Manage Users - Create new user</a></li>
                 
                     <li><a class="toctree-l4" href="#put-manage-users-update-a-user">[PUT] Manage Users - Update a user</a></li>
@@ -169,6 +171,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_metrics/">API Operational Metrics</a>
         
     </li>
 
@@ -269,8 +278,11 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-              &quot;project_admin&quot;
-             ]
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
           }
        ],
        &quot;name&quot;: &quot;Test&quot;,
@@ -285,7 +297,17 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-               &quot;project_admin&quot;
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [
+                &quot;topic1&quot;,
+                &quot;topic2&quot;
+             ],
+             &quot;subscriptions&quot;: [
+                &quot;sub1&quot;,
+                &quot;sub2&quot;,
+                &quot;sub3&quot;
              ]
           }
        ],
@@ -301,7 +323,17 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-               &quot;project_admin&quot;
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [
+                &quot;topic1&quot;,
+                &quot;topic2&quot;
+             ],
+             &quot;subscriptions&quot;: [
+                &quot;sub1&quot;,
+                &quot;sub3&quot;,
+                &quot;sub4&quot;
              ]
           }
        ],
@@ -318,7 +350,14 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
+                &quot;publisher&quot;,
                 &quot;consumer&quot;
+             ],
+             &quot;topics&quot;: [
+                &quot;topic3&quot;
+             ],
+             &quot;subscriptions&quot;: [
+                &quot;sub2&quot;
              ]
           }
        ],
@@ -335,7 +374,15 @@
           {
              &quot;project&quot;: &quot;ARGO&quot;,
              &quot;roles&quot;: [
-                &quot;publisher&quot;
+                &quot;publisher&quot;,
+                &quot;consumer&quot;
+             ],
+             &quot;topics&quot;: [
+                &quot;topic2&quot;
+             ],
+             &quot;subscriptions&quot;: [
+                &quot;sub3&quot;,
+                &quot;sub4&quot;
              ]
           }
        ],
@@ -373,28 +420,87 @@
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;projects&quot;: [
-    {
-       &quot;project_uuid&quot;: &quot;ARGO&quot;,
-       &quot;roles&quot;: [
-          &quot;project_admin&quot;
-       ]
-    }
- ],
- &quot;name&quot;: &quot;UserA&quot;,
- &quot;token&quot;: &quot;S3CR3T1&quot;,
- &quot;email&quot;: &quot;foo-email&quot;,
- &quot;service_roles&quot;:[],
- &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
- &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+   &quot;projects&quot;: [
+      {
+         &quot;project&quot;: &quot;ARGO&quot;,
+         &quot;roles&quot;: [
+            &quot;consumer&quot;,
+            &quot;publisher&quot;
+         ],
+         &quot;topics&quot;: [
+            &quot;topic1&quot;,
+            &quot;topic2&quot;
+         ],
+         &quot;subscriptions&quot;: [
+            &quot;sub1&quot;,
+            &quot;sub2&quot;,
+            &quot;sub3&quot;
+         ]
+      }
+   ],
+   &quot;name&quot;: &quot;UserA&quot;,
+   &quot;token&quot;: &quot;S3CR3T1&quot;,
+   &quot;email&quot;: &quot;foo-email&quot;,
+   &quot;service_roles&quot;: [],
+   &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+   &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
 }
 </code></pre>
 
 <h3 id="errors_1">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-manage-users-list-a-specific-user-by-token">[GET] Manage Users - List a specific user by token</h2>
+<p>This request lists information about a specific user using user's token as input</p>
+<h3 id="request_2">Request</h3>
+<pre><code>GET &quot;/v1/users:byToken/{token}&quot;
+</code></pre>
+
+<h3 id="where_1">Where</h3>
+<ul>
+<li>token: the token of the user</li>
+</ul>
+<h3 id="example-request_2">Example request</h3>
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/users:byToken/S3CR3T1?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_2">Responses</h3>
+<p>If successful, the response contains information about the specific user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;projects&quot;: [
+      {
+         &quot;project&quot;: &quot;ARGO&quot;,
+         &quot;roles&quot;: [
+            &quot;consumer&quot;,
+            &quot;publisher&quot;
+         ],
+         &quot;topics&quot;: [
+            &quot;topic1&quot;,
+            &quot;topic2&quot;
+         ],
+         &quot;subscriptions&quot;: [
+            &quot;sub1&quot;,
+            &quot;sub2&quot;,
+            &quot;sub3&quot;
+         ]
+      }
+   ],
+   &quot;name&quot;: &quot;UserA&quot;,
+   &quot;token&quot;: &quot;S3CR3T1&quot;,
+   &quot;email&quot;: &quot;foo-email&quot;,
+   &quot;service_roles&quot;: [],
+   &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+   &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_2">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-manage-users-create-new-user">[POST] Manage Users - Create new user</h2>
 <p>This request creates a new user in a project</p>
-<h3 id="request_2">Request</h3>
+<h3 id="request_3">Request</h3>
 <pre><code class="json">POST &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
@@ -413,7 +519,7 @@
 }
 </code></pre>
 
-<h3 id="where_1">Where</h3>
+<h3 id="where_2">Where</h3>
 <ul>
 <li>user_name: Name of the user</li>
 <li>projects: A list of Projects &amp; associated roles that the user has on those projects</li>
@@ -459,13 +565,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="example-request_2">Example request</h3>
+<h3 id="example-request_3">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;
  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_2">Responses</h3>
+<h3 id="responses_3">Responses</h3>
 <p>If successful, the response contains the newly created project</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -475,7 +581,9 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
        &quot;project&quot;: &quot;ARGO&quot;,
        &quot;roles&quot;: [
           &quot;project_admin&quot;
-       ]
+       ],
+       &quot;topics&quot;:[],
+       &quot;subscriptions&quot;:[]
     }
  ],
  &quot;name&quot;: &quot;USERNEW&quot;,
@@ -488,11 +596,11 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 }
 </code></pre>
 
-<h3 id="errors_2">Errors</h3>
+<h3 id="errors_3">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="put-manage-users-update-a-user">[PUT] Manage Users - Update a user</h2>
 <p>This request updates an existing user's information</p>
-<h3 id="request_3">Request</h3>
+<h3 id="request_4">Request</h3>
 <pre><code class="json">PUT &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
@@ -512,20 +620,20 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 }
 </code></pre>
 
-<h3 id="where_2">Where</h3>
+<h3 id="where_3">Where</h3>
 <ul>
 <li>user_name: Name of the user</li>
 <li>projects: A list of Projects &amp; associated roles that the user has on those projects</li>
 <li>email: User's email</li>
 <li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
 </ul>
-<h3 id="example-request_3">Example request</h3>
+<h3 id="example-request_4">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;
  -d PUTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_3">Responses</h3>
+<h3 id="responses_4">Responses</h3>
 <p>If successful, the response contains the newly created project</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -535,7 +643,9 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
        &quot;project&quot;: &quot;ARGO2&quot;,
        &quot;roles&quot;: [
           &quot;project_admin&quot;
-       ]
+       ],
+       &quot;topics&quot;:[],
+       &quot;subscriptions&quot;:[]
     }
  ],
  &quot;name&quot;: &quot;CHANGED_NAME&quot;,
@@ -548,25 +658,25 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 }
 </code></pre>
 
-<h3 id="errors_3">Errors</h3>
+<h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-manage-users-refresh-token">[POST] Manage Users - Refresh token</h2>
 <p>This request refreshes an existing user's token</p>
-<h3 id="request_4">Request</h3>
+<h3 id="request_5">Request</h3>
 <pre><code class="json">POST &quot;/v1/users/{user_name}:refreshToken&quot;
 </code></pre>
 
-<h3 id="where_3">Where</h3>
+<h3 id="where_4">Where</h3>
 <ul>
 <li>user_name: Name of the user</li>
 </ul>
-<h3 id="example-request_4">Example request</h3>
+<h3 id="example-request_5">Example request</h3>
 <pre><code>json
 curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO/users/USER2:refreshToken?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_4">Responses</h3>
+<h3 id="responses_5">Responses</h3>
 <p>If successful, the response contains the newly created project</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -576,7 +686,9 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
        &quot;project&quot;: &quot;ARGO&quot;,
        &quot;roles&quot;: [
           &quot;project_admin&quot;
-       ]
+       ],
+       &quot;topics&quot;:[],
+       &quot;subscriptions&quot;:[]
     }
  ],
  &quot;name&quot;: &quot;USER2&quot;,
@@ -589,28 +701,28 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 }
 </code></pre>
 
-<h3 id="errors_4">Errors</h3>
+<h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</h2>
 <p>This request deletes an existing user</p>
-<h3 id="request_5">Request</h3>
+<h3 id="request_6">Request</h3>
 <pre><code class="json">DELETE &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
-<h3 id="where_4">Where</h3>
+<h3 id="where_5">Where</h3>
 <ul>
 <li>user_name: Name of the user</li>
 </ul>
-<h3 id="example-request_5">Example request</h3>
+<h3 id="example-request_6">Example request</h3>
 <pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO/users/USER2?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_5">Responses</h3>
+<h3 id="responses_6">Responses</h3>
 <p>If successful, the response returns empty</p>
 <p>Success Response
 <code>200 OK</code></p>
-<h3 id="errors_5">Errors</h3>
+<h3 id="errors_6">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>

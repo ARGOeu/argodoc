@@ -76,6 +76,8 @@
                 
                     <li><a class="toctree-l4" href="#messages">Messages</a></li>
                 
+                    <li><a class="toctree-l4" href="#message-acknowledgement-deadline">Message acknowledgement deadline</a></li>
+                
             
             </ul>
         
@@ -171,6 +173,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_metrics/">API Operational Metrics</a>
         
     </li>
 
@@ -383,8 +392,19 @@ Support for pull subscription will be available in the next versions.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="message-acknowledgement-deadline">Message acknowledgement deadline</h3>
+<h2 id="message-acknowledgement-deadline">Message acknowledgement deadline</h2>
 <p>The ack deadline is the number of seconds after delivery, during which the subscriber must acknowledge the receipt of a pull or push message. If a subscriber does not respond with an explicit acknowledge (for a pull subscriber) or with a success response code (for a push subscriber) by this deadline, the server will attempt to resend the message. By default this deadline is 10 seconds.</p>
+<p>If a client tries to acknowledge a message while the Ack period has passed it will receive a 408 ERROR in the following format:</p>
+<pre><code class="json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: 408,
+    &quot;message&quot;: &quot;ack timeout&quot;,
+    &quot;status&quot;: &quot;TIMEOUT&quot;
+  }
+}
+</code></pre>
+
+<p>The Ack deadline can be set-up to a higher number during subscription creation by assigning a value to <code>ackDeadlineSeconds</code> json field. More on subscription creation <a href="../api_subs/">here</a></p>
               
             </div>
           </div>

@@ -151,6 +151,8 @@
                 
                     <li><a class="toctree-l4" href="#delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-project-metrics">[GET] Project Metrics</a></li>
+                
             
             </ul>
         
@@ -167,6 +169,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../api_subs/">API Subscriptions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api_metrics/">API Operational Metrics</a>
         
     </li>
 
@@ -412,6 +421,119 @@
 <p>Success Response
 Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_4">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-project-metrics">[GET] Project Metrics</h2>
+<p>The following request returns related metrics for the specific project: eg. the number of topics</p>
+<h3 id="request_5">Request</h3>
+<pre><code>GET &quot;/v1/projects/{project_name}:metrics&quot;
+</code></pre>
+
+<h3 id="where_4">Where</h3>
+<ul>
+<li>Project_name: name of the project</li>
+<li>topic_name: name of the topic</li>
+</ul>
+<h3 id="example-request_5">Example request</h3>
+<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW:metrics?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>If successful it returns projects related metrics (number of topics, number of subscriptions).</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code>{
+   &quot;metrics&quot;: [
+      {
+         &quot;metric&quot;: &quot;project.number_of_topics&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project&quot;,
+         &quot;resource_name&quot;: &quot;ARGO&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 3
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of topics belonging to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project&quot;,
+         &quot;resource_name&quot;: &quot;ARGO&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 4
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions belonging to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.user.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project.user&quot;,
+         &quot;resource_name&quot;: &quot;ARGO.UserA&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 3
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.user.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project.user&quot;,
+         &quot;resource_name&quot;: &quot;ARGO.UserB&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 3
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.user.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project.user&quot;,
+         &quot;resource_name&quot;: &quot;ARGO.UserX&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 1
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.user.number_of_subscriptions&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project.user&quot;,
+         &quot;resource_name&quot;: &quot;ARGO.UserZ&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2017-06-30T13:53:13Z&quot;,
+               &quot;value&quot;: 2
+            }
+         ],
+         &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      }
+   ]
+}
+
+</code></pre>
+
+<h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
