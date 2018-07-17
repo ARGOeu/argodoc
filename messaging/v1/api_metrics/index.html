@@ -164,6 +164,8 @@
                 
                     <li><a class="toctree-l4" href="#get-get-operational-metrics">[GET] Get Operational Metrics</a></li>
                 
+                    <li><a class="toctree-l4" href="#get-get-health-status">[GET] Get Health status</a></li>
+                
             
             </ul>
         
@@ -296,6 +298,24 @@
 
 <h3 id="errors">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-get-health-status">[GET] Get Health status</h2>
+<h3 id="request_1">Request</h3>
+<pre><code>GET &quot;/v1/status&quot;
+</code></pre>
+
+<h3 id="example-request_1">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/status&quot;
+</code></pre>
+
+<h3 id="responses_1">Responses</h3>
+<p>If successful, the response returns the health status of the service</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;status&quot;: &quot;ok&quot;
+}
+</code></pre>
               
             </div>
           </div>
