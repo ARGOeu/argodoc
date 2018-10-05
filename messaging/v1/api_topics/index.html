@@ -545,6 +545,24 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
             }
          ],
          &quot;description&quot;: &quot;Counter that displays the total size of data (in bytes) published to the specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_daily_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2018-10-02&quot;,
+               &quot;value&quot;: 30
+            },
+            {
+               &quot;timestamp&quot;: &quot;2018-10-01&quot;,
+               &quot;value&quot;: 40
+            }
+         ],
+         &quot;description&quot;: &quot;A collection of counters that represents the total number of messages published each day to a specific topic&quot;
       }
    ]
 }
