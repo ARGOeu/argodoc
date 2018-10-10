@@ -527,6 +527,24 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
             }
          ],
          &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.number_of_daily_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project&quot;,
+         &quot;resource_name&quot;: &quot;ARGO&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2018-10-02&quot;,
+               &quot;value&quot;: 30
+            },
+            {
+               &quot;timestamp&quot;: &quot;2018-10-01&quot;,
+               &quot;value&quot;: 110
+            }
+         ],
+         &quot;description&quot;: &quot;A collection of counters that represents the total number of messages published each day to all of the project's topics&quot;
       }
    ]
 }
