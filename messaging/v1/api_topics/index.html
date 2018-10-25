@@ -335,17 +335,27 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-manage-topics-list-topics">[GET] Manage Topics - List Topics</h2>
-<p>This request gets the list of topics in a project with a GET request</p>
-<h3 id="request_3">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects/{project_name}/topics&quot;
+<p>This request lists all available topics under a specific project in the service using pagination</p>
+<p>It is important to note that if there are no results to return the service will return the following:</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;users&quot;: [],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 0
+ }
 </code></pre>
 
+<p>Also the default value for <code>pageSize = 0</code> and <code>pageToken = "</code>.</p>
+<p><code>Pagesize = 0</code> returns all the results.</p>
+<h3 id="paginated-request-that-returns-all-topics-under-the-specified-project">Paginated Request that returns all topics under the specified project</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
 <h3 id="where_3">Where</h3>
 <ul>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&quot;`
 </code></pre>
 
@@ -359,8 +369,60 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
     },
     {
       &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
-    },
-     ]
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 2
+}
+</code></pre>
+
+<h3 id="paginated-request-that-returns-the-first-page-of-a-specific-size">Paginated Request that returns the first page of a specific size</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<h3 id="where_4">Where</h3>
+<ul>
+<li>Project_name: Name of the project to get the list of topics</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&quot;`
+</code></pre>
+
+<h3 id="responses_4">Responses</h3>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;topics&quot;: [
+    {
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;some_token&quot;,
+  &quot;totalSize&quot;: 2
+}
+</code></pre>
+
+<h3 id="paginated-request-that-returns-the-next-page-of-a-specific-size">Paginated Request that returns the next  page of a specific size</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<h3 id="where_5">Where</h3>
+<ul>
+<li>Project_name: Name of the project to get the list of topics</li>
+</ul>
+<h3 id="example-request_5">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&amp;pageToken=some_token&quot;`
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;topics&quot;: [
+    {
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 2
 }
 </code></pre>
 
@@ -368,11 +430,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</h2>
 <p>The topic:publish endpoint publishes a message, or a list of messages to a specific topic with a  POST request</p>
-<h3 id="request_4">Request</h3>
+<h3 id="request_3">Request</h3>
 <pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:publish&quot;
 </code></pre>
 
-<h3 id="where_4">Where</h3>
+<h3 id="where_6">Where</h3>
 <ul>
 <li>Project_name: Name of the project to post the messages</li>
 <li>topic_name: to post the messages</li>
@@ -396,12 +458,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <blockquote>
 <p>The value of the data property must be always encoded in base64 format.</p>
 </blockquote>
-<h3 id="example-request_4">Example request</h3>
+<h3 id="example-request_6">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_4">Responses</h3>
+<h3 id="responses_6">Responses</h3>
 <p>If successful, the response contains the messageIds of the messages published.</p>
 <p>Success Response <code>200 OK</code></p>
 <pre><code class="json">{
@@ -415,21 +477,21 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
 <p>The following request returns a list of authorized users (publishers) of a given topic.</p>
-<h3 id="request_5">Request</h3>
+<h3 id="request_4">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:acl&quot;
 </code></pre>
 
-<h3 id="where_5">Where</h3>
+<h3 id="where_7">Where</h3>
 <ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_5">Example request</h3>
+<h3 id="example-request_7">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_5">Responses</h3>
+<h3 id="responses_7">Responses</h3>
 <p>If successful it returns the authorized users of the topic.</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -444,11 +506,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</h2>
 <p>The following request Modifies the authorized users list of a given topic</p>
-<h3 id="request_6">Request</h3>
+<h3 id="request_5">Request</h3>
 <pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:modifyAcl&quot;
 </code></pre>
 
-<h3 id="where_6">Where</h3>
+<h3 id="where_8">Where</h3>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>topic_name: name of the topic</li>
@@ -461,12 +523,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="example-request_6">Example request</h3>
+<h3 id="example-request_8">Example request</h3>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_6">Responses</h3>
+<h3 id="responses_8">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_6">Errors</h3>
@@ -484,21 +546,21 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-topic-metrics">[GET] Topic Metrics</h2>
 <p>The following request returns related metrics for the specific topic: for eg the number of published messages</p>
-<h3 id="request_7">Request</h3>
+<h3 id="request_6">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:metrics&quot;
 </code></pre>
 
-<h3 id="where_7">Where</h3>
+<h3 id="where_9">Where</h3>
 <ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_7">Example request</h3>
+<h3 id="example-request_9">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:metrics?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_7">Responses</h3>
+<h3 id="responses_9">Responses</h3>
 <p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
 <p>Success Response
 <code>200 OK</code></p>
