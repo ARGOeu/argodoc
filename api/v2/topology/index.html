@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Metrics - Web Api documentation [V2]</title>
+  <title>Topology statistics - Web Api documentation [V2]</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Metrics";
+    var mkdocs_page_name = "Topology statistics";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -127,17 +127,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Metrics</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#metric-results">Metric results</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-metric-result">[GET]: Metric Result</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../metrics/">Metrics</a>
         
     </li>
 <li>
@@ -150,8 +141,17 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../topology/">Topology statistics</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Topology statistics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#topology-statistics">Topology Statistics</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-list-topology-statistics">[GET]: List topology statistics</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -178,7 +178,7 @@
     
       
     
-    <li>Metrics</li>
+    <li>Topology statistics</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -192,12 +192,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="metric-results">Metric results</h1>
-<p>API call for retrieving detailed metric result.</p>
-<h2 id="get-metric-result">[GET]: Metric Result</h2>
-<p>This method may be used to retrieve a specific service metric result.</p>
+                <h1 id="topology-statistics">Topology Statistics</h1>
+<p>API calls for retrieving topology statistics per report</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET: List topology statistics</td>
+<td>List number of groups, endpoint groups and services .</td>
+<td><a href="#1">Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="1"></a></p>
+<h2 id="get-list-topology-statistics">[GET]: List topology statistics</h2>
+<p>This method may be used to retrieve topology statistics for a specific report. Topology statistics include number of groups, endpoint groups and services included in the report</p>
 <h3 id="input">Input</h3>
-<pre><code>/metric_result/{hostname}/{metric_name}?[exec_time]
+<h5 id="list-all-latest-metric-data">List All latest metric data</h5>
+<pre><code>/topology/{report}/?[date]
 </code></pre>
 
 <h4 id="path-parameters">Path Parameters</h4>
@@ -212,14 +230,8 @@
 </thead>
 <tbody>
 <tr>
-<td><code>hostname</code></td>
-<td>hostname of service endpoint</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>metric_name</code></td>
-<td>name of the metric</td>
+<td><code>report</code></td>
+<td>name of the report used</td>
 <td>YES</td>
 <td></td>
 </tr>
@@ -237,18 +249,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>exec_time</code></td>
-<td>The execution date of query in zulu format</td>
-<td>YES</td>
-<td></td>
+<td><code>date</code></td>
+<td>target a specific data</td>
+<td>NO</td>
+<td>today's date</td>
 </tr>
 </tbody>
 </table>
-<p><strong><em>Notes</em></strong>:
-<code>exec_time</code> : The execution date of query in zulu format. In order to get the correct execution time get status results for all metrics (under a given endpoint, service and endpoint group). ( GET /status/{report_name}/{lgroup_type}/{lgroup_name}/services/{service_name}/endpoints/{endpoint_name}/metrics List)</p>
 <h4 id="headers">Headers</h4>
-<pre><code>x-api-key: shared_key_value
-Accept: application/json or application/xml
+<pre><code>x-api-key: secret_key_value
+Accept: application/json
 </code></pre>
 
 <h4 id="response-code">Response Code</h4>
@@ -256,15 +266,38 @@ Accept: application/json or application/xml
 </code></pre>
 
 <h3 id="response-body">Response body</h3>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;application/json&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: {
+        &quot;group_count&quot;: 1,
+        &quot;group_type&quot;: &quot;type of top-level groups in report&quot;,
+        &quot;group_list&quot;: [
+          &quot;list of top level groups&quot;
+        ],
+        &quot;endpoint_group_count&quot;: 1,
+        &quot;endpoint_group_type&quot;: &quot;type of endpoint groups in report&quot;,
+        &quot;endpoint_group_list&quot;: [
+        &quot;list of endpoint groups&quot;
+        ],
+        &quot;service_count&quot;: 1,
+        &quot;service_list&quot;: [
+          &quot;list of available services&quot;
+        ]
+    }
+}
+</code></pre>
+
 <h6 id="example-request">Example Request:</h6>
 <p>URL:</p>
-<pre><code>/api/v2/metric_result/www.example.com/httpd_check?exec_time=2015-06-20T12:00:00Z
+<pre><code>latest/Report_B/?date=2015-05-01
 </code></pre>
 
 <p>Headers:</p>
-<pre><code>x-api-key: shared_key_value
-Accept: application/json or application/xml
-
+<pre><code>x-api-key: secret_key_value
+Accept: application/json
 </code></pre>
 
 <h6 id="example-response">Example Response:</h6>
@@ -272,17 +305,39 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
-<pre><code> &lt;root&gt;
-   &lt;host name=&quot;www.example.com&quot;&gt;
-     &lt;metric name=&quot;httpd_check&quot;&gt;
-       &lt;status timestamp=&quot;2015-06-20T12:00:00Z&quot; value=&quot;CRITICAL&quot;&gt;
-     &lt;summary&gt;httpd status is CRITICAL&lt;/summary&gt;
-     &lt;message&gt;httpd service seems down. Failed to connect to port 80.&lt;/message&gt;
-       &lt;/status&gt;
-     &lt;/metric&gt;
-   &lt;/host&gt;
- &lt;/root&gt;
+<p>Response body:</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;application/json&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: {
+        &quot;group_count&quot;: 2,
+        &quot;group_type&quot;: &quot;PROJECTS&quot;,
+        &quot;group_list&quot;: [
+            &quot;PROJECT_A&quot;,
+            &quot;PROJECT_B&quot;
+        ],
+        &quot;endpoint_group_count&quot;: 3,
+        &quot;endpoint_group_type&quot;: &quot;SERVICEGROUPS&quot;,
+        &quot;endpoint_group_list&quot;: [
+          &quot;SGROUP_A&quot;,
+          &quot;SGROUP_B&quot;,
+          &quot;SGROUP_C&quot;
+        ],
+        &quot;service_count&quot;: 8,
+        &quot;service_list&quot;: [
+            &quot;service_type_1&quot;,
+            &quot;service_type_2&quot;,
+            &quot;service_type_3&quot;,
+            &quot;service_type_4&quot;,
+            &quot;service_type_5&quot;,
+            &quot;service_type_6&quot;,
+            &quot;service_type_7&quot;,
+            &quot;service_type_8&quot;
+        ]
+    }
+}
 </code></pre>
               
             </div>
@@ -291,10 +346,8 @@ Accept: application/json or application/xml
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../latest/" class="btn btn-neutral float-right" title="Latest results"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../validations/" class="btn btn-neutral" title="Validation Checks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../latest/" class="btn btn-neutral" title="Latest results"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -324,10 +377,8 @@ Accept: application/json or application/xml
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../validations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../latest/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../latest/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

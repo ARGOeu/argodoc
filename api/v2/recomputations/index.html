@@ -68,6 +68,8 @@
                 
                     <li><a class="toctree-l4" href="#post-create-a-new-recomputation-request">[POST]: Create a new recomputation request</a></li>
                 
+                    <li><a class="toctree-l4" href="#delete-delete-a-specific-recomputation">[DELETE]: Delete a specific recomputation</a></li>
+                
             
             </ul>
         
@@ -144,6 +146,20 @@
     </li>
 <li>
           
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../latest/">Latest results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../topology/">Topology statistics</a>
+        
+    </li>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -200,6 +216,11 @@
 <td>POST: Create a new recomputation request</td>
 <td>This method can be used to insert a new recomputation request onto the Compute Engine.</td>
 <td><a href="#2"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Delete a specific recomputation</td>
+<td>This method can be used to delete a specific recomputation.</td>
+<td><a href="#3"> Description</a></td>
 </tr>
 </tbody>
 </table>
@@ -311,6 +332,18 @@ Accept: application/json
 </table>
 <h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
+<p><a id='3'></a></p>
+<h2 id="delete-delete-a-specific-recomputation">[DELETE]: Delete a specific recomputation</h2>
+<pre><code>DELETE /recomputations/{ID}
+</code></pre>
+
+<h4 id="request-headers_2">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_2">Response</h3>
+<p><code>Status 200 OK</code></p>
               
             </div>
           </div>

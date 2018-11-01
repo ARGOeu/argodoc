@@ -148,6 +148,20 @@
     </li>
 <li>
           
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../latest/">Latest results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../topology/">Topology statistics</a>
+        
+    </li>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -243,6 +257,8 @@ Accept: application/json
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;eba61a9e-22e9-4521-9e47-ecaa4a494364&quot;,
+            &quot;tenant&quot;: &quot;TenantA&quot;,
+            &quot;disabled&quot;: false,
             &quot;info&quot;: {
                 &quot;name&quot;: &quot;Report_A&quot;,
                 &quot;description&quot;: &quot;report aaaaa&quot;,
@@ -277,11 +293,13 @@ Accept: application/json
             &quot;filter_tags&quot;: [
                 {
                     &quot;name&quot;: &quot;name1&quot;,
-                    &quot;value&quot;: &quot;value1&quot;
+                    &quot;value&quot;: &quot;value1&quot;,
+                    &quot;context&quot;: &quot;&quot;
                 },
                 {
                     &quot;name&quot;: &quot;name2&quot;,
-                    &quot;value&quot;: &quot;value2&quot;
+                    &quot;value&quot;: &quot;value2&quot;,
+                    &quot;context&quot;: &quot;&quot;
                 }
             ]
         }
@@ -375,6 +393,8 @@ Accept: application/json
 
 <h4 id="request-body_1">Request Body</h4>
 <pre><code class="json">{
+    &quot;disabled&quot;: true,
+    &quot;weight&quot;: &quot;hepspec&quot;,
     &quot;info&quot;: {
         &quot;name&quot;: &quot;newname&quot;,
         &quot;description&quot;: &quot;newdescription&quot;,

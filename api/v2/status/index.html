@@ -150,6 +150,20 @@
     </li>
 <li>
           
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../latest/">Latest results</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../topology/">Topology statistics</a>
+        
+    </li>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -340,7 +354,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -349,16 +363,84 @@ Accept: application/json or application/xml
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
                 &lt;metric name=&quot;emi.wn.WN-Bi&quot;&gt;
                     &lt;status timestamp=&quot;2015-04-30T22:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T03:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                },
+                {
+                  &quot;name&quot;: &quot;emi.wn.WN-Bi&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T22:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T00:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-03T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-metric">List specific metric</h4>
@@ -379,7 +461,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -388,11 +470,57 @@ Accept:&quot;application/xml&quot;
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="2"></a></p>
@@ -505,7 +633,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -513,15 +641,78 @@ Accept: application/json or application/xml
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
             &lt;endpoint name=&quot;cream02.afroditi.gr&quot;&gt;
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            },
+                        {
+              &quot;name&quot;: &quot;cream02.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-endpoint">List specific endpoint</h4>
@@ -542,7 +733,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -550,10 +741,51 @@ Accept: application/json or application/xml
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="3"></a></p>
@@ -660,21 +892,80 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
         &lt;group name=&quot;SRMv2&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        },
+        {
+          &quot;name&quot;: &quot;SRMv2&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h5 id="list-specific-service-type">List specific service type</h5>
@@ -695,16 +986,52 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="4"></a></p>
@@ -804,19 +1131,72 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;WARNING&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
     &lt;group name=&quot;HG-01-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;UNKNOWN&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+          &quot;value&quot;: &quot;WARNING&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;HG-01-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+          &quot;value&quot;: &quot;UNKNOWN&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h5 id="list-specific-endpoint-group">List specific endpoint group</h5>
@@ -837,14 +1217,44 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;WARNING&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+          &quot;value&quot;: &quot;WARNING&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="5"></a></p>
@@ -923,7 +1333,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code> &lt;root&gt;
    &lt;host name=&quot;www.example.com&quot;&gt;
      &lt;metric name=&quot;httpd_check&quot;&gt;
@@ -934,6 +1344,29 @@ Accept:&quot;application/xml&quot;
      &lt;/metric&gt;
    &lt;/host&gt;
  &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;root&quot;: [
+    {
+      &quot;Name&quot;: &quot;www.example.com&quot;,
+      &quot;Metrics&quot;: [
+        {
+          &quot;Name&quot;: &quot;httpd_check&quot;,
+          &quot;Details&quot;: [
+            {
+              &quot;Timestamp&quot;: &quot;2015-06-20T12:00:00Z&quot;,
+              &quot;Value&quot;: &quot;CRITICAL&quot;,
+              &quot;Summary&quot;: &quot;httpd status is CRITICAL&quot;,
+              &quot;Message&quot;: &quot;httpd service seems down. Failed to connect to port 80.&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
               
             </div>
