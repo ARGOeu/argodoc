@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tenants - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Tenants - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Tenants";
+    var mkdocs_page_input_path = "tenants.md";
+    var mkdocs_page_url = "/tenants/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,132 +39,110 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Tenants</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Tenants</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-tenants">[GET]: List Tenants</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-a-specific-tenant">[GET]: List A Specific tenant</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-create-a-new-tenant">[POST]: Create a new Tenant</a></li>
-                
-                    <li><a class="toctree-l4" href="#put-update-information-on-an-existing-tenant">[PUT]: Update information on an existing tenant</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete-delete-an-existing-tenant">[DELETE]: Delete an existing tenant</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-a-specific-tenants-argo-engine-status">[GET]: List A Specific tenant's argo-engine status</a></li>
-                
-                    <li><a class="toctree-l4" href="#put-update-argo-engine-status-information-on-an-existing-tenant">[PUT]: Update argo-engine status information on an existing tenant</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-tenants">[GET]: List Tenants</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-tenant">[GET]: List A Specific tenant</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-user">[GET]: List A Specific User</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-tenant">[POST]: Create a new Tenant</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-information-on-an-existing-tenant">[PUT]: Update information on an existing tenant</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-an-existing-tenant">[DELETE]: Delete an existing tenant</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-tenants-argo-engine-status">[GET]: List A Specific tenant's argo-engine status</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-argo-engine-status-information-on-an-existing-tenant">[PUT]: Update argo-engine status information on an existing tenant</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../errors/">Error Codes</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../validations/">Validation Checks</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../latest/">Latest results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../topology/">Topology statistics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
           
         </ul>
       </div>
@@ -193,9 +169,8 @@
     <li>Tenants</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/tenants.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -307,6 +282,7 @@ Accept: application/json
    ],
    &quot;users&quot;: [
     {
+     &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d93&quot;,
      &quot;name&quot;: &quot;cap&quot;,
      &quot;email&quot;: &quot;cap@email.com&quot;,
      &quot;api_key&quot;: &quot;C4PK3Y&quot;,
@@ -315,6 +291,7 @@ Accept: application/json
      ]
     },
     {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d94&quot;,
      &quot;name&quot;: &quot;thor&quot;,
      &quot;email&quot;: &quot;thor@email.com&quot;,
      &quot;api_key&quot;: &quot;TH0RK3Y&quot;,
@@ -353,6 +330,7 @@ Accept: application/json
    ],
    &quot;users&quot;: [
     {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d95&quot;,
      &quot;name&quot;: &quot;groot&quot;,
      &quot;email&quot;: &quot;groot@email.com&quot;,
      &quot;api_key&quot;: &quot;GR00TK3Y&quot;,
@@ -361,6 +339,7 @@ Accept: application/json
       ]
     },
     {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d97&quot;,
      &quot;name&quot;: &quot;starlord&quot;,
      &quot;email&quot;: &quot;starlord@email.com&quot;,
      &quot;api_key&quot;: &quot;ST4RL0RDK3Y&quot;,
@@ -457,6 +436,7 @@ Accept: application/json
    ],
    &quot;users&quot;: [
     {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d93&quot;,
      &quot;name&quot;: &quot;cap&quot;,
      &quot;email&quot;: &quot;cap@email.com&quot;,
      &quot;api_key&quot;: &quot;C4PK3Y&quot;,
@@ -465,6 +445,7 @@ Accept: application/json
       ]
     },
     {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d9f&quot;,
      &quot;name&quot;: &quot;thor&quot;,
      &quot;email&quot;: &quot;thor@email.com&quot;,
      &quot;api_key&quot;: &quot;TH0RK3Y&quot;,
@@ -478,14 +459,61 @@ Accept: application/json
 }
 </code></pre>
 
-<p><a id='3'></a></p>
-<h2 id="post-create-a-new-tenant">[POST]: Create a new Tenant</h2>
-<p>This method can be used to insert a new tenant</p>
+<h2 id="get-list-a-specific-user">[GET]: List A Specific User</h2>
+<p>This method can be used to retrieve specific user based on its id</p>
 <h3 id="input_2">Input</h3>
-<pre><code>POST /admin/tenants
+<pre><code>GET /admin/users:byID/{ID}
 </code></pre>
 
 <h4 id="request-headers_2">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_2">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Success&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ },
+ &quot;data&quot;: [
+  {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d93&quot;,
+     &quot;name&quot;: &quot;cap&quot;,
+     &quot;email&quot;: &quot;cap@email.com&quot;,
+     &quot;api_key&quot;: &quot;C4PK3Y&quot;,
+     &quot;roles&quot;: [
+         &quot;admin&quot;
+      ]
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="note">NOTE</h3>
+<p>Specifying the filter, <code>export=flat</code>, it will return a flat user json object</p>
+<pre><code class="json">  {
+    &quot;id&quot;: &quot;acb74194-553a-11e9-8647-d663bd873d93&quot;,
+     &quot;name&quot;: &quot;cap&quot;,
+     &quot;email&quot;: &quot;cap@email.com&quot;,
+     &quot;api_key&quot;: &quot;C4PK3Y&quot;,
+     &quot;roles&quot;: [
+         &quot;admin&quot;
+      ]
+  }
+</code></pre>
+
+<p><a id='3'></a></p>
+<h2 id="post-create-a-new-tenant">[POST]: Create a new Tenant</h2>
+<p>This method can be used to insert a new tenant</p>
+<h3 id="input_3">Input</h3>
+<pre><code>POST /admin/tenants
+</code></pre>
+
+<h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
 </code></pre>
@@ -538,9 +566,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h3 id="response_2">Response</h3>
+<h3 id="response_3">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
-<h4 id="response-body_1">Response body</h4>
+<h4 id="response-body_2">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -559,11 +587,11 @@ Accept: application/json
 <p><a id='4'></a></p>
 <h2 id="put-update-information-on-an-existing-tenant">[PUT]: Update information on an existing tenant</h2>
 <p>This method can be used to update information on an existing tenant</p>
-<h3 id="input_3">Input</h3>
+<h3 id="input_4">Input</h3>
 <pre><code>PUT /admin/tenants/{ID}
 </code></pre>
 
-<h4 id="request-headers_3">Request headers</h4>
+<h4 id="request-headers_4">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
 </code></pre>
@@ -616,9 +644,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h3 id="response_3">Response</h3>
+<h3 id="response_4">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h4 id="response-body_2">Response body</h4>
+<h4 id="response-body_3">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -631,18 +659,18 @@ Accept: application/json
 <p><a id='5'></a></p>
 <h2 id="delete-delete-an-existing-tenant">[DELETE]: Delete an existing tenant</h2>
 <p>This method can be used to delete an existing tenant</p>
-<h3 id="input_4">Input</h3>
+<h3 id="input_5">Input</h3>
 <pre><code>DELETE /admin/tenants/{ID}
 </code></pre>
 
-<h4 id="request-headers_4">Request headers</h4>
+<h4 id="request-headers_5">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
 </code></pre>
 
-<h3 id="response_4">Response</h3>
+<h3 id="response_5">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h4 id="response-body_3">Response body</h4>
+<h4 id="response-body_4">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -655,18 +683,18 @@ Accept: application/json
 <p><a id='6'></a></p>
 <h2 id="get-list-a-specific-tenants-argo-engine-status">[GET]: List A Specific tenant's argo-engine status</h2>
 <p>This method can be used to retrieve specific tenant's status based on its id</p>
-<h3 id="input_5">Input</h3>
+<h3 id="input_6">Input</h3>
 <pre><code>GET /admin/tenants/{ID}/status
 </code></pre>
 
-<h4 id="request-headers_5">Request headers</h4>
+<h4 id="request-headers_6">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
 </code></pre>
 
-<h3 id="response_5">Response</h3>
+<h3 id="response_6">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h4 id="response-body_4">Response body</h4>
+<h4 id="response-body_5">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
 &quot;status&quot;: {
@@ -713,11 +741,11 @@ Accept: application/json
 <p><a id='7'></a></p>
 <h2 id="put-update-argo-engine-status-information-on-an-existing-tenant">[PUT]: Update argo-engine status information on an existing tenant</h2>
 <p>This method can be used to update status information on an existing tenant</p>
-<h3 id="input_6">Input</h3>
+<h3 id="input_7">Input</h3>
 <pre><code>PUT /admin/tenants/{ID}/status
 </code></pre>
 
-<h4 id="request-headers_6">Request headers</h4>
+<h4 id="request-headers_7">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
 </code></pre>
@@ -761,9 +789,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h3 id="response_6">Response</h3>
+<h3 id="response_7">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h4 id="response-body_5">Response body</h4>
+<h4 id="response-body_6">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -779,7 +807,7 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../errors/" class="btn btn-neutral float-right" title="Error Codes"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../errors/" class="btn btn-neutral float-right" title="Error Codes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../reports/" class="btn btn-neutral" title="Reports"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -798,7 +826,7 @@ Accept: application/json
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -806,10 +834,10 @@ Accept: application/json
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../reports/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -819,6 +847,9 @@ Accept: application/json
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
