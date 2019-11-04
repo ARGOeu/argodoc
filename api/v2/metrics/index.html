@@ -114,6 +114,8 @@
         
             <li><a class="toctree-l3" href="#get-metric-result">[GET]: Metric Result</a></li>
         
+            <li><a class="toctree-l3" href="#get-multiple-metric-results-for-a-specific-host-on-a-specific-day">[GET]: Multiple Metric Results for a specific host, on a specific day</a></li>
+        
         </ul>
     
 
@@ -246,16 +248,276 @@ Accept: application/json or application/xml
 </code></pre>
 
 <p>Reponse body:</p>
-<pre><code> &lt;root&gt;
-   &lt;host name=&quot;www.example.com&quot;&gt;
-     &lt;metric name=&quot;httpd_check&quot;&gt;
-       &lt;status timestamp=&quot;2015-06-20T12:00:00Z&quot; value=&quot;CRITICAL&quot;&gt;
-     &lt;summary&gt;httpd status is CRITICAL&lt;/summary&gt;
-     &lt;message&gt;httpd service seems down. Failed to connect to port 80.&lt;/message&gt;
-       &lt;/status&gt;
-     &lt;/metric&gt;
-   &lt;/host&gt;
- &lt;/root&gt;
+<pre><code> {
+   &quot;root&quot;: [
+     {
+       &quot;Name&quot;: &quot;www.example.com&quot;,
+       &quot;Metrics&quot;: [
+         {
+           &quot;Name&quot;: &quot;httpd_check&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T12:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;httpd is ok&quot;,
+               &quot;Message&quot;: &quot;all checks ok&quot;
+             }
+           ]
+         }
+       ]
+     }
+   ]
+ }
+
+</code></pre>
+
+<h2 id="get-multiple-metric-results-for-a-specific-host-on-a-specific-day">[GET]: Multiple Metric Results for a specific host, on a specific day</h2>
+<p>This method may be used to retrieve multiple service metric results for a specific host on a specific day</p>
+<h3 id="input_1">Input</h3>
+<pre><code>/metric_result/{hostname}?[exec_time]
+</code></pre>
+
+<h4 id="path-parameters_1">Path Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hostname</code></td>
+<td>hostname of service endpoint</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="url-parameters_1">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec_time</code></td>
+<td>The execution date of query in zulu format - timepart is irrelevant (can be 00:00:00Z)</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td>Filter metric results by statuses: non-ok, ok, critical, warning</td>
+<td>NO</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Notes</em></strong>:
+<code>exec_time</code> : The specific date of query in zulu format. The time part of the date is irrelevant because all metrics of that day are returned. ( GET /status/{report_name}/{lgroup_type}/{lgroup_name}/services/{service_name}/endpoints/{endpoint_name}/metrics List)</p>
+<h4 id="headers_1">Headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+</code></pre>
+
+<h4 id="response-code_1">Response Code</h4>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h3 id="response-body_1">Response body</h3>
+<h6 id="example-request_1">Example Request:</h6>
+<p>URL:</p>
+<pre><code>/api/v2/metric_result/www.example.com?exec_time=2015-06-20T00:00:00Z
+</code></pre>
+
+<p>Headers:</p>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+
+</code></pre>
+
+<h6 id="example-response_1">Example Response:</h6>
+<p>Code:</p>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<p>Reponse body:</p>
+<pre><code>{
+   &quot;root&quot;: [
+     {
+       &quot;Name&quot;: &quot;www.example.com&quot;,
+       &quot;Metrics&quot;: [
+         {
+           &quot;Name&quot;: &quot;httpd_check&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T12:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;httpd is ok&quot;,
+               &quot;Message&quot;: &quot;all checks ok&quot;
+             },
+              {
+               &quot;Timestamp&quot;: &quot;2015-06-20T18:00:00Z&quot;,
+               &quot;Value&quot;: &quot;CRITICAL&quot;,
+               &quot;Summary&quot;: &quot;httpd is critical&quot;,
+               &quot;Message&quot;: &quot;some checks failed&quot;
+             },
+              {
+               &quot;Timestamp&quot;: &quot;2015-06-20T23:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;httpd is ok&quot;,
+               &quot;Message&quot;: &quot;all checks ok&quot;
+             }
+           ]
+         },
+         {
+           &quot;Name&quot;: &quot;httpd_memory&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T06:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T09:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T18:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+           ]
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+
+<h6 id="example-request-with-filter-parameter-set-to-non-ok">Example Request with filter parameter set to <code>non-ok</code>:</h6>
+<p>URL:</p>
+<pre><code>/api/v2/metric_result/www.example.com?exec_time=2015-06-20T00:00:00Z&amp;filter=non-ok
+</code></pre>
+
+<p>Headers:</p>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+
+</code></pre>
+
+<h6 id="example-response-using-fitler-parameter-set-to-non-ok">Example Response using fitler parameter set to <code>non-ok</code>:</h6>
+<p>Code:</p>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<p>Reponse body:</p>
+<pre><code>{
+   &quot;root&quot;: [
+     {
+       &quot;Name&quot;: &quot;www.example.com&quot;,
+       &quot;Metrics&quot;: [
+         {
+           &quot;Name&quot;: &quot;httpd_check&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+              {
+               &quot;Timestamp&quot;: &quot;2015-06-20T18:00:00Z&quot;,
+               &quot;Value&quot;: &quot;CRITICAL&quot;,
+               &quot;Summary&quot;: &quot;httpd is critical&quot;,
+               &quot;Message&quot;: &quot;some checks failed&quot;
+              }
+           ]
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+
+<h6 id="example-request-with-filter-parameter-set-to-ok">Example Request with filter parameter set to <code>ok</code>:</h6>
+<p>URL:</p>
+<pre><code>/api/v2/metric_result/www.example.com?exec_time=2015-06-20T00:00:00Z&amp;filter=ok
+</code></pre>
+
+<p>Headers:</p>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
+
+</code></pre>
+
+<h6 id="example-response-using-fitler-parameter-set-to-ok">Example Response using fitler parameter set to <code>ok</code>:</h6>
+<p>Code:</p>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<p>Reponse body:</p>
+<pre><code>{
+   &quot;root&quot;: [
+     {
+       &quot;Name&quot;: &quot;www.example.com&quot;,
+       &quot;Metrics&quot;: [
+         {
+           &quot;Name&quot;: &quot;httpd_check&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T12:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;httpd is ok&quot;,
+               &quot;Message&quot;: &quot;all checks ok&quot;
+             },
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T23:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;httpd is ok&quot;,
+               &quot;Message&quot;: &quot;all checks ok&quot;
+             }
+           ]
+         },
+         {
+           &quot;Name&quot;: &quot;httpd_memory&quot;,
+           &quot;Service&quot;: &quot;httpd&quot;,
+           &quot;Details&quot;: [
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T06:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T09:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+             {
+               &quot;Timestamp&quot;: &quot;2015-06-20T18:00:00Z&quot;,
+               &quot;Value&quot;: &quot;OK&quot;,
+               &quot;Summary&quot;: &quot;memcheck ok&quot;,
+               &quot;Message&quot;: &quot;memory under 20%&quot;
+             },
+           ]
+         }
+       ]
+     }
+   ]
+ }
 </code></pre>
               
             </div>

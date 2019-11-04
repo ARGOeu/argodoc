@@ -92,7 +92,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#get-list-recomputation-requests">[GET]: List Recomputation Requests</a></li>
+            <li><a class="toctree-l3" href="#get-list-reports">[GET]: List Reports</a></li>
         
             <li><a class="toctree-l3" href="#post-create-a-new-report">[POST]: Create a new report</a></li>
         
@@ -204,7 +204,7 @@
 </tbody>
 </table>
 <p><a id='1'></a></p>
-<h2 id="get-list-recomputation-requests">[GET]: List Recomputation Requests</h2>
+<h2 id="get-list-reports">[GET]: List Reports</h2>
 <p>This method can be used to retrieve a list of existing reports or a single report according to its ID.</p>
 <h3 id="input">Input</h3>
 <h4 id="url">URL</h4>
@@ -245,6 +245,13 @@ Accept: application/json
                         &quot;type&quot;: &quot;SITE&quot;
                     }
                 }
+            },
+            &quot;thresholds&quot;: {
+                &quot;availability&quot;: 80.00,
+                &quot;reliability&quot;: 85.00,
+                &quot;uptime&quot;: 80.00,
+                &quot;unknown&quot;: 10.00,
+                &quot;downtime&quot;: 10.00
             },
             &quot;profiles&quot;: [
                 {
@@ -306,6 +313,13 @@ Accept: application/json
                 &quot;type&quot;: &quot;site&quot;
             }
         }
+    },
+    &quot;thresholds&quot;: {
+        &quot;availability&quot;: 80.00,
+        &quot;reliability&quot;: 85.00,
+        &quot;uptime&quot;: 80.00,
+        &quot;unknown&quot;: 10.00,
+        &quot;downtime&quot;: 10.00
     },
     &quot;profiles&quot;: [
         {
@@ -379,6 +393,13 @@ Accept: application/json
                 &quot;type&quot;: &quot;fight&quot;
             }
         }
+    },
+    &quot;thresholds&quot;: {
+        &quot;availability&quot;: 90.00,
+        &quot;reliability&quot;: 95.00,
+        &quot;uptime&quot;: 90.00,
+        &quot;unknown&quot;: 15.00,
+        &quot;downtime&quot;: 15.00
     },
     &quot;profiles&quot;: [
         {

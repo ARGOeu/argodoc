@@ -68,6 +68,10 @@
         
             <li><a class="toctree-l3" href="#delete-delete-a-specific-recomputation">[DELETE]: Delete a specific recomputation</a></li>
         
+            <li><a class="toctree-l3" href="#post-change-status-of-recomputation">[POST]: Change status of recomputation</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-reset-status-of-a-specific-recomputation">[DELETE]: Reset status of a specific recomputation</a></li>
+        
         </ul>
     
 
@@ -195,6 +199,16 @@
 <td>This method can be used to delete a specific recomputation.</td>
 <td><a href="#3"> Description</a></td>
 </tr>
+<tr>
+<td>POST: change status</td>
+<td>This method can be used to change status of a specific recomputation.</td>
+<td><a href="#4"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Reset status of recomputation</td>
+<td>This method can be used to reset status of a specific recomputation.</td>
+<td><a href="#5"> Description</a></td>
+</tr>
 </tbody>
 </table>
 <p><a id='1'></a></p>
@@ -226,26 +240,25 @@ Accept: application/json
            &quot;Gluster&quot;
           ],
           &quot;status&quot;: &quot;running&quot;,
-          &quot;timestamp&quot;: &quot;2015-02-01 14:58:40&quot;
+          &quot;timestamp&quot;: &quot;2015-02-01T14:58:40&quot;,
+          &quot;history&quot;: [
+              { 
+                  &quot;status&quot;: &quot;pending&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-01T14:58:40&quot;
+              },
+              { 
+                  &quot;status&quot;: &quot;approved&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-02T08:58:40&quot;
+              },
+              { 
+                  &quot;status&quot;: &quot;running&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-02T09:10:40&quot;
+              },
+
+          ]
      }
  ]
 }
-</code></pre>
-
-<p>Xml Response</p>
-<pre><code class="xml">&lt;root&gt;
-    &lt;Result&gt;
-        &lt;requester_name&gt;Arya Stark&lt;/requester_name&gt;
-        &lt;requester_email&gt;astark@shadowguild.com&lt;/requester_email&gt;
-        &lt;reason&gt;power cuts&lt;/reason&gt;
-        &lt;start_time&gt;2015-01-10T12:00:00Z&lt;/start_time&gt;
-        &lt;end_time&gt;2015-01-30T23:00:00Z&lt;/end_time&gt;
-        &lt;report&gt;EGI_Critical&lt;/report&gt;
-        &lt;exclude&gt;Gluster&lt;/exclude&gt;
-        &lt;status&gt;running&lt;/status&gt;
-        &lt;timestamp&gt;2015-02-01 14:58:40&lt;/timestamp&gt;
-    &lt;/Result&gt;
-&lt;/root&gt;
 </code></pre>
 
 <p><a id='2'></a></p>
@@ -290,6 +303,18 @@ Accept: application/json
 <td></td>
 </tr>
 <tr>
+<td><code>requester_name</code></td>
+<td>The name of the person submitting the recomputation</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>requester_email</code></td>
+<td>The email of the person submitting the recomputation</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td><code>report</code></td>
 <td>Report for which the recomputation is requested</td>
 <td>YES</td>
@@ -317,6 +342,64 @@ Accept: application/json
 
 <h3 id="response_2">Response</h3>
 <p><code>Status 200 OK</code></p>
+<p><a id='4'></a></p>
+<h2 id="post-change-status-of-recomputation">[POST]: Change status of recomputation</h2>
+<pre><code>POST /recomputations/{ID}/status
+</code></pre>
+
+<h4 id="request-headers_3">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="post-body">POST body</h3>
+<pre><code class="json">{
+  &quot;status&quot; : &quot;approved&quot;
+}
+</code></pre>
+
+<p>Eligible recomputation status values:</p>
+<ul>
+<li>pending</li>
+<li>approved</li>
+<li>rejected</li>
+<li>running</li>
+<li>done</li>
+</ul>
+<p>If recomputation status input not in eligible values the api will respond with status code <code>404</code>:<code>conflict</code></p>
+<h3 id="response_3">Response</h3>
+<p><code>Status 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Recomputation status updated successfully to: approved&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ }
+}
+</code></pre>
+
+<p><a id='5'></a></p>
+<h2 id="delete-reset-status-of-a-specific-recomputation">[DELETE]: Reset status of a specific recomputation</h2>
+<pre><code>DELETE /recomputations/{ID}/status
+</code></pre>
+
+<h4 id="request-headers_4">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_4">Response</h3>
+<p><code>Status 200 OK</code></p>
+<h4 id="response-body_2">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Recomputation status reset to: pending&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ }
+}
+</code></pre>
               
             </div>
           </div>
