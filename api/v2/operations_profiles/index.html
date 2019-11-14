@@ -214,7 +214,7 @@
 </table>
 <p><a id='1'></a></p>
 <h2 id="get-list-operations-profiles">[GET]: List Operations Profiles</h2>
-<p>This method can be used to retrieve a list of current  Operations profiles. </p>
+<p>This method can be used to retrieve a list of current  Operations profiles</p>
 <h3 id="input">Input</h3>
 <pre><code>GET /operations_profiles
 </code></pre>
@@ -232,11 +232,6 @@
 <tr>
 <td><code>name</code></td>
 <td>Operations profile name to be used as query</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><code>date</code></td>
-<td>Date to retrieve a historic version of the operation profile. If no date parameter is provided the most current profile will be returned</td>
 <td>NO</td>
 </tr>
 </tbody>
@@ -258,7 +253,6 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
-   &quot;date&quot;: &quot;2019-11-04&quot;,
    &quot;name&quot;: &quot;ops1&quot;,
    &quot;available_states&quot;: [
     &quot;A,B,C&quot;
@@ -313,7 +307,6 @@ Accept: application/json
   },
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50c&quot;,
-   &quot;date&quot;: &quot;2019-11-02&quot;,
    &quot;name&quot;: &quot;ops2&quot;,
    &quot;available_states&quot;: [
     &quot;X,Y,Z&quot;
@@ -377,23 +370,6 @@ Accept: application/json
 <pre><code>GET /operations_profiles/{ID}
 </code></pre>
 
-<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>date</code></td>
-<td>Date to retrieve a historic version of the operation profile. If no date parameter is provided the most current profile will be returned</td>
-<td>NO</td>
-</tr>
-</tbody>
-</table>
 <h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
@@ -411,7 +387,6 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
-   &quot;date&quot;: &quot;2019-11-04&quot;,
    &quot;name&quot;: &quot;ops1&quot;,
    &quot;available_states&quot;: [
     &quot;A,B,C&quot;
@@ -480,23 +455,6 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
-<h4 id="optional-query-parameters_2">Optional Query Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>date</code></td>
-<td>Date to create a  new historic version of the operation profile. If no date parameter is provided current date will be supplied automatically</td>
-<td>NO</td>
-</tr>
-</tbody>
-</table>
 <h4 id="post-body">POST BODY</h4>
 <pre><code class="json">{
    &quot;name&quot;: &quot;tops1&quot;,
@@ -578,23 +536,6 @@ Accept: application/json
 <pre><code>PUT /operations_profiles/{ID}
 </code></pre>
 
-<h4 id="optional-query-parameters_3">Optional Query Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>date</code></td>
-<td>Date to update a historic version of the operation profile. If no date parameter is provided the current date will be supplied automatically</td>
-<td>NO</td>
-</tr>
-</tbody>
-</table>
 <h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
@@ -662,7 +603,7 @@ Accept: application/json
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
-  &quot;message&quot;: &quot;Operations Profile successfully updated (new snapshot created)&quot;,
+  &quot;message&quot;: &quot;Operations Profile successfully updated&quot;,
   &quot;code&quot;: &quot;200&quot;
  }
 }
