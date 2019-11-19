@@ -127,6 +127,8 @@
         
             <li><a class="toctree-l4" href="#get-get-health-status">[GET] Get Health status</a></li>
         
+            <li><a class="toctree-l4" href="#get-get-daily-message-average">[GET] Get Daily Message Average</a></li>
+        
         </ul>
     
 
@@ -271,6 +273,55 @@
   ]
 }
 </code></pre>
+
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-get-daily-message-average">[GET] Get Daily Message Average</h2>
+<p>This request returns the total amount of messages per project for the given time window.The number of messages
+is calculated using the <code>daily message count</code> for each one of the project's topics.</p>
+<h3 id="request_2">Request</h3>
+<pre><code>GET &quot;/v1/metrics/daily-message-average&quot;
+
+</code></pre>
+
+<h3 id="url-parameters">URL parameters</h3>
+<p><code>start_date</code>: start date for querying projects topics daily message count(optional), default value is the start unix time
+<code>end_date</code>: start date for querying projects topics daily message count(optional), default is the time of the api call
+<code>projects</code>: which projects to include to the query(optional), default is all registered projects</p>
+<h3 id="example-request_2">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/metrics/daily-message-average&quot;
+</code></pre>
+
+<h3 id="example-request-with-url-parameters">Example request with URL parameters</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/metrics/daily-message-average?start_date=2019-03-01&amp;end_date=2019-07-24&amp;projects=ARGO,ARGO-2&quot;
+</code></pre>
+
+<h3 id="responses_2">Responses</h3>
+<p>If successful, the response returns the total amount of messages per project for the given time window</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;projects&quot;: [
+        {
+            &quot;project&quot;: &quot;ARGO-2&quot;,
+            &quot;message_count&quot;: 8,
+            &quot;average_daily_messages&quot;: 2
+        },
+        {
+            &quot;project&quot;: &quot;ARGO&quot;,
+            &quot;message_count&quot;: 25669,
+            &quot;average_daily_messages&quot;: 120
+        }
+    ],
+    &quot;total_message_count&quot;: 25677,
+    &quot;average_daily_messages&quot;: 122
+}
+</code></pre>
+
+<h3 id="errors_2">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
           </div>

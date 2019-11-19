@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Api schemas - AMS documentation [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Api schemas";
+    var mkdocs_page_input_path = "api_schemas.md";
+    var mkdocs_page_url = "/api_schemas/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview and Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_flow/">Messaging API flow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auth/">Authentication & Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projects_users/">Project & User management guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">How to Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../publisher/">Publisher Guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API & References</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../api_basic/">API Basic Information</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_auth/">API Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_users/">API Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_projects/">API Projects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_topics/">API Topics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_subs/">API Subscriptions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Q&A</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../qa_general_questions/">General</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../qa_ruby/">Ruby</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Api schemas</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_schemas.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="schemas-api-calls">Schemas Api Calls</h1>
+<p>Schemas is a resource that works with topics by validating the published messages.</p>
+<h2 id="get-manage-schemas-retrieve-a-schema">[GET] Manage Schemas - Retrieve a Schema</h2>
+<p>This request retrieves a specific schema under the given project</p>
+<h3 id="request">Request</h3>
+<pre><code class="json">GET &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+</code></pre>
+
+<h3 id="where">Where</h3>
+<ul>
+<li>project_name: Name of the project in which the schema will belong</li>
+<li>schema_name: Name of the schema to be created</li>
+</ul>
+<h3 id="example-request">Example request</h3>
+<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses">Responses</h3>
+<p>If successful, the response contains the requested schema.</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;uuid&quot;: &quot;50811bd1-c94c-4ad7-8f55-a561c6270b50&quot;,
+    &quot;name&quot;: &quot;projects/project-1/schemas/schema-1&quot;,
+    &quot;type&quot;: &quot;json&quot;,
+    &quot;schema&quot;: {
+        &quot;properties&quot;: {
+            &quot;address&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;telephone&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            }
+        },
+        &quot;required&quot;: [
+            &quot;name&quot;,
+            &quot;email&quot;
+        ],
+        &quot;type&quot;: &quot;object&quot;
+    }
+}
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-schemas-create-new-schema">[POST] Manage Schemas - Create new Schema</h2>
+<p>This request creates a new schema</p>
+<h3 id="request_1">Request</h3>
+<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+</code></pre>
+
+<h3 id="where_1">Where</h3>
+<ul>
+<li>project_name: Name of the project in which the schema will belong</li>
+<li>schema_name: Name of the schema to be created</li>
+</ul>
+<h3 id="example-request_1">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json -d POSTDATA&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body">Post body:</h3>
+<pre><code class="json">{
+  &quot;type&quot;: &quot;json&quot;,
+  &quot;schema&quot;:{
+        &quot;type&quot;: &quot;object&quot;,
+         &quot;properties&quot;: {
+          &quot;name&quot;:        { &quot;type&quot;: &quot;string&quot; },
+          &quot;email&quot;:        { &quot;type&quot;: &quot;string&quot; },
+          &quot;address&quot;:    { &quot;type&quot;: &quot;string&quot; },
+          &quot;telephone&quot;: { &quot;type&quot;: &quot;string&quot; }
+         },
+        &quot;required&quot;: [&quot;name&quot;, &quot;email&quot;]
+  }
+}
+</code></pre>
+
+<h3 id="responses_1">Responses</h3>
+<p>If successful, the response contains the newly created schema.</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;uuid&quot;: &quot;50811bd1-c94c-4ad7-8f55-a561c6270b50&quot;,
+    &quot;name&quot;: &quot;projects/project-1/schemas/schema-1&quot;,
+    &quot;type&quot;: &quot;json&quot;,
+    &quot;schema&quot;: {
+        &quot;properties&quot;: {
+            &quot;address&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;telephone&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            }
+        },
+        &quot;required&quot;: [
+            &quot;name&quot;,
+            &quot;email&quot;
+        ],
+        &quot;type&quot;: &quot;object&quot;
+    }
+}
+</code></pre>
+
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="put-manage-schemas-update-schema">[PUT] Manage Schemas - Update Schema</h2>
+<p>This request updates the contents of a schema. You can update <code>one</code> or <code>all</code> of the fields at a time.</p>
+<h3 id="request_2">Request</h3>
+<pre><code class="json">PUT &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+</code></pre>
+
+<h3 id="where_2">Where</h3>
+<ul>
+<li>project_name: Name of the project under which the schema belongs</li>
+<li>schema_name: Name of the schema to be updated</li>
+</ul>
+<h3 id="example-request_2">Example request</h3>
+<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json -d POSTDATA&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_1">Post body:</h3>
+<pre><code class="json">{
+  &quot;type&quot;: &quot;json&quot;,
+  &quot;name&quot;: &quot;projects/project-1/schemas/new-name&quot;,
+  &quot;schema&quot;:{
+        &quot;type&quot;: &quot;object&quot;,
+         &quot;properties&quot;: {
+          &quot;name&quot;:        { &quot;type&quot;: &quot;string&quot; },
+          &quot;email&quot;:        { &quot;type&quot;: &quot;string&quot; },
+          &quot;address&quot;:    { &quot;type&quot;: &quot;string&quot; },
+          &quot;telephone&quot;: { &quot;type&quot;: &quot;string&quot; }
+         },
+        &quot;required&quot;: [&quot;name&quot;, &quot;email&quot;, &quot;address&quot;]
+  }
+}
+</code></pre>
+
+<h3 id="responses_2">Responses</h3>
+<p>If successful, the response contains the updated schema.</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;uuid&quot;: &quot;50811bd1-c94c-4ad7-8f55-a561c6270b50&quot;,
+    &quot;name&quot;: &quot;projects/project-1/schemas/new-name&quot;,
+    &quot;type&quot;: &quot;json&quot;,
+    &quot;schema&quot;: {
+        &quot;properties&quot;: {
+            &quot;address&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;telephone&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            }
+        },
+        &quot;required&quot;: [
+            &quot;name&quot;,
+            &quot;email&quot;,
+            &quot;address&quot;
+        ],
+        &quot;type&quot;: &quot;object&quot;
+    }
+}
+</code></pre>
+
+<h3 id="errors_2">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="delete-manage-schemas-delete-schema">[DELETE] Manage Schemas - Delete Schema</h2>
+<p>This request deletes a schema.</p>
+<h3 id="request_3">Request</h3>
+<pre><code class="json">DELETE &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+</code></pre>
+
+<h3 id="where_3">Where</h3>
+<ul>
+<li>project_name: Name of the project under which the schema belongs</li>
+<li>schema_name: Name of the schema to be deleted</li>
+</ul>
+<h3 id="example-request_3">Example request</h3>
+<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_3">Responses</h3>
+<p>If successful, the response is empty.</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json"></code></pre>
+
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

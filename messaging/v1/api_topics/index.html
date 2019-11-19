@@ -214,6 +214,13 @@ A topic name must be scoped to a project.</p>
 <pre><code class="json">PUT &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
 </code></pre>
 
+<h3 id="requestbody">RequestBody</h3>
+<p>If you need to link a schema with the topic you need to provide its name. </p>
+<pre><code class="json">{
+  &quot;schema&quot;: &quot;schema-1&quot;
+}
+</code></pre>
+
 <h3 id="where">Where</h3>
 <ul>
 <li>Project_name: Name of the project to create</li>
