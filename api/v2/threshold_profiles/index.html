@@ -167,7 +167,7 @@ that accompany metric data and threshold limits on those values that can deem th
 <ul>
 <li><code>label</code> : can contain alphanumeric characters but must always begin with a letter</li>
 <li><code>value</code> : is a float or integer</li>
-<li><code>uom</code>   : is a string unit of measurement (accepted values: <code>s</code>,<code>us</code>,<code>ms</code>,<code>B</code>,<code>KB</code>,<code>MB</code>,<code>TB</code>,<code>%</code>,<code>c</code>)</li>
+<li><code>uom</code> : is a string unit of measurement (accepted values: <code>s</code>,<code>us</code>,<code>ms</code>,<code>B</code>,<code>KB</code>,<code>MB</code>,<code>TB</code>,<code>%</code>,<code>c</code>)</li>
 <li><code>warning</code>: is a range defining the warning threshold limits</li>
 <li><code>critical</code>: is a range defining the critical threshold limits</li>
 <li><code>min</code>: is a float or integer defining the minimum value</li>
@@ -175,10 +175,11 @@ that accompany metric data and threshold limits on those values that can deem th
 </ul>
 <p>Note: min,max can be omitted.</p>
 <p>Ranges (<code>{warning}</code> or <code>{critical}</code>) are defined in the following format:
-<code>@{floor}:{ceiling}</code>
--<code>@</code>: optional - negates the range (value should belong outside ranges limits)
-- <code>floor</code>: integer/float or <code>~</code> that defines negative infinity
-- <code>ceiling</code>: integer/float or empty (defining positive infinity)</p>
+<code>@{floor}:{ceiling}</code> -<code>@</code>: optional - negates the range (value should belong outside ranges limits)</p>
+<ul>
+<li><code>floor</code>: integer/float or <code>~</code> that defines negative infinity</li>
+<li><code>ceiling</code>: integer/float or empty (defining positive infinity)</li>
+</ul>
 <h1 id="thresholds-rule">Thresholds rule</h1>
 <p>Each thresholds rule can contain multiple threshold definitions separated by space
 for e.g.
@@ -224,22 +225,22 @@ Each rule must always refer to a metric. It can optionally refer to a host and a
 <td><a href="#1"> Description</a></td>
 </tr>
 <tr>
-<td>GET: List a specific  Threshold profile</td>
-<td>This method can be used to retrieve a specific  Threshold profile based on its id.</td>
+<td>GET: List a specific Threshold profile</td>
+<td>This method can be used to retrieve a specific Threshold profile based on its id.</td>
 <td><a href="#2"> Description</a></td>
 </tr>
 <tr>
-<td>POST: Create a new  Threshold profile</td>
-<td>This method can be used to create a new  Threshold profile</td>
+<td>POST: Create a new Threshold profile</td>
+<td>This method can be used to create a new Threshold profile</td>
 <td><a href="#3"> Description</a></td>
 </tr>
 <tr>
 <td>PUT: Update an Threshold profile</td>
-<td>This method can be used to update information on an existing  Threshold profile</td>
+<td>This method can be used to update information on an existing Threshold profile</td>
 <td><a href="#4"> Description</a></td>
 </tr>
 <tr>
-<td>DELETE: Delete an  Threshold profile</td>
+<td>DELETE: Delete an Threshold profile</td>
 <td>This method can be used to delete an existing Threshold profile</td>
 <td><a href="#5"> Description</a></td>
 </tr>
@@ -267,6 +268,11 @@ Each rule must always refer to a metric. It can optionally refer to a host and a
 <td>thresholds profile name to be used as query</td>
 <td>NO</td>
 </tr>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the thresholds profiles. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
 </tbody>
 </table>
 <h4 id="request-headers">Request headers</h4>
@@ -279,45 +285,45 @@ Accept: application/json
 <h4 id="response-body">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
-&quot;status&quot;: {
-&quot;message&quot;: &quot;Success&quot;,
-&quot;code&quot;: &quot;200&quot;
-},
-&quot;data&quot;: [
-{
- &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
- &quot;name&quot;: &quot;thr01&quot;,
- &quot;rules&quot;: [
-  {
-   &quot;host&quot;: &quot;hostFoo&quot;,
-   &quot;metric&quot;: &quot;metricA&quot;,
-   &quot;thresholds&quot;: &quot;freshnesss=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
-  }
- ]
-},
-{
- &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
- &quot;name&quot;: &quot;thr02&quot;,
- &quot;rules&quot;: [
-  {
-   &quot;host&quot;: &quot;hostFoo&quot;,
-   &quot;metric&quot;: &quot;metricA&quot;,
-   &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
-  }
- ]
-},
-{
- &quot;id&quot;: &quot;6ac7d555-1f8e-4a02-a502-720e8f11e50b&quot;,
- &quot;name&quot;: &quot;thr03&quot;,
- &quot;rules&quot;: [
-  {
-   &quot;host&quot;: &quot;hostFoo&quot;,
-   &quot;metric&quot;: &quot;metricA&quot;,
-   &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
-  }
- ]
-}
-]
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr01&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshnesss=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr02&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;6ac7d555-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr03&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        }
+    ]
 }
 </code></pre>
 
@@ -333,28 +339,45 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
+<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
 <h4 id="response-body_1">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
-&quot;status&quot;: {
-&quot;message&quot;: &quot;Success&quot;,
-&quot;code&quot;: &quot;200&quot;
-},
-&quot;data&quot;: [
-{
- &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
- &quot;name&quot;: &quot;thr02&quot;,
- &quot;rules&quot;: [
-  {
-   &quot;host&quot;: &quot;hostFoo&quot;,
-   &quot;metric&quot;: &quot;metricA&quot;,
-   &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
-  }
- ]
-}
-]
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr02&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        }
+    ]
 }
 </code></pre>
 
@@ -370,15 +393,31 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to create a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h4 id="post-body">POST BODY</h4>
 <pre><code class="json">{
-&quot;name&quot; : &quot;thr04&quot;,
-&quot;rules&quot;: [
-  {
-    &quot;metric&quot;: &quot;metricB&quot;,
-    &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
-  }
-]
+    &quot;name&quot;: &quot;thr04&quot;,
+    &quot;rules&quot;: [
+        {
+            &quot;metric&quot;: &quot;metricB&quot;,
+            &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
+        }
+    ]
 }
 </code></pre>
 
@@ -387,16 +426,16 @@ Accept: application/json
 <h4 id="response-body_2">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
-&quot;status&quot;: {
-&quot;message&quot;: &quot;Thresholds Profile successfully created&quot;,
-&quot;code&quot;: &quot;201&quot;
-},
-&quot;data&quot;: {
-&quot;id&quot;: &quot;{{ID}}&quot;,
-&quot;links&quot;: {
- &quot;self&quot;: &quot;https:///api/v2/thresholds_profiles/{{ID}}&quot;
-}
-}
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Thresholds Profile successfully created&quot;,
+        &quot;code&quot;: &quot;201&quot;
+    },
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;{{ID}}&quot;,
+        &quot;links&quot;: {
+            &quot;self&quot;: &quot;https:///api/v2/thresholds_profiles/{{ID}}&quot;
+        }
+    }
 }
 </code></pre>
 
@@ -412,15 +451,31 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to update a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h4 id="put-body">PUT BODY</h4>
 <pre><code class="json">{
-&quot;name&quot; : &quot;thr04&quot;,
-&quot;rules&quot;: [
-  {
-    &quot;metric&quot;: &quot;metricB&quot;,
-    &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
-  }
-]
+    &quot;name&quot;: &quot;thr04&quot;,
+    &quot;rules&quot;: [
+        {
+            &quot;metric&quot;: &quot;metricB&quot;,
+            &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
+        }
+    ]
 }
 </code></pre>
 
@@ -429,10 +484,10 @@ Accept: application/json
 <h4 id="response-body_3">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
- &quot;status&quot;: {
-  &quot;message&quot;: &quot;Thresholds Profile successfully updated&quot;,
-  &quot;code&quot;: &quot;200&quot;
- }
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Thresholds Profile successfully updated&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    }
 }
 </code></pre>
 
@@ -453,57 +508,60 @@ Accept: application/json
 <h4 id="response-body_4">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
- &quot;status&quot;: {
-  &quot;message&quot;: &quot;Operations Profile Successfully Deleted&quot;,
-  &quot;code&quot;: &quot;200&quot;
- }
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Operations Profile Successfully Deleted&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    }
 }
 </code></pre>
 
 <h2 id="validation-checks">Validation Checks</h2>
-<p>When submitting or updating a new threshold profile, validation checks are performed on json POST/PUT body for the following cases:
-  - Check if each thresholds rule is valid according to threshold specification discussed in the first paragraph</p>
+<p>When submitting or updating a new threshold profile, validation checks are performed on json POST/PUT body for the following cases:</p>
+<ul>
+<li>Check if each thresholds rule is valid according to threshold specification discussed in the first paragraph</li>
+</ul>
 <p>When an invalid operations profile is submitted the api responds with a validation error list:</p>
 <h4 id="example-invalid-profile">Example invalid profile</h4>
-<p><code>json
-{
-    "name":"test-invalid-01",
-    "rules":[
-      {"thresholds":"bad01=33;33s"},
-      {"thresholds":"good01=33s;33 good02=1s;~:10;9:;-20;30"},
-      {"thresholds":"bad02=33sbad03=1s;~~:10;9:;-20;30"},
-      {"thresholds":"33;33 bad04=33s;33 -20;30"},
-      {"thresholds":"good01=2KB;0:3;2:10;0;20 good02=1c;~:10;9:30;-30;30"}
+<pre><code class="json">{
+    &quot;name&quot;: &quot;test-invalid-01&quot;,
+    &quot;rules&quot;: [
+        { &quot;thresholds&quot;: &quot;bad01=33;33s&quot; },
+        { &quot;thresholds&quot;: &quot;good01=33s;33 good02=1s;~:10;9:;-20;30&quot; },
+        { &quot;thresholds&quot;: &quot;bad02=33sbad03=1s;~~:10;9:;-20;30&quot; },
+        { &quot;thresholds&quot;: &quot;33;33 bad04=33s;33 -20;30&quot; },
+        { &quot;thresholds&quot;: &quot;good01=2KB;0:3;2:10;0;20 good02=1c;~:10;9:30;-30;30&quot; }
     ]
-}</code></p>
+}
+</code></pre>
+
 <p>Api response is the following:</p>
 <h3 id="response_5">Response</h3>
 <p>Headers: <code>Status: 422 Unprocessable Entity</code></p>
 <h4 id="response-body_5">Response body</h4>
-<p><code>json
- {
-  "status": {
-   "message": "Validation Error",
-   "code": "422"
-  },
-  "errors": [
-   {
-    "message": "Validation Failed",
-    "code": "422",
-    "details": "Invalid threshold: bad01=33;33s"
-   },
-   {
-    "message": "Validation Failed",
-    "code": "422",
-    "details": "Invalid threshold: bad02=33sbad03=1s;~~:10;9:;-20;30"
-   },
-   {
-    "message": "Validation Failed",
-    "code": "422",
-    "details": "Invalid threshold: 33;33 bad04=33s;33 -20;30"
-   }
-  ]
- }</code></p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Validation Error&quot;,
+        &quot;code&quot;: &quot;422&quot;
+    },
+    &quot;errors&quot;: [
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: bad01=33;33s&quot;
+        },
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: bad02=33sbad03=1s;~~:10;9:;-20;30&quot;
+        },
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: 33;33 bad04=33s;33 -20;30&quot;
+        }
+    ]
+}
+</code></pre>
               
             </div>
           </div>
