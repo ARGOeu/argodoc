@@ -193,7 +193,7 @@
 <p>This method may be used to retrieve topology statistics for a specific report. Topology statistics include number of groups, endpoint groups and services included in the report</p>
 <h3 id="input">Input</h3>
 <h5 id="list-all-latest-metric-data">List All latest metric data</h5>
-<pre><code>/topology/{report}/?[date]
+<pre><code>/topology/stats/{report}/?[date]
 </code></pre>
 
 <h4 id="path-parameters">Path Parameters</h4>
@@ -252,18 +252,12 @@ Accept: application/json
     &quot;data&quot;: {
         &quot;group_count&quot;: 1,
         &quot;group_type&quot;: &quot;type of top-level groups in report&quot;,
-        &quot;group_list&quot;: [
-          &quot;list of top level groups&quot;
-        ],
+        &quot;group_list&quot;: [&quot;list of top level groups&quot;],
         &quot;endpoint_group_count&quot;: 1,
         &quot;endpoint_group_type&quot;: &quot;type of endpoint groups in report&quot;,
-        &quot;endpoint_group_list&quot;: [
-        &quot;list of endpoint groups&quot;
-        ],
+        &quot;endpoint_group_list&quot;: [&quot;list of endpoint groups&quot;],
         &quot;service_count&quot;: 1,
-        &quot;service_list&quot;: [
-          &quot;list of available services&quot;
-        ]
+        &quot;service_list&quot;: [&quot;list of available services&quot;]
     }
 }
 </code></pre>
@@ -292,17 +286,10 @@ Accept: application/json
     &quot;data&quot;: {
         &quot;group_count&quot;: 2,
         &quot;group_type&quot;: &quot;PROJECTS&quot;,
-        &quot;group_list&quot;: [
-            &quot;PROJECT_A&quot;,
-            &quot;PROJECT_B&quot;
-        ],
+        &quot;group_list&quot;: [&quot;PROJECT_A&quot;, &quot;PROJECT_B&quot;],
         &quot;endpoint_group_count&quot;: 3,
         &quot;endpoint_group_type&quot;: &quot;SERVICEGROUPS&quot;,
-        &quot;endpoint_group_list&quot;: [
-          &quot;SGROUP_A&quot;,
-          &quot;SGROUP_B&quot;,
-          &quot;SGROUP_C&quot;
-        ],
+        &quot;endpoint_group_list&quot;: [&quot;SGROUP_A&quot;, &quot;SGROUP_B&quot;, &quot;SGROUP_C&quot;],
         &quot;service_count&quot;: 8,
         &quot;service_list&quot;: [
             &quot;service_type_1&quot;,
