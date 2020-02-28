@@ -12,7 +12,8 @@ pipeline {
         RPOJECT_NAME="argodoc"
         GIT_COMMITTER_NAME="newgrnetci"
         GIT_COMMITTER_EMAIL="<>"
-
+        BRANCH_NAME1="devel"
+        ARGOEU_URL=sh(script: "if [ \"$env.BRANCH_NAME\" == \"master\" ]; then echo \"git@github.com:ARGOeu/argoeu.github.io.git\"; else echo \"git@github.com:argoeu-devel/argoeu-devel.github.io.git\"; fi",returnStdout: true).trim()
     }
     stages {
         stage('Build') {
@@ -21,7 +22,7 @@ pipeline {
                 stage ('Build web-api docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-web-api") {
-                            git branch: "${env.BRANCH_NAME}",
+                            git branch: "${BRANCH_NAME1}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-web-api.git'
                             sh """
@@ -43,7 +44,7 @@ pipeline {
                 stage ('Build messaging docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-messaging") {
-                            git branch: "${env.BRANCH_NAME}",
+                            git branch: "${BRANCH_NAME1}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-messaging.git'
                             sh """
@@ -65,7 +66,7 @@ pipeline {
                 stage ('Build authn docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-api-authn") {
-                            git branch: "${env.BRANCH_NAME}",
+                            git branch: "${BRANCH_NAME1}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-api-authn.git'
                             sh """
@@ -95,7 +96,7 @@ pipeline {
                 dir ("${WORKSPACE}/argoeu") {
                     git branch: "${env.BRANCH_NAME}",
                         credentialsId: 'jenkins-rpm-repo',
-                        url: 'git@github.com:ARGOeu/argoeu.github.io.git'
+                        url: "${ARGOEU_URL}"
                     sh """
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
