@@ -15,15 +15,13 @@ pipeline {
 
     }
     stages {
-        when {
-            branch "master|devel"
-        }
         stage('Build') {
+            when { branch pattern: "master|devel|PR-.*", comparator: "REGEXP" }
             parallel {
                 stage ('Build web-api docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-web-api") {
-                            git branch: ${env.BRANCH_NAME},
+                            git branch: "${env.BRANCH_NAME}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-web-api.git'
                             sh """
@@ -45,7 +43,7 @@ pipeline {
                 stage ('Build messaging docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-messaging") {
-                            git branch: ${env.BRANCH_NAME},
+                            git branch: "${env.BRANCH_NAME}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-messaging.git'
                             sh """
@@ -67,7 +65,7 @@ pipeline {
                 stage ('Build authn docs'){
                     steps {
                         dir ("${WORKSPACE}/argo-api-authn") {
-                            git branch: ${env.BRANCH_NAME},
+                            git branch: "${env.BRANCH_NAME}",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: 'git@github.com:ARGOeu/argo-api-authn.git'
                             sh """
@@ -89,10 +87,13 @@ pipeline {
             }
         }
         stage('Deploy mkdocs') {
+            when {
+                branch "master|devel"
+            }
             steps {
                 echo 'Deploying mkdocs...'
                 dir ("${WORKSPACE}/argoeu") {
-                    git branch: ${env.BRANCH_NAME},
+                    git branch: "${env.BRANCH_NAME}",
                         credentialsId: 'jenkins-rpm-repo',
                         url: 'git@github.com:ARGOeu/argoeu.github.io.git'
                     sh """
