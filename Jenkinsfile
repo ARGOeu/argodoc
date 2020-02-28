@@ -61,6 +61,28 @@ pipeline {
                         }
                     }
                 }
+                stage ('Build authn docs'){
+                    steps {
+                        dir ("${WORKSPACE}/argo-api-authn") {
+                            git branch: 'devel',
+                                credentialsId: 'jenkins-rpm-repo',
+                                url: 'git@github.com:ARGOeu/argo-api-authn.git'
+                            sh """
+                                cd ${WORKSPACE}/argo-api-authn/docs/v1
+                                mkdocs build --clean
+                                cp -R ${WORKSPACE}/argo-api-authn/docs/v1/docs/ ${WORKSPACE}/argodoc/content/guides
+                                cp -R ${WORKSPACE}/argo-api-authn/docs/v1/site/* ${WORKSPACE}/argodoc/authn/v1
+                                cd ${WORKSPACE}/argodoc
+                                if [ -n "\$(git status --porcelain)" ]; then
+                                    git add -A
+                                    git commit -a --author="newgrnetci <>" -m "Update argo-authn docs"
+                                    #git push origin devel
+                                fi
+                            """
+                            //deleteDir()
+                        }
+                    }
+                }
             }
         }
         stage('Deploy mkdocs') {
@@ -71,13 +93,12 @@ pipeline {
                         credentialsId: 'jenkins-rpm-repo',
                         url: 'git@github.com:ARGOeu/argoeu.github.io.git'
                     sh """
-                        cd ${WORKSPACE}/argodoc
-                        bundle install
-                        bundle exec nanoc
-                        rm -rf ../argoeu/*
-                        cp -R ${WORKSPACE}/argodoc/output/* ${WORKSPACE}/argoeu
+                        rm -rf ${WORKSPACE}/argoeu/api
+                        rm -rf ${WORKSPACE}/argoeu/messaging
+                        rm -rf ${WORKSPACE}/argoeu/authn
                         cp -R ${WORKSPACE}/argodoc/api ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/argodoc/messaging ${WORKSPACE}/argoeu
+                        cp -R ${WORKSPACE}/argodoc/authn ${WORKSPACE}/argoeu
                         cd ${WORKSPACE}/argoeu
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
