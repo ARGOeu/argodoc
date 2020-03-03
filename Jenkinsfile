@@ -93,6 +93,22 @@ pipeline {
                         }
                     }
                 }
+                stage ('Build argo-ams-library docs'){
+                    environment {
+                        DOC_SOURCE="argo-ams-library"
+                    }
+                    steps {
+                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
+                            git branch: "${env.BRANCH_NAME}",
+                                credentialsId: 'jenkins-rpm-repo',
+                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
+                            sh """
+                                cd ${WORKSPACE}/${DOC_SOURCE}/documentation
+                                make html
+                            """
+                        }
+                    }
+                }
             }
         }
         stage('Deploy mkdocs') {
@@ -107,9 +123,11 @@ pipeline {
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
                         rm -rf ${WORKSPACE}/argoeu/authn
+                        rm -rf ${WORKSPACE}/argoeu/ams-library/*
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/api ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/messaging ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/authn ${WORKSPACE}/argoeu
+                        cp -R ${WORKSPACE}/argo-ams-library/_build/ ${WORKSPACE}/argoeu/ams-library
                         cd ${WORKSPACE}/argoeu
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
