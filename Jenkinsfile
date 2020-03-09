@@ -98,7 +98,7 @@ pipeline {
             steps {
                 echo 'Deploying mkdocs...'
                 dir ("${WORKSPACE}/argoeu") {
-                    git branch: "${env.BRANCH_NAME}",
+                    git branch: "master",
                         credentialsId: 'jenkins-rpm-repo',
                         url: "${ARGOEU_URL}"
                     sh """
