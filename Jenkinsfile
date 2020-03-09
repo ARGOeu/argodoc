@@ -106,7 +106,7 @@ pipeline {
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
                             git commit -a --author="newgrnetci <>" -m "Update docs"
-                            #git push origin ${env.BRANCH_NAME}
+                            git push origin ${env.BRANCH_NAME}
                         fi
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
@@ -120,10 +120,9 @@ pipeline {
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
                             git commit -a --author="newgrnetci <>" -m "Update docs"
-                            #git push origin master
+                            git push origin master
                         fi
                     """
-                    //deleteDir()
                 }
             }
         } 
