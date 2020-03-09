@@ -115,7 +115,7 @@ pipeline {
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/api ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/messaging ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/authn ${WORKSPACE}/argoeu
-                        cp -R ${WORKSPACE}/argo-ams-library/_build/ ${WORKSPACE}/argoeu/ams-library
+                        cp -R ${WORKSPACE}/argo-ams-library/documentation/_build/ ${WORKSPACE}/argoeu/ams-library
                         cd ${WORKSPACE}/argoeu
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
