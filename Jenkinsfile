@@ -32,14 +32,8 @@ pipeline {
                                 mkdocs build --clean
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/doc/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v2/site/ ${WORKSPACE}/${DOC_PROJECT}/api/v2
-                                cd ${WORKSPACE}/${DOC_PROJECT}
-                                if [ -n "\$(git status --porcelain)" ]; then
-                                    git add -A
-                                    git commit -a --author="newgrnetci <>" -m "Update ${DOC_SOURCE} docs"
-                                    #git push origin "${env.BRANCH_NAME}"
-                                fi
                             """
-                            //deleteDir()
+                            deleteDir()
                         }
                     }
                 }
@@ -57,14 +51,8 @@ pipeline {
                                 mkdocs build --clean
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/doc/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/messaging/v1
-                                cd ${WORKSPACE}/${DOC_PROJECT}
-                                if [ -n "\$(git status --porcelain)" ]; then
-                                    git add -A
-                                    git commit -a --author="newgrnetci <>" -m "Update ${DOC_SOURCE} docs"
-                                    #git push origin "${env.BRANCH_NAME}"
-                                fi
                             """
-                            //deleteDir()
+                            deleteDir()
                         }
                     }
                 }
@@ -82,14 +70,8 @@ pipeline {
                                 mkdocs build --clean
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/docs/v1/docs/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/docs/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/authn/v1
-                                cd ${WORKSPACE}/${DOC_PROJECT}
-                                if [ -n "\$(git status --porcelain)" ]; then
-                                    git add -A
-                                    git commit -a --author="newgrnetci <>" -m "Update ${DOC_SOURCE} docs"
-                                    #git push origin "${env.BRANCH_NAME}"
-                                fi
                             """
-                            //deleteDir()
+                            deleteDir()
                         }
                     }
                 }
@@ -120,6 +102,12 @@ pipeline {
                         credentialsId: 'jenkins-rpm-repo',
                         url: "${ARGOEU_URL}"
                     sh """
+                        cd ${WORKSPACE}/argodoc
+                        if [ -n "\$(git status --porcelain)" ]; then
+                            git add -A
+                            git commit -a --author="newgrnetci <>" -m "Update docs"
+                            #git push origin ${env.BRANCH_NAME}
+                        fi
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
                         rm -rf ${WORKSPACE}/argoeu/authn
