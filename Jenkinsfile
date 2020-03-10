@@ -34,15 +34,13 @@ pipeline {
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
                                 fi
                             """
-                            script {
-                                sshagent (credentials: ['jenkins-rpm-repo']) {
-                                    sh """
-                                        cd ${WORKSPACE}/kevangel_argodoc
-                                        export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
-                                        git push origin devel
-                                    """
-                                }
-                            }
+                        }
+                        sshagent (credentials: ['jenkins-rpm-repo']) {
+                            sh """
+                                cd ${WORKSPACE}/kevangel_argodoc
+                                export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
+                                git push origin devel
+                            """
                         }
                     }
                 }
