@@ -91,7 +91,7 @@ pipeline {
                         }
                     }
                 }
-                stage ('Build argo-ams-library docs'){
+                stage ('Build argo docs'){
                     steps {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
                             git branch: "devel",
