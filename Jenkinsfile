@@ -2,7 +2,6 @@ pipeline {
     agent { 
         docker { 
             image 'argo.registry:5000/debian-jessie-argodoc'
-            args '-u root'
         }
     }
     options {
