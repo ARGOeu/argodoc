@@ -16,7 +16,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            when { branch pattern: "master|devel", comparator: "REGEXP" }
+            //when { branch pattern: "master|devel", comparator: "REGEXP" }
             parallel {
                 stage ('Build web-api docs'){
                     environment {
@@ -94,7 +94,7 @@ pipeline {
             }
         }
         stage('Deploy mkdocs') {
-            when { branch pattern: "master|devel", comparator: "REGEXP" }
+            //when { branch pattern: "master|devel", comparator: "REGEXP" }
             steps {
                 echo 'Deploying mkdocs...'
                 dir ("${WORKSPACE}/argoeu") {
@@ -103,10 +103,11 @@ pipeline {
                         url: "${ARGOEU_URL}"
                     sh """
                         cd ${WORKSPACE}/argodoc
+                        git remote add kevangel79 git@github.com:kevangel79/argodoc.git
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
                             git commit -a --author="newgrnetci <>" -m "Update docs"
-                            git push origin ${env.BRANCH_NAME}
+                            git push kevangel79 ${env.BRANCH_NAME}
                         fi
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
@@ -120,7 +121,7 @@ pipeline {
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
                             git commit -a --author="newgrnetci <>" -m "Update docs"
-                            git push origin master
+                            #git push origin master
                         fi
                     """
                 }
