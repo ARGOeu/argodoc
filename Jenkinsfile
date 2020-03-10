@@ -36,6 +36,13 @@ pipeline {
                                     git push origin devel
                                 fi
                             """
+                            sshagent (credentials: ['jenkins-rpm-repo']) {
+                                sh """
+                                    cd ${WORKSPACE}/kevangel_argodoc
+                                    export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
+                                    git push origin devel
+                                """
+                            }
                         }
                     }
                 }
