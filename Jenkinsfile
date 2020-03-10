@@ -11,7 +11,7 @@ pipeline {
     environment {
         DOC_PROJECT="argodoc"
         GIT_COMMITTER_NAME="newgrnetci"
-        GIT_COMMITTER_EMAIL="<>"
+        GIT_COMMITTER_EMAIL="<argo@grnet.gr>"
         ARGOEU_URL=sh(script: "if [ \"$env.BRANCH_NAME\" == \"master\" ]; then echo \"git@github.com:ARGOeu/argoeu.github.io.git\"; else echo \"git@github.com:argoeu-devel/argoeu-devel.github.io.git\"; fi",returnStdout: true).trim()
     }
     stages {
@@ -91,6 +91,24 @@ pipeline {
                         }
                     }
                 }
+                stage ('Build argo-ams-library docs'){
+                    steps {
+                        dir ("${WORKSPACE}/kevangel_argodoc") {
+                            git branch: "devel",
+                                credentialsId: 'jenkins-rpm-repo',
+                                url: "git@github.com:kevangel/argodoc.git"
+                            sh """
+                                export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
+                                touch aaaaa
+                                if [ -n "\$(git status --porcelain)" ]; then
+                                    git add -A
+                                    git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
+                                    git push kevangel79 devel
+                                fi
+                            """
+                        }
+                    }
+                }
             }
         }
         stage('Deploy mkdocs') {
@@ -104,9 +122,10 @@ pipeline {
                     sh """
                         cd ${WORKSPACE}/argodoc
                         git remote add kevangel79 git@github.com:kevangel79/argodoc.git
+                        export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
-                            git commit -m "Update docs"
+                            git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
                             git push -f kevangel79 devel
                         fi
                         rm -rf ${WORKSPACE}/argoeu/api
@@ -120,7 +139,7 @@ pipeline {
                         cd ${WORKSPACE}/argoeu
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
-                            git commit -a --author="newgrnetci <>" -m "Update docs"
+                            git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
                             #git push origin master
                         fi
                     """
