@@ -96,14 +96,14 @@ pipeline {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
                             git branch: "devel",
                                 credentialsId: 'jenkins-rpm-repo',
-                                url: "git@github.com:kevangel/argodoc.git"
+                                url: "git@github.com:kevangel79/argodoc.git"
                             sh """
                                 export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                                 touch aaaaa
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
-                                    git push kevangel79 devel
+                                    git push origin devel
                                 fi
                             """
                         }
