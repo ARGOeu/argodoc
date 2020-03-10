@@ -81,7 +81,7 @@ pipeline {
                     }
                     steps {
                         dir ("${WORKSPACE}/${DOC_SOURCE}") {
-                            git branch: "${env.BRANCH_NAME}",
+                            git branch: "devel",
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
                             sh """
