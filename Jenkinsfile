@@ -22,9 +22,7 @@ pipeline {
                     steps {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
                             git branch: "devel",
-                                credentialsId: 'newgrnetci',
-                                passwordVariable: 'GIT_PASSWORD',
-                                usernameVariable: 'GIT_USERNAME',
+                                credentialsId: 'master',
                                 url: "git@github.com:kevangel79/argodoc.git"
                             sh """
                                 cd ${WORKSPACE}/kevangel_argodoc
@@ -33,7 +31,7 @@ pipeline {
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
-                                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:kevangel79/argodoc.git devel
+                                    git push origin devel
                                 fi
                             """
                         }
