@@ -2,7 +2,6 @@ pipeline {
     agent { 
         docker { 
             image 'argo.registry:5000/debian-jessie-argodoc'
-            args '-u root'
         }
     }
     options {
@@ -23,7 +22,9 @@ pipeline {
                     steps {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
                             git branch: "devel",
-                                credentialsId: 'jenkins-rpm-repo',
+                                credentialsId: 'newgrnetci',
+                                passwordVariable: 'GIT_PASSWORD',
+                                usernameVariable: 'GIT_USERNAME',
                                 url: "git@github.com:kevangel79/argodoc.git"
                             sh """
                                 cd ${WORKSPACE}/kevangel_argodoc
@@ -32,14 +33,8 @@ pipeline {
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
+                                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:kevangel79/argodoc.git devel
                                 fi
-                            """
-                        }
-                        sshagent (credentials: ['jenkins-rpm-repo']) {
-                            sh """
-                                cd ${WORKSPACE}/kevangel_argodoc
-                                export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
-                                git push origin devel
                             """
                         }
                     }
