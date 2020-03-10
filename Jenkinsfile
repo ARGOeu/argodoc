@@ -2,6 +2,7 @@ pipeline {
     agent { 
         docker { 
             image 'argo.registry:5000/debian-jessie-argodoc'
+            args '-u root'
         }
     }
     options {
@@ -18,79 +19,6 @@ pipeline {
         stage('Build') {
             //when { branch pattern: "master|devel", comparator: "REGEXP" }
             parallel {
-                stage ('Build web-api docs'){
-                    environment {
-                        DOC_SOURCE="argo-web-api"
-                    }
-                    steps {
-                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
-                            git branch: "devel",
-                                credentialsId: 'jenkins-rpm-repo',
-                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
-                            sh """
-                                cd ${WORKSPACE}/${DOC_SOURCE}/doc/v2
-                                mkdocs build --clean
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/doc/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v2/site/ ${WORKSPACE}/${DOC_PROJECT}/api/v2
-                            """
-                            deleteDir()
-                        }
-                    }
-                }
-                stage ('Build messaging docs'){
-                    environment {
-                        DOC_SOURCE="argo-messaging"
-                    }
-                    steps {
-                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
-                            git branch: "devel",
-                                credentialsId: 'jenkins-rpm-repo',
-                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
-                            sh """
-                                cd ${WORKSPACE}/${DOC_SOURCE}/doc/v1
-                                mkdocs build --clean
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/doc/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/messaging/v1
-                            """
-                            deleteDir()
-                        }
-                    }
-                }
-                stage ('Build authn docs'){
-                    environment {
-                        DOC_SOURCE="argo-api-authn"
-                    }
-                    steps {
-                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
-                            git branch: "devel",
-                                credentialsId: 'jenkins-rpm-repo',
-                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
-                            sh """
-                                cd ${WORKSPACE}/${DOC_SOURCE}/docs/v1
-                                mkdocs build --clean
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/docs/v1/docs/ ${WORKSPACE}/${DOC_PROJECT}/content/guides
-                                cp -R ${WORKSPACE}/${DOC_SOURCE}/docs/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/authn/v1
-                            """
-                            deleteDir()
-                        }
-                    }
-                }
-                stage ('Build argo-ams-library docs'){
-                    environment {
-                        DOC_SOURCE="argo-ams-library"
-                    }
-                    steps {
-                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
-                            git branch: "devel",
-                                credentialsId: 'jenkins-rpm-repo',
-                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
-                            sh """
-                                cd ${WORKSPACE}/${DOC_SOURCE}/documentation
-                                make html
-                            """
-                        }
-                    }
-                }
                 stage ('Build argo docs'){
                     steps {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
@@ -98,7 +26,9 @@ pipeline {
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: "git@github.com:kevangel79/argodoc.git"
                             sh """
+                                cd ${WORKSPACE}/kevangel_argodoc
                                 touch aaaaa
+                                git branch 
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
@@ -146,10 +76,5 @@ pipeline {
                 }
             }
         } 
-    }
-    post {
-        failure {
-            sh "rm -rf ${WORKSPACE}"
-        }
     }
 }
