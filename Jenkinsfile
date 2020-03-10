@@ -32,8 +32,6 @@ pipeline {
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
-                                    export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
-                                    git push origin devel
                                 fi
                             """
                             sshagent (credentials: ['jenkins-rpm-repo']) {
