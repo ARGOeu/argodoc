@@ -128,4 +128,9 @@ pipeline {
             }
         } 
     }
+    post {
+        failure {
+            sh "rm -rf ${WORKSPACE}"
+        }
+    }
 }
