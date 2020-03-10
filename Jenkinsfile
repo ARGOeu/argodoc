@@ -107,7 +107,7 @@ pipeline {
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
                             git commit -a --author="newgrnetci <>" -m "Update docs"
-                            git push kevangel79 HEAD:${env.BRANCH_NAME}
+                            git push kevangel79 HEAD:devel
                         fi
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
