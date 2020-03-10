@@ -106,7 +106,7 @@ pipeline {
                         git remote add kevangel79 git@github.com:kevangel79/argodoc.git
                         if [ -n "\$(git status --porcelain)" ]; then
                             git add -A
-                            git commit -a --author="newgrnetci <>" -m "Update docs"
+                            git commit -m "Update docs"
                             git push -f kevangel79 devel
                         fi
                         rm -rf ${WORKSPACE}/argoeu/api
