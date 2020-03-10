@@ -35,7 +35,7 @@ pipeline {
                                 fi
                             """
                         }
-                        sshAgent (credentials: ['jenkins-rpm-repo']) {
+                        sshagent (credentials: ['jenkins-rpm-repo']) {
                             sh """
                                 cd ${WORKSPACE}/kevangel_argodoc
                                 export GIT_SSH_COMMAND=\"ssh -oStrictHostKeyChecking=no\"
