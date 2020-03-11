@@ -35,7 +35,7 @@ pipeline {
                                     #git push origin devel
                                 fi
                             """
-                            sshagent (credentials: ['jenkins-master']) {
+                            sshagent (['jenkins-master']) {
                                sh "git push origin devel"
                             }
                         }
