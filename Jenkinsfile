@@ -9,6 +9,7 @@ pipeline {
         newContainerPerStage()
     }
     environment {
+        GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
         DOC_PROJECT="argodoc"
         GIT_COMMITTER_NAME="newgrnetci"
         GIT_COMMITTER_EMAIL="<argo@grnet.gr>"
