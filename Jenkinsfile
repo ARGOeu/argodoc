@@ -2,6 +2,7 @@ pipeline {
     agent { 
         docker { 
             image 'argo.registry:5000/debian-jessie-argodoc'
+            label 'slave01'
         }
     }
     options {
