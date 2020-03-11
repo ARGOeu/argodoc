@@ -22,7 +22,7 @@ pipeline {
                     steps {
                         dir ("${WORKSPACE}/kevangel_argodoc") {
                             git branch: "devel",
-                                credentialsId: 'master',
+                                credentialsId: 'jenkins-master',
                                 url: "git@github.com:kevangel79/argodoc.git"
                             sh """
                                 cd ${WORKSPACE}/kevangel_argodoc
