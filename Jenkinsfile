@@ -31,6 +31,7 @@ pipeline {
                                 if [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
+                                    whoami
                                     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
                                     git push origin devel
                                 fi
