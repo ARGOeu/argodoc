@@ -25,7 +25,6 @@ pipeline {
                                 credentialsId: 'jenkins-master',
                                 url: "git@github.com:kevangel79/argodoc.git"
                             sh """
-                                cd ${WORKSPACE}/kevangel_argodoc
                                 touch aaaaa
                                 git branch 
                                 if [ -n "\$(git status --porcelain)" ]; then
@@ -33,9 +32,12 @@ pipeline {
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m \"Update docs\"
                                     find ~/ 
                                     #ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-                                    git push origin devel
+                                    #git push origin devel
                                 fi
                             """
+                            sshagent (credentials: ['jenkins-master']) {
+                               sh "git push origin devel"
+                            }
                         }
                     }
                 }
