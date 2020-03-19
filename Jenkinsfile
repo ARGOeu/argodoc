@@ -110,6 +110,7 @@ pipeline {
                                 git add -A
                                 git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
                                 git push origin ${env.BRANCH_NAME}
+                                rm ../local_ssh.sh
                             fi
                         """
                     }
@@ -136,14 +137,21 @@ pipeline {
                         cd ${WORKSPACE}/argoeu
                         git checkout master
                     """
-                    withEnv(['GIT_SSH=../local_ssh.sh']) {
-                        sh """
-                            if [ -n "\$(git status --porcelain)" ]; then
-                                git add -A
-                                git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
-                                git push origin master
-                            fi
-                        """
+                    withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
+                        sh '''
+                            echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh'
+                            chmod +x ../local_ssh.sh
+                        '''
+                        withEnv(['GIT_SSH=../local_ssh.sh']) {
+                            sh """
+                                if [ -n "\$(git status --porcelain)" ]; then
+                                    git add -A
+                                    git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
+                                    git push origin master
+                                fi
+                                rm ../local_ssh.sh
+                            """
+                        }
                     }
                 }
             }
