@@ -11,7 +11,7 @@ pipeline {
     environment {
         DOC_PROJECT="argodoc"
         GIT_COMMITTER_NAME="newgrnetci"
-        GIT_COMMITTER_EMAIL="<>"
+        GIT_COMMITTER_EMAIL="<argo@grnet.gr>"
         ARGOEU_URL=sh(script: "if [ \"$env.BRANCH_NAME\" == \"master\" ]; then echo \"git@github.com:ARGOeu/argoeu.github.io.git\"; else echo \"git@github.com:argoeu-devel/argoeu-devel.github.io.git\"; fi",returnStdout: true).trim()
     }
     stages {
@@ -97,18 +97,23 @@ pipeline {
             when { branch pattern: "master|devel", comparator: "REGEXP" }
             steps {
                 echo 'Push changes...'
-                git branch: "master",
-                    credentialsId: 'jenkins-rpm-repo',
-                    url: "${ARGOEU_URL}"
-                sh """
-                    cd ${WORKSPACE}/argodoc
-                    if [ -n "\$(git status --porcelain)" ]; then
-                        git checkout ${env.BRANCH_NAME}
-                        git add -A
-                        git commit -a --author="newgrnetci <>" -m "Update docs"
-                        git push origin ${env.BRANCH_NAME}
-                    fi
-                """
+                withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
+                    sh '''
+                        cd $WORKSPACE/argodoc
+                        echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh'
+                        chmod +x ../local_ssh.sh
+                    '''
+                    withEnv(['GIT_SSH=../local_ssh.sh']) {
+                        sh """
+                            if [ -n "\$(git status --porcelain)" ]; then
+                                git checkout ${env.BRANCH_NAME}
+                                git add -A
+                                git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
+                                git push origin ${env.BRANCH_NAME}
+                            fi
+                        """
+                    }
+                }
             }
         }
         stage('Deploy mkdocs') {
@@ -129,12 +134,17 @@ pipeline {
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/authn ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/argo-ams-library/documentation/_build/ ${WORKSPACE}/argoeu/ams-library
                         cd ${WORKSPACE}/argoeu
-                        if [ -n "\$(git status --porcelain)" ]; then
-                            git add -A
-                            git commit -a --author="newgrnetci <>" -m "Update docs"
-                            git push origin master
-                        fi
+                        git checkout master
                     """
+                    withEnv(['GIT_SSH=../local_ssh.sh']) {
+                        sh """
+                            if [ -n "\$(git status --porcelain)" ]; then
+                                git add -A
+                                git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
+                                git push origin master
+                            fi
+                        """
+                    }
                 }
             }
         }
