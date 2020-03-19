@@ -93,6 +93,24 @@ pipeline {
                 }
             }
         }
+        stage('Push changes to argoeu') {
+            when { branch pattern: "master|devel", comparator: "REGEXP" }
+            steps {
+                echo 'Push changes...'
+                git branch: "master",
+                    credentialsId: 'jenkins-rpm-repo',
+                    url: "${ARGOEU_URL}"
+                sh """
+                    cd ${WORKSPACE}/argodoc
+                    if [ -n "\$(git status --porcelain)" ]; then
+                        git checkout ${env.BRANCH_NAME}
+                        git add -A
+                        git commit -a --author="newgrnetci <>" -m "Update docs"
+                        git push origin ${env.BRANCH_NAME}
+                    fi
+                """
+            }
+        }
         stage('Deploy mkdocs') {
             when { branch pattern: "master|devel", comparator: "REGEXP" }
             steps {
@@ -102,12 +120,6 @@ pipeline {
                         credentialsId: 'jenkins-rpm-repo',
                         url: "${ARGOEU_URL}"
                     sh """
-                        cd ${WORKSPACE}/argodoc
-                        if [ -n "\$(git status --porcelain)" ]; then
-                            git add -A
-                            git commit -a --author="newgrnetci <>" -m "Update docs"
-                            git push origin ${env.BRANCH_NAME}
-                        fi
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
                         rm -rf ${WORKSPACE}/argoeu/authn
@@ -125,6 +137,6 @@ pipeline {
                     """
                 }
             }
-        } 
+        }
     }
 }
