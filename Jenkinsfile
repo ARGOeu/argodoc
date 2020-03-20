@@ -100,7 +100,7 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
                         cd $WORKSPACE/argodoc
-                        echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh'
+                        echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh
                         chmod +x ../local_ssh.sh
                     '''
                     withEnv(['GIT_SSH=../local_ssh.sh']) {
@@ -139,7 +139,7 @@ pipeline {
                     """
                     withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
                         sh '''
-                            echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh'
+                            echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh
                             chmod +x ../local_ssh.sh
                         '''
                         withEnv(['GIT_SSH=../local_ssh.sh']) {
