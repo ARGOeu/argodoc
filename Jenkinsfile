@@ -133,7 +133,7 @@ pipeline {
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/api ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/messaging ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/authn ${WORKSPACE}/argoeu
-                        cp -R ${WORKSPACE}/argo-ams-library/documentation/_build/ ${WORKSPACE}/argoeu/ams-library
+                        cp -R ${WORKSPACE}/argo-ams-library/documentation/_build/html ${WORKSPACE}/argoeu/ams-library
                         cd ${WORKSPACE}/argoeu
                         git checkout master
                     """
