@@ -75,6 +75,24 @@ pipeline {
                         }
                     }
                 }
+                stage ('Build poem-2 docs'){
+                    environment {
+                        DOC_SOURCE="poem-2"
+                    }
+                    steps {
+                        dir ("${WORKSPACE}/${DOC_SOURCE}") {
+                            git branch: "${env.BRANCH_NAME}",
+                                credentialsId: 'jenkins-rpm-repo',
+                                url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
+                            sh """
+                                cd ${WORKSPACE}/${DOC_SOURCE}/doc/v1/
+                                mkdocs build --clean
+                                cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/poem/v1
+                            """
+                            deleteDir()
+                        }
+                    }
+                }
                 stage ('Build argo-ams-library docs'){
                     environment {
                         DOC_SOURCE="argo-ams-library"
@@ -129,10 +147,12 @@ pipeline {
                         rm -rf ${WORKSPACE}/argoeu/api
                         rm -rf ${WORKSPACE}/argoeu/messaging
                         rm -rf ${WORKSPACE}/argoeu/authn
+                        rm -rf ${WORKSPACE}/argoeu/poem
                         rm -rf ${WORKSPACE}/argoeu/ams-library/*
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/api ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/messaging ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/${DOC_PROJECT}/authn ${WORKSPACE}/argoeu
+                        cp -R ${WORKSPACE}/${DOC_PROJECT}/poem ${WORKSPACE}/argoeu
                         cp -R ${WORKSPACE}/argo-ams-library/documentation/_build/html/* ${WORKSPACE}/argoeu/ams-library
                         cd ${WORKSPACE}/argoeu
                         git checkout master
@@ -155,6 +175,11 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            cleanWs()
         }
     }
 }
