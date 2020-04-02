@@ -85,7 +85,7 @@ pipeline {
                                 credentialsId: 'jenkins-rpm-repo',
                                 url: "git@github.com:ARGOeu/${DOC_SOURCE}.git"
                             sh """
-                                cd ${WORKSPACE}/${DOC_SOURCE}/doc/
+                                cd ${WORKSPACE}/${DOC_SOURCE}/doc/v1/
                                 mkdocs build --clean
                                 cp -R ${WORKSPACE}/${DOC_SOURCE}/doc/v1/site/* ${WORKSPACE}/${DOC_PROJECT}/poem/v1
                             """
