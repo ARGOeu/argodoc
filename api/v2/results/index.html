@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Results - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Results - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Results";
+    var mkdocs_page_input_path = "results.md";
+    var mkdocs_page_url = "/results/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,119 +39,137 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Results</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Results</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#results">Results</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-availabilities-and-reliabilities-for-groups-of-endpoint-groups">[GET]: List Availabilities and Reliabilities for groups of Endpoint Groups</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-group-of-endpoint-groups">[GET] Group of Endpoint groups</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-availabilities-and-reliabilities-for-endpoint-groups">[GET]: List Availabilities and Reliabilities for Endpoint Groups</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-endpoint-groups">[GET] Endpoint Groups</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-availabilities-and-reliabilities-for-service-flavors">[GET]: List Availabilities and Reliabilities for Service Flavors</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-service-flavors">[GET] Service Flavors</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#results">Results</a></li>
+    
+
+    <li class="toctree-l2"><a href="#get-list-availabilities-and-reliabilities-for-groups-of-endpoint-groups">[GET]: List Availabilities and Reliabilities for groups of Endpoint Groups</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-group-of-endpoint-groups">[GET] Group of Endpoint groups</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#get-list-availabilities-and-reliabilities-for-endpoint-groups">[GET]: List Availabilities and Reliabilities for Endpoint Groups</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-endpoint-groups">[GET] Endpoint Groups</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#get-list-availabilities-and-reliabilities-for-endpoints">[GET]: List Availabilities and Reliabilities for Endpoints</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-endpoints-ar">[GET] Endpoints A/R</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#get-list-availabilities-and-reliabilities-for-service-flavors">[GET]: List Availabilities and Reliabilities for Service Flavors</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-service-flavors">[GET] Service Flavors</a></li>
+        
+            <li><a class="toctree-l3" href="#request-endpoint-ar-under-service-service_a">Request endpoint a/r under service: service_a</a></li>
+        
+            <li><a class="toctree-l3" href="#request-endpoint-ar-under-endpoint-group-st01">Request endpoint a/r under endpoint group: ST01</a></li>
+        
+            <li><a class="toctree-l3" href="#request-endpoint-ar-for-specific-endpoint-e01-under-endpoint-group-st01">Request endpoint a/r for specific endpoint e01 under endpoint group: ST01</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../errors/">Error Codes</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../validations/">Validation Checks</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -180,9 +196,8 @@
     <li>Results</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/results.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -423,17 +438,28 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 </code></pre>
 
 <p><a id="3"></a></p>
-<h1 id="get-list-availabilities-and-reliabilities-for-service-flavors">[GET]: List Availabilities and Reliabilities for Service Flavors</h1>
-<p>The following methods can be used to obtain a tenant's Availability and Reliability result metrics per given Service Flavor(s). The api authenticates the tenant using the api-key within the x-api-key header. The user can specify time granularity (<code>monthly</code> or <code>daily</code>) for retrieved results and also format using the <code>Accept</code> header. Depending on the form of the request the user can request a single service flavor results or a bulk of service flavor results.</p>
-<h2 id="get-service-flavors">[GET] Service Flavors</h2>
+<h1 id="get-list-availabilities-and-reliabilities-for-endpoints">[GET]: List Availabilities and Reliabilities for Endpoints</h1>
+<p>The following methods can be used to obtain a tenant's Availability and Reliability result metrics for endpoints under a specific service or group. The api authenticates the tenant using the api-key within the x-api-key header. The user can specify time granularity (<code>monthly</code> or <code>daily</code>) for retrieved results and also format using the <code>Accept</code> header. Depending on the form of the request the user can request a single service flavor results or a bulk of endpoint results.</p>
+<h2 id="get-endpoints-ar">[GET] Endpoints A/R</h2>
 <h3 id="input_2">Input</h3>
-<pre><code>/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services?[start_time]&amp;[end_time]&amp;[granularity]
+<p>Request endpoint a/r under specific service:</p>
+<pre><code>/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_name}/endpoints?[start_time]&amp;[end_time]&amp;[granularity]
 or
-/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_flavor_type}?[start_time]&amp;[end_time]&amp;[granularity]
+/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_name}/endpoints/{endpoint_name}?[start_time]&amp;[end_time]&amp;[granularity]
 or
-/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services?[start_time]&amp;[end_time]&amp;[granularity]
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_name}/endpoints?[start_time]&amp;[end_time]&amp;[granularity]
 or
-/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_flavor_type}?[start_time]&amp;[end_time]&amp;[granularity]
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_name}/endpoints/{endpoint_name}?[start_time]&amp;[end_time]&amp;[granularity]
+</code></pre>
+
+<p>Request endpoint a/r under specific endpoint group:</p>
+<pre><code>/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/endpoints?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/endpoints/{endpoint_name}?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/endpoints?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/endpoints/{endpoint_name}?[start_time]&amp;[end_time]&amp;[granularity]
 </code></pre>
 
 <h4 id="query-parameters_2">Query Parameters</h4>
@@ -509,8 +535,14 @@ or
 <td></td>
 </tr>
 <tr>
-<td><code>{service_flavor_type}</code></td>
-<td>Type of the Service Flavor. If no type is given then results for all Service Flavors under the given Endpoint Group will be provided.</td>
+<td><code>{service_name}</code></td>
+<td>Name of the specific service.</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{endpoint_name}</code></td>
+<td>Name of the specific endpoint.</td>
 <td>NO</td>
 <td></td>
 </tr>
@@ -527,7 +559,7 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 </code></pre>
 
 <h4 id="url_2">URL</h4>
-<p><code>/api/v2/results/Report_A/SITE/ST01/services?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily</code></p>
+<p><code>/api/v2/results/Report_A/SITE/ST01/services/service_a/endpoints?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily</code></p>
 <h4 id="response-body_2">Response Body</h4>
 <pre><code>&lt;root&gt;
   &lt;group name=&quot;ST01&quot; type=&quot;SITE&quot;&gt;
@@ -542,6 +574,285 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
   &lt;/group&gt;
 &lt;/root&gt;
 </code></pre>
+
+<h1 id="get-list-availabilities-and-reliabilities-for-service-flavors">[GET]: List Availabilities and Reliabilities for Service Flavors</h1>
+<p>The following methods can be used to obtain a tenant's Availability and Reliability result metrics per given Service Flavor(s). The api authenticates the tenant using the api-key within the x-api-key header. The user can specify time granularity (<code>monthly</code> or <code>daily</code>) for retrieved results and also format using the <code>Accept</code> header. Depending on the form of the request the user can request a single service flavor results or a bulk of service flavor results.</p>
+<h2 id="get-service-flavors">[GET] Service Flavors</h2>
+<h3 id="input_3">Input</h3>
+<pre><code>/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{group_type}/{group_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_flavor_type}?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services?[start_time]&amp;[end_time]&amp;[granularity]
+or
+/results/{report_name}/{endpoint_group_type}/{endpoint_group_name}/services/{service_flavor_type}?[start_time]&amp;[end_time]&amp;[granularity]
+</code></pre>
+
+<h4 id="query-parameters_3">Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[start_time]</code></td>
+<td>UTC time in W3C format</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[end_time]</code></td>
+<td>UTC time in W3C format</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[granularity]</code></td>
+<td>Granularity of time that will be used to present data. Possible values are <code>monthly</code> or <code>daily</code></td>
+<td>NO</td>
+<td><code>daily</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="path-parameters_3">Path Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{report_name}</code></td>
+<td>Name of the report that contains all the information about the profile, filter tags, group types etc.</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{group_type}</code></td>
+<td>Type of the Group of Endpoint Groups.</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{group_name}</code></td>
+<td>Name of the Group of Endpoint Groups.</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{endpoint_group_type}</code></td>
+<td>Type of the the Endpoint Group.</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{endpoint_group_name}</code></td>
+<td>Name of the the Endpoint Group.</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>{service_flavor_type}</code></td>
+<td>Type of the Service Flavor. If no type is given then results for all Service Flavors under the given Endpoint Group will be provided.</td>
+<td>NO</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="headers_3">Headers</h4>
+<h5 id="request_3">Request</h5>
+<pre><code>x-api-key: &quot;tenant_key_value&quot;
+Accept: &quot;application/xml&quot; or &quot;application/json&quot;
+</code></pre>
+
+<h5 id="response_3">Response</h5>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h2 id="request-endpoint-ar-under-service-service_a">Request endpoint a/r under service: <code>service_a</code></h2>
+<h4 id="url_3">URL</h4>
+<p><code>/api/v2/results/Report_A/SITE/ST01/services/service_a/endpoints?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily</code></p>
+<h4 id="response-body_3">Response Body</h4>
+<pre><code>{
+   &quot;results&quot;: [
+     {
+       &quot;name&quot;: &quot;ST01&quot;,
+       &quot;type&quot;: &quot;SITE&quot;,
+       &quot;serviceflavors&quot;: [
+         {
+           &quot;name&quot;: &quot;service_a&quot;,
+           &quot;type&quot;: &quot;service&quot;,
+           &quot;endpoints&quot;: [
+             {
+               &quot;name&quot;: &quot;e01&quot;,
+               &quot;type&quot;: &quot;endpoint&quot;,
+               &quot;results&quot;: [
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-22&quot;,
+                   &quot;availability&quot;: &quot;98.26389&quot;,
+                   &quot;reliability&quot;: &quot;98.26389&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;0.98264&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 },
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-23&quot;,
+                   &quot;availability&quot;: &quot;54.03509&quot;,
+                   &quot;reliability&quot;: &quot;81.48148&quot;,
+                   &quot;unknown&quot;: &quot;0.01042&quot;,
+                   &quot;uptime&quot;: &quot;0.53472&quot;,
+                   &quot;downtime&quot;: &quot;0.33333&quot;
+                 }
+               ]
+             },
+             {
+               &quot;name&quot;: &quot;e02&quot;,
+               &quot;type&quot;: &quot;endpoint&quot;,
+               &quot;results&quot;: [
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-22&quot;,
+                   &quot;availability&quot;: &quot;96.875&quot;,
+                   &quot;reliability&quot;: &quot;96.875&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;0.96875&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 },
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-23&quot;,
+                   &quot;availability&quot;: &quot;100&quot;,
+                   &quot;reliability&quot;: &quot;100&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;1&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 }
+               ]
+             }
+           ]
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+
+<h2 id="request-endpoint-ar-under-endpoint-group-st01">Request endpoint a/r under endpoint group: <code>ST01</code></h2>
+<h4 id="url_4">URL</h4>
+<p><code>/api/v2/results/Report_A/SITE/ST01/endpoints?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily</code></p>
+<h4 id="response-body_4">Response Body</h4>
+<pre><code>{
+   &quot;results&quot;: [
+     {
+       &quot;name&quot;: &quot;ST01&quot;,
+       &quot;type&quot;: &quot;SITE&quot;,
+       &quot;serviceflavors&quot;: [
+         {
+           &quot;name&quot;: &quot;service_a&quot;,
+           &quot;type&quot;: &quot;service&quot;,
+           &quot;endpoints&quot;: [
+             {
+               &quot;name&quot;: &quot;e01&quot;,
+               &quot;type&quot;: &quot;endpoint&quot;,
+               &quot;results&quot;: [
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-22&quot;,
+                   &quot;availability&quot;: &quot;98.26389&quot;,
+                   &quot;reliability&quot;: &quot;98.26389&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;0.98264&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 },
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-23&quot;,
+                   &quot;availability&quot;: &quot;54.03509&quot;,
+                   &quot;reliability&quot;: &quot;81.48148&quot;,
+                   &quot;unknown&quot;: &quot;0.01042&quot;,
+                   &quot;uptime&quot;: &quot;0.53472&quot;,
+                   &quot;downtime&quot;: &quot;0.33333&quot;
+                 }
+               ]
+             },
+             {
+               &quot;name&quot;: &quot;e02&quot;,
+               &quot;type&quot;: &quot;endpoint&quot;,
+               &quot;results&quot;: [
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-22&quot;,
+                   &quot;availability&quot;: &quot;96.875&quot;,
+                   &quot;reliability&quot;: &quot;96.875&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;0.96875&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 },
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-23&quot;,
+                   &quot;availability&quot;: &quot;100&quot;,
+                   &quot;reliability&quot;: &quot;100&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;1&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 }
+               ]
+             }
+           ]
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+
+<h2 id="request-endpoint-ar-for-specific-endpoint-e01-under-endpoint-group-st01">Request endpoint a/r for specific endpoint <code>e01</code> under endpoint group: <code>ST01</code></h2>
+<h4 id="url_5">URL</h4>
+<p><code>/api/v2/results/Report_A/SITE/ST01/services/service_a/endpoints/e01?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily</code></p>
+<h4 id="response-body_5">Response Body</h4>
+<pre><code>{
+   &quot;results&quot;: [
+     {
+       &quot;name&quot;: &quot;ST01&quot;,
+       &quot;type&quot;: &quot;SITE&quot;,
+       &quot;serviceflavors&quot;: [
+         {
+           &quot;name&quot;: &quot;service_a&quot;,
+           &quot;type&quot;: &quot;service&quot;,
+           &quot;endpoints&quot;: [
+             {
+               &quot;name&quot;: &quot;e01&quot;,
+               &quot;type&quot;: &quot;endpoint&quot;,
+               &quot;results&quot;: [
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-22&quot;,
+                   &quot;availability&quot;: &quot;98.26389&quot;,
+                   &quot;reliability&quot;: &quot;98.26389&quot;,
+                   &quot;unknown&quot;: &quot;0&quot;,
+                   &quot;uptime&quot;: &quot;0.98264&quot;,
+                   &quot;downtime&quot;: &quot;0&quot;
+                 },
+                 {
+                   &quot;timestamp&quot;: &quot;2015-06-23&quot;,
+                   &quot;availability&quot;: &quot;54.03509&quot;,
+                   &quot;reliability&quot;: &quot;81.48148&quot;,
+                   &quot;unknown&quot;: &quot;0.01042&quot;,
+                   &quot;uptime&quot;: &quot;0.53472&quot;,
+                   &quot;downtime&quot;: &quot;0.33333&quot;
+                 }
+               ]
+             }
+           ]
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
               
             </div>
           </div>
@@ -549,7 +860,7 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../status/" class="btn btn-neutral float-right" title="Status Results"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../status/" class="btn btn-neutral float-right" title="Status Results">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../recomputations/" class="btn btn-neutral" title="Recomputations Requests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -568,7 +879,7 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -576,10 +887,10 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../recomputations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -589,6 +900,9 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

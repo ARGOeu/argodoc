@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Status Results - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Status Results - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Status Results";
+    var mkdocs_page_input_path = "status.md";
+    var mkdocs_page_url = "/status/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,114 +39,109 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Status Results</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Status Results</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#status-results">Status results</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-metric-status-timelines">[GET]: List Service Metric Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-endpoint-status-timelines">[GET]: List Service Endpoint Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-status-timelines">[GET]: List Service Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-endpoint-group-status-timelines">[GET]: List Endpoint Group Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-metric-result">[GET]: Metric Result</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#status-results">Status results</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-service-metric-status-timelines">[GET]: List Service Metric Status Timelines</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-service-endpoint-status-timelines">[GET]: List Service Endpoint Status Timelines</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-service-status-timelines">[GET]: List Service Status Timelines</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-endpoint-group-status-timelines">[GET]: List Endpoint Group Status Timelines</a></li>
+        
+            <li><a class="toctree-l3" href="#get-metric-result">[GET]: Metric Result</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../errors/">Error Codes</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../validations/">Validation Checks</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -175,9 +168,8 @@
     <li>Status Results</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/status.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -340,7 +332,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -349,16 +341,84 @@ Accept: application/json or application/xml
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
                 &lt;metric name=&quot;emi.wn.WN-Bi&quot;&gt;
                     &lt;status timestamp=&quot;2015-04-30T22:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T03:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                },
+                {
+                  &quot;name&quot;: &quot;emi.wn.WN-Bi&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T22:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T00:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-03T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-metric">List specific metric</h4>
@@ -379,7 +439,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -388,11 +448,57 @@ Accept:&quot;application/xml&quot;
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="2"></a></p>
@@ -505,7 +611,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -513,15 +619,78 @@ Accept: application/json or application/xml
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
             &lt;endpoint name=&quot;cream02.afroditi.gr&quot;&gt;
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            },
+                        {
+              &quot;name&quot;: &quot;cream02.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-endpoint">List specific endpoint</h4>
@@ -542,7 +711,7 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -550,10 +719,51 @@ Accept: application/json or application/xml
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="3"></a></p>
@@ -660,21 +870,80 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
         &lt;group name=&quot;SRMv2&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        },
+        {
+          &quot;name&quot;: &quot;SRMv2&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h5 id="list-specific-service-type">List specific service type</h5>
@@ -695,16 +964,52 @@ Accept: application/json or application/xml
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
             &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
             &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+            &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;statuses&quot;: [
+            {
+              &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+              &quot;value&quot;: &quot;CRITICAL&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            },
+            {
+              &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+              &quot;value&quot;: &quot;OK&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="4"></a></p>
@@ -804,19 +1109,72 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;WARNING&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
     &lt;group name=&quot;HG-01-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;UNKNOWN&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+          &quot;value&quot;: &quot;WARNING&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;HG-01-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+          &quot;value&quot;: &quot;UNKNOWN&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h5 id="list-specific-endpoint-group">List specific endpoint group</h5>
@@ -837,14 +1195,44 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T00:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;WARNING&quot;&gt;&lt;/status&gt;
         &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+        &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;statuses&quot;: [
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T00:00:00Z&quot;,
+          &quot;value&quot;: &quot;CRITICAL&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+          &quot;value&quot;: &quot;WARNING&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T05:00:00Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        },
+        {
+          &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+          &quot;value&quot;: &quot;OK&quot;
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="5"></a></p>
@@ -923,7 +1311,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code> &lt;root&gt;
    &lt;host name=&quot;www.example.com&quot;&gt;
      &lt;metric name=&quot;httpd_check&quot;&gt;
@@ -935,6 +1323,29 @@ Accept:&quot;application/xml&quot;
    &lt;/host&gt;
  &lt;/root&gt;
 </code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;root&quot;: [
+    {
+      &quot;Name&quot;: &quot;www.example.com&quot;,
+      &quot;Metrics&quot;: [
+        {
+          &quot;Name&quot;: &quot;httpd_check&quot;,
+          &quot;Details&quot;: [
+            {
+              &quot;Timestamp&quot;: &quot;2015-06-20T12:00:00Z&quot;,
+              &quot;Value&quot;: &quot;CRITICAL&quot;,
+              &quot;Summary&quot;: &quot;httpd status is CRITICAL&quot;,
+              &quot;Message&quot;: &quot;httpd service seems down. Failed to connect to port 80.&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
               
             </div>
           </div>
@@ -942,7 +1353,7 @@ Accept:&quot;application/xml&quot;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../metric_profiles/" class="btn btn-neutral float-right" title="Metric Profiles"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../metric_profiles/" class="btn btn-neutral float-right" title="Metric Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../results/" class="btn btn-neutral" title="Results"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -961,7 +1372,7 @@ Accept:&quot;application/xml&quot;
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -969,10 +1380,10 @@ Accept:&quot;application/xml&quot;
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../results/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -982,6 +1393,9 @@ Accept:&quot;application/xml&quot;
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

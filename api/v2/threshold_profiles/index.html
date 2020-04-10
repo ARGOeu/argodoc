@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>API documentation | ARGO - Web Api documentation [V2]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API documentation | ARGO";
+    var mkdocs_page_input_path = "threshold_profiles.md";
+    var mkdocs_page_url = "/threshold_profiles/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Web Api documentation [V2]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>API documentation | ARGO</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/threshold_profiles.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="description">Description</h1>
+<p>A Threshold profile contains a list of threshold rules. Threshold rules refer to low level monitoring numeric values
+that accompany metric data and threshold limits on those values that can deem the status 'WARNING' or 'CRITICAL'</p>
+<h1 id="threshold-format">Threshold format</h1>
+<p>Each threhsold rule is expressed as string in the following format
+<code>{label}={value}[uom];{warning};{critical};{min};{max}</code></p>
+<ul>
+<li><code>label</code> : can contain alphanumeric characters but must always begin with a letter</li>
+<li><code>value</code> : is a float or integer</li>
+<li><code>uom</code> : is a string unit of measurement (accepted values: <code>s</code>,<code>us</code>,<code>ms</code>,<code>B</code>,<code>KB</code>,<code>MB</code>,<code>TB</code>,<code>%</code>,<code>c</code>)</li>
+<li><code>warning</code>: is a range defining the warning threshold limits</li>
+<li><code>critical</code>: is a range defining the critical threshold limits</li>
+<li><code>min</code>: is a float or integer defining the minimum value</li>
+<li><code>max</code>: is a float or integer defining the maximum value</li>
+</ul>
+<p>Note: min,max can be omitted.</p>
+<p>Ranges (<code>{warning}</code> or <code>{critical}</code>) are defined in the following format:
+<code>@{floor}:{ceiling}</code> -<code>@</code>: optional - negates the range (value should belong outside ranges limits)</p>
+<ul>
+<li><code>floor</code>: integer/float or <code>~</code> that defines negative infinity</li>
+<li><code>ceiling</code>: integer/float or empty (defining positive infinity)</li>
+</ul>
+<h1 id="thresholds-rule">Thresholds rule</h1>
+<p>Each thresholds rule can contain multiple threshold definitions separated by space
+for e.g.
+<code>label01=1s;0:10;11:12 label02=1B;0:200;199:500;0;500</code></p>
+<h1 id="thresholds-profile">Thresholds profile</h1>
+<p>Each threhsolds profile has a name and contains a list of thresholds rules in the following json format
+Each rule must always refer to a metric. It can optionally refer to a host and an endpoint group.</p>
+<pre><code>{
+  &quot;id&quot;: &quot;68dbd3d8-c95d-41ea-b13e-7ea3644285e5&quot;,
+  &quot;name&quot;: &quot;example-threshold-profile-101&quot;
+  &quot;rules&quot;:[
+    {
+      &quot;metric&quot;: &quot;httpd.ResponseTime&quot;
+      &quot;thresholds&quot;: &quot;response=20ms;0:300;299:1000&quot;
+    },
+    {
+      &quot;host&quot;: &quot;webserver01.example.foo&quot;
+      &quot;metric&quot;: &quot;httpd.ResponseTime&quot;
+      &quot;thresholds&quot;: &quot;response=20ms;0:200;199:300&quot;
+    },
+    {
+      &quot;endpoint_group&quot;: &quot;TEST-SITE-51&quot;
+      &quot;metric&quot;: &quot;httpd.ResponseTime&quot;
+      &quot;thresholds&quot;: &quot;response=20ms;0:500;499:1000&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h1 id="api-calls">API Calls</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET: List Thresholds Profile Requests</td>
+<td>This method can be used to retrieve a list of current Thresholds profiles.</td>
+<td><a href="#1"> Description</a></td>
+</tr>
+<tr>
+<td>GET: List a specific Threshold profile</td>
+<td>This method can be used to retrieve a specific Threshold profile based on its id.</td>
+<td><a href="#2"> Description</a></td>
+</tr>
+<tr>
+<td>POST: Create a new Threshold profile</td>
+<td>This method can be used to create a new Threshold profile</td>
+<td><a href="#3"> Description</a></td>
+</tr>
+<tr>
+<td>PUT: Update an Threshold profile</td>
+<td>This method can be used to update information on an existing Threshold profile</td>
+<td><a href="#4"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Delete an Threshold profile</td>
+<td>This method can be used to delete an existing Threshold profile</td>
+<td><a href="#5"> Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id='1'></a></p>
+<h2 id="get-list-threshold-profiles">[GET]: List Threshold Profiles</h2>
+<p>This method can be used to retrieve a list of current Threshold profiles</p>
+<h3 id="input">Input</h3>
+<pre><code>GET /thresholds_profiles
+</code></pre>
+
+<h4 id="optional-query-parameters">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>thresholds profile name to be used as query</td>
+<td>NO</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the thresholds profiles. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr01&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshnesss=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr02&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;6ac7d555-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr03&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<p><a id='2'></a></p>
+<h2 id="get-list-a-specific-thresholds-profile">[GET]: List A Specific Thresholds profile</h2>
+<p>This method can be used to retrieve specific Thresholds profile based on its id</p>
+<h3 id="input_1">Input</h3>
+<pre><code>GET /thresholds_profiles/{ID}
+</code></pre>
+
+<h4 id="request-headers_1">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_1">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d222-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;name&quot;: &quot;thr02&quot;,
+            &quot;rules&quot;: [
+                {
+                    &quot;host&quot;: &quot;hostFoo&quot;,
+                    &quot;metric&quot;: &quot;metricA&quot;,
+                    &quot;thresholds&quot;: &quot;freshness=1s;10;9:;0;25 entries=1;3;2:0;10&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<p><a id='3'></a></p>
+<h2 id="post-create-a-new-thresholds-profile">[POST]: Create a new Thresholds Profile</h2>
+<p>This method can be used to insert a new thresholds profile</p>
+<h3 id="input_2">Input</h3>
+<pre><code>POST /thresholds_profiles
+</code></pre>
+
+<h4 id="request-headers_2">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to create a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="post-body">POST BODY</h4>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;thr04&quot;,
+    &quot;rules&quot;: [
+        {
+            &quot;metric&quot;: &quot;metricB&quot;,
+            &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="response_2">Response</h3>
+<p>Headers: <code>Status: 201 Created</code></p>
+<h4 id="response-body_2">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Thresholds Profile successfully created&quot;,
+        &quot;code&quot;: &quot;201&quot;
+    },
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;{{ID}}&quot;,
+        &quot;links&quot;: {
+            &quot;self&quot;: &quot;https:///api/v2/thresholds_profiles/{{ID}}&quot;
+        }
+    }
+}
+</code></pre>
+
+<p><a id='4'></a></p>
+<h2 id="put-update-information-on-an-existing-operations-profile">[PUT]: Update information on an existing operations profile</h2>
+<p>This method can be used to update information on an existing operations profile</p>
+<h3 id="input_3">Input</h3>
+<pre><code>PUT /thresholds_profiles/{ID}
+</code></pre>
+
+<h4 id="request-headers_3">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to update a historic version of the thresholds profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="put-body">PUT BODY</h4>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;thr04&quot;,
+    &quot;rules&quot;: [
+        {
+            &quot;metric&quot;: &quot;metricB&quot;,
+            &quot;thresholds&quot;: &quot;time=1s;10;9:30;0;30&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="response_3">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_3">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Thresholds Profile successfully updated&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    }
+}
+</code></pre>
+
+<p><a id='5'></a></p>
+<h2 id="delete-delete-an-existing-aggregation-profile">[DELETE]: Delete an existing aggregation profile</h2>
+<p>This method can be used to delete an existing aggregation profile</p>
+<h3 id="input_4">Input</h3>
+<pre><code>DELETE /thresholds_profiles/{ID}
+</code></pre>
+
+<h4 id="request-headers_4">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_4">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_4">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Operations Profile Successfully Deleted&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    }
+}
+</code></pre>
+
+<h2 id="validation-checks">Validation Checks</h2>
+<p>When submitting or updating a new threshold profile, validation checks are performed on json POST/PUT body for the following cases:</p>
+<ul>
+<li>Check if each thresholds rule is valid according to threshold specification discussed in the first paragraph</li>
+</ul>
+<p>When an invalid operations profile is submitted the api responds with a validation error list:</p>
+<h4 id="example-invalid-profile">Example invalid profile</h4>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;test-invalid-01&quot;,
+    &quot;rules&quot;: [
+        { &quot;thresholds&quot;: &quot;bad01=33;33s&quot; },
+        { &quot;thresholds&quot;: &quot;good01=33s;33 good02=1s;~:10;9:;-20;30&quot; },
+        { &quot;thresholds&quot;: &quot;bad02=33sbad03=1s;~~:10;9:;-20;30&quot; },
+        { &quot;thresholds&quot;: &quot;33;33 bad04=33s;33 -20;30&quot; },
+        { &quot;thresholds&quot;: &quot;good01=2KB;0:3;2:10;0;20 good02=1c;~:10;9:30;-30;30&quot; }
+    ]
+}
+</code></pre>
+
+<p>Api response is the following:</p>
+<h3 id="response_5">Response</h3>
+<p>Headers: <code>Status: 422 Unprocessable Entity</code></p>
+<h4 id="response-body_5">Response body</h4>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Validation Error&quot;,
+        &quot;code&quot;: &quot;422&quot;
+    },
+    &quot;errors&quot;: [
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: bad01=33;33s&quot;
+        },
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: bad02=33sbad03=1s;~~:10;9:;-20;30&quot;
+        },
+        {
+            &quot;message&quot;: &quot;Validation Failed&quot;,
+            &quot;code&quot;: &quot;422&quot;,
+            &quot;details&quot;: &quot;Invalid threshold: 33;33 bad04=33s;33 -20;30&quot;
+        }
+    ]
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2015 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Metric Profiles - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Metric Profiles - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Metric Profiles";
+    var mkdocs_page_input_path = "metric_profiles.md";
+    var mkdocs_page_url = "/metric_profiles/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,114 +39,109 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Metric Profiles</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Metric Profiles</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-metric-profiles">[GET]: List Metric Profiles</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-a-specific-metric-profile">[GET]: List A Specific Metric profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-create-a-new-metric-profile">[POST]: Create a new Metric Profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#put-update-information-on-an-existing-metric-profile">[PUT]: Update information on an existing metric profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete-delete-an-existing-metric-profile">[DELETE]: Delete an existing metric profile</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-metric-profiles">[GET]: List Metric Profiles</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-metric-profile">[GET]: List A Specific Metric profile</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-metric-profile">[POST]: Create a new Metric Profile</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-information-on-an-existing-metric-profile">[PUT]: Update information on an existing metric profile</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-an-existing-metric-profile">[DELETE]: Delete an existing metric profile</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../errors/">Error Codes</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../validations/">Validation Checks</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -175,9 +168,8 @@
     <li>Metric Profiles</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/metric_profiles.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -245,6 +237,11 @@
 <td>metric profile name to be used as query</td>
 <td>NO</td>
 </tr>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the metric profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
 </tbody>
 </table>
 <h3 id="request-headers">Request headers</h3>
@@ -264,6 +261,7 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50c&quot;,
+   &quot;date&quot;: &quot;2019-10-10&quot;,
    &quot;name&quot;: &quot;ch.cern.SAM.ROC&quot;,
    &quot;services&quot;: [
     {
@@ -294,6 +292,7 @@ Accept: application/json
   },
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+   &quot;date&quot; : &quot;2019-11-01&quot;,
    &quot;name&quot;: &quot;ch.cern.SAM.ROC_CRITICAL&quot;,
    &quot;services&quot;: [
     {
@@ -331,6 +330,23 @@ Accept: application/json
 <pre><code>GET /metric_profiles/{ID}
 </code></pre>
 
+<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the metric profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
 Accept: application/json
@@ -348,6 +364,7 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+   &quot;date&quot; : &quot;2019-11-01&quot;,
    &quot;name&quot;: &quot;ch.cern.SAM.ROC_CRITICAL&quot;,
    &quot;services&quot;: [
     {
@@ -390,6 +407,23 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
+<h4 id="optional-query-parameters_2">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to create a  new historic version of the metric profile. If no date parameter is provided current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h4 id="post-body">POST BODY</h4>
 <pre><code class="json">{
   &quot;name&quot;: &quot;test_profile&quot;,
@@ -444,6 +478,23 @@ Accept: application/json
 Accept: application/json
 </code></pre>
 
+<h4 id="optional-query-parameters_3">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to update a  new historic version of the operation profile. If no date parameter is provided current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
 <h4 id="put-body">PUT BODY</h4>
 <pre><code class="json">{
   &quot;name&quot;: &quot;test_profile&quot;,
@@ -516,7 +567,7 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../aggregation_profiles/" class="btn btn-neutral float-right" title="Aggregation Profiles"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../aggregation_profiles/" class="btn btn-neutral float-right" title="Aggregation Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../status/" class="btn btn-neutral" title="Status Results"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -535,7 +586,7 @@ Accept: application/json
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -543,10 +594,10 @@ Accept: application/json
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../status/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -556,6 +607,9 @@ Accept: application/json
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

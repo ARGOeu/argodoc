@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Projects - AMS documentation [V1]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>API Projects - AMS documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "API Projects";
+    var mkdocs_page_input_path = "api_projects.md";
+    var mkdocs_page_url = "/api_projects/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -38,179 +36,150 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../overview/" class="icon icon-home"> AMS documentation [V1]</a>
+        <a href=".." class="icon icon-home"> AMS documentation [V1]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
     <ul class="subnav">
-    <li><span>Basic Information</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview and Introduction</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msg_flow/">Messaging API flow</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../auth/">Authentication & Authorization</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../projects_users/">Project & User management guide</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview and Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_flow/">Messaging API flow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auth/">Authentication & Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projects_users/">Project & User management guide</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">How to Guides</span>
     <ul class="subnav">
-    <li><span>How to Guides</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../publisher/">Publisher Guide</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../publisher/">Publisher Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../consumer.md">Consumer Guide</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Messaging API</span>
     <ul class="subnav">
-    <li><span>API & References</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_basic/">API Basic Information</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_auth/">API Authentication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_users/">API Users</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API Projects</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#project-api-calls">Project Api Calls</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-manage-projects-list-all-projects">[GET] Manage Projects - List all projects</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-manage-projects-list-a-specific-project">[GET] Manage Projects - List a specific project</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-manage-projects-create-new-project">[POST] Manage Projects - Create new project</a></li>
-                
-                    <li><a class="toctree-l4" href="#put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-project-metrics">[GET] Project Metrics</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_topics/">API Topics</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_subs/">API Subscriptions</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_metrics/">API Operational Metrics</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_errors/">API Error Messages</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../api_basic/">API Basic Information</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API & References</span>
     <ul class="subnav">
-    <li><span>Q&A</span></li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../api_auth/">API Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_users/">API Users</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">API Projects</a>
+    <ul class="subnav">
             
-    <li class="toctree-l1 ">
-        <a class="" href="../qa_general_questions/">General</a>
+    <li class="toctree-l3"><a href="#project-api-calls">Project Api Calls</a></li>
+    
+        <ul>
         
-    </li>
+            <li><a class="toctree-l4" href="#get-manage-projects-list-all-projects">[GET] Manage Projects - List all projects</a></li>
+        
+            <li><a class="toctree-l4" href="#get-manage-projects-list-a-specific-project">[GET] Manage Projects - List a specific project</a></li>
+        
+            <li><a class="toctree-l4" href="#post-manage-projects-create-new-project">[POST] Manage Projects - Create new project</a></li>
+        
+            <li><a class="toctree-l4" href="#put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</a></li>
+        
+            <li><a class="toctree-l4" href="#delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</a></li>
+        
+            <li><a class="toctree-l4" href="#get-project-metrics">[GET] Project Metrics</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../qa_ruby/">Ruby</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_topics/">API Topics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_subs/">API Subscriptions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_schemas/">API Schemas</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Q&A</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../qa_general_questions/">General</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../qa_ruby/">Ruby</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -222,7 +191,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../overview/">AMS documentation [V1]</a>
+        <a href="..">AMS documentation [V1]</a>
       </nav>
 
       
@@ -230,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../overview/">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
         
@@ -241,9 +210,8 @@
     <li>API Projects</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_projects.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -422,6 +390,115 @@
 Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h3 id="get-list-all-users-that-are-members-of-a-specific-project">[GET] List all users that are members of a specific project</h3>
+<h3 id="example-request_5">Example request</h3>
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/projects/ARGO2/members?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>If successful, the response contains a list of all available users in the specific project</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;users&quot;: [
+    {
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
+          }
+       ],
+       &quot;name&quot;: &quot;Test&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;Test@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+    }
+ ],
+ &quot;nextPageToken&quot;: &quot;&quot;,
+ &quot;totalSize&quot;: 1
+}
+</code></pre>
+
+<h3 id="unpriviledge-mode-non-service_admin-user">Unpriviledge mode (non service_admin user)</h3>
+<p>When a user is project_admin instead of service_admin and lists a project's users the results
+returned remove user information such as <code>token</code>, <code>service_roles</code> and <code>created_by</code> For example:</p>
+<pre><code class="json">{
+ &quot;users&quot;: [
+    {
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
+          }
+       ],
+       &quot;name&quot;: &quot;Test&quot;,
+       &quot;token&quot;: &quot;&quot;,
+       &quot;email&quot;: &quot;Test@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+    }
+ ],
+ &quot;nextPageToken&quot;: &quot;&quot;,
+ &quot;totalSize&quot;: 1
+}
+</code></pre>
+
+<h3 id="get-show-a-specific-member-user-of-the-specific-project">[GET] Show a specific member user of the specific project</h3>
+<h3 id="example-request_6">Example request</h3>
+<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+  &quot;https://{URL}/v1/projects/ARGO2/members/Test?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_6">Responses</h3>
+<p>If successful, the response contains information of the specific user Test</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;users&quot;: [
+    {
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;,
+                &quot;publisher&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
+          }
+       ],
+       &quot;name&quot;: &quot;Test&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;Test@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+    }
+ ],
+ &quot;nextPageToken&quot;: &quot;&quot;,
+ &quot;totalSize&quot;: 1
+}
+</code></pre>
+
+<h3 id="errors_5">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-project-metrics">[GET] Project Metrics</h2>
 <p>The following request returns related metrics for the specific project: eg. the number of topics</p>
 <h3 id="request_5">Request</h3>
@@ -433,12 +510,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_5">Example request</h3>
+<h3 id="example-request_7">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW:metrics?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_5">Responses</h3>
+<h3 id="responses_7">Responses</h3>
 <p>If successful it returns projects related metrics (number of topics, number of subscriptions).</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -527,13 +604,31 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
             }
          ],
          &quot;description&quot;: &quot;Counter that displays the number of subscriptions that a user has access to the specific project&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;project.number_of_daily_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;project&quot;,
+         &quot;resource_name&quot;: &quot;ARGO&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2018-10-02&quot;,
+               &quot;value&quot;: 30
+            },
+            {
+               &quot;timestamp&quot;: &quot;2018-10-01&quot;,
+               &quot;value&quot;: 110
+            }
+         ],
+         &quot;description&quot;: &quot;A collection of counters that represents the total number of messages published each day to all of the project's topics&quot;
       }
    ]
 }
 
 </code></pre>
 
-<h3 id="errors_5">Errors</h3>
+<h3 id="errors_6">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
@@ -542,7 +637,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api_topics/" class="btn btn-neutral float-right" title="API Topics"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api_topics/" class="btn btn-neutral float-right" title="API Topics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../api_users/" class="btn btn-neutral" title="API Users"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -561,7 +656,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -569,10 +664,10 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../api_users/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -582,6 +677,9 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

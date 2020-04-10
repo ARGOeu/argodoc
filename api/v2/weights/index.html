@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Weights resource - Web Api documentation [V2]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Weights resource";
+    var mkdocs_page_input_path = "weights.md";
+    var mkdocs_page_url = "/weights/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Weights resource</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-list-weight-resources">[GET]: List weight resources</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-weight-resource">[GET]: List A Specific weight resource</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-weight-resource">[POST]: Create a new weight resource</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-information-on-an-existing-weight-resource">[PUT]: Update information on an existing weight resource</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-an-existing-weight-resource">[DELETE]: Delete an existing weight resource</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Web Api documentation [V2]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Weights resource</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/weights.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api-calls">API Calls</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET: List Weights resources Request</td>
+<td>This method can be used to retrieve a list of current weight resources.</td>
+<td><a href="#1"> Description</a></td>
+</tr>
+<tr>
+<td>GET: List a specific Weights resource</td>
+<td>This method can be used to retrieve a specific weight resource based on its id.</td>
+<td><a href="#2"> Description</a></td>
+</tr>
+<tr>
+<td>POST: Create a new weight resource</td>
+<td>This method can be used to create a new weight resource</td>
+<td><a href="#3"> Description</a></td>
+</tr>
+<tr>
+<td>PUT: Update a weight resource</td>
+<td>This method can be used to update information on an existing weight resource</td>
+<td><a href="#4"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Delete a weight resource</td>
+<td>This method can be used to delete an existing weight resource</td>
+<td><a href="#5"> Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id='1'></a></p>
+<h2 id="get-list-weight-resources">[GET]: List weight resources</h2>
+<p>This method can be used to retrieve a list of current weight resources</p>
+<h3 id="input">Input</h3>
+<pre><code>GET /weights
+</code></pre>
+
+<h4 id="optional-query-parameters">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>weight resource name to be used as query</td>
+<td>NO</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the weights resource. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="request-headers">Request headers</h3>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+            &quot;date&quot;: &quot;2019-11-04&quot;,
+            &quot;name&quot;: &quot;Critical&quot;,
+            &quot;weight_type&quot;: &quot;hepsepc&quot;,
+            &quot;group_type&quot;: &quot;SITES&quot;,
+            &quot;groups&quot;: [
+                {
+                    &quot;name&quot;: &quot;SITE-A&quot;,
+                    &quot;value&quot;: 1673
+                },
+                {
+                    &quot;name&quot;: &quot;SITE-B&quot;,
+                    &quot;value&quot;: 1234
+                },
+                {
+                    &quot;name&quot;: &quot;SITE-C&quot;,
+                    &quot;value&quot;: 523
+                },
+                {
+                    &quot;name&quot;: &quot;SITE-D&quot;,
+                    &quot;value&quot;: 2
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50c&quot;,
+            &quot;date&quot;: &quot;2019-11-02&quot;,
+            &quot;name&quot;: &quot;NonCritical&quot;,
+            &quot;weight_type&quot;: &quot;hepsepc&quot;,
+            &quot;group_type&quot;: &quot;SERVICEGROUPS&quot;,
+            &quot;groups&quot;: [
+                {
+                    &quot;name&quot;: &quot;SVGROUP-A&quot;,
+                    &quot;value&quot;: 334
+                },
+                {
+                    &quot;name&quot;: &quot;SVGROUP-B&quot;,
+                    &quot;value&quot;: 588
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<p><a id='2'></a></p>
+<h2 id="get-list-a-specific-weight-resource">[GET]: List A Specific weight resource</h2>
+<p>This method can be used to retrieve specific weight resource based on its id</p>
+<h3 id="input_1">Input</h3>
+<pre><code>GET /weights/{ID}
+</code></pre>
+
+<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the weights resource. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers_1">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_1">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50c&quot;,
+            &quot;date&quot;: &quot;2019-11-02&quot;,
+            &quot;name&quot;: &quot;NonCritical&quot;,
+            &quot;weight_type&quot;: &quot;hepsepc&quot;,
+            &quot;group_type&quot;: &quot;SERVICEGROUPS&quot;,
+            &quot;groups&quot;: [
+                {
+                    &quot;name&quot;: &quot;SVGROUP-A&quot;,
+                    &quot;value&quot;: 334
+                },
+                {
+                    &quot;name&quot;: &quot;SVGROUP-B&quot;,
+                    &quot;value&quot;: 588
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<p><a id='3'></a></p>
+<h2 id="post-create-a-new-weight-resource">[POST]: Create a new weight resource</h2>
+<p>This method can be used to insert a new weight resource</p>
+<h3 id="input_2">Input</h3>
+<pre><code>POST /weights
+</code></pre>
+
+<h4 id="optional-query-parameters_2">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to create a historic version of the weights resource. If no date parameter is provided the current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers_2">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h4 id="post-body">POST BODY</h4>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;weight_set3&quot;,
+    &quot;weight_type&quot;: &quot;hepspec2&quot;,
+    &quot;group_type&quot;: &quot;SITES&quot;,
+    &quot;groups&quot;: [
+        { &quot;name&quot;: &quot;site-a&quot;, &quot;value&quot;: 336 },
+        { &quot;name&quot;: &quot;site-b&quot;, &quot;value&quot;: 343 },
+        { &quot;name&quot;: &quot;site-c&quot;, &quot;value&quot;: 553 },
+        { &quot;name&quot;: &quot;site-d&quot;, &quot;value&quot;: 435 },
+        { &quot;name&quot;: &quot;site-e&quot;, &quot;value&quot;: 3.33 },
+        { &quot;name&quot;: &quot;site-f&quot;, &quot;value&quot;: 323.3 }
+    ]
+}
+</code></pre>
+
+<h3 id="response_2">Response</h3>
+<p>Headers: <code>Status: 201 Created</code></p>
+<h4 id="response-body_2">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Weight resource successfully created&quot;,
+        &quot;code&quot;: &quot;201&quot;
+    },
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;{{ID}}&quot;,
+        &quot;links&quot;: {
+            &quot;self&quot;: &quot;https:///api/v2/weights/{{ID}}&quot;
+        }
+    }
+}
+</code></pre>
+
+<p><a id='4'></a></p>
+<h2 id="put-update-information-on-an-existing-weight-resource">[PUT]: Update information on an existing weight resource</h2>
+<p>This method can be used to update information on an existing weight resource</p>
+<h3 id="input_3">Input</h3>
+<pre><code>PUT /weights/{ID}
+</code></pre>
+
+<h4 id="optional-query-parameters_3">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to update a historic version of the weights resource. If no date parameter is provided If no date parameter is provided the current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers_3">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h4 id="put-body">PUT BODY</h4>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;weight_set3&quot;,
+    &quot;weight_type&quot;: &quot;hepspec2&quot;,
+    &quot;group_type&quot;: &quot;SITES&quot;,
+    &quot;groups&quot;: [
+        { &quot;name&quot;: &quot;site-a&quot;, &quot;value&quot;: 1336 },
+        { &quot;name&quot;: &quot;site-b&quot;, &quot;value&quot;: 1343 }
+    ]
+}
+</code></pre>
+
+<h3 id="response_3">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_3">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Weight resource successfully updated&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;{{ID}}&quot;,
+        &quot;links&quot;: {
+            &quot;self&quot;: &quot;https:///api/v2/weights/{{ID}}&quot;
+        }
+    }
+}
+</code></pre>
+
+<p><a id='5'></a></p>
+<h2 id="delete-delete-an-existing-weight-resource">[DELETE]: Delete an existing weight resource</h2>
+<p>This method can be used to delete an existing weight resource</p>
+<h3 id="input_4">Input</h3>
+<pre><code>DELETE /weights/{ID}
+</code></pre>
+
+<h4 id="request-headers_4">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_4">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_4">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Weight resource Successfully Deleted&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../topology/" class="btn btn-neutral" title="Topology statistics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2015 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../topology/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Topics - AMS documentation [V1]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>API Topics - AMS documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "API Topics";
+    var mkdocs_page_input_path = "api_topics.md";
+    var mkdocs_page_url = "/api_topics/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -38,183 +36,154 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../overview/" class="icon icon-home"> AMS documentation [V1]</a>
+        <a href=".." class="icon icon-home"> AMS documentation [V1]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
     <ul class="subnav">
-    <li><span>Basic Information</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview and Introduction</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msg_flow/">Messaging API flow</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../auth/">Authentication & Authorization</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../projects_users/">Project & User management guide</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview and Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_flow/">Messaging API flow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auth/">Authentication & Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projects_users/">Project & User management guide</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">How to Guides</span>
     <ul class="subnav">
-    <li><span>How to Guides</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../publisher/">Publisher Guide</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../publisher/">Publisher Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../consumer.md">Consumer Guide</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Messaging API</span>
     <ul class="subnav">
-    <li><span>API & References</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_basic/">API Basic Information</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_auth/">API Authentication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_users/">API Users</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_projects/">API Projects</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API Topics</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#topics-api-calls">Topics Api Calls</a></li>
-                
-                    <li><a class="toctree-l4" href="#put-manage-topics-create-new-topic">[PUT] Manage Topics - Create new topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete-manage-topics-delete-topic">[DELETE] Manage Topics - Delete topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-manage-topics-get-a-topic">[GET] Manage Topics - Get a topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-manage-topics-list-topics">[GET] Manage Topics - List Topics</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-topic-metrics">[GET] Topic Metrics</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_subs/">API Subscriptions</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_metrics/">API Operational Metrics</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api_errors/">API Error Messages</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../api_basic/">API Basic Information</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API & References</span>
     <ul class="subnav">
-    <li><span>Q&A</span></li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../api_auth/">API Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_users/">API Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_projects/">API Projects</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">API Topics</a>
+    <ul class="subnav">
             
-    <li class="toctree-l1 ">
-        <a class="" href="../qa_general_questions/">General</a>
+    <li class="toctree-l3"><a href="#topics-api-calls">Topics Api Calls</a></li>
+    
+        <ul>
         
-    </li>
+            <li><a class="toctree-l4" href="#put-manage-topics-create-new-topic">[PUT] Manage Topics - Create new topic</a></li>
+        
+            <li><a class="toctree-l4" href="#delete-manage-topics-delete-topic">[DELETE] Manage Topics - Delete topic</a></li>
+        
+            <li><a class="toctree-l4" href="#get-manage-topics-get-a-topic">[GET] Manage Topics - Get a topic</a></li>
+        
+            <li><a class="toctree-l4" href="#get-manage-topics-list-topics">[GET] Manage Topics - List Topics</a></li>
+        
+            <li><a class="toctree-l4" href="#post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</a></li>
+        
+            <li><a class="toctree-l4" href="#get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</a></li>
+        
+            <li><a class="toctree-l4" href="#post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</a></li>
+        
+            <li><a class="toctree-l4" href="#get-topic-metrics">[GET] Topic Metrics</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../qa_ruby/">Ruby</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_subs/">API Subscriptions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_schemas/">API Schemas</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Q&A</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../qa_general_questions/">General</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../qa_ruby/">Ruby</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -226,7 +195,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../overview/">AMS documentation [V1]</a>
+        <a href="..">AMS documentation [V1]</a>
       </nav>
 
       
@@ -234,7 +203,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../overview/">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
         
@@ -245,9 +214,8 @@
     <li>API Topics</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-messaging" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_topics.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -263,6 +231,13 @@ A topic name must be scoped to a project.</p>
 <p>This request creates a new topic with the given topic_name in a project with a PUT request</p>
 <h3 id="request">Request</h3>
 <pre><code class="json">PUT &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
+</code></pre>
+
+<h3 id="requestbody">RequestBody</h3>
+<p>If you need to link a schema with the topic you need to provide its name. </p>
+<pre><code class="json">{
+  &quot;schema&quot;: &quot;schema-1&quot;
+}
 </code></pre>
 
 <h3 id="where">Where</h3>
@@ -335,17 +310,29 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-manage-topics-list-topics">[GET] Manage Topics - List Topics</h2>
-<p>This request gets the list of topics in a project with a GET request</p>
-<h3 id="request_3">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects/{project_name}/topics&quot;
+<p>This request lists all available topics under a specific project in the service using pagination.</p>
+<p>If the <code>USER</code> making the request has only <code>publisher</code> role for the respective project, it will load
+only the topics that he has access to(being present in a topic's acl).</p>
+<p>It is important to note that if there are no results to return the service will return the following:</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+ &quot;users&quot;: [],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 0
+ }
 </code></pre>
 
+<p>Also the default value for <code>pageSize = 0</code> and <code>pageToken = "</code>.</p>
+<p><code>Pagesize = 0</code> returns all the results.</p>
+<h3 id="paginated-request-that-returns-all-topics-under-the-specified-project">Paginated Request that returns all topics under the specified project</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
 <h3 id="where_3">Where</h3>
 <ul>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&quot;`
 </code></pre>
 
@@ -359,8 +346,60 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
     },
     {
       &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
-    },
-     ]
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 2
+}
+</code></pre>
+
+<h3 id="paginated-request-that-returns-the-first-page-of-a-specific-size">Paginated Request that returns the first page of a specific size</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<h3 id="where_4">Where</h3>
+<ul>
+<li>Project_name: Name of the project to get the list of topics</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&quot;`
+</code></pre>
+
+<h3 id="responses_4">Responses</h3>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;topics&quot;: [
+    {
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;some_token&quot;,
+  &quot;totalSize&quot;: 2
+}
+</code></pre>
+
+<h3 id="paginated-request-that-returns-the-next-page-of-a-specific-size">Paginated Request that returns the next  page of a specific size</h3>
+<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<h3 id="where_5">Where</h3>
+<ul>
+<li>Project_name: Name of the project to get the list of topics</li>
+</ul>
+<h3 id="example-request_5">Example request</h3>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&amp;pageToken=some_token&quot;`
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;topics&quot;: [
+    {
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
+    }
+ ],
+  &quot;nextPageToken&quot;: &quot;&quot;,
+  &quot;totalSize&quot;: 2
 }
 </code></pre>
 
@@ -368,11 +407,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</h2>
 <p>The topic:publish endpoint publishes a message, or a list of messages to a specific topic with a  POST request</p>
-<h3 id="request_4">Request</h3>
+<h3 id="request_3">Request</h3>
 <pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:publish&quot;
 </code></pre>
 
-<h3 id="where_4">Where</h3>
+<h3 id="where_6">Where</h3>
 <ul>
 <li>Project_name: Name of the project to post the messages</li>
 <li>topic_name: to post the messages</li>
@@ -396,12 +435,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <blockquote>
 <p>The value of the data property must be always encoded in base64 format.</p>
 </blockquote>
-<h3 id="example-request_4">Example request</h3>
+<h3 id="example-request_6">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_4">Responses</h3>
+<h3 id="responses_6">Responses</h3>
 <p>If successful, the response contains the messageIds of the messages published.</p>
 <p>Success Response <code>200 OK</code></p>
 <pre><code class="json">{
@@ -415,21 +454,21 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
 <p>The following request returns a list of authorized users (publishers) of a given topic.</p>
-<h3 id="request_5">Request</h3>
+<h3 id="request_4">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:acl&quot;
 </code></pre>
 
-<h3 id="where_5">Where</h3>
+<h3 id="where_7">Where</h3>
 <ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_5">Example request</h3>
+<h3 id="example-request_7">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_5">Responses</h3>
+<h3 id="responses_7">Responses</h3>
 <p>If successful it returns the authorized users of the topic.</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -444,11 +483,11 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</h2>
 <p>The following request Modifies the authorized users list of a given topic</p>
-<h3 id="request_6">Request</h3>
+<h3 id="request_5">Request</h3>
 <pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:modifyAcl&quot;
 </code></pre>
 
-<h3 id="where_6">Where</h3>
+<h3 id="where_8">Where</h3>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>topic_name: name of the topic</li>
@@ -461,12 +500,12 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="example-request_6">Example request</h3>
+<h3 id="example-request_8">Example request</h3>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_6">Responses</h3>
+<h3 id="responses_8">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
 <h3 id="errors_6">Errors</h3>
@@ -484,21 +523,21 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-topic-metrics">[GET] Topic Metrics</h2>
 <p>The following request returns related metrics for the specific topic: for eg the number of published messages</p>
-<h3 id="request_7">Request</h3>
+<h3 id="request_6">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:metrics&quot;
 </code></pre>
 
-<h3 id="where_7">Where</h3>
+<h3 id="where_9">Where</h3>
 <ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_7">Example request</h3>
+<h3 id="example-request_9">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:metrics?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_7">Responses</h3>
+<h3 id="responses_9">Responses</h3>
 <p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -545,6 +584,38 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
             }
          ],
          &quot;description&quot;: &quot;Counter that displays the total size of data (in bytes) published to the specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.number_of_daily_messages&quot;,
+         &quot;metric_type&quot;: &quot;counter&quot;,
+         &quot;value_type&quot;: &quot;int64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2018-10-02&quot;,
+               &quot;value&quot;: 30
+            },
+            {
+               &quot;timestamp&quot;: &quot;2018-10-01&quot;,
+               &quot;value&quot;: 40
+            }
+         ],
+         &quot;description&quot;: &quot;A collection of counters that represents the total number of messages published each day to a specific topic&quot;
+      },
+      {
+         &quot;metric&quot;: &quot;topic.publishing_rate&quot;,
+         &quot;metric_type&quot;: &quot;rate&quot;,
+         &quot;value_type&quot;: &quot;float64&quot;,
+         &quot;resource_type&quot;: &quot;topic&quot;,
+         &quot;resource_name&quot;: &quot;topic1&quot;,
+         &quot;timeseries&quot;: [
+            {
+               &quot;timestamp&quot;: &quot;2019-05-06T00:00:00Z&quot;,
+               &quot;value&quot;: 10
+            }
+         ],
+         &quot;description&quot;: &quot;A rate that displays how many messages were published per second between the last two publish events&quot;
       }
    ]
 }
@@ -560,7 +631,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api_subs/" class="btn btn-neutral float-right" title="API Subscriptions"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api_subs/" class="btn btn-neutral float-right" title="API Subscriptions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../api_projects/" class="btn btn-neutral" title="API Projects"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -579,7 +650,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -587,10 +658,10 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../api_projects/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -600,6 +671,9 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

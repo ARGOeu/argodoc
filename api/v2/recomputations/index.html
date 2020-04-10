@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Recomputations Requests - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Recomputations Requests - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Recomputations Requests";
+    var mkdocs_page_input_path = "recomputations.md";
+    var mkdocs_page_url = "/recomputations/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,108 +39,109 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Recomputations Requests</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Recomputations Requests</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#recomputations-requests">Recomputations Requests</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-recomputation-requests">[GET]: List Recomputation Requests</a></li>
-                
-                    <li><a class="toctree-l4" href="#post-create-a-new-recomputation-request">[POST]: Create a new recomputation request</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#recomputations-requests">Recomputations Requests</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-recomputation-requests">[GET]: List Recomputation Requests</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-recomputation-request">[POST]: Create a new recomputation request</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-a-specific-recomputation">[DELETE]: Delete a specific recomputation</a></li>
+        
+            <li><a class="toctree-l3" href="#post-change-status-of-recomputation">[POST]: Change status of recomputation</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-reset-status-of-a-specific-recomputation">[DELETE]: Reset status of a specific recomputation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../errors/">Error Codes</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../validations/">Validation Checks</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metrics/">Metrics</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -169,9 +168,8 @@
     <li>Recomputations Requests</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/recomputations.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -200,6 +198,21 @@
 <td>POST: Create a new recomputation request</td>
 <td>This method can be used to insert a new recomputation request onto the Compute Engine.</td>
 <td><a href="#2"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Delete a specific recomputation</td>
+<td>This method can be used to delete a specific recomputation.</td>
+<td><a href="#3"> Description</a></td>
+</tr>
+<tr>
+<td>POST: change status</td>
+<td>This method can be used to change status of a specific recomputation.</td>
+<td><a href="#4"> Description</a></td>
+</tr>
+<tr>
+<td>DELETE: Reset status of recomputation</td>
+<td>This method can be used to reset status of a specific recomputation.</td>
+<td><a href="#5"> Description</a></td>
 </tr>
 </tbody>
 </table>
@@ -232,26 +245,25 @@ Accept: application/json
            &quot;Gluster&quot;
           ],
           &quot;status&quot;: &quot;running&quot;,
-          &quot;timestamp&quot;: &quot;2015-02-01 14:58:40&quot;
+          &quot;timestamp&quot;: &quot;2015-02-01T14:58:40&quot;,
+          &quot;history&quot;: [
+              { 
+                  &quot;status&quot;: &quot;pending&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-01T14:58:40&quot;
+              },
+              { 
+                  &quot;status&quot;: &quot;approved&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-02T08:58:40&quot;
+              },
+              { 
+                  &quot;status&quot;: &quot;running&quot;, 
+                  &quot;timestamp&quot; : &quot;2015-02-02T09:10:40&quot;
+              },
+
+          ]
      }
  ]
 }
-</code></pre>
-
-<p>Xml Response</p>
-<pre><code class="xml">&lt;root&gt;
-    &lt;Result&gt;
-        &lt;requester_name&gt;Arya Stark&lt;/requester_name&gt;
-        &lt;requester_email&gt;astark@shadowguild.com&lt;/requester_email&gt;
-        &lt;reason&gt;power cuts&lt;/reason&gt;
-        &lt;start_time&gt;2015-01-10T12:00:00Z&lt;/start_time&gt;
-        &lt;end_time&gt;2015-01-30T23:00:00Z&lt;/end_time&gt;
-        &lt;report&gt;EGI_Critical&lt;/report&gt;
-        &lt;exclude&gt;Gluster&lt;/exclude&gt;
-        &lt;status&gt;running&lt;/status&gt;
-        &lt;timestamp&gt;2015-02-01 14:58:40&lt;/timestamp&gt;
-    &lt;/Result&gt;
-&lt;/root&gt;
 </code></pre>
 
 <p><a id='2'></a></p>
@@ -296,6 +308,18 @@ Accept: application/json
 <td></td>
 </tr>
 <tr>
+<td><code>requester_name</code></td>
+<td>The name of the person submitting the recomputation</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td><code>requester_email</code></td>
+<td>The email of the person submitting the recomputation</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td><code>report</code></td>
 <td>Report for which the recomputation is requested</td>
 <td>YES</td>
@@ -311,6 +335,76 @@ Accept: application/json
 </table>
 <h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
+<p><a id='3'></a></p>
+<h2 id="delete-delete-a-specific-recomputation">[DELETE]: Delete a specific recomputation</h2>
+<pre><code>DELETE /recomputations/{ID}
+</code></pre>
+
+<h4 id="request-headers_2">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_2">Response</h3>
+<p><code>Status 200 OK</code></p>
+<p><a id='4'></a></p>
+<h2 id="post-change-status-of-recomputation">[POST]: Change status of recomputation</h2>
+<pre><code>POST /recomputations/{ID}/status
+</code></pre>
+
+<h4 id="request-headers_3">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="post-body">POST body</h3>
+<pre><code class="json">{
+  &quot;status&quot; : &quot;approved&quot;
+}
+</code></pre>
+
+<p>Eligible recomputation status values:</p>
+<ul>
+<li>pending</li>
+<li>approved</li>
+<li>rejected</li>
+<li>running</li>
+<li>done</li>
+</ul>
+<p>If recomputation status input not in eligible values the api will respond with status code <code>404</code>:<code>conflict</code></p>
+<h3 id="response_3">Response</h3>
+<p><code>Status 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Recomputation status updated successfully to: approved&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ }
+}
+</code></pre>
+
+<p><a id='5'></a></p>
+<h2 id="delete-reset-status-of-a-specific-recomputation">[DELETE]: Reset status of a specific recomputation</h2>
+<pre><code>DELETE /recomputations/{ID}/status
+</code></pre>
+
+<h4 id="request-headers_4">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_4">Response</h3>
+<p><code>Status 200 OK</code></p>
+<h4 id="response-body_2">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Recomputation status reset to: pending&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ }
+}
+</code></pre>
               
             </div>
           </div>
@@ -318,7 +412,7 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../results/" class="btn btn-neutral float-right" title="Results"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../results/" class="btn btn-neutral float-right" title="Results">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -337,7 +431,7 @@ Accept: application/json
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -345,10 +439,10 @@ Accept: application/json
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -358,6 +452,9 @@ Accept: application/json
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
