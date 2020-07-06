@@ -129,28 +129,43 @@ pipeline {
                 }
             }
         }
-        stage('Push changes to argoeu') {
+        stage('Push changes to argodoc') {
             when { branch pattern: "master|devel", comparator: "REGEXP" }
             steps {
-                echo 'Push changes...'
-                withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
-                    sh '''
-                        cd $WORKSPACE/argodoc
-                        echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh
-                        chmod +x ../local_ssh.sh
-                    '''
-                    withEnv(['GIT_SSH=../local_ssh.sh']) {
-                        sh """
-                            if [ -n "\$(git status --porcelain)" ]; then
-                                cd $WORKSPACE/argodoc
-                                ls -lah
-                                git checkout ${env.BRANCH_NAME}
-                                git add -A
-                                git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
-                                git push origin ${env.BRANCH_NAME}
+                dir ("${WORKSPACE}/argodoc2") {
+                    git branch: "${env.BRANCH_NAME}",
+                        credentialsId: 'jenkins-rpm-repo',
+                        url: "git@github.com:ARGOeu/argodoc.git"
+                    sh """
+                        rm -rf $WORKSPACE/argodoc2/content/guides/*
+                        rm -rf $WORKSPACE/argodoc2/api/v2/*
+                        rm -rf $WORKSPACE/argodoc2/messaging/v1/*
+                        rm -rf $WORKSPACE/argodoc2/authn/v1/*
+                        rm -rf $WORKSPACE/argodoc2/poem/v1/*
+                        rm -rf $WORKSPACE/argodoc2/monitoring-probes/v1/*
+                        cp -R $WORKSPACE/argodoc/content/guides/* $WORKSPACE/argodoc2/content/guides/
+                        cp -R $WORKSPACE/argodoc/api/v2/* $WORKSPACE/argodoc2/api/v2/
+                        cp -R $WORKSPACE/argodoc/messaging/v1/* $WORKSPACE/argodoc2/messaging/v1/
+                        cp -R $WORKSPACE/argodoc/authn/v1/* $WORKSPACE/argodoc2/authn/v1/
+                        cp -R $WORKSPACE/argodoc/poem/v1/* $WORKSPACE/argodoc2/poem/v1/
+                        cp -R $WORKSPACE/argodoc/monitoring-probes/v1/* $WORKSPACE/argodoc2/monitoring-probes/v1/
+                        cd $WORKSPACE/argodoc2
+                    """
+                    withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSH_KEY')]) {
+                        sh '''
+                            echo ssh -i $SSH_KEY -l git -o StrictHostKeyChecking=no \\"\\$@\\" > ../local_ssh.sh
+                            chmod +x ../local_ssh.sh
+                        '''
+                        withEnv(['GIT_SSH=../local_ssh.sh']) {
+                            sh """
+                                if [ -n "\$(git status --porcelain)" ]; then
+                                    git add -A
+                                    git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
+                                    git push origin ${env.BRANCH_NAME}
+                                fi
                                 rm ../local_ssh.sh
-                            fi
-                        """
+                            """
+                        }
                     }
                 }
             }
