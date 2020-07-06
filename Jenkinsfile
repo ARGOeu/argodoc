@@ -142,6 +142,8 @@ pipeline {
                     withEnv(['GIT_SSH=../local_ssh.sh']) {
                         sh """
                             if [ -n "\$(git status --porcelain)" ]; then
+                                cd $WORKSPACE/argodoc
+                                ls -lah
                                 git checkout ${env.BRANCH_NAME}
                                 git add -A
                                 git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
