@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Api registrations - AMS documentation [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Api registrations";
+    var mkdocs_page_input_path = "api_registrations.md";
+    var mkdocs_page_url = "/api_registrations/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview and Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_flow/">Messaging API flow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auth/">Authentication & Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projects_users/">Project & User management guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">How to Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../publisher/">Publisher Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../consumer.md">Consumer Guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Messaging API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../api_basic/">API Basic Information</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API & References</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../api_auth/">API Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_users/">API Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_projects/">API Projects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_topics/">API Topics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_subs/">API Subscriptions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_schemas/">API Schemas</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Q&A</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../qa_general_questions/">General</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../qa_ruby/">Ruby</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Api registrations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_registrations.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="registrations-api-calls">Registrations API Calls</h1>
+<p>ARGO Messaging Service supports calls for registering users</p>
+<h2 id="post-manage-registrations-new-user-registration">[POST] Manage Registrations - New user registration</h2>
+<p>This request creates a new registration for a future user</p>
+<h3 id="request">Request</h3>
+<pre><code class="json">POST &quot;/v1/registrations
+</code></pre>
+
+<h3 id="post-body">Post body:</h3>
+<pre><code class="json">{
+   &quot;name&quot;: &quot;new-register-user&quot;,
+  &quot;first_name&quot;: &quot;first-name&quot;,
+  &quot;last_name&quot;: &quot;last-name&quot;,
+  &quot;email&quot;: &quot;test@example.com&quot;,
+  &quot;organization&quot;: &quot;org1&quot;,
+  &quot;description&quot;: &quot;desc1&quot;
+}
+</code></pre>
+
+<h3 id="example-request">Example request</h3>
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/registrations
+</code></pre>
+
+<h3 id="responses">Responses</h3>
+<p>If successful, the response contains the newly registered user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;uuid&quot;: &quot;99bfd746-4ebe-11p0-9c2d-fa7ae01bbebc&quot;,
+   &quot;name&quot;: &quot;new-register-user&quot;,
+   &quot;first_name&quot;: &quot;first-name&quot;,
+   &quot;last_name&quot;: &quot;last-name&quot;,
+   &quot;organization&quot;: &quot;org1&quot;,
+   &quot;description&quot;: &quot;desc1&quot;,
+   &quot;email&quot;: &quot;test@example.com&quot;,
+   &quot;activation_token&quot;: &quot;a-token&quot;,
+   &quot;status&quot;: &quot;pending&quot;,
+   &quot;registered_at&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+   &quot;modified_at&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+   &quot;modified_by&quot;: &quot;UserA&quot;
+}
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-registrations-accept-a-users-registration">[POST] Manage Registrations - Accept a User's Registration</h2>
+<p>This request accepts a user's registration 
+and as a result it creates a new user with the provided information.</p>
+<h3 id="request_1">Request</h3>
+<pre><code class="json">POST &quot;/v1/registrations/{uuid}:accept&quot;
+</code></pre>
+
+<h3 id="example-request_1">Example request</h3>
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/registrations/uuid1:accept&quot;
+</code></pre>
+
+<h3 id="responses_1">Responses</h3>
+<p>If successful, the response contains the newly created user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;uuid&quot;: &quot;1d0aa54e-44b8-4d2a-8cf7-d4cb2e350c61&quot;,
+    &quot;projects&quot;: [],
+    &quot;name&quot;: &quot;user-acc-344&quot;,
+    &quot;first_name&quot;: &quot;fname&quot;,
+    &quot;last_name&quot;: &quot;lname&quot;,
+    &quot;organization&quot;: &quot;grnet&quot;,
+    &quot;description&quot;: &quot;simple user&quot;,
+    &quot;token&quot;: &quot;bb0ad3da48f69372e38e55e423324b7366e32804&quot;,
+    &quot;email&quot;: &quot;test@example.com&quot;,
+    &quot;service_roles&quot;: [],
+    &quot;created_on&quot;: &quot;2020-05-17T22:27:09Z&quot;,
+    &quot;modified_on&quot;: &quot;2020-05-17T22:27:09Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-registrations-decline-a-users-registration">[POST] Manage Registrations - Decline a User's Registration</h2>
+<p>This request declines a user's registration</p>
+<h3 id="request_2">Request</h3>
+<pre><code class="json">POST &quot;/v1/registrations/{uuid}:decline&quot;
+</code></pre>
+
+<h3 id="example-request_2">Example request</h3>
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/registrations/uuid1:decline&quot;
+</code></pre>
+
+<h3 id="responses_2">Responses</h3>
+<p>If successful, the response contains the newly created user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{}
+</code></pre>
+
+<h3 id="errors_2">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-manage-registrations-retrieve-a-users-registration">[GET] Manage Registrations - Retrieve a User's Registration</h2>
+<p>This request retrieves a user's registration </p>
+<h3 id="request_3">Request</h3>
+<pre><code class="json">GET &quot;/v1/registrations/{uuid}&quot;
+</code></pre>
+
+<h3 id="example-request_3">Example request</h3>
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/registrations/ur-uuid1&quot;
+</code></pre>
+
+<h3 id="responses_3">Responses</h3>
+<p>If successful, the response contains user's registration</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;uuid&quot;: &quot;ur-uuid1&quot;,
+   &quot;name&quot;: &quot;urname&quot;,
+   &quot;first_name&quot;: &quot;urfname&quot;,
+   &quot;last_name&quot;: &quot;urlname&quot;,
+   &quot;organization&quot;: &quot;urorg&quot;,
+   &quot;description&quot;: &quot;urdesc&quot;,
+   &quot;email&quot;: &quot;uremail&quot;,
+   &quot;status&quot;: &quot;pending&quot;,
+   &quot;activation_token&quot;: &quot;uratkn-1&quot;,
+   &quot;registered_at&quot;: &quot;2019-05-12T22:26:58Z&quot;,
+   &quot;modified_by&quot;: &quot;UserA&quot;,
+   &quot;modified_at&quot;: &quot;2020-05-15T22:26:58Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-manage-registrations-retrieve-all-registrations">[GET] Manage Registrations - Retrieve all registrations</h2>
+<p>This request retrieves all registration in the service</p>
+<h3 id="request_4">Request</h3>
+<pre><code class="json">GET &quot;/v1/registrations&quot;
+</code></pre>
+
+<h3 id="optional-filters">Optional Filters</h3>
+<ul>
+<li>status</li>
+<li>activation_token</li>
+<li>email</li>
+<li>organization</li>
+<li>name</li>
+</ul>
+<h3 id="example-request_4">Example request</h3>
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
+&quot;https://{URL}/v1/registrations&quot;
+</code></pre>
+
+<h3 id="responses_4">Responses</h3>
+<p>If successful, the response contains all registrations</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+   &quot;user_registrations&quot;: [
+   {
+      &quot;uuid&quot;: &quot;ur-uuid1&quot;,
+      &quot;name&quot;: &quot;urname&quot;,
+      &quot;first_name&quot;: &quot;urfname&quot;,
+      &quot;last_name&quot;: &quot;urlname&quot;,
+      &quot;organization&quot;: &quot;urorg&quot;,
+      &quot;description&quot;: &quot;urdesc&quot;,
+      &quot;email&quot;: &quot;uremail&quot;,
+      &quot;status&quot;: &quot;pending&quot;,
+      &quot;activation_token&quot;: &quot;uratkn-1&quot;,
+      &quot;registered_at&quot;: &quot;2019-05-12T22:26:58Z&quot;,
+      &quot;modified_by&quot;: &quot;UserA&quot;,
+      &quot;modified_at&quot;: &quot;2020-05-15T22:26:58Z&quot;
+   }
+  ]
+}
+</code></pre>
+
+<h3 id="errors_4">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

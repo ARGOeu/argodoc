@@ -435,6 +435,10 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <blockquote>
 <p>The value of the data property must be always encoded in base64 format.</p>
 </blockquote>
+<h4 id="avro-schema-use-case">AVRO Schema Use case</h4>
+<p>Whenever a topic has an AVRO Schema attached to it, all messages
+need to have their schema encoded alongside them in order for the validation
+to work properly.</p>
 <h3 id="example-request_6">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;

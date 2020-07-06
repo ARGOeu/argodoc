@@ -499,6 +499,157 @@ returned remove user information such as <code>token</code>, <code>service_roles
 
 <h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h3 id="post-create-a-new-member-user-under-the-specific-project">[POST] Create a new member user under the specific project</h3>
+<h3 id="example-request_7">Example request</h3>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
+  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_1">Post body:</h3>
+<pre><code class="json">{
+    &quot;projects&quot;: [
+            {
+                &quot;project&quot;: &quot;ARGO2&quot;,
+                &quot;roles&quot;: [&quot;consumer&quot;]
+            }
+        ],
+    &quot;email&quot;: &quot;email@test.com&quot;
+}
+</code></pre>
+
+<h3 id="responses_7">Responses</h3>
+<p>If successful, the response contains information about the newly created user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
+          }
+       ],
+       &quot;name&quot;: &quot;NewUSer&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;email@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_6">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h3 id="put-updates-the-roles-for-a-member-user-under-the-specific-project">[PUT] Updates the roles for a member user under the specific project</h3>
+<h3 id="example-request_8">Example request</h3>
+<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
+  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_2">Post body:</h3>
+<pre><code class="json">{
+    &quot;projects&quot;: [
+            {
+                &quot;project&quot;: &quot;ARGO2&quot;,
+                &quot;roles&quot;: [&quot;consumer&quot;]
+            }
+        ]
+}
+</code></pre>
+
+<h3 id="responses_8">Responses</h3>
+<p>If successful, the response contains information about the updated user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;
+             ],
+             &quot;topics&quot;: [],
+             &quot;subscriptions&quot;: []
+          }
+       ],
+       &quot;name&quot;: &quot;NewUSer&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;email@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_7">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h3 id="post-addinvite-a-user-to-a-project">[POST] Add/Invite a user to a project</h3>
+<h3 id="example-request_9">Example request</h3>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
+  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser:add?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_3">Post body:</h3>
+<pre><code class="json">{
+  &quot;roles&quot;: [&quot;consumer&quot;],
+   &quot;topics&quot;: [&quot;topic1&quot;],
+   &quot;subscriptions&quot;: [&quot;sub1&quot;]
+}
+</code></pre>
+
+<h3 id="responses_9">Responses</h3>
+<p>If successful, the response contains information about the added user</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+
+       &quot;uuid&quot;: &quot;99bfd746-4ebe-11e8-9c2d-fa7ae01bbebw&quot;,
+       &quot;projects&quot;: [
+          {
+             &quot;project&quot;: &quot;ARGO2&quot;,
+             &quot;roles&quot;: [
+                &quot;consumer&quot;
+             ],
+             &quot;topics&quot;: [
+                &quot;topic1&quot;
+             ],
+             &quot;subscriptions&quot;: [
+                &quot;sub1&quot;
+             ]
+          }
+       ],
+       &quot;name&quot;: &quot;NewUSer&quot;,
+       &quot;token&quot;: &quot;S3CR3T&quot;,
+       &quot;email&quot;: &quot;email@test.com&quot;,
+       &quot;service_roles&quot;: [],
+       &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
+       &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;
+}
+</code></pre>
+
+<h3 id="errors_8">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h3 id="post-remove-a-user-from-the-project">[POST] Remove a user from the project</h3>
+<h3 id="example-request_10">Example request</h3>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/ARGO2/members/NewUser:remove?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_10">Responses</h3>
+<p>Empty response on success
+<code>200 OK</code></p>
+<pre><code class="json">{}
+</code></pre>
+
+<h3 id="errors_9">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-project-metrics">[GET] Project Metrics</h2>
 <p>The following request returns related metrics for the specific project: eg. the number of topics</p>
 <h3 id="request_5">Request</h3>
@@ -510,12 +661,12 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_7">Example request</h3>
+<h3 id="example-request_11">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW:metrics?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_7">Responses</h3>
+<h3 id="responses_11">Responses</h3>
 <p>If successful it returns projects related metrics (number of topics, number of subscriptions).</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -628,7 +779,7 @@ returned remove user information such as <code>token</code>, <code>service_roles
 
 </code></pre>
 
-<h3 id="errors_6">Errors</h3>
+<h3 id="errors_10">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>

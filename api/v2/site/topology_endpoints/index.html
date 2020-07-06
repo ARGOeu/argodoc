@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Topology Endpoints - Web Api documentation [V2]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Topology Endpoints";
+    var mkdocs_page_input_path = "topology_endpoints.md";
+    var mkdocs_page_url = "/topology_endpoints/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_stats/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Topology Endpoints</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#topology-endpoints">Topology Endpoints</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#post-create-endpoint-topology-for-specific-date">POST: Create endpoint topology for specific date</a></li>
+        
+            <li><a class="toctree-l3" href="#409-conflict-when-trying-to-insert-a-topology-that-already-exists">409 Conflict when trying to insert a topology that already exists</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-endpoint-topology-per-date">GET: List endpoint topology per date</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-endpoint-topology-for-a-specific-date">[DELETE]: Delete endpoint topology for a specific date</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-endpoint-topology-for-specific-report">GET: List endpoint topology for specific report</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_groups/">Topology Groups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Web Api documentation [V2]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Topology Endpoints</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/topology_endpoints.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="topology-endpoints">Topology Endpoints</h1>
+<p>API calls for handling topology endpoint resources</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST: Create endpoint topology for specific date</td>
+<td>Creates a daily endpoint topology mapping endpoints to endpoint groups</td>
+<td><a href="#1">Description</a></td>
+</tr>
+<tr>
+<td>GET: List endpoint topology for specific date</td>
+<td>Lists endpoint topology for a specific date</td>
+<td><a href="#2">Description</a></td>
+</tr>
+<tr>
+<td>DELETE: delete endpoint topology for specific date</td>
+<td>Deletes all endpoint items (topology) for a specific date</td>
+<td><a href="#3">Description</a></td>
+</tr>
+<tr>
+<td>GET: List endpoint topology for specific report</td>
+<td>Lists endpoint topology for a specific report</td>
+<td><a href="#4">Description</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="1"></a></p>
+<h2 id="post-create-endpoint-topology-for-specific-date">POST: Create endpoint topology for specific date</h2>
+<p>Creates a daily endpoint topology mapping endpoints to endpoint groups</p>
+<h3 id="input">Input</h3>
+<pre><code>POST /topology/endpoints?date=YYYY-MM-DD
+</code></pre>
+
+<h4 id="url-parameters">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>target a specific date</td>
+<td>NO</td>
+<td>today's date</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headers">Headers</h4>
+<pre><code>x-api-key: secret_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="post-body">POST BODY</h3>
+<pre><code class="json">[
+    {
+        &quot;group&quot;: &quot;SITE_A&quot;,
+        &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+        &quot;type&quot;: &quot;SITES&quot;,
+        &quot;service&quot;: &quot;a.service.foo&quot;,
+        &quot;tags&quot;: { &quot;scope&quot;: &quot;TENANT&quot;, &quot;production&quot;: &quot;1&quot;, &quot;monitored&quot;: &quot;1&quot; }
+    },
+    {
+        &quot;group&quot;: &quot;SITE_A&quot;,
+        &quot;hostname&quot;: &quot;host2.site-b.foo&quot;,
+        &quot;type&quot;: &quot;SITES&quot;,
+        &quot;service&quot;: &quot;b.service.foo&quot;,
+        &quot;tags&quot;: { &quot;scope&quot;: &quot;TENANT&quot;, &quot;production&quot;: &quot;1&quot;, &quot;monitored&quot;: &quot;1&quot; }
+    },
+    {
+        &quot;group&quot;: &quot;SITE_B&quot;,
+        &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+        &quot;type&quot;: &quot;SITES&quot;,
+        &quot;service&quot;: &quot;c.service.foo&quot;,
+        &quot;tags&quot;: { &quot;scope&quot;: &quot;TENANT&quot;, &quot;production&quot;: &quot;1&quot;, &quot;monitored&quot;: &quot;1&quot; }
+    }
+]
+</code></pre>
+
+<h4 id="response-code">Response Code</h4>
+<pre><code>Status: 201 OK Created
+</code></pre>
+
+<h3 id="response-body">Response body</h3>
+<pre><code class="json">{
+    &quot;message&quot;: &quot;Topology of 3 endpoints created for date: YYYY-MM-DD&quot;,
+    &quot;code&quot;: &quot;201&quot;
+}
+</code></pre>
+
+<h2 id="409-conflict-when-trying-to-insert-a-topology-that-already-exists">409 Conflict when trying to insert a topology that already exists</h2>
+<p>When trying to insert a topology for a specific date that already exists the api will answer with the following reponse:</p>
+<h3 id="response-code_1">Response Code</h3>
+<pre><code>Status: 409 Conflict
+</code></pre>
+
+<h3 id="response-body_1">Response body</h3>
+<pre><code class="json">{
+    &quot;message&quot;: &quot;topology already exists for date: YYYY-MM-DD, please either update it or delete it first!&quot;,
+    &quot;code&quot;: &quot;409&quot;
+}
+</code></pre>
+
+<p>User can proceed with either updating the existing endpoint topology OR deleting before trying to create it anew</p>
+<p><a id="2"></a></p>
+<h2 id="get-list-endpoint-topology-per-date">GET: List endpoint topology per date</h2>
+<p>List endpoint topology for a specific date or the closest availabe topology to that date. If date is not provided list the latest available endpoint topology.</p>
+<h3 id="input_1">Input</h3>
+<h5 id="list-all-topology-statistics">List All topology statistics</h5>
+<pre><code>GET /topology/endpoints?date=YYYY-MM-DD
+</code></pre>
+
+<h4 id="url-parameters_1">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>target a specific date</td>
+<td>NO</td>
+<td>today's date</td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>filter by group name</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>filter by group type</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td>filter by service</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>filter by hostname</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>filter by tag key:value pairs</td>
+<td>NO</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>note</em> : user can use wildcard * in filters
+<em>note</em> : when using tag filters the query string must follow the pattern: <code>?tags=key1:value1,key2:value2</code></p>
+<h4 id="headers_1">Headers</h4>
+<pre><code>x-api-key: secret_key_value
+Accept: application/json
+</code></pre>
+
+<h4 id="response-code_2">Response Code</h4>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h3 id="response-body_2">Response body</h3>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_A&quot;,
+            &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;a.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        },
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_A&quot;,
+            &quot;hostname&quot;: &quot;host2.site-b.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;b.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        },
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_B&quot;,
+            &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;c.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+
+<p><a id='3'></a></p>
+<h2 id="delete-delete-endpoint-topology-for-a-specific-date">[DELETE]: Delete endpoint topology for a specific date</h2>
+<p>This method can be used to delete all endpoint items contributing to the endpoint topology of a specific date</p>
+<h3 id="input_2">Input</h3>
+<pre><code>DELETE /topology/endpoints?date=YYYY-MM-DD
+</code></pre>
+
+<h4 id="request-headers">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Content-Type: application/json
+Accept: application/json
+</code></pre>
+
+<h3 id="response">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_3">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+    &quot;message&quot;: &quot;Topology of 3 endpoints deleted for date: 2019-12-12&quot;,
+    &quot;code&quot;: &quot;200&quot;
+}
+</code></pre>
+
+<p><a id="4"></a></p>
+<h2 id="get-list-endpoint-topology-for-specific-report">GET: List endpoint topology for specific report</h2>
+<p>Lists endpoint topology items for specific report</p>
+<h3 id="input_3">Input</h3>
+<pre><code>GET /topology/endpoint/by_report/{report-name}?date=YYYY-MM-DD
+</code></pre>
+
+<h4 id="url-parameters_2">Url Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>report-name</code></td>
+<td>target a specific report</td>
+<td>YES</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>target a specific date</td>
+<td>NO</td>
+<td>today's date</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headers_2">Headers</h4>
+<pre><code>x-api-key: secret_key_value
+Accept: application/json
+</code></pre>
+
+<h4 id="example-request">Example Request</h4>
+<pre><code>GET /topology/endpoints/by_report/Critical?date=2015-07-22
+</code></pre>
+
+<h4 id="response-code_3">Response Code</h4>
+<pre><code>Status: 200 OK
+</code></pre>
+
+<h3 id="response-body_4">Response body</h3>
+<pre><code class="json">{
+    &quot;status&quot;: {
+        &quot;message&quot;: &quot;Success&quot;,
+        &quot;code&quot;: &quot;200&quot;
+    },
+    &quot;data&quot;: [
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_A&quot;,
+            &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;a.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        },
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_A&quot;,
+            &quot;hostname&quot;: &quot;host2.site-b.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;b.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        },
+        {
+            &quot;date&quot;: &quot;2019-12-12&quot;,
+            &quot;group&quot;: &quot;SITE_B&quot;,
+            &quot;hostname&quot;: &quot;host1.site-a.foo&quot;,
+            &quot;type&quot;: &quot;SITES&quot;,
+            &quot;service&quot;: &quot;c.service.foo&quot;,
+            &quot;tags&quot;: {
+                &quot;scope&quot;: &quot;TENANT&quot;,
+                &quot;production&quot;: &quot;1&quot;,
+                &quot;monitored&quot;: &quot;1&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../topology_groups/" class="btn btn-neutral float-right" title="Topology Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../topology_stats/" class="btn btn-neutral" title="Topology statistics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2015 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../topology_stats/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../topology_groups/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

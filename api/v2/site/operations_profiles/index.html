@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Operations Profiles - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Operations Profiles - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Operations Profiles";
+    var mkdocs_page_input_path = "operations_profiles.md";
+    var mkdocs_page_url = "/operations_profiles/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,125 +39,121 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Operations Profiles</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Operations Profiles</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-aoperations-profiles">GET: List AOperations Profiles</a></li>
-                
-                    <li><a class="toctree-l4" href="#input">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-a-specific-operations-profile">GET: List A Specific Operations profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_1">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_1">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#post-create-a-new-operations-profile">POST: Create a new Operations Profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_2">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_2">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#put-update-information-on-an-existing-operations-profile">PUT: Update information on an existing operations profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_3">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_3">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#delete-delete-an-existing-aggregation-profile">DELETE: Delete an existing aggregation profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_4">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_4">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#validation-checks">Validation Checks</a></li>
-                
-                    <li><a class="toctree-l4" href="#example-invalid-profile">Example invalid profile</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_5">Response</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-operations-profiles">[GET]: List Operations Profiles</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-a-specific-operations-profile">[GET]: List A Specific Operations profile</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-operations-profile">[POST]: Create a new Operations Profile</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-information-on-an-existing-operations-profile">[PUT]: Update information on an existing operations profile</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-an-existing-aggregation-profile">[DELETE]: Delete an existing aggregation profile</a></li>
+        
+            <li><a class="toctree-l3" href="#validation-checks">Validation Checks</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_stats/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_endpoints/">Topology Endpoints</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_groups/">Topology Groups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -186,9 +180,8 @@
     <li>Operations Profiles</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/operations_profiles.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -232,16 +225,12 @@
 <td>This method can be used to delete an existing  Operations profile</td>
 <td><a href="#5"> Description</a></td>
 </tr>
-<tr>
-<td><a id='1'></a></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
-<h1 id="get-list-aoperations-profiles">GET: List AOperations Profiles</h1>
-<p>This method can be used to retrieve a list of current  Operations profiles</p>
-<h2 id="input">Input</h2>
+<p><a id='1'></a></p>
+<h2 id="get-list-operations-profiles">[GET]: List Operations Profiles</h2>
+<p>This method can be used to retrieve a list of current  Operations profiles. </p>
+<h3 id="input">Input</h3>
 <pre><code>GET /operations_profiles
 </code></pre>
 
@@ -260,17 +249,21 @@
 <td>Operations profile name to be used as query</td>
 <td>NO</td>
 </tr>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the operation profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
 </tbody>
 </table>
-<h3 id="request-headers">Request headers</h3>
+<h4 id="request-headers">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response">Response</h2>
+<h3 id="response">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body">Response body</h3>
+<h4 id="response-body">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -280,6 +273,7 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+   &quot;date&quot;: &quot;2019-11-04&quot;,
    &quot;name&quot;: &quot;ops1&quot;,
    &quot;available_states&quot;: [
     &quot;A,B,C&quot;
@@ -334,6 +328,7 @@ Accept: application/json
   },
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50c&quot;,
+   &quot;date&quot;: &quot;2019-11-02&quot;,
    &quot;name&quot;: &quot;ops2&quot;,
    &quot;available_states&quot;: [
     &quot;X,Y,Z&quot;
@@ -391,21 +386,37 @@ Accept: application/json
 </code></pre>
 
 <p><a id='2'></a></p>
-<h1 id="get-list-a-specific-operations-profile">GET: List A Specific Operations profile</h1>
+<h2 id="get-list-a-specific-operations-profile">[GET]: List A Specific Operations profile</h2>
 <p>This method can be used to retrieve specific Operations profile based on its id</p>
-<h2 id="input_1">Input</h2>
+<h3 id="input_1">Input</h3>
 <pre><code>GET /operations_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_1">Request headers</h3>
+<h4 id="optional-query-parameters_1">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to retrieve a historic version of the operation profile. If no date parameter is provided the most current profile will be returned</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_1">Response</h2>
+<h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_1">Response body</h3>
+<h4 id="response-body_1">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -415,6 +426,7 @@ Accept: application/json
  &quot;data&quot;: [
   {
    &quot;id&quot;: &quot;6ac7d684-1f8e-4a02-a502-720e8f11e50b&quot;,
+   &quot;date&quot;: &quot;2019-11-04&quot;,
    &quot;name&quot;: &quot;ops1&quot;,
    &quot;available_states&quot;: [
     &quot;A,B,C&quot;
@@ -472,19 +484,35 @@ Accept: application/json
 </code></pre>
 
 <p><a id='3'></a></p>
-<h1 id="post-create-a-new-operations-profile">POST: Create a new Operations Profile</h1>
+<h2 id="post-create-a-new-operations-profile">[POST]: Create a new Operations Profile</h2>
 <p>This method can be used to insert a new operations profile</p>
-<h2 id="input_2">Input</h2>
+<h3 id="input_2">Input</h3>
 <pre><code>POST /operations_profiles
 </code></pre>
 
-<h3 id="request-headers_2">Request headers</h3>
+<h4 id="request-headers_2">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="post-body">POST BODY</h3>
+<h4 id="optional-query-parameters_2">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to create a  new historic version of the operation profile. If no date parameter is provided current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="post-body">POST BODY</h4>
 <pre><code class="json">{
    &quot;name&quot;: &quot;tops1&quot;,
    &quot;available_states&quot;: [
@@ -540,9 +568,9 @@ Accept: application/json
   }
 </code></pre>
 
-<h2 id="response_2">Response</h2>
+<h3 id="response_2">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
-<h3 id="response-body_2">Response body</h3>
+<h4 id="response-body_2">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -559,19 +587,35 @@ Accept: application/json
 </code></pre>
 
 <p><a id='4'></a></p>
-<h1 id="put-update-information-on-an-existing-operations-profile">PUT: Update information on an existing operations profile</h1>
+<h2 id="put-update-information-on-an-existing-operations-profile">[PUT]: Update information on an existing operations profile</h2>
 <p>This method can be used to update information on an existing operations profile</p>
-<h2 id="input_3">Input</h2>
+<h3 id="input_3">Input</h3>
 <pre><code>PUT /operations_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_3">Request headers</h3>
+<h4 id="optional-query-parameters_3">Optional Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>Date to update a historic version of the operation profile. If no date parameter is provided the current date will be supplied automatically</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="put-body">PUT BODY</h3>
+<h4 id="put-body">PUT BODY</h4>
 <pre><code class="json">{
      &quot;name&quot;: &quot;tops1&quot;,
      &quot;available_states&quot;: [
@@ -627,34 +671,33 @@ Accept: application/json
     }
 </code></pre>
 
-<h2 id="response_3">Response</h2>
+<h3 id="response_3">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_3">Response body</h3>
+<h4 id="response-body_3">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
-  &quot;message&quot;: &quot;Operations Profile successfully updated&quot;,
+  &quot;message&quot;: &quot;Operations Profile successfully updated (new snapshot created)&quot;,
   &quot;code&quot;: &quot;200&quot;
  }
 }
 </code></pre>
 
 <p><a id='5'></a></p>
-<h1 id="delete-delete-an-existing-aggregation-profile">DELETE: Delete an existing aggregation profile</h1>
+<h2 id="delete-delete-an-existing-aggregation-profile">[DELETE]: Delete an existing aggregation profile</h2>
 <p>This method can be used to delete an existing aggregation profile</p>
-<h2 id="input_4">Input</h2>
+<h3 id="input_4">Input</h3>
 <pre><code>DELETE /operations_profiles/{ID}
 </code></pre>
 
-<h3 id="request-headers_4">Request headers</h3>
+<h4 id="request-headers_4">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_4">Response</h2>
+<h3 id="response_4">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_4">Response body</h3>
+<h4 id="response-body_4">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
  &quot;status&quot;: {
@@ -664,14 +707,14 @@ Accept: application/json
 }
 </code></pre>
 
-<h1 id="validation-checks">Validation Checks</h1>
+<h2 id="validation-checks">Validation Checks</h2>
 <p>When submitting or updating a new operations profile, validation checks are performed on json POST/PUT body for the following cases:
  - Check if user has defined more than once a state name in available states list
  - Check if user has defined more than once an operation name in operations list
  - Check if user used an undefined state in operations
  - Check if truth table statements are adequate to handle all cases</p>
 <p>When an invalid operations profile is submitted the api responds with a validation error list:</p>
-<h3 id="example-invalid-profile">Example invalid profile</h3>
+<h4 id="example-invalid-profile">Example invalid profile</h4>
 <p><code>json
 {
    "name": "ops1",
@@ -747,9 +790,9 @@ Accept: application/json
    ]
   }</code></p>
 <p>The above profile definiton contains errors like: duplicate states, undefined states and unadequate statements in truth tables. Api response is the following:</p>
-<h2 id="response_5">Response</h2>
+<h3 id="response_5">Response</h3>
 <p>Headers: <code>Status: 422 Unprocessable Entity</code></p>
-<h3 id="response-body_5">Response body</h3>
+<h4 id="response-body_5">Response body</h4>
 <p><code>json
  {
  "status": {
@@ -836,7 +879,7 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reports/" class="btn btn-neutral float-right" title="Reports"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../reports/" class="btn btn-neutral float-right" title="Reports">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../aggregation_profiles/" class="btn btn-neutral" title="Aggregation Profiles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -855,7 +898,7 @@ Accept: application/json
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -863,10 +906,10 @@ Accept: application/json
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../aggregation_profiles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -876,6 +919,9 @@ Accept: application/json
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

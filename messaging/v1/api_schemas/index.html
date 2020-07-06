@@ -144,11 +144,15 @@
         
             <li><a class="toctree-l4" href="#get-manage-schemas-retrieve-a-schema">[GET] Manage Schemas - Retrieve a Schema</a></li>
         
+            <li><a class="toctree-l4" href="#get-manage-schemas-retrieve-all-schemas">[GET] Manage Schemas - Retrieve All Schemas</a></li>
+        
             <li><a class="toctree-l4" href="#post-manage-schemas-create-new-schema">[POST] Manage Schemas - Create new Schema</a></li>
         
             <li><a class="toctree-l4" href="#put-manage-schemas-update-schema">[PUT] Manage Schemas - Update Schema</a></li>
         
             <li><a class="toctree-l4" href="#delete-manage-schemas-delete-schema">[DELETE] Manage Schemas - Delete Schema</a></li>
+        
+            <li><a class="toctree-l4" href="#post-manage-schemas-validate-message">[POST] Manage Schemas - Validate Message</a></li>
         
         </ul>
     
@@ -268,18 +272,101 @@
 
 <h3 id="errors">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="post-manage-schemas-create-new-schema">[POST] Manage Schemas - Create new Schema</h2>
-<p>This request creates a new schema</p>
+<h2 id="get-manage-schemas-retrieve-all-schemas">[GET] Manage Schemas - Retrieve All Schemas</h2>
+<p>This request retrieves all schemas under the given project.</p>
 <h3 id="request_1">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+<pre><code class="json">GET &quot;/v1/projects/{project_name}/schemas&quot;
 </code></pre>
 
 <h3 id="where_1">Where</h3>
 <ul>
 <li>project_name: Name of the project in which the schema will belong</li>
-<li>schema_name: Name of the schema to be created</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
+<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_1">Responses</h3>
+<p>If successful, the response contains all the schemas of the given project.</p>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+  &quot;schemas&quot;: [
+  {
+    &quot;uuid&quot;: &quot;50811bd1-c94c-4ad7-8f55-a561c6270b50&quot;,
+    &quot;name&quot;: &quot;projects/project-1/schemas/schema-1&quot;,
+    &quot;type&quot;: &quot;json&quot;,
+    &quot;schema&quot;: {
+        &quot;properties&quot;: {
+            &quot;address&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;telephone&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            }
+        },
+        &quot;required&quot;: [
+            &quot;name&quot;,
+            &quot;email&quot;
+        ],
+        &quot;type&quot;: &quot;object&quot;
+    }
+  },
+  {
+    &quot;uuid&quot;: &quot;50811bd1-c94c-4ad7-8f55-a561c6270b55&quot;,
+    &quot;name&quot;: &quot;projects/project-1/schemas/schema-2&quot;,
+    &quot;type&quot;: &quot;json&quot;,
+    &quot;schema&quot;: {
+        &quot;properties&quot;: {
+            &quot;address&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;telephone&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            }
+        },
+        &quot;required&quot;: [
+            &quot;name&quot;,
+            &quot;email&quot;
+        ],
+        &quot;type&quot;: &quot;object&quot;
+    }
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="errors_1">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-schemas-create-new-schema">[POST] Manage Schemas - Create new Schema</h2>
+<p>This request creates a new schema</p>
+<h3 id="supported-schema-types">Supported Schema Types</h3>
+<blockquote>
+<p>JSON,AVRO</p>
+</blockquote>
+<h3 id="request_2">Request</h3>
+<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+</code></pre>
+
+<h3 id="where_2">Where</h3>
+<ul>
+<li>project_name: Name of the project in which the schema will belong</li>
+<li>schema_name: Name of the schema to be created</li>
+</ul>
+<h3 id="example-request_2">Example request</h3>
 <pre><code class="json">curl -X POST -H &quot;Content-Type: application/json -d POSTDATA&quot;
  &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
@@ -300,7 +387,7 @@
 }
 </code></pre>
 
-<h3 id="responses_1">Responses</h3>
+<h3 id="responses_2">Responses</h3>
 <p>If successful, the response contains the newly created schema.</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -332,20 +419,20 @@
 }
 </code></pre>
 
-<h3 id="errors_1">Errors</h3>
+<h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="put-manage-schemas-update-schema">[PUT] Manage Schemas - Update Schema</h2>
 <p>This request updates the contents of a schema. You can update <code>one</code> or <code>all</code> of the fields at a time.</p>
-<h3 id="request_2">Request</h3>
+<h3 id="request_3">Request</h3>
 <pre><code class="json">PUT &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
-<h3 id="where_2">Where</h3>
+<h3 id="where_3">Where</h3>
 <ul>
 <li>project_name: Name of the project under which the schema belongs</li>
 <li>schema_name: Name of the schema to be updated</li>
 </ul>
-<h3 id="example-request_2">Example request</h3>
+<h3 id="example-request_3">Example request</h3>
 <pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json -d POSTDATA&quot;
  &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
@@ -367,7 +454,7 @@
 }
 </code></pre>
 
-<h3 id="responses_2">Responses</h3>
+<h3 id="responses_3">Responses</h3>
 <p>If successful, the response contains the updated schema.</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -400,31 +487,79 @@
 }
 </code></pre>
 
-<h3 id="errors_2">Errors</h3>
+<h3 id="errors_3">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="delete-manage-schemas-delete-schema">[DELETE] Manage Schemas - Delete Schema</h2>
 <p>This request deletes a schema.</p>
-<h3 id="request_3">Request</h3>
+<h3 id="request_4">Request</h3>
 <pre><code class="json">DELETE &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
-<h3 id="where_3">Where</h3>
+<h3 id="where_4">Where</h3>
 <ul>
 <li>project_name: Name of the project under which the schema belongs</li>
 <li>schema_name: Name of the schema to be deleted</li>
 </ul>
-<h3 id="example-request_3">Example request</h3>
+<h3 id="example-request_4">Example request</h3>
 <pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
  &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_3">Responses</h3>
+<h3 id="responses_4">Responses</h3>
 <p>If successful, the response is empty.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json"></code></pre>
 
-<h3 id="errors_3">Errors</h3>
+<h3 id="errors_4">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-manage-schemas-validate-message">[POST] Manage Schemas - Validate Message</h2>
+<p>This request is used whenever we want to test a message against a schema.
+The process to check that your schema and messages are working as expected is to create
+a new topic that needs to be associated with the schema, then create the message in bas64 encoding and
+publish it to the topic.Instead of creating all this pipeline in order to check your schema and messages
+we can explicitly do it on this API call.</p>
+<h3 id="request_5">Request</h3>
+<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}:validate&quot;
+</code></pre>
+
+<h3 id="where_5">Where</h3>
+<ul>
+<li>project_name: Name of the project under which the schema belongs</li>
+<li>schema_name: Name of the schema to be updated</li>
+</ul>
+<h3 id="example-request_5">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json -d POSTDATA&quot;
+ &quot; https://{URL}/v1/projects/project-1/schemas/schema-1:validate?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="post-body_2">Post body:</h3>
+<h4 id="json-schema">JSON Schema</h4>
+<pre><code class="json">{
+  &quot;name&quot;: &quot;name1&quot;,
+  &quot;email&quot;: &quot;e1@example.com&quot;,
+  &quot;address&quot;: &quot;address1&quot;,
+  &quot;telephone&quot;: &quot;6980574421&quot;
+}
+</code></pre>
+
+<h4 id="avro-schema">AVRO Schema</h4>
+<p>When dealing with an AVRO Schema, the binary message needs to be encoded to <code>base64</code>
+alongside its <code>schema</code> and sent via the <code>data</code> field which is required.</p>
+<pre><code class="json">{
+  &quot;data&quot;: &quot;DGFnZWxvc8T8Cg==&quot;
+}
+</code></pre>
+
+<h3 id="responses_5">Responses</h3>
+<p>Success Response
+<code>200 OK</code></p>
+<pre><code class="json">{
+    &quot;message&quot;: &quot;Message validated successfully&quot;
+}
+</code></pre>
+
+<h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>

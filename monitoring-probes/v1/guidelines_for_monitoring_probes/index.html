@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Guidelines for monitoring probes - Monitoring probes [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Guidelines for monitoring probes";
+    var mkdocs_page_input_path = "guidelines_for_monitoring_probes.md";
+    var mkdocs_page_url = "/guidelines_for_monitoring_probes/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Monitoring probes [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="..">Home</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Monitoring Probes</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Guidelines for monitoring probes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#development">Development</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#actual-data">Actual Data</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#packaging">Packaging</a></li>
+    
+
+    <li class="toctree-l3"><a href="#integration-testing-and-deployment">Integration, Testing and Deployment</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#testing">Testing</a></li>
+        
+            <li><a class="toctree-l4" href="#deployment">Deployment</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Monitoring probes [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Monitoring Probes &raquo;</li>
+        
+      
+    
+    <li>Guidelines for monitoring probes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/monitoring-probes/edit/master/docs/guidelines_for_monitoring_probes.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<p>This document describes the policy to develop, package and integrate new probes into the ARGO Monitoring Engine.</p>
+<h1 id="development">Development</h1>
+<p>Please refer to the official Nagios documentation for probe development guidelines:</p>
+<ul>
+<li><a href="https://nagios-plugins.org/doc/guidelines.html">Nagios Development Guidelines</a>,</li>
+<li><a href="https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/pluginapi.html">Nagios Plugin API</a>.</li>
+</ul>
+<p>Probes can be developed in any of these languages:</p>
+<ul>
+<li>Python,</li>
+<li>Perl - in case of Perl use of module <code>Nagios::Plugin</code> is highly recommended,</li>
+<li>C/C++,</li>
+<li>shell scripting (Bash, Bourne).</li>
+</ul>
+<p>ARGO Monitoring engine currently supports RHEL 6 and 7 and derivatives so probes should use language versions and libraries provided for these distributions.</p>
+<p>List of existing probes can be found in <a href="https://poem.argo.grnet.gr/ui/public_probes/">POEM</a>.</p>
+<p>Some other conditions:</p>
+<ul>
+<li>
+<p>Each probe must provide the following arguments:</p>
+<p><code>-h help (--help)
+-t timeout (--timeout)</code>
+* The following arguments can also be used if applicable:</p>
+<p><code>-H hostname (--hostname)
+-p port (--port)
+-u url (--url)
+-v verbose (--verbose)
+-w warning threshold (--warning)
+-c critical threshold (--critical)
+-u username (--username)
+-p password (--password)</code>
+* Maximum output size for test/plugin output is 16KB. Above that limit the output will be truncated.</p>
+</li>
+</ul>
+<h2 id="actual-data">Actual Data</h2>
+<p>Actual data is additional information about service behaviour that can be used in combination with threshold mechanisms to generate new metrics. Probes can report actual data by following the <a href="https://nagios-plugins.org/doc/guidelines.html#AEN200">Nagios guidelines for performance data</a>.</p>
+<p>Some other conditions:
+* This is the expected format of actual data:</p>
+<pre><code>```buildoutcfg
+'label'=value[UOM];[warn];[crit];[min];[max]
+```
+</code></pre>
+<h1 id="packaging">Packaging</h1>
+<p>Probes must be provided in the form of RPM packages, where a single package may contain multiple probes. Please refer to the official EPEL documentation for packaging:</p>
+<ul>
+<li><a href="http://fedoraproject.org/wiki/EPEL/GuidelinesAndPolicies">EPEL Guidelines And Policies</a>.</li>
+</ul>
+<p>Some considerations about naming:</p>
+<ul>
+<li>Package should <strong>ensure a unique namespace by using tenant, project (e.g. eudat, argo) or product team (e.g. cream, htcondor) name</strong>.</li>
+<li>Package name should use <strong>"nagios-plugins-<tenant|project|product team>-xxx" form</strong> where 'xxx' is the name of the service probes are testing (e.g. nagios-plugins-argo-http-server). This makes the name consistent with other nagios plugins. For more generic probes (not project specific) name "nagios-plugins-xxx" is also acceptable (e.g. nagios-plugins-webdav).</li>
+</ul>
+<p>Some considerations about structure:</p>
+<ul>
+<li>Probes should be stored in directory:<ul>
+<li><code>/usr/libexec/argo-monitoring/probes/&lt;probe_namespace&gt;</code> (For more generic probes (not project specific) directory used by EPEL nagios probes (<code>/usr/lib64/nagios/plugins/</code>) is also acceptable.)</li>
+</ul>
+</li>
+<li>If probes creates temporary files, package should create directory:<ul>
+<li><code>/var/lib/argo-monitoring/&lt;probe_namespace&gt;</code> with ownership nagios:nagios and permissions 750.</li>
+</ul>
+</li>
+<li>If probes package contains configuration files, they should be stored in directory:<ul>
+<li><code>/etc/nagios/plugins/&lt;probe_namespace&gt;/</code></li>
+</ul>
+</li>
+</ul>
+<p>Some considerations about dependencies management:</p>
+<ul>
+<li>Each probe is responsible for handling its dependencies.</li>
+<li>The environment needed to execute each probe must be defined by the probe.</li>
+</ul>
+<h1 id="integration-testing-and-deployment">Integration, Testing and Deployment</h1>
+<p>Each <code>&lt;tenant|project|product team&gt;</code> develops and tests its own probes in their development environments. Pre-requirements for the integration and testing of probes are:</p>
+<ul>
+<li>Each <code>&lt;tenant|project|product team&gt;</code> publishes probe(s) on an accessible:<ul>
+<li>Git repository with a valid RPM spec file;</li>
+<li>Yum repository with RPM packages.</li>
+</ul>
+</li>
+<li>Each probe provides an accessible web page with the relevant documentation.</li>
+</ul>
+<p>Integration of new probes starts with adding above information into <a href="http://argoeu.github.io/poem/v1/">POEM</a>.</p>
+<h2 id="testing">Testing</h2>
+<p>Testing consists of the following steps:</p>
+<ul>
+<li>If the probe is provided in Git repository ARGO will clone it and attempt to build the package. </li>
+<li>ARGO will deploy the RPM package, test and validate the new probe.</li>
+</ul>
+<h2 id="deployment">Deployment</h2>
+<p>Deployment consists of the following steps:</p>
+<ul>
+<li>ARGO in cooperation with the Service owner defines metric templates performed by the new probe in the POEM.</li>
+<li>Service owner adds mappings between service flavours and metrics in the POEM.</li>
+<li>ARGO in cooperation with the Service owner follows project’s procedures for deployment to production.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2020 SRCE</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/monitoring-probes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

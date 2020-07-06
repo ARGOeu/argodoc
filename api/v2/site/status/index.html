@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Status Results - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Status Results - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Status Results";
+    var mkdocs_page_input_path = "status.md";
+    var mkdocs_page_url = "/status/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,93 +39,113 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Status Results</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Status Results</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#status-results">Status results</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-metric-status-timelines">[GET]: List Service Metric Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-endpoint-status-timelines">[GET]: List Service Endpoint Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-service-status-timelines">[GET]: List Service Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-list-endpoint-group-status-timelines">[GET]: List Endpoint Group Status Timelines</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-metric-result">[GET]: Metric Result</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#status-results">Status results</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-service-metric-status-timelines">[GET]: List Service Metric Status Timelines</a></li>
+        
+            <li><a class="toctree-l3" href="#get-list-service-endpoint-status-timelines">[GET]: List Service Endpoint Status Timelines</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reports/">Reports</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reports/">Reports</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_stats/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_endpoints/">Topology Endpoints</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_groups/">Topology Groups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -154,9 +172,8 @@
     <li>Status Results</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/status.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -200,6 +217,16 @@
 <td>GET: Metric Result</td>
 <td>This method may be used to retrieve a specific and detailed metric result.</td>
 <td><a href="#5">Description</a></td>
+</tr>
+<tr>
+<td>GET: Flat list of Endpoint timelines</td>
+<td>This method may be used to retrieve a flat list of all available endpoint status results</td>
+<td><a href="#6">Description</a></td>
+</tr>
+<tr>
+<td>GET: Flat list of Metric timelines for a specific metric</td>
+<td>This method may be used to retrieve a flat list of all available endpoint metric status timelines filtered by a specific metric</td>
+<td><a href="#7">Description</a></td>
 </tr>
 </tbody>
 </table>
@@ -293,8 +320,8 @@
 <code>group_type</code> and <code>group_name</code> in the specific request refer always to endpoint groups (eg. <code>SITES</code>).
 when <code>metric_name</code> is supplied, the request returns results for a specific metric. Else returns results for all available metrics for the specific <strong>endpoint</strong> (and <strong>report</strong>)</p>
 <h4 id="headers">Headers</h4>
-<pre><code>x-api-key: &quot;tenant_key_value&quot;
-Accept: &quot;application/xml&quot; or &quot;application/json&quot;
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
 </code></pre>
 
 <h4 id="response-code">Response Code</h4>
@@ -309,8 +336,8 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 </code></pre>
 
 <p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
 
 </code></pre>
 
@@ -319,7 +346,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -328,16 +355,84 @@ Accept:&quot;application/xml&quot;
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
                 &lt;metric name=&quot;emi.wn.WN-Bi&quot;&gt;
                     &lt;status timestamp=&quot;2015-04-30T22:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T03:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                },
+                {
+                  &quot;name&quot;: &quot;emi.wn.WN-Bi&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T22:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T00:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-03T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-metric">List specific metric</h4>
@@ -358,7 +453,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -367,11 +462,57 @@ Accept:&quot;application/xml&quot;
                     &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                     &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                    &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;/metric&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;metrics&quot;: [
+                {
+                  &quot;name&quot;: &quot;emi.cream.CREAMCE-JobSubmit&quot;,
+                  &quot;statuses&quot;: [
+                    {
+                      &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;CRITICAL&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-02T01:00:00Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    },
+                    {
+                      &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                      &quot;value&quot;: &quot;OK&quot;
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <p><a id="2"></a></p>
@@ -458,8 +599,8 @@ Accept:&quot;application/xml&quot;
 <code>group_type</code> and <code>group_name</code> in the specific request refer always to endpoint groups (eg. <code>SITES</code>).
 when <code>hostname</code> is supplied, the request returns results for a specific endpoint. Else returns results for all available metrics for the specific <strong>endpoint</strong> (and <strong>report</strong>)</p>
 <h4 id="headers_1">Headers</h4>
-<pre><code>x-api-key: &quot;tenant_key_value&quot;
-Accept: &quot;application/xml&quot; or &quot;application/json&quot;
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
 </code></pre>
 
 <h4 id="response-code_1">Response Code</h4>
@@ -474,8 +615,8 @@ Accept: &quot;application/xml&quot; or &quot;application/json&quot;
 </code></pre>
 
 <p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
 
 </code></pre>
 
@@ -484,7 +625,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -492,15 +633,78 @@ Accept:&quot;application/xml&quot;
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
             &lt;endpoint name=&quot;cream02.afroditi.gr&quot;&gt;
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
+</code></pre>
+
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            },
+                        {
+              &quot;name&quot;: &quot;cream02.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
 <h4 id="list-specific-endpoint">List specific endpoint</h4>
@@ -511,8 +715,8 @@ Accept:&quot;application/xml&quot;
 </code></pre>
 
 <p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<pre><code>x-api-key: shared_key_value
+Accept: application/json or application/xml
 
 </code></pre>
 
@@ -521,7 +725,7 @@ Accept:&quot;application/xml&quot;
 <pre><code>Status: 200 OK
 </code></pre>
 
-<p>Reponse body:</p>
+<p>Response body (XML):</p>
 <pre><code>&lt;root&gt;
     &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
         &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
@@ -529,391 +733,869 @@ Accept:&quot;application/xml&quot;
                 &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
                 &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
+                &lt;status timestamp=&quot;2015-05-01T23:59:59Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
             &lt;/endpoint&gt;
         &lt;/group&gt;
     &lt;/group&gt;
 &lt;/root&gt;
 </code></pre>
 
-<p><a id="3"></a></p>
-<h2 id="get-list-service-status-timelines">[GET]: List Service Status Timelines</h2>
-<p>This method may be used to retrieve a specific service flavor status timeline (applies for a specific service endpoint group).</p>
-<h3 id="input_2">Input</h3>
-<h5 id="list-all-service-types">List All service types:</h5>
-<pre><code>/status/{report}/{group_type}/{group_name}/services[start_time]&amp;[end_time]
+<p>Response body (JSON):</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 </code></pre>
 
-<h5 id="list-a-specific-service-type">List a specific service type:</h5>
-<pre><code>/status/{report}/{group_type}/{group_name}/services/{service_type}[start_time]&amp;[end_time]
+<h3 id="extra-information-for-a-specific-endpoint-on-endpoint-status-results">Extra information for a specific endpoint on endpoint status results</h3>
+<p>Some service endpoint status results have additional information regarding the specific service endpoint such as it's Url, certificat DN etc... If this information is available it will be displayed under each service endpoint along with status results. For example:</p>
+<pre><code>{
+  &quot;groups&quot;: [
+    {
+      &quot;name&quot;: &quot;HG-03-AUTH&quot;,
+      &quot;type&quot;: &quot;SITES&quot;,
+      &quot;services&quot;: [
+        {
+          &quot;name&quot;: &quot;CREAM-CE&quot;,
+          &quot;type&quot;: &quot;service&quot;,
+          &quot;endpoints&quot;: [
+            {
+              &quot;name&quot;: &quot;cream01.afroditi.gr&quot;,
+              &quot;info&quot;: {
+                  &quot;Url&quot;: &quot;https://cream01.afroditi.gr/path/to/service&quot;
+               },
+              &quot;statuses&quot;: [
+                {
+                  &quot;timestamp&quot;: &quot;2015-04-30T23:59:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T01:00:00Z&quot;,
+                  &quot;value&quot;: &quot;CRITICAL&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T02:00:00Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                },
+                {
+                  &quot;timestamp&quot;: &quot;2015-05-01T23:59:59Z&quot;,
+                  &quot;value&quot;: &quot;OK&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+&lt;a id=&quot;3&quot;&gt;&lt;/a&gt;
+
+
+## [GET]: List Service Status Timelines
+
+This method may be used to retrieve a specific service flavor status timeline (applies for a specific service endpoint group).
+
+### Input
+##### List All service types:
 </code></pre>
 
-<h4 id="path-parameters_2">Path Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>report</code></td>
-<td>name of the report used</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>group_type</code></td>
-<td>type of endpoint group</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>group_name</code></td>
-<td>name of endpoint group</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>service_type</code></td>
-<td>type of endpoint group</td>
-<td>NO</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="url-parameters_2">Url Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>start_time</code></td>
-<td>UTC time in W3C format</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>end_time</code></td>
-<td>UTC time in W3C format</td>
-<td>YES</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong><em>Notes</em></strong>:
-<code>group_type</code> and <code>group_name</code> in the specific request refer always to endpoint groups (eg. <code>SITES</code>).
-when <code>service_name</code> is supplied, the request returns results for a specific service type. Else returns results for all available service types for the specific <strong>endpoint_group</strong> (and <strong>report</strong>)</p>
-<h4 id="headers_2">Headers</h4>
-<pre><code>x-api-key: &quot;tenant_key_value&quot;
-Accept: &quot;application/xml&quot; or &quot;application/json&quot;
+<p>/status/{report}/{group_type}/{group_name}/services[start_time]&amp;[end_time]</p>
+<pre><code>##### List a specific service type:
 </code></pre>
 
-<h4 id="response-code_2">Response Code</h4>
-<pre><code>Status: 200 OK
+<p>/status/{report}/{group_type}/{group_name}/services/{service_type}[start_time]&amp;[end_time]</p>
+<pre><code>#### Path Parameters
+| Type | Description | Required | Default value |
+|------|-------------|----------|---------------|
+|`report`| name of the report used | YES | |
+|`group_type`| type of endpoint group| YES |  |
+|`group_name`| name of endpoint group| YES |  |
+|`service_type`| type of endpoint group| NO |  |
+
+#### Url Parameters
+
+| Type | Description | Required | Default value |
+|------|-------------|----------|---------------|
+|`start_time`| UTC time in W3C format| YES |  |
+|`end_time`| UTC time in W3C format| YES |  |
+
+___Notes___:
+`group_type` and `group_name` in the specific request refer always to endpoint groups (eg. `SITES`).
+when `service_name` is supplied, the request returns results for a specific service type. Else returns results for all available service types for the specific __endpoint_group__ (and __report__)
+
+#### Headers
 </code></pre>
 
-<h3 id="response-body_2">Response body</h3>
-<h5 id="list-all-service-types_1">List All service types:</h5>
-<h6 id="example-request_4">Example Request:</h6>
-<p>URL:</p>
-<pre><code>/status/EGI_CRITICAL/SITES/HG-03-AUTH/services?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z
+<p>x-api-key: shared_key_value
+Accept: application/json or application/xml</p>
+<pre><code>
+#### Response Code
 </code></pre>
 
-<p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<p>Status: 200 OK</p>
+<pre><code>
+### Response body
 
+##### List All service types:
+
+###### Example Request:
+URL:
 </code></pre>
 
-<h6 id="example-response_4">Example Response:</h6>
-<p>Code:</p>
-<pre><code>Status: 200 OK
+<p>/status/EGI_CRITICAL/SITES/HG-03-AUTH/services?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z</p>
+<pre><code>
+Headers:
 </code></pre>
 
-<p>Reponse body:</p>
-<pre><code>&lt;root&gt;
-    &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
-            &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;/group&gt;
-        &lt;group name=&quot;SRMv2&quot; type=&quot;service&quot;&gt;
-            &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;/group&gt;
-    &lt;/group&gt;
-&lt;/root&gt;
+<p>x-api-key: shared_key_value
+Accept: application/json or application/xml</p>
+<pre><code>###### Example Response:
+Code:
 </code></pre>
 
-<h5 id="list-specific-service-type">List specific service type</h5>
-<p>(<code>service_type=CREAM-CE</code>):</p>
-<h6 id="example-request_5">Example Request:</h6>
-<p>URL:</p>
-<pre><code>/status/EGI_CRITICAL/SITES/HG-03-AUTH/services/CREAM-CE?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z
+<p>Status: 200 OK</p>
+<pre><code>Response body (XML):
 </code></pre>
 
-<p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
-
+<p><root>
+    <group name="HG-03-AUTH" type="SITES">
+        <group name="CREAM-CE" type="service">
+            <status timestamp="2015-04-30T23:59:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T01:00:00Z" status="CRITICAL"></status>
+            <status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+        </group>
+        <group name="SRMv2" type="service">
+            <status timestamp="2015-04-30T23:59:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T01:00:00Z" status="CRITICAL"></status>
+            <status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+        </group>
+    </group>
+</root></p>
+<pre><code>
+Response body (JSON):
 </code></pre>
 
-<h6 id="example-response_5">Example Response:</h6>
-<p>Code:</p>
-<pre><code>Status: 200 OK
+<p>{
+  "groups": [
+    {
+      "name": "HG-03-AUTH",
+      "type": "SITES",
+      "services": [
+        {
+          "name": "CREAM-CE",
+          "type": "service",
+          "statuses": [
+            {
+              "timestamp": "2015-04-30T23:59:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T01:00:00Z",
+              "value": "CRITICAL"
+            },
+            {
+              "timestamp": "2015-05-01T02:00:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T23:59:59Z",
+              "value": "OK"
+            }
+          ]
+        },
+        {
+          "name": "SRMv2",
+          "type": "service",
+          "statuses": [
+            {
+              "timestamp": "2015-04-30T23:59:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T01:00:00Z",
+              "value": "CRITICAL"
+            },
+            {
+              "timestamp": "2015-05-01T02:00:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T23:59:59Z",
+              "value": "OK"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</p>
+<pre><code>
+
+##### List specific service type
+(`service_type=CREAM-CE`):
+
+###### Example Request:
+URL:
 </code></pre>
 
-<p>Reponse body:</p>
-<pre><code>&lt;root&gt;
-    &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;group name=&quot;CREAM-CE&quot; type=&quot;service&quot;&gt;
-            &lt;status timestamp=&quot;2015-04-30T23:59:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-            &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;/group&gt;
-    &lt;/group&gt;
-&lt;/root&gt;
+<p>/status/EGI_CRITICAL/SITES/HG-03-AUTH/services/CREAM-CE?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z</p>
+<pre><code>Headers:
 </code></pre>
 
-<p><a id="4"></a></p>
-<h2 id="get-list-endpoint-group-status-timelines">[GET]: List Endpoint Group Status Timelines</h2>
-<p>This method may be used to retrieve status timelines for endpoint groups.</p>
-<h3 id="input_3">Input</h3>
-<h5 id="list-all-endpoint-groups-of-specific-type">List All endpoint groups of specific type:</h5>
-<pre><code>/status/{report}/{group_type}[start_time]&amp;[end_time]
+<p>x-api-key: shared_key_value
+Accept: application/json or application/xml</p>
+<pre><code>###### Example Response:
+Code:
 </code></pre>
 
-<h5 id="list-a-specific-endpoint-group-of-specific-type">List a specific endpoint group of specific type:</h5>
-<pre><code>/status/{report}/{group_type}/{group_name}[start_time]&amp;[end_time]
-</code></pre>
-
-<h4 id="path-parameters_3">Path Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>report</code></td>
-<td>name of the report used</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>group_type</code></td>
-<td>type of endpoint group</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>group_name</code></td>
-<td>name of endpoint group</td>
-<td>NO</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="url-parameters_3">Url Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>start_time</code></td>
-<td>UTC time in W3C format</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>end_time</code></td>
-<td>UTC time in W3C format</td>
-<td>YES</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong><em>Notes</em></strong>:
-<code>group_type</code> and <code>group_name</code> in the specific request refer always to endpoint groups (eg. <code>SITES</code>).
-when <code>group_name</code> is supplied, the request returns results for a specific endpoint group. Else returns results for all available endpoint groups of the specific <strong>group_type</strong></p>
-<h4 id="headers_3">Headers</h4>
-<pre><code>x-api-key: &quot;tenant_key_value&quot;
-Accept: &quot;application/xml&quot; or &quot;application/json&quot;
-</code></pre>
-
-<h4 id="response-code_3">Response Code</h4>
-<pre><code>Status: 200 OK
-</code></pre>
-
-<h3 id="response-body_3">Response body</h3>
-<h5 id="list-all-endpoint-groups">List All endpoint groups:</h5>
-<h6 id="example-request_6">Example Request:</h6>
-<p>URL:</p>
-<pre><code>/status/EGI_CRITICAL/SITES?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z
-</code></pre>
-
-<p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
-</code></pre>
-
-<h6 id="example-response_6">Example Response:</h6>
-<p>Code:</p>
-<pre><code>Status: 200 OK
-</code></pre>
-
-<p>Reponse body:</p>
-<pre><code>&lt;root&gt;
-    &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-    &lt;/group&gt;
-    &lt;group name=&quot;HG-01-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-    &lt;/group&gt;
-&lt;/root&gt;
-</code></pre>
-
-<h5 id="list-specific-endpoint-group">List specific endpoint group</h5>
-<p>(<code>group_name=HG-03-AUTH</code>):</p>
-<h6 id="example-request_7">Example Request:</h6>
-<p>URL:</p>
-<pre><code>/status/EGI_CRITICAL/SITES/HG-03-AUTH?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z
-</code></pre>
-
-<p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<p>Status: 200 OK</p>
+<pre><code>Response body (XML):
 
 </code></pre>
 
-<h6 id="example-response_7">Example Response:</h6>
-<p>Code:</p>
-<pre><code>Status: 200 OK
+<p><root>
+    <group name="HG-03-AUTH" type="SITES">
+        <group name="CREAM-CE" type="service">
+            <status timestamp="2015-04-30T23:59:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T01:00:00Z" status="CRITICAL"></status>
+            <status timestamp="2015-05-01T02:00:00Z" status="OK"></status>
+            <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+        </group>
+    </group>
+</root></p>
+<pre><code>
+Response body (JSON):
 </code></pre>
 
-<p>Reponse body:</p>
-<pre><code>&lt;root&gt;
-    &lt;group name=&quot;HG-03-AUTH&quot; type=&quot;SITES&quot;&gt;
-        &lt;status timestamp=&quot;2015-05-01T01:00:00Z&quot; status=&quot;CRITICAL&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T02:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-        &lt;status timestamp=&quot;2015-05-01T05:00:00Z&quot; status=&quot;OK&quot;&gt;&lt;/status&gt;
-    &lt;/group&gt;
-&lt;/root&gt;
+<p>{
+  "groups": [
+    {
+      "name": "HG-03-AUTH",
+      "type": "SITES",
+      "services": [
+        {
+          "name": "CREAM-CE",
+          "type": "service",
+          "statuses": [
+            {
+              "timestamp": "2015-04-30T23:59:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T01:00:00Z",
+              "value": "CRITICAL"
+            },
+            {
+              "timestamp": "2015-05-01T02:00:00Z",
+              "value": "OK"
+            },
+            {
+              "timestamp": "2015-05-01T23:59:59Z",
+              "value": "OK"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</p>
+<pre><code>
+&lt;a id=&quot;4&quot;&gt;&lt;/a&gt;
+
+
+
+
+## [GET]: List Endpoint Group Status Timelines
+
+This method may be used to retrieve status timelines for endpoint groups.
+
+### Input
+##### List All endpoint groups of specific type:
 </code></pre>
 
-<p><a id="5"></a></p>
-<h2 id="get-metric-result">[GET]: Metric Result</h2>
-<p>This method may be used to retrieve a detailed metric result.</p>
-<h3 id="input_4">Input</h3>
-<pre><code>/metric_result/{hostname}/{metric_name}?[exec_time]
+<p>/status/{report}/{group_type}[start_time]&amp;[end_time]</p>
+<pre><code>##### List a specific endpoint group of specific type:
 </code></pre>
 
-<h4 id="path-parameters_4">Path Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{hostname}</code></td>
-<td>Name of the endpoint</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td><code>{metric_name}</code></td>
-<td>Name of the metric (probe) for which results are queries</td>
-<td>YES</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="url-parameters_4">URL Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[exec_time]</code></td>
-<td>UTC time in W3C format</td>
-<td>YES</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="headers_4">Headers</h4>
-<pre><code>x-api-key: &quot;tenant_key_value&quot;
-Accept: &quot;application/xml&quot; or &quot;application/json&quot;
+<p>/status/{report}/{group_type}/{group_name}[start_time]&amp;[end_time]</p>
+<pre><code>#### Path Parameters
+| Type | Description | Required | Default value |
+|------|-------------|----------|---------------|
+|`report`| name of the report used | YES | |
+|`group_type`| type of endpoint group| YES |  |
+|`group_name`| name of endpoint group| NO |  |
+
+#### Url Parameters
+
+| Type | Description | Required | Default value |
+|------|-------------|----------|---------------|
+|`start_time`| UTC time in W3C format| YES |  |
+|`end_time`| UTC time in W3C format| YES |  |
+
+___Notes___:
+`group_type` and `group_name` in the specific request refer always to endpoint groups (eg. `SITES`).
+when `group_name` is supplied, the request returns results for a specific endpoint group. Else returns results for all available endpoint groups of the specific __group_type__
+
+#### Headers
 </code></pre>
 
-<h4 id="response-code_4">Response Code</h4>
-<pre><code>Status: 200 OK
+<p>x-api-key: shared_key_value
+Accept: application/json or application/xml</p>
+<pre><code>
+#### Response Code
 </code></pre>
 
-<h4 id="response-body_4">Response body</h4>
-<h5 id="example-request_8">Example Request:</h5>
-<p>URL:</p>
-<pre><code>/api/v2/metric_result/www.example.com/httpd_check?exec_time=2015-06-20T12:00:00Z
+<p>Status: 200 OK</p>
+<pre><code>
+### Response body
+
+##### List All endpoint groups:
+
+###### Example Request:
+URL:
 </code></pre>
 
-<p>Headers:</p>
-<pre><code>x-api-key:&quot;INSERTTENANTKEYHERE&quot;
-Accept:&quot;application/xml&quot;
+<p>/status/EGI_CRITICAL/SITES?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z</p>
+<pre><code>Headers:
 </code></pre>
 
-<h5 id="example-response_8">Example Response:</h5>
-<p>Code:</p>
-<pre><code>Status: 200 OK
+<p>x-api-key:"INSERTTENANTKEYHERE"
+Accept:"application/xml"</p>
+<pre><code>###### Example Response:
+Code:
 </code></pre>
 
-<p>Reponse body:</p>
-<pre><code> &lt;root&gt;
-   &lt;host name=&quot;www.example.com&quot;&gt;
-     &lt;metric name=&quot;httpd_check&quot;&gt;
-       &lt;status timestamp=&quot;2015-06-20T12:00:00Z&quot; value=&quot;CRITICAL&quot;&gt;
-         &lt;summary&gt;httpd status is CRITICAL&lt;/summary&gt;
-         &lt;message&gt;httpd service seems down. Failed to connect to port 80.&lt;/message&gt;
-       &lt;/status&gt;
-     &lt;/metric&gt;
-   &lt;/host&gt;
- &lt;/root&gt;
+<p>Status: 200 OK</p>
+<pre><code>Response body (XML):
 </code></pre>
+
+<p><root>
+    <group name="HG-03-AUTH" type="SITES">
+        <status timestamp="2015-05-01T00:00:00Z" status="CRITICAL"></status>
+        <status timestamp="2015-05-01T01:00:00Z" status="WARNING"></status>
+        <status timestamp="2015-05-01T05:00:00Z" status="OK"></status>
+        <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+    </group>
+    <group name="HG-01-AUTH" type="SITES">
+        <status timestamp="2015-05-01T00:00:00Z" status="CRITICAL"></status>
+        <status timestamp="2015-05-01T02:00:00Z" status="UNKNOWN"></status>
+        <status timestamp="2015-05-01T05:00:00Z" status="OK"></status>
+        <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+    </group>
+</root></p>
+<pre><code>
+Response body (JSON):
+</code></pre>
+
+<p>{
+  "groups": [
+    {
+      "name": "HG-03-AUTH",
+      "type": "SITES",
+      "statuses": [
+        {
+          "timestamp": "2015-05-01T00:00:00Z",
+          "value": "CRITICAL"
+        },
+        {
+          "timestamp": "2015-05-01T01:00:00Z",
+          "value": "WARNING"
+        },
+        {
+          "timestamp": "2015-05-01T05:00:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T23:59:59Z",
+          "value": "OK"
+        }
+      ]
+    },
+    {
+      "name": "HG-01-AUTH",
+      "type": "SITES",
+      "statuses": [
+        {
+          "timestamp": "2015-05-01T00:00:00Z",
+          "value": "CRITICAL"
+        },
+        {
+          "timestamp": "2015-05-01T02:00:00Z",
+          "value": "UNKNOWN"
+        },
+        {
+          "timestamp": "2015-05-01T05:00:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T23:59:59Z",
+          "value": "OK"
+        }
+      ]
+    }
+  ]
+}</p>
+<pre><code>
+
+##### List specific endpoint group
+(`group_name=HG-03-AUTH`):
+
+###### Example Request:
+URL:
+</code></pre>
+
+<p>/status/EGI_CRITICAL/SITES/HG-03-AUTH?start_time=2015-05-01T00:00:00Z&amp;end_time=2015-05-01T23:59:59Z</p>
+<pre><code>Headers:
+</code></pre>
+
+<p>x-api-key:"INSERTTENANTKEYHERE"
+Accept:"application/xml"</p>
+<pre><code>###### Example Response:
+Code:
+</code></pre>
+
+<p>Status: 200 OK</p>
+<pre><code>Response body (XML):
+
+</code></pre>
+
+<p><root>
+    <group name="HG-03-AUTH" type="SITES">
+        <status timestamp="2015-05-01T00:00:00Z" status="CRITICAL"></status>
+        <status timestamp="2015-05-01T02:00:00Z" status="WARNING"></status>
+        <status timestamp="2015-05-01T05:00:00Z" status="OK"></status>
+        <status timestamp="2015-05-01T23:59:59Z" status="OK"></status>
+    </group>
+</root></p>
+<pre><code>
+Response body (JSON):
+</code></pre>
+
+<p>{
+  "groups": [
+    {
+      "name": "HG-03-AUTH",
+      "type": "SITES",
+      "statuses": [
+        {
+          "timestamp": "2015-05-01T00:00:00Z",
+          "value": "CRITICAL"
+        },
+        {
+          "timestamp": "2015-05-01T02:00:00Z",
+          "value": "WARNING"
+        },
+        {
+          "timestamp": "2015-05-01T05:00:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T23:59:59Z",
+          "value": "OK"
+        }
+      ]
+    }
+  ]
+}</p>
+<pre><code>
+&lt;a id=&quot;5&quot;&gt;&lt;/a&gt;
+
+## [GET]: Metric Result
+
+This method may be used to retrieve a detailed metric result.
+
+### Input
+
+</code></pre>
+
+<p>/metric_result/{hostname}/{metric_name}?[exec_time]</p>
+<pre><code>
+#### Path Parameters
+
+Name             | Description                                              | Required | Default value
+---------------- | -------------------------------------------------------- | -------- | -------------
+`{hostname}`     | Name of the endpoint                                     | YES      |
+`{metric_name}`  | Name of the metric (probe) for which results are queries | YES      |
+
+#### URL Parameters
+
+Type            | Description             | Required | Default value
+--------------- | ----------------------- | -------- | -------------
+`[exec_time]`   | UTC time in W3C format  | YES      |
+
+
+#### Headers
+
+</code></pre>
+
+<p>x-api-key: shared_key_value
+Accept: application/json or application/xml</p>
+<pre><code>
+
+#### Response Code
+</code></pre>
+
+<p>Status: 200 OK</p>
+<pre><code>
+
+
+#### Response body
+##### Example Request:
+URL:
+</code></pre>
+
+<p>/api/v2/metric_result/www.example.com/httpd_check?exec_time=2015-06-20T12:00:00Z</p>
+<pre><code>Headers:
+</code></pre>
+
+<p>x-api-key:"INSERTTENANTKEYHERE"
+Accept:"application/xml"</p>
+<pre><code>##### Example Response:
+Code:
+</code></pre>
+
+<p>Status: 200 OK</p>
+<pre><code>Response body (XML):
+</code></pre>
+
+<p><root>
+   <host name="www.example.com">
+     <metric name="httpd_check">
+       <status timestamp="2015-06-20T12:00:00Z" value="CRITICAL">
+         <summary>httpd status is CRITICAL</summary>
+         <message>httpd service seems down. Failed to connect to port 80.</message>
+       </status>
+     </metric>
+   </host>
+ </root></p>
+<pre><code>
+Response body (JSON):
+</code></pre>
+
+<p>{
+  "root": [
+    {
+      "Name": "www.example.com",
+      "Metrics": [
+        {
+          "Name": "httpd_check",
+          "Details": [
+            {
+              "Timestamp": "2015-06-20T12:00:00Z",
+              "Value": "CRITICAL",
+              "Summary": "httpd status is CRITICAL",
+              "Message": "httpd service seems down. Failed to connect to port 80."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</p>
+<pre><code>
+
+&lt;a id=&quot;6&quot;&gt;&lt;/a&gt;
+
+# [GET]: Flat List of status timelines for all available service Endpoints
+
+The following methods can be used to obtain a tenant's flat list of all service endpoints status timelines. The api authenticates the tenant using the api-key within the x-api-key header. Pagination is also supported by using the optional parameters `pageSize` to define the size of each result page and `nextPageToken` to proceed to the next available page of results.
+## [GET] Endpoints Status timelines
+
+### Input
+
+Request a flat list of all endpoint status timelines
+
+</code></pre>
+
+<p>/status/{report_name}/endpoints?[start_time]&amp;[end_time]&amp;[granularity]&amp;[pageSize]&amp;[nextPageToken]</p>
+<pre><code>
+
+#### Query Parameters
+
+| Type            | Description                                                                                     | Required | Default value |
+| --------------- | ----------------------------------------------------------------------------------------------- | -------- | ------------- |
+| `[start_time]`  | UTC time in W3C format                                                                          | YES      |
+| `[end_time]`    | UTC time in W3C format                                                                          | YES      |
+| `[pageSize]` | How many results to return per request (-1 means return all results) | NO       | -1       |
+| `[nextPageToken]` | token to proceed to the next page | NO       |  |
+
+#### Path Parameters
+
+| Name                    | Description                                                                                           | Required | Default value |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------------- |
+| `{report_name}`         | Name of the report that contains all the information about the profile, filter tags, group types etc. | YES      |
+
+#### Headers
+
+</code></pre>
+
+<p>x-api-key: "tenant_key_value"
+Accept: "application/xml" or "application/json"</p>
+<pre><code>
+##### Response
+
+</code></pre>
+
+<p>Status: 200 OK</p>
+<pre><code>
+## Request endpoint a/r under service: `service_a`
+
+#### URL
+
+`/api/v2/status/{report_name}/endpoints?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;pageSize=2`
+
+#### Response Body
+
+</code></pre>
+
+<p>{
+  "results": [
+    {
+      "name": "e01",
+      "type": "endpoint",
+      "service": "service_a",
+      "supergroup": "ST01",
+      "results": [
+        {
+          "timestamp": "2015-06-22",
+          "availability": "98.26389",
+          "reliability": "98.26389",
+          "unknown": "0",
+          "uptime": "0.98264",
+          "downtime": "0"
+        },
+        {
+          "timestamp": "2015-06-23",
+          "availability": "54.03509",
+          "reliability": "81.48148",
+          "unknown": "0.01042",
+          "uptime": "0.53472",
+          "downtime": "0.33333"
+        }
+      ]
+    },
+    {
+      "name": "e02",
+      "type": "endpoint",
+      "service": "service_a",
+      "supergroup": "ST01",
+      "results": [
+        {
+          "timestamp": "2015-06-22",
+          "availability": "96.875",
+          "reliability": "96.875",
+          "unknown": "0",
+          "uptime": "0.96875",
+          "downtime": "0"
+        }
+      ]
+    }
+  ],
+  "pageSize": 2,
+  "nextPageToken": "Mg=="
+}</p>
+<pre><code>
+## Request to see next page of results
+
+#### URL
+
+`/api/v2/status/{report_name}/endpoints?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily&amp;pageSize=2&amp;nextPageToken=Mg==`
+
+#### Response Body
+
+</code></pre>
+
+<p>{
+  "results": [
+    {
+      "name": "e02",
+      "type": "endpoint",
+      "service": "service_a",
+      "supergroup": "ST01",
+      "results": [
+        {
+          "timestamp": "2015-06-22",
+          "availability": "96.875",
+          "reliability": "96.875",
+          "unknown": "0",
+          "uptime": "0.96875",
+          "downtime": "0"
+        }
+      ]
+    }
+  ],
+  "pageSize": 2,
+}</p>
+<pre><code>
+
+&lt;a id=&quot;7&quot;&gt;&lt;/a&gt;
+
+# [GET]: Flat List of status timelines for all available endpoint metrics filter by a specific metric
+
+The following method can be used to obtain a tenant's flat list of all available service endpoints metric status timelines filtered by a specific metric. The api authenticates the tenant using the api-key within the x-api-key header. Pagination is also supported by using the optional parameters `pageSize` to define the size of each result page and `nextPageToken` to proceed to the next available page of results.
+## [GET] Endpoints Status timelines
+
+### Input
+
+Request a flat list of all endpoint metric status timelines filtered by a specific metric
+
+</code></pre>
+
+<p>/status/{report_name}/metrics/{metric_name}?[start_time]&amp;[end_time]&amp;[granularity]&amp;[pageSize]&amp;[nextPageToken]</p>
+<pre><code>
+
+#### Query Parameters
+
+| Type            | Description                                                                                     | Required | Default value |
+| --------------- | ----------------------------------------------------------------------------------------------- | -------- | ------------- |
+| `[start_time]`  | UTC time in W3C format                                                                          | YES      |
+| `[end_time]`    | UTC time in W3C format                                                                          | YES      |
+| `[pageSize]` | How many results to return per request (-1 means return all results) | NO       | -1       |
+| `[nextPageToken]` | token to proceed to the next page | NO       |  |
+
+#### Path Parameters
+
+| Name                    | Description                                                                                           | Required | Default value |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------------- |
+| `{report_name}`         | Name of the report that contains all the information about the profile, filter tags, group types etc. | YES      |
+| `{metric_name}`         | Name of the metric to filter results by | YES      |
+
+#### Headers
+
+</code></pre>
+
+<p>x-api-key: "tenant_key_value"
+Accept: "application/xml" or "application/json"</p>
+<pre><code>
+##### Response
+
+</code></pre>
+
+<p>Status: 200 OK</p>
+<pre><code>
+## Request endpoint a/r under service: `service_a`
+
+#### URL
+
+`/api/v2/status/{report_name}/metrics/someService-FileTransfer?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;pageSize=2`
+
+#### Response Body
+
+</code></pre>
+
+<p>{
+  "results": [
+    {
+      "type":"endpoint_metric",
+      "name": "someservice.example.gr",
+      "service": "someService",
+      "supergroup": "GROUPA",
+      "metric": "someService-FileTransfer",
+      "statuses": [
+        {
+          "timestamp": "2015-04-30T23:59:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T00:00:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T01:00:00Z",
+          "value": "CRITICAL"
+        }
+      ]
+    }
+  ],
+  "nextPageToken": "Mg==",
+  "pageSize": 2
+}</p>
+<pre><code>
+## Request to see next page of results
+
+#### URL
+
+`/api/v2/status/{report_name}/metrics/someService-FileTransfer?start_time=2015-06-22T00:00:00Z&amp;end_time=2015-06-23T23:23:59Z&amp;granularity=daily&amp;pageSize=2&amp;nextPageToken=Mg==`
+
+#### Response Body
+
+</code></pre>
+
+<p>{
+  "results": [
+    {
+      "type":"endpoint_metric",
+      "name": "someservice.example.gr",
+      "service": "someService",
+      "supergroup": "GROUPA",
+      "metric": "someService-FileTransfer",
+      "statuses": [
+        {
+          "timestamp": "2015-05-01T05:00:00Z",
+          "value": "OK"
+        }
+      ]
+    },
+    {
+      "type":"endpoint_metric",
+      "name": "someservice2.example.gr",
+      "service": "someService",
+      "supergroup": "GROUPA",
+      "metric": "someService-FileTransfer",
+      "statuses": [
+        {
+          "timestamp": "2015-04-30T23:59:00Z",
+          "value": "OK"
+        },
+        {
+          "timestamp": "2015-05-01T00:00:00Z",
+          "value": "OK"
+        }
+      ]
+    }
+  ],
+  "nextPageToken": "NA==",
+  "pageSize": 2
+}
+```</p>
               
             </div>
           </div>
@@ -921,7 +1603,7 @@ Accept:&quot;application/xml&quot;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../metric_profiles/" class="btn btn-neutral float-right" title="Metric Profiles"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../metric_profiles/" class="btn btn-neutral float-right" title="Metric Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../results/" class="btn btn-neutral" title="Results"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -940,7 +1622,7 @@ Accept:&quot;application/xml&quot;
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -948,10 +1630,10 @@ Accept:&quot;application/xml&quot;
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../results/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -961,6 +1643,9 @@ Accept:&quot;application/xml&quot;
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

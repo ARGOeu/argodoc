@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tenant POEM guide - POEM documentation [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tenant POEM guide";
+    var mkdocs_page_input_path = "tenant_guide.md";
+    var mkdocs_page_url = "/tenant_guide/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> POEM documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="..">Home</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">SuperAdmin POEM</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../superadmin_administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_users/">Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_repos/">YUM repos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_packages/">Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_probe/">Probes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_metric_templates/">Metric Templates</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tenant POEM</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../tenant_administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_users/">Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_services/">Services</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_probes/">Probes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metrics/">Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../superadmin_guide/">SuperAdmin POEM guide</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tenant POEM guide</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#tenant-poem-guide">Tenant POEM guide</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#adding-groups-of-resources">Adding groups of resources</a></li>
+        
+            <li><a class="toctree-l4" href="#importing-metrics">Importing metrics</a></li>
+        
+            <li><a class="toctree-l4" href="#adding-aggregation-profile">Adding aggregation profile</a></li>
+        
+            <li><a class="toctree-l4" href="#adding-metric-profile">Adding metric profile</a></li>
+        
+            <li><a class="toctree-l4" href="#adding-thresholds-profile">Adding thresholds profile</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">POEM documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Guides &raquo;</li>
+        
+      
+    
+    <li>Tenant POEM guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/tenant_guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tenant-poem-guide">Tenant POEM guide</h1>
+<h2 id="adding-groups-of-resources">Adding groups of resources</h2>
+<p>Only <strong>tenant POEM admins</strong> have necessary permissions to add groups of resources. </p>
+<p><strong>Step 1:</strong> Go to <a href="../tenant_administration/">administration page</a>.</p>
+<p><strong>Step 2:</strong> In <em>Authentication and authorization</em> section pick the group of resources you wish to add. Available are:</p>
+<ul>
+<li>groups of aggregations,</li>
+<li>groups of metrics,</li>
+<li>groups of metric profiles,</li>
+<li>groups of thresholds profiles.</li>
+</ul>
+<p><strong>Step 3:</strong> Click the <strong>Add</strong> button.</p>
+<p><strong>Step 4:</strong> Name the group and optionally add resources to it. Details are described in <a href="../tenant_groups_of_resources/#sections">groups of resources documentation</a>.</p>
+<h2 id="importing-metrics">Importing metrics</h2>
+<p>Tenant POEM users cannot add metrics by themselves, they can only import one of the metric templates. If they want to add a metric that does not exist among metric templates, they should inform SuperAdmin POEM admins, so that they can add it to metric templates.</p>
+<p>Importing metrics is described in detail in <a href="../tenant_metric_templates/">metric templates documentation</a>.</p>
+<h2 id="adding-aggregation-profile">Adding aggregation profile</h2>
+<p><strong>Step 1:</strong> Make sure you have the permissions to add aggregation profile. The user can check his/her permissions by hovering over his/her name in the top bar (described in <a href="../tenant_ui/">tenant ui documentation</a>).</p>
+<p><strong>Step 2:</strong> Go to <a href="../tenant_aggregation_profiles/#list-of-aggregation-profiles">aggregations page</a>.</p>
+<p><strong>Step 3:</strong> Click <strong>Add</strong> button.</p>
+<p><strong>Step 4:</strong> Fill in the necessary information. Details on aggregation profiles fields is given in <a href="../tenant_aggregation_profiles/#aggregation-profile-details">aggregation profile documentation</a>.</p>
+<h2 id="adding-metric-profile">Adding metric profile</h2>
+<p><strong>Step 1:</strong> Make sure you have the permissions to add metric profile. The user can check his/her permissions by hovering over his/her name in the top bar (described in <a href="../tenant_ui/">tenant ui documentation</a>).</p>
+<p><strong>Step 2:</strong> Go to <a href="../tenant_metric_profiles/#list-of-metric-profiles">metric profile page</a>.</p>
+<p><strong>Step 3:</strong> Click <strong>Add</strong> button.</p>
+<p><strong>Step 4:</strong> Fill in the necessary information. Details are given in <a href="../tenant_metric_profiles/#metric-profile-details">metric profile documentation</a>.</p>
+<h2 id="adding-thresholds-profile">Adding thresholds profile</h2>
+<p><strong>Step 1:</strong> Make sure you have the permissions to add thresholds profile. The user can check his/her permissions by hovering over his/her name in the top bar (described in <a href="../tenant_ui/">tenant ui documentation</a>).</p>
+<p><strong>Step 2:</strong> Go to <a href="../tenant_thresholds_profiles/#list-of-thresholds-profiles">thresholds profile page</a>.</p>
+<p><strong>Step 3:</strong> Click <strong>Add</strong> button.</p>
+<p><strong>Step 4:</strong> Fill in the necessary information. Details are given in <a href="../tenant_thresholds_profiles/#thresholds-profile-details">thresholds profile documentation</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../superadmin_guide/" class="btn btn-neutral" title="SuperAdmin POEM guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2020 SRCE</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/poem-2/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../superadmin_guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

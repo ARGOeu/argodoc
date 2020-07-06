@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reports - Web Api documentation [V2]</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Reports - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Reports";
+    var mkdocs_page_input_path = "reports.md";
+    var mkdocs_page_url = "/reports/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,111 +39,119 @@
         <a href=".." class="icon icon-home"> Web Api documentation [V2]</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recomputations/">Recomputations Requests</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../recomputations/">Recomputations Requests</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../results/">Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../results/">Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../status/">Status Results</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../status/">Status Results</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../metric_profiles/">Metric Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../metric_profiles/">Metric Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../aggregation_profiles/">Aggregation Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../operations_profiles/">Operations Profiles</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../operations_profiles/">Operations Profiles</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Reports</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Reports</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#api-calls">API Calls</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#get-list-recomputation-requests">GET: List Recomputation Requests</a></li>
-                
-                    <li><a class="toctree-l4" href="#input">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#post-create-a-new-report">POST: Create a new report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_1">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_1">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#put-update-an-existing-report">PUT: Update an existing report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_2">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_2">Response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#delete-delete-an-existing-report">DELETE: Delete an existing report</a></li>
-                
-                    <li><a class="toctree-l4" href="#input_3">Input</a></li>
-                
-                    <li><a class="toctree-l4" href="#response_3">Response</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#get-list-reports">[GET]: List Reports</a></li>
+        
+            <li><a class="toctree-l3" href="#post-create-a-new-report">[POST]: Create a new report</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-an-existing-report">[PUT]: Update an existing report</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-delete-an-existing-report">[DELETE]: Delete an existing report</a></li>
+        
+            <li><a class="toctree-l3" href="#notes-on-report-filter-tags-and-topology">Notes on Report Filter tags and topology</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tenants/">Tenants</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tenants/">Tenants</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../errors/">Error Codes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../validations/">Validation Checks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../latest/">Latest results</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_stats/">Topology statistics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_endpoints/">Topology Endpoints</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../topology_groups/">Topology Groups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../weights/">Weights resource</a>
+	    </li>
           
         </ul>
       </div>
@@ -172,9 +178,8 @@
     <li>Reports</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/ARGOeu/argo-web-api" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/reports.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -216,24 +221,23 @@
 </tbody>
 </table>
 <p><a id='1'></a></p>
-<h1 id="get-list-recomputation-requests">GET: List Recomputation Requests</h1>
+<h2 id="get-list-reports">[GET]: List Reports</h2>
 <p>This method can be used to retrieve a list of existing reports or a single report according to its ID.</p>
-<h2 id="input">Input</h2>
-<h3 id="url">URL</h3>
+<h3 id="input">Input</h3>
+<h4 id="url">URL</h4>
 <pre><code>/reports
 or
 /reports/{id}
 </code></pre>
 
-<h3 id="request-headers">Request headers</h3>
+<h4 id="request-headers">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response">Response</h2>
+<h3 id="response">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body">Response body</h3>
+<h4 id="response-body">Response body</h4>
 <p>Json Response</p>
 <pre><code class="json">{
     &quot;status&quot;: {
@@ -243,6 +247,8 @@ Accept: application/json
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;eba61a9e-22e9-4521-9e47-ecaa4a494364&quot;,
+            &quot;tenant&quot;: &quot;TenantA&quot;,
+            &quot;disabled&quot;: false,
             &quot;info&quot;: {
                 &quot;name&quot;: &quot;Report_A&quot;,
                 &quot;description&quot;: &quot;report aaaaa&quot;,
@@ -256,6 +262,13 @@ Accept: application/json
                         &quot;type&quot;: &quot;SITE&quot;
                     }
                 }
+            },
+            &quot;thresholds&quot;: {
+                &quot;availability&quot;: 80.0,
+                &quot;reliability&quot;: 85.0,
+                &quot;uptime&quot;: 80.0,
+                &quot;unknown&quot;: 10.0,
+                &quot;downtime&quot;: 10.0
             },
             &quot;profiles&quot;: [
                 {
@@ -277,11 +290,13 @@ Accept: application/json
             &quot;filter_tags&quot;: [
                 {
                     &quot;name&quot;: &quot;name1&quot;,
-                    &quot;value&quot;: &quot;value1&quot;
+                    &quot;value&quot;: &quot;value1&quot;,
+                    &quot;context&quot;: &quot;&quot;
                 },
                 {
                     &quot;name&quot;: &quot;name2&quot;,
-                    &quot;value&quot;: &quot;value2&quot;
+                    &quot;value&quot;: &quot;value2&quot;,
+                    &quot;context&quot;: &quot;&quot;
                 }
             ]
         }
@@ -290,20 +305,19 @@ Accept: application/json
 </code></pre>
 
 <p><a id='2'></a></p>
-<h1 id="post-create-a-new-report">POST: Create a new report</h1>
+<h2 id="post-create-a-new-report">[POST]: Create a new report</h2>
 <p>This method can be used to create a new report</p>
-<h2 id="input_1">Input</h2>
-<h3 id="url_1">URL</h3>
-<pre><code>/reports
+<h3 id="input_1">Input</h3>
+<h4 id="url_1">URL</h4>
+<pre><code>POST /reports
 </code></pre>
 
-<h3 id="request-headers_1">Request headers</h3>
+<h4 id="request-headers_1">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="request-body">Request Body</h3>
+<h4 id="request-body">Request Body</h4>
 <pre><code class="json">{
     &quot;info&quot;: {
         &quot;name&quot;: &quot;Report_A&quot;,
@@ -317,9 +331,16 @@ Accept: application/json
             }
         }
     },
+    &quot;thresholds&quot;: {
+        &quot;availability&quot;: 80.0,
+        &quot;reliability&quot;: 85.0,
+        &quot;uptime&quot;: 80.0,
+        &quot;unknown&quot;: 10.0,
+        &quot;downtime&quot;: 10.0
+    },
     &quot;profiles&quot;: [
         {
-            &quot;id&quot;:&quot;422985a7-6386-4964-bc99-5ebd5d7b0aef&quot;,
+            &quot;id&quot;: &quot;422985a7-6386-4964-bc99-5ebd5d7b0aef&quot;,
             &quot;type&quot;: &quot;metric&quot;
         },
         {
@@ -344,9 +365,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h2 id="response_1">Response</h2>
+<h3 id="response_1">Response</h3>
 <p>Headers: <code>Status: 201 Created</code></p>
-<h3 id="response-body_1">Response Body</h3>
+<h4 id="response-body_1">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Successfully Created Report&quot;,
@@ -362,24 +383,25 @@ Accept: application/json
 </code></pre>
 
 <p><a id='3'></a></p>
-<h1 id="put-update-an-existing-report">PUT: Update an existing report</h1>
+<h2 id="put-update-an-existing-report">[PUT]: Update an existing report</h2>
 <p>This method can be used to update an existing report. This will replace all the fields in the record so all the old fields that need to be kept must be included in the json of the update request body</p>
-<h2 id="input_2">Input</h2>
-<h3 id="url_2">URL</h3>
+<h3 id="input_2">Input</h3>
+<h4 id="url_2">URL</h4>
 <pre><code>/reports/{id}
 </code></pre>
 
-<h3 id="request-headers_2">Request headers</h3>
+<h4 id="request-headers_2">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h3 id="request-body_1">Request Body</h3>
+<h4 id="request-body_1">Request Body</h4>
 <pre><code class="json">{
+    &quot;disabled&quot;: true,
+    &quot;weight&quot;: &quot;hepspec&quot;,
     &quot;info&quot;: {
         &quot;name&quot;: &quot;newname&quot;,
-        &quot;description&quot;: &quot;newdescription&quot;,
+        &quot;description&quot;: &quot;newdescription&quot;
     },
     &quot;topology_schema&quot;: {
         &quot;group&quot;: {
@@ -388,6 +410,13 @@ Accept: application/json
                 &quot;type&quot;: &quot;fight&quot;
             }
         }
+    },
+    &quot;thresholds&quot;: {
+        &quot;availability&quot;: 90.0,
+        &quot;reliability&quot;: 95.0,
+        &quot;uptime&quot;: 90.0,
+        &quot;unknown&quot;: 15.0,
+        &quot;downtime&quot;: 15.0
     },
     &quot;profiles&quot;: [
         {
@@ -419,9 +448,9 @@ Accept: application/json
 }
 </code></pre>
 
-<h2 id="response_2">Response</h2>
+<h3 id="response_2">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_2">Response Body</h3>
+<h4 id="response-body_2">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Report was successfully updated&quot;,
@@ -431,22 +460,21 @@ Accept: application/json
 </code></pre>
 
 <p><a id='4'></a></p>
-<h1 id="delete-delete-an-existing-report">DELETE: Delete an existing report</h1>
+<h2 id="delete-delete-an-existing-report">[DELETE]: Delete an existing report</h2>
 <p>This method can be used to update an existing report</p>
-<h2 id="input_3">Input</h2>
-<h3 id="url_3">URL</h3>
-<pre><code>/reports/{id}
+<h3 id="input_3">Input</h3>
+<h4 id="url_3">URL</h4>
+<pre><code>DELETE /reports/{id}
 </code></pre>
 
-<h3 id="request-headers_3">Request headers</h3>
+<h4 id="request-headers_3">Request headers</h4>
 <pre><code>x-api-key: shared_key_value
-Content-Type: application/json
 Accept: application/json
 </code></pre>
 
-<h2 id="response_3">Response</h2>
+<h3 id="response_3">Response</h3>
 <p>Headers: <code>Status: 200 OK</code></p>
-<h3 id="response-body_3">Response Body</h3>
+<h4 id="response-body_3">Response Body</h4>
 <pre><code class="json">{
     &quot;status&quot;: {
         &quot;message&quot;: &quot;Report was successfully deleted&quot;,
@@ -454,6 +482,28 @@ Accept: application/json
     }
 }
 </code></pre>
+
+<p><a id='5'></a></p>
+<h2 id="notes-on-report-filter-tags-and-topology">Notes on Report Filter tags and topology</h2>
+<p>As we seen before a report can host a list of filter tags using the following list under the filed <code>filter_tags</code>:</p>
+<pre><code class="json">{
+    &quot;filter_tags&quot;: [
+        {
+            &quot;context&quot;: &quot;a context description to define where the filter applies&quot;,
+            &quot;name&quot;: &quot;what to be filter&quot;,
+            &quot;value&quot;: &quot;filter pattern described here&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>There are special argo contextes that are automatically picked up to filter group and endpoint topology. These contexts are described below:</p>
+<ul>
+<li><em>context:</em> <code>argo.group.filter.fields</code> - Used to apply filter on basic fields of group topology. Under this context the <code>name</code> targets the group field name and the <code>value</code> holds the actual field pattern</li>
+<li><em>context:</em> <code>argo.group.filter.tags</code> - Used to apply filter on tags of group topology. Under this context the <code>name</code> targets the group tag name and the <code>value</code> holds the actual field pattern</li>
+<li><em>context:</em> <code>argo.endpoint.filter.fields</code> - Used to apply filter on basic fields of endpoint topology. Under this context the <code>name</code> targets the endpoint field name and the <code>value</code> holds the actual field pattern</li>
+<li><em>context:</em> <code>argo.endpoint.filter.tags</code> - Used to apply filter on tags of endpoint topology. Under this context the <code>name</code> targets the endpoint tag name and the <code>value</code> holds the actual field pattern</li>
+</ul>
               
             </div>
           </div>
@@ -461,7 +511,7 @@ Accept: application/json
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tenants/" class="btn btn-neutral float-right" title="Tenants"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tenants/" class="btn btn-neutral float-right" title="Tenants">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../operations_profiles/" class="btn btn-neutral" title="Operations Profiles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -480,7 +530,7 @@ Accept: application/json
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -488,10 +538,10 @@ Accept: application/json
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../operations_profiles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -501,6 +551,9 @@ Accept: application/json
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

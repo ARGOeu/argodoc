@@ -299,6 +299,10 @@
           }
        ],
        &quot;name&quot;: &quot;UserA&quot;,
+       &quot;first_name&quot;: &quot;FirstA&quot;,
+       &quot;last_name&quot;: &quot;LastA&quot;,
+       &quot;organization&quot;: &quot;OrgA&quot;,
+       &quot;description&quot;: &quot;DescA&quot;,
        &quot;token&quot;: &quot;S3CR3T1&quot;,
        &quot;email&quot;: &quot;foo-email&quot;,
        &quot;service_roles&quot;: [],
@@ -632,6 +636,10 @@
       }
    ],
    &quot;name&quot;: &quot;UserA&quot;,
+   &quot;first_name&quot;: &quot;FirstA&quot;,
+   &quot;last_name&quot;: &quot;LastA&quot;,
+   &quot;organization&quot;: &quot;OrgA&quot;,
+   &quot;description&quot;: &quot;DescA&quot;,
    &quot;token&quot;: &quot;S3CR3T1&quot;,
    &quot;email&quot;: &quot;foo-email&quot;,
    &quot;service_roles&quot;: [],
@@ -682,6 +690,10 @@
       }
    ],
    &quot;name&quot;: &quot;UserA&quot;,
+   &quot;first_name&quot;: &quot;FirstA&quot;,
+   &quot;last_name&quot;: &quot;LastA&quot;,
+   &quot;organization&quot;: &quot;OrgA&quot;,
+   &quot;description&quot;: &quot;DescA&quot;,
    &quot;token&quot;: &quot;S3CR3T1&quot;,
    &quot;email&quot;: &quot;foo-email&quot;,
    &quot;service_roles&quot;: [],
@@ -729,6 +741,10 @@ based on the authentication key provided as a url parameter</p>
       }
    ],
    &quot;name&quot;: &quot;UserA&quot;,
+   &quot;first_name&quot;: &quot;FirstA&quot;,
+   &quot;last_name&quot;: &quot;LastA&quot;,
+   &quot;organization&quot;: &quot;OrgA&quot;,
+   &quot;description&quot;: &quot;DescA&quot;,
    &quot;token&quot;: &quot;S3CR3T1&quot;,
    &quot;email&quot;: &quot;foo-email&quot;,
    &quot;service_roles&quot;: [],
@@ -779,6 +795,10 @@ based on the authentication key provided as a url parameter</p>
       }
    ],
    &quot;name&quot;: &quot;UserA&quot;,
+   &quot;first_name&quot;: &quot;FirstA&quot;,
+   &quot;last_name&quot;: &quot;LastA&quot;,
+   &quot;organization&quot;: &quot;OrgA&quot;,
+   &quot;description&quot;: &quot;DescA&quot;,
    &quot;token&quot;: &quot;S3CR3T1&quot;,
    &quot;email&quot;: &quot;foo-email&quot;,
    &quot;service_roles&quot;: [],
@@ -806,6 +826,10 @@ based on the authentication key provided as a url parameter</p>
     }
  ],
  &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;first_name&quot;: &quot;fname-1&quot;,
+ &quot;last_name&quot;: &quot;lname-1&quot;,
+ &quot;organization&quot;: &quot;org-1&quot;,
+ &quot;description&quot;: &quot;desc-1&quot;,
  &quot;service_roles&quot;:[]
 }
 </code></pre>
@@ -863,7 +887,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 </code></pre>
 
 <h3 id="responses_8">Responses</h3>
-<p>If successful, the response contains the newly created project</p>
+<p>If successful, the response contains the newly created user</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
@@ -881,6 +905,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;name&quot;: &quot;USERNEW&quot;,
  &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;first_name&quot;: &quot;fname-1&quot;,
+ &quot;last_name&quot;: &quot;lname-1&quot;,
+ &quot;organization&quot;: &quot;org-1&quot;,
+ &quot;description&quot;: &quot;desc-1&quot;,
  &quot;service_roles&quot;:[],
  &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
  &quot;modified_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
@@ -908,6 +936,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
     }
  ],
  &quot;name&quot;: &quot;CHANGED_NAME&quot;,
+ &quot;first_name&quot;: &quot;fname-1&quot;,
+ &quot;last_name&quot;: &quot;lname-1&quot;,
+ &quot;organization&quot;: &quot;org-1&quot;,
+ &quot;description&quot;: &quot;desc-1&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
  &quot;service_roles&quot;:[]
 }
@@ -945,6 +977,10 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;name&quot;: &quot;CHANGED_NAME&quot;,
  &quot;token&quot;: &quot;R4ND0MT0K3N&quot;,
  &quot;email&quot;: &quot;foo-email&quot;,
+ &quot;first_name&quot;: &quot;fname-1&quot;,
+ &quot;last_name&quot;: &quot;lname-1&quot;,
+ &quot;organization&quot;: &quot;org-1&quot;,
+ &quot;description&quot;: &quot;desc-1&quot;,
  &quot;service_roles&quot;:[],
  &quot;created_on&quot;: &quot;2009-11-10T23:00:00Z&quot;,
  &quot;modified_on&quot;: &quot;2009-11-11T10:00:00Z&quot;,

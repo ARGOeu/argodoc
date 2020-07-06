@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Metric Templates - POEM documentation [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Metric Templates";
+    var mkdocs_page_input_path = "superadmin_metric_templates.md";
+    var mkdocs_page_url = "/superadmin_metric_templates/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> POEM documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="..">Home</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">SuperAdmin POEM</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../superadmin_administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_users/">Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_repos/">YUM repos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_packages/">Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../superadmin_probe/">Probes</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Metric Templates</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#metric-templates">Metric templates</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#list-of-metric-templates">List of metric templates</a></li>
+        
+            <li><a class="toctree-l4" href="#metric-template-details">Metric template details</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tenant POEM</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../tenant_administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_users/">Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_services/">Services</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_probes/">Probes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metrics/">Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../superadmin_guide/">SuperAdmin POEM guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_guide/">Tenant POEM guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">POEM documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>SuperAdmin POEM &raquo;</li>
+        
+      
+    
+    <li>Metric Templates</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/superadmin_metric_templates.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="metric-templates">Metric templates</h1>
+<h2 id="list-of-metric-templates">List of metric templates</h2>
+<p>Metric templates page is accessible from the menu on the left side. The page is shown in the image below.</p>
+<p><img alt="SuperAdmin metric templates" src="../figures/superadmin_metric_template.png" /></p>
+<p>Metric templates may be filtered by name, probe, and tag (active or passive). By clicking on the metric template name, user can access particular metric template page. It is also possible to access particular probe version by clicking on its name.</p>
+<h2 id="metric-template-details">Metric template details</h2>
+<p>Depending on metric template type, pages for particular metric templates are a bit different. Active metric template must have a probe assigned to it, while passive metric template does not.</p>
+<h3 id="active-metric-templates">Active metric templates</h3>
+<p>Active metric template's page is shown in the image below.</p>
+<p><img alt="SuperAdmin active metric template" src="../figures/superadmin_metric_template_active.png" /></p>
+<h4 id="field-descriptions">Field descriptions</h4>
+<p>Mandatory fields in case of active metric template:</p>
+<ul>
+<li><strong>Name</strong> - metric template name;</li>
+<li><strong>Probe</strong> - probe name and version. This field is autocomplete, user must choose from available probes;</li>
+<li><strong>Type</strong> - type (active or passive; active in this example);</li>
+<li><strong>Probe executable</strong> - executable file;</li>
+<li><strong>Config</strong> <ul>
+<li><strong>maxCheckAttempts</strong> - used to define the number of times that Nagios will retry the service check command if it returns any state other than an OK state; setting this value to 1 will cause Nagios to generate an alert without retrying the service check again;</li>
+<li><strong>timeout</strong> - timeout (in seconds) for probe,</li>
+<li><strong>path</strong> - path to executable file,</li>
+<li><strong>interval</strong> -  used to define the time (in minutes) to wait before scheduling the next "regular" check of the service; "regular" checks are those that occur when the service is in an OK state or when the service is in a non-OK state, but has already been rechecked <strong>maxCheckAttempts</strong> number of times;</li>
+<li><strong>retryInterval</strong> - used to define the time (in minutes) to wait before scheduling a re-check of the service; services are rescheduled at the retry interval when they have changed to a non-OK state; once the service has been retried <strong>maxCheckAttempts</strong> times without a change in its status, it will revert to being scheduled at its "normal" rate as defined by the <strong>interval</strong> value.</li>
+</ul>
+</li>
+</ul>
+<h5 id="attributes">Attributes</h5>
+<p>Attributes are part of metric template definition. They are used to pass values as arguments to metric command (e.g. TCP port on which service is listening, SE path, CE queue...). </p>
+<p>Description of attributes is given in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BDII_PORT</code></td>
+<td>BDII port.</td>
+</tr>
+<tr>
+<td><code>BDII_DN</code></td>
+<td>BDII base DN</td>
+</tr>
+<tr>
+<td><code>BDII_TYPE</code></td>
+<td>Type of BDII, can be one of the following: <code>bdii_top</code> and <code>bdii_site</code>.</td>
+</tr>
+<tr>
+<td><code>CREAM_PORT</code></td>
+<td>CREAM CE port.</td>
+</tr>
+<tr>
+<td><code>CREAM_QUEUE</code></td>
+<td>CREAM CE queue for a given VO.</td>
+</tr>
+<tr>
+<td><code>FTS_PORT</code></td>
+<td>FTS port.</td>
+</tr>
+<tr>
+<td><code>GRIDFTP_PORT</code></td>
+<td>GridFTP port.</td>
+</tr>
+<tr>
+<td><code>GRAM_PORT</code></td>
+<td>GRAM Gatekeeper port.</td>
+</tr>
+<tr>
+<td><code>HOST_NAME</code></td>
+<td>Hostname of the monitored box. Do not use this attribute for parameter <code>-H</code> because it is set automatically.</td>
+</tr>
+<tr>
+<td><code>KEYSTORE</code></td>
+<td>Location of Java keystore with host certificate. Default value is <code>/etc/nagios/globus/keystore.jks</code>.</td>
+</tr>
+<tr>
+<td><code>LL_PORT</code></td>
+<td>LocalLogger port.</td>
+</tr>
+<tr>
+<td><code>MYPROXY_PORT</code></td>
+<td>MYPROXY port.</td>
+</tr>
+<tr>
+<td><code>NAGIOS_HOST_CERT</code></td>
+<td>Location of host certificate with nagios user ownership. Value is <code>/etc/nagios/globus/hostcert.pem</code>.</td>
+</tr>
+<tr>
+<td><code>NAGIOS_HOST_KEY</code></td>
+<td>Location of host certificate key with nagios user ownership. Value is <code>/etc/nagios/globus/hostkey.pem</code>.</td>
+</tr>
+<tr>
+<td><code>PATH</code></td>
+<td>Path extracted from URL.</td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td>Port extracted from URL.</td>
+</tr>
+<tr>
+<td><code>RGMA_PORT</code></td>
+<td>RGMA port.</td>
+</tr>
+<tr>
+<td><code>SE_PATH</code></td>
+<td>Storage element path for a given VO.</td>
+</tr>
+<tr>
+<td><code>&lt;serviceType&gt;_URL</code></td>
+<td>URL extracted topology database (e.g. GOCDB attribute URL); serviceType prefix is used in order to avoid collision in case of multiple serviceTypes on a same host.</td>
+</tr>
+<tr>
+<td><code>SITE_BDII</code></td>
+<td>Hostname of Site BDII.</td>
+</tr>
+<tr>
+<td><code>SITENAME</code></td>
+<td>Site name.</td>
+</tr>
+<tr>
+<td><code>SRM1_PORT</code></td>
+<td>SRM1 port.</td>
+</tr>
+<tr>
+<td><code>SRM2_PORT</code></td>
+<td>SRM2.2 port.</td>
+</tr>
+<tr>
+<td><code>SSL</code></td>
+<td>Attribute is set if URL scheme is <code>https://</code>.</td>
+</tr>
+<tr>
+<td><code>TOMCAT_PORT</code></td>
+<td>TOMCAT port.</td>
+</tr>
+<tr>
+<td><code>TOP_BDII</code></td>
+<td>Hostname of Top BDII used for generating configuration.</td>
+</tr>
+<tr>
+<td><code>TRUSTSTORE</code></td>
+<td>Location of Java truststore with all IGTF CA bundle. Default value is <code>/etc/nagios/globus/truststore.ts</code>.</td>
+</tr>
+<tr>
+<td><code>URL</code></td>
+<td>URL extracted topology database (e.g. GOCDB attribute URL).</td>
+</tr>
+<tr>
+<td><code>VOBOX_PORT</code></td>
+<td>VOBOX port.</td>
+</tr>
+<tr>
+<td><code>WMPROXY_PORT</code></td>
+<td>WMPROXY port.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="flags">Flags</h5>
+<p>Flags are part of metric definition and control how the NCG configures metric. Below is description currently
+supported flags.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NOARGS</code></td>
+<td>Metric's command is configured without arguments.</td>
+</tr>
+<tr>
+<td><code>NOHOSTNAME</code></td>
+<td>Metric's command is configured without -H parameter.</td>
+</tr>
+<tr>
+<td><code>NRPE_SERVICE</code></td>
+<td>Metric is configured to be executed via NRPE on service node.</td>
+</tr>
+<tr>
+<td><code>NOPUBLISH</code></td>
+<td>Metric results are not published to AMS.</td>
+</tr>
+<tr>
+<td><code>PASSIVE</code></td>
+<td>If defined, metric is part of a complex check. NCG configures metric as passive check only. Results for the metric should be generated by parent metric or received via message bus.</td>
+</tr>
+<tr>
+<td><code>VO</code></td>
+<td>Metric is VO dependent. Metric is configured multiple time for each VO or VO FQAN defined. In case that VO is not supported on a given host, metric is not generated at all.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="passive-metric-templates">Passive metric templates</h3>
+<p>Page for particular <strong>passive</strong> metric template is considerably reduced and it is shown in the image below.</p>
+<p><img alt="SuperAdmin passive metric template" src="../figures/superadmin_metric_template_passive.png" /></p>
+<p>Mandatory fields in case of passive metric template:</p>
+<ul>
+<li><strong>Name</strong> - metric template name;</li>
+<li><strong>Type</strong> - type (active or passive; passive in this example);</li>
+<li><strong>Flags</strong> <ul>
+<li><strong>PASSIVE</strong> flag is mandatory for passive metrics - it is added automatically when passive type is chosen through the UI and it is disabled to prevent users from accidentally deleting it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="metric-template-cloning">Metric template cloning</h3>
+<p>Metric template can be cloned by clicking <strong>Clone</strong> button. Then a new form is opened with fields filled with values as they are defined in source metric template.</p>
+<h3 id="metric-template-history">Metric template history</h3>
+<p>By clicking <strong>History</strong> button, one may see all the versions of metric template as is shown in image below.</p>
+<p><img alt="SuperAdmin metric template history" src="../figures/superadmin_metric_template_history.png" /></p>
+<p>The user may see particular version of the metric template by clicking on its version, and see the differences between two versions by choosing the versions and clicking <strong>Compare</strong> button.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tenant_administration/" class="btn btn-neutral float-right" title="Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../superadmin_probe/" class="btn btn-neutral" title="Probes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2020 SRCE</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/poem-2/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../superadmin_probe/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tenant_administration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
