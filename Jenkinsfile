@@ -158,7 +158,12 @@ pipeline {
                         '''
                         withEnv(['GIT_SSH=../local_ssh.sh']) {
                             sh """
-                                if [ -n "\$(git status --porcelain)" ]; then
+                                GIT_COMMIT_TIME=$(git log -1 --format=%ct)
+                                CURR_TIME=$(date +%s)
+                                SUB="$(($CURR_TIME - $GIT_COMMIT_TIME))"
+                                if [[ $SUB -lt 600 ]]; then
+                                    echo ">>> Trigger loop abort push commit"
+                                elif [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
                                     git commit -a --author="newgrnetci <argo@grnet.gr>" -m "Update docs"
                                     git push origin ${env.BRANCH_NAME}
