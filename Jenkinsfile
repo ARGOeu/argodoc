@@ -161,7 +161,7 @@ pipeline {
                                 GIT_COMMIT_TIME=\$(git log -1 --format=%ct)
                                 CURR_TIME=\$(date +%s)
                                 SUB="\$((\$CURR_TIME - \$GIT_COMMIT_TIME))"
-                                if [[ \$SUB -lt 600 ]]; then
+                                if [ \$SUB -lt 600 ]; then
                                     echo ">>> Trigger loop abort push commit"
                                 elif [ -n "\$(git status --porcelain)" ]; then
                                     git add -A
