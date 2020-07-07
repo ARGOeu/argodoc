@@ -147,12 +147,12 @@
 <h2 id="post-manage-bindings-create-new-binding">[POST] Manage Bindings - Create New Binding</h2>
 <p>This request creates a new binding.</p>
 <h4 id="request">Request</h4>
-<pre><code>POST /v1/bindings`
+<pre><code>POST /v1/bindings/{name}`
 </code></pre>
 
 <h3 id="example-request">Example request</h3>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/bindings?key={key_in_the_config}&quot;
+  &quot;https://{URL}/v1/bindings/b1?key={key_in_the_config}&quot;
 </code></pre>
 
 <h5 id="post-body">Post Body</h5>
@@ -268,7 +268,7 @@
 <h2 id="get-manage-bindings-list-one-binding-by-uuid">[GET] Manage Bindings - List One Binding By UUID</h2>
 <p>This request retrieves the information of a binding associated with the provided uuid.</p>
 <h3 id="request_3">Request</h3>
-<pre><code>GET /v1/bindings/{uuid}
+<pre><code>GET /v1/bindings/{name}
 </code></pre>
 
 <h3 id="response_3">Response</h3>
@@ -293,9 +293,9 @@
 <h2 id="put-manage-bindings-update-a-binding">[PUT] Manage Bindings - Update a Binding</h2>
 <p>This request updates binding. You can specify one or more fields to update.
 The allowed to be updated fields are:</p>
-<p><code>name, service_uuid, host, dn, oidc_token, unique_key</code>.</p>
+<p><code>name, service_uuid, host, auth_identifier, auth_type, unique_key</code>.</p>
 <h4 id="request_4">Request</h4>
-<pre><code>PUT /v1/bindings/{uuid}
+<pre><code>PUT /v1/bindings/{name}
 </code></pre>
 
 <h5 id="request-body">Request Body</h5>
@@ -325,7 +325,7 @@ The allowed to be updated fields are:</p>
 <h2 id="delete-manage-bindings-delete-a-binding">[DELETE] Manage Bindings - Delete a Binding</h2>
 <p>This request deletes a binding.</p>
 <h4 id="request_5">Request</h4>
-<pre><code>DELETE /v1/bindings/{uuid}`
+<pre><code>DELETE /v1/bindings/{name}`
 </code></pre>
 
 <h3 id="response_5">Response</h3>
