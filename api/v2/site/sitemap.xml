@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>http://argoeu.github.io/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/recomputations/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/results/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/status/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/metric_profiles/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/aggregation_profiles/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/operations_profiles/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/reports/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/tenants/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/errors/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/validations/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/metrics/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/latest/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/topology_stats/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/topology_endpoints/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/topology_groups/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://argoeu.github.io/weights/</loc>
-     <lastmod>2020-07-07</lastmod>
+     <lastmod>2020-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
