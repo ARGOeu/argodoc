@@ -141,6 +141,7 @@
                 <h1 id="overview">Overview</h1>
 <p>This document describes the policy to develop, package and integrate new probes into the ARGO Monitoring Engine.</p>
 <h1 id="development">Development</h1>
+<p>Before starting with development, check if probe already exists on <a href="https://exchange.nagios.org/">Nagios Exchange</a>.</p>
 <p>Please refer to the official Nagios documentation for probe development guidelines:</p>
 <ul>
 <li><a href="https://nagios-plugins.org/doc/guidelines.html">Nagios Development Guidelines</a>,</li>
@@ -160,27 +161,32 @@
 <li>
 <p>Each probe must provide the following arguments:</p>
 <p><code>-h help (--help)
--t timeout (--timeout)</code>
-* The following arguments can also be used if applicable:</p>
-<p><code>-H hostname (--hostname)
--p port (--port)
+-t timeout (--timeout)
+-H hostname (--hostname)</code></p>
+</li>
+<li>
+<p>The following arguments can also be used if applicable:</p>
+<p><code>-p port (--port)
 -u url (--url)
 -v verbose (--verbose)
 -w warning threshold (--warning)
 -c critical threshold (--critical)
 -u username (--username)
--p password (--password)</code>
-* Maximum output size for test/plugin output is 16KB. Above that limit the output will be truncated.</p>
+-p password (--password)</code></p>
+</li>
+<li>
+<p>Maximum output size for test/plugin output is 16KB. Above that limit the output will be truncated.</p>
 </li>
 </ul>
 <h2 id="actual-data">Actual Data</h2>
 <p>Actual data is additional information about service behaviour that can be used in combination with threshold mechanisms to generate new metrics. Probes can report actual data by following the <a href="https://nagios-plugins.org/doc/guidelines.html#AEN200">Nagios guidelines for performance data</a>.</p>
-<p>Some other conditions:
-* This is the expected format of actual data:</p>
-<pre><code>```buildoutcfg
-'label'=value[UOM];[warn];[crit];[min];[max]
-```
-</code></pre>
+<p>Some other conditions:</p>
+<ul>
+<li>
+<p>This is the expected format of actual data:</p>
+<p><code>'label'=value[UOM];[warn];[crit];[min];[max]</code></p>
+</li>
+</ul>
 <h1 id="packaging">Packaging</h1>
 <p>Probes must be provided in the form of RPM packages, where a single package may contain multiple probes. Please refer to the official EPEL documentation for packaging:</p>
 <ul>
