@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Error Codes - Web Api documentation [V2]</title>
+  <title>Feeds resource - Web Api documentation [V2]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Error Codes";
-    var mkdocs_page_input_path = "errors.md";
-    var mkdocs_page_url = "/errors/";
+    var mkdocs_page_name = "Feeds resource";
+    var mkdocs_page_input_path = "feeds.md";
+    var mkdocs_page_url = "/feeds/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -93,12 +93,9 @@
     <a class="" href="../tenants/">Tenants</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Error Codes</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../errors/">Error Codes</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -136,9 +133,23 @@
     <a class="" href="../weights/">Weights resource</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../feeds/">Feeds resource</a>
+    <a class="current" href="./">Feeds resource</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#api-calls">API Calls</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-list-feed-topology-parameters">[GET]: List Feed topology parameters</a></li>
+        
+            <li><a class="toctree-l3" href="#put-update-topology-feed-parameters">[PUT]: Update topology feed parameters</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -163,10 +174,10 @@
     
       
     
-    <li>Error Codes</li>
+    <li>Feeds resource</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/errors.md"
+        <a href="https://github.com/ARGOeu/argo-web-api/edit/master/docs/feeds.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -176,63 +187,112 @@
           <div role="main">
             <div class="section">
               
-                <p>The following error codes exist among the methods of the ARGO Web API:</p>
+                <h1 id="api-calls">API Calls</h1>
 <table>
 <thead>
 <tr>
-<th>Error</th>
-<th>HTTP Code</th>
+<th>Name</th>
 <th>Description</th>
+<th>Shortcut</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Bad request</td>
-<td>400</td>
-<td>One or more checks may have failed. More details on the carried out checks can be found <a href="../validations/">here</a></td>
+<td>GET: Feed Topology information</td>
+<td>This method can be used to retrieve a list of feed topology parameters</td>
+<td><a href="#1"> Description</a></td>
 </tr>
 <tr>
-<td>Wrong start_time</td>
-<td>400</td>
-<td>Use start_time url parameter in zulu format (like <code>2006-01-02T15:04:05Z</code>) to indicate the query start time</td>
-</tr>
-<tr>
-<td>Wrong end_time</td>
-<td>400</td>
-<td>Use end_time url parameter in zulu format (like <code>2006-01-02T15:04:05Z</code>) to indicate the query end time</td>
-</tr>
-<tr>
-<td>Wrong exec_time</td>
-<td>400</td>
-<td>Use exec_time url parameter in zulu format (like <code>2006-01-02T15:04:05Z</code>) to indicate the exact probe execution time</td>
-</tr>
-<tr>
-<td>Wrong granularity</td>
-<td>400</td>
-<td>The parameter value can be either <code>daily</code> or <code>monthly</code></td>
-</tr>
-<tr>
-<td>Unauthorized</td>
-<td>401</td>
-<td>The client needs to provide a correct authentication token using the header <code>x-api-key</code></td>
-</tr>
-<tr>
-<td>Forbidden</td>
-<td>403</td>
-<td>Access to the resource is forbidden due to authorization policy enforced</td>
-</tr>
-<tr>
-<td>Item not found</td>
-<td>404</td>
-<td>Either the path is not found or no results are available for the given query</td>
-</tr>
-<tr>
-<td>Content not acceptable</td>
-<td>406</td>
-<td>The <code>Accept</code> header either was not provided or was provided but did not contain any valid content types. Acceptable content types are <code>application/xml</code> or <code>application/json</code></td>
+<td>PUT: Update feed topology info</td>
+<td>This method can be used to update feed topology information parameters</td>
+<td><a href="#2"> Description</a></td>
 </tr>
 </tbody>
 </table>
+<p><a id='1'></a></p>
+<h2 id="get-list-feed-topology-parameters">[GET]: List Feed topology parameters</h2>
+<p>This method can be used to retrieve a list of feed topology parameters</p>
+<h3 id="input">Input</h3>
+<pre><code>GET /feeds/topology
+</code></pre>
+
+<h3 id="request-headers">Request headers</h3>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Success&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ },
+ &quot;data&quot;: [
+  {
+   &quot;type&quot;: &quot;gocdb&quot;,
+   &quot;feed_url&quot;: &quot;https://somewhere.foo.bar/topology/feed&quot;,
+   &quot;paginated&quot;: &quot;true&quot;,
+   &quot;fetch_type&quot;: [
+    &quot;item1&quot;,
+    &quot;item2&quot;
+   ],
+   &quot;uid_endpoints&quot;: &quot;endpointA&quot;
+  }
+ ]
+}
+</code></pre>
+
+<p><a id='2'></a></p>
+<h2 id="put-update-topology-feed-parameters">[PUT]: Update topology feed parameters</h2>
+<p>This method is used to upadte topology feed parameters</p>
+<h3 id="input_1">Input</h3>
+<pre><code>PUT /feeds/topology
+</code></pre>
+
+<h4 id="put-body">PUT BODY</h4>
+<pre><code class="json">  {
+   &quot;type&quot;: &quot;gocdb&quot;,
+   &quot;feed_url&quot;: &quot;https://somewhere.foo.bar/topology/feed&quot;,
+   &quot;paginated&quot;: &quot;true&quot;,
+   &quot;fetch_type&quot;: [
+    &quot;item1&quot;,
+    &quot;item2&quot;
+   ],
+   &quot;uid_endpoints&quot;: &quot;endpointA&quot;
+  }
+</code></pre>
+
+<h4 id="request-headers_1">Request headers</h4>
+<pre><code>x-api-key: shared_key_value
+Accept: application/json
+</code></pre>
+
+<h3 id="response_1">Response</h3>
+<p>Headers: <code>Status: 200 OK</code></p>
+<h4 id="response-body_1">Response body</h4>
+<p>Json Response</p>
+<pre><code class="json">{
+ &quot;status&quot;: {
+  &quot;message&quot;: &quot;Feeds resource succesfully updated&quot;,
+  &quot;code&quot;: &quot;200&quot;
+ },
+ &quot;data&quot;: [
+  {
+   &quot;type&quot;: &quot;gocdb&quot;,
+   &quot;feed_url&quot;: &quot;https://somewhere2.foo.bar/topology/feed&quot;,
+   &quot;paginated&quot;: &quot;true&quot;,
+   &quot;fetch_type&quot;: [
+    &quot;item4&quot;,
+    &quot;item5&quot;
+   ],
+   &quot;uid_endpoints&quot;: &quot;endpointA&quot;
+  }
+ ]
+}
+</code></pre>
               
             </div>
           </div>
@@ -240,10 +300,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../validations/" class="btn btn-neutral float-right" title="Validation Checks">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../tenants/" class="btn btn-neutral" title="Tenants"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../weights/" class="btn btn-neutral" title="Weights resource"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -273,10 +331,8 @@
           <a href="https://github.com/ARGOeu/argo-web-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../tenants/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../weights/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../validations/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
