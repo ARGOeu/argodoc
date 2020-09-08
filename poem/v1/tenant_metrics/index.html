@@ -73,6 +73,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../superadmin_tenants/">Tenants</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../superadmin_repos/">YUM repos</a>
                 </li>
                 <li class="">
@@ -85,7 +89,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../superadmin_metric_templates/">Metric Templates</a>
+    <a class="" href="../superadmin_metric_templates/">Metric templates</a>
                 </li>
     </ul>
 	    </li>
@@ -100,7 +104,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
@@ -108,11 +112,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+    <a class="" href="../tenant_packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_services/">Services</a>
+    <a class="" href="../tenant_metric_templates/">Metric templates</a>
                 </li>
                 <li class="">
                     
@@ -138,15 +142,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+    <a class="" href="../tenant_metric_profiles/">Metric profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
                 </li>
     </ul>
 	    </li>
@@ -207,15 +215,15 @@
               
                 <h1 id="metrics">Metrics</h1>
 <p>Metric is a procedure which checks specific functionality of a given service, i.e. single measurement (e.g. <code>org.nagios.WebCheck</code>, <code>hr.srce.CertLifetime</code>). </p>
-<p>Since tenant users are not allowed to create metrics themselves, metric templates are created on SuperAdmin POEM which can be imported by tenant super admins as metrics through <a href="../tenant_metric_templates/">Metric Template Page</a>.</p>
+<p>Since tenant users are not allowed to create metrics themselves, metric templates are created on SuperAdmin POEM which can be imported by tenant super admins as metrics through <a href="../tenant_metric_templates/">metric template page</a>.</p>
 <h2 id="list-of-metrics">List of metrics</h2>
 <p>Metrics page is accessible through menu on the left side. It is shown in the image below.</p>
 <p><img alt="Tenant Metrics" src="../figures/tenant_metrics.png" /></p>
-<p>Metrics can be filtered by name, probe, group and type (active or passive). Any particular metric can be accessed by clicking its name. Also one may see probes associated to metrics by clicking probe's name.</p>
+<p>Metrics can be filtered by name, probe, group, type (active or passive), and tag. Any particular metric can be accessed by clicking its name. Also, one may see probes associated to metrics by clicking probe's name.</p>
 <h2 id="metric-details">Metric details</h2>
 <p>Particular metric's page is shown in the image below.</p>
 <p><img alt="Tenant Metric Detail" src="../figures/tenant_metrics_details.png" /></p>
-<p>Most of the fields is disabled. Tenant users are only allowed to modify four of the configuration values and group. User may only choose among groups that are associated to him. Exception to this rule is user with superuser permission, (s)he can pick any existing group. </p>
+<p>Most of the fields are disabled. Tenant users are only allowed to modify four of the configuration values and group. User may only choose among groups that are associated to him. Exception to this rule is user with superuser permission, (s)he can pick any existing group. </p>
 <p>Fields descriptions are given in <a href="../superadmin_metric_templates/#field-descriptions">metric template documentation</a>.</p>
 <p>In case user has no permission to modify the metric, there is going to appear a warning message on top of page, as shown in image below.</p>
 <p><img alt="Tenant Metric Readonly" src="../figures/tenant_metric_readonly.png" /></p>
@@ -230,7 +238,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tenant_aggregation_profiles/" class="btn btn-neutral float-right" title="Aggregation Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tenant_aggregation_profiles/" class="btn btn-neutral float-right" title="Aggregation profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../tenant_probes/" class="btn btn-neutral" title="Probes"><span class="icon icon-circle-arrow-left"></span> Previous</a>

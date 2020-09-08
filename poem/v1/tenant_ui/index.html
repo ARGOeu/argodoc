@@ -73,6 +73,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../superadmin_tenants/">Tenants</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../superadmin_repos/">YUM repos</a>
                 </li>
                 <li class="">
@@ -85,7 +89,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../superadmin_metric_templates/">Metric Templates</a>
+    <a class="" href="../superadmin_metric_templates/">Metric templates</a>
                 </li>
     </ul>
 	    </li>
@@ -100,7 +104,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
@@ -108,11 +112,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+    <a class="" href="../tenant_packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_services/">Services</a>
+    <a class="" href="../tenant_metric_templates/">Metric templates</a>
                 </li>
                 <li class="">
                     
@@ -124,15 +128,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+    <a class="" href="../tenant_metric_profiles/">Metric profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
                 </li>
     </ul>
 	    </li>
@@ -191,7 +199,7 @@
 <p>User interface is slightly different for tenant user and tenant admin user.</p>
 <h2 id="tenant-admin-user">Tenant admin user</h2>
 <p>When tenant admin user (for tenant POEM, not to be mistaken for super admin user for SuperAdmin POEM) logs into POEM, (s)he is redirected to <a href="../tenant_administration/">administration page</a>.</p>
-<p>On the side bar (shown in the figure below), one may access the other POEM pages: <a href="../tenant_services/">services</a>, <a href="../tenant_probes/">probes</a>, <a href="../tenant_metrics/">metrics</a>, <a href="../tenant_metric_profiles/">metric profiles</a>, <a href="../tenant_aggregation_profiles/">aggregation profiles</a>, and <a href="../tenant_thresholds_profiles/">thresholds profiles</a>.</p>
+<p>On the side bar (shown in the figure below), one may access the other POEM pages: <a href="../tenant_probes/">probes</a>, <a href="../tenant_metrics/">metrics</a>, <a href="../tenant_metric_profiles/">metric profiles</a>, <a href="../tenant_aggregation_profiles/">aggregation profiles</a>, <a href="../tenant_thresholds_profiles/">thresholds profiles</a>, and <a href="../tenant_operations_profiles/">operations profiles</a>.</p>
 <p><img alt="Tenant Admin Sidebar" src="../figures/tenant_sidebar.png" /></p>
 <p>On the top bar (shown in the figure below), there are ARGO logo, welcome message for user, and logout button.</p>
 <p><img alt="Tenant Admin Top Bar" src="../figures/tenant_topbar.png" /></p>
@@ -199,7 +207,7 @@
 <p><img alt="Tenant Admin Hover Info" src="../figures/tenant_hover_tenant_admin.png" /></p>
 <h2 id="tenant-user">Tenant user</h2>
 <p>Tenant users do not have permission to access <a href="../tenant_administration/">administration page</a>, so when they are logged in, they are redirected to <a href="../tenant_metric_profiles/">metric profiles page</a>.</p>
-<p>The sidebar for tenant users (shown in the figure below) is, therefore, somewhat shorter: it does not contain link to administration, just to <a href="../tenant_services/">services</a>, <a href="../tenant_probes/">probes</a>, <a href="../tenant_metrics/">metrics</a>, <a href="../tenant_metric_profiles/">metric profiles</a>, <a href="../tenant_aggregation_profiles/">aggregation profiles</a>, and <a href="../tenant_thresholds_profiles/">thresholds profiles</a>.</p>
+<p>The sidebar for tenant users (shown in the figure below) is, therefore, somewhat shorter: it does not contain link to administration, just to <a href="../tenant_probes/">probes</a>, <a href="../tenant_metrics/">metrics</a>, <a href="../tenant_metric_profiles/">metric profiles</a>, <a href="../tenant_aggregation_profiles/">aggregation profiles</a>, <a href="../tenant_thresholds_profiles/">thresholds profiles</a>, and <a href="../tenant_operations_profiles/">operations profiles</a>.</p>
 <p><img alt="Tenant Sidebar" src="../figures/tenant_tenant_sidebar.png" /></p>
 <p>Top bar looks the same as for admin user. The difference is in hover info. When the user hovers over his/her name, the info shown (figure below) is: user type (tenant user, or tenant admin), groups of resources associated to him/her, and his/her email address.</p>
 <p><img alt="Tenant Hover Info" src="../figures/tenant_user_hover_tenant.png" /></p>

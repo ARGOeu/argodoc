@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Groups of resources - POEM documentation [V1]</title>
+  <title>Operations profiles - POEM documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Groups of resources";
-    var mkdocs_page_input_path = "tenant_groups_of_resources.md";
-    var mkdocs_page_url = "/tenant_groups_of_resources/";
+    var mkdocs_page_name = "Operations profiles";
+    var mkdocs_page_input_path = "tenant_operations_profiles.md";
+    var mkdocs_page_url = "/tenant_operations_profiles/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -102,29 +102,9 @@
                     
     <a class="" href="../tenant_administration/">Administration</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Groups of resources</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#groups-of-resources">Groups of resources</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#group-of-aggregations">Group of aggregations</a></li>
-        
-            <li><a class="toctree-l4" href="#group-of-metrics">Group of metrics</a></li>
-        
-            <li><a class="toctree-l4" href="#group-of-metric-profiles">Group of metric profiles</a></li>
-        
-            <li><a class="toctree-l4" href="#group-of-thresholds-profiles">Group of thresholds profiles</a></li>
-        
-            <li><a class="toctree-l4" href="#sections">Sections</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
@@ -158,9 +138,23 @@
                     
     <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
+    <a class="current" href="./">Operations profiles</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#operations-profiles">Operations profiles</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#list-of-operations-profiles">List of operations profiles</a></li>
+        
+            <li><a class="toctree-l4" href="#operations-profile-details">Operations profile details</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -206,10 +200,10 @@
         
       
     
-    <li>Groups of resources</li>
+    <li>Operations profiles</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/tenant_groups_of_resources.md"
+        <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/tenant_operations_profiles.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -219,27 +213,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="groups-of-resources">Groups of resources</h1>
-<p>All the groups of resources are available through <a href="../tenant_administration/">Administration</a> page. There are four groups of resources:</p>
-<ul>
-<li>groups of aggregations,</li>
-<li>groups of metrics,</li>
-<li>groups of metric profiles,</li>
-<li>groups of thresholds profiles.</li>
-</ul>
-<p>All of the groups of resources pages look similar. By clicking the name of group, user opens page with details of that particular group of resource.</p>
-<p>Images of groups of resources are shown below in respective sections.</p>
-<h2 id="group-of-aggregations">Group of aggregations</h2>
-<p><img alt="Tenant Group of aggregations" src="../figures/tenant_group_of_aggregations.png" /></p>
-<h2 id="group-of-metrics">Group of metrics</h2>
-<p><img alt="Tenant Group of metrics" src="../figures/tenant_group_of_metrics.png" /></p>
-<h2 id="group-of-metric-profiles">Group of metric profiles</h2>
-<p><img alt="Tenant Group of metric profiles" src="../figures/tenant_group_of_metric_profiles.png" /></p>
-<h2 id="group-of-thresholds-profiles">Group of thresholds profiles</h2>
-<p><img alt="Tenant Group of thresholds profiles" src="../figures/tenant_group_of_thresholds_profiles.png" /></p>
-<h2 id="sections">Sections</h2>
-<p>Once the page of the particular group of resource is opened, there are two sections. In the first section, the name is defined, and once it's defined, it is no longer possible to change it.</p>
-<p>In second section there is a table of resources associated with the particular group. There is also a multiple select field, where user can search for a resource with no group assigned and asign it to the particular group. User may select multiple resources, and by clicking the green button, they are added to the table below.</p>
+                <h1 id="operations-profiles">Operations profiles</h1>
+<h2 id="list-of-operations-profiles">List of operations profiles</h2>
+<p>Operations profiles page is shown in the image below. It is accessible from the menu on the left side.</p>
+<p><img alt="Tenant Operations Profile" src="../figures/tenant_operations_profiles.png" /></p>
+<h2 id="operations-profile-details">Operations profile details</h2>
+<p>By clicking the profiles name, user can see its details (shown in the image below).</p>
+<p><img alt="Tenant Operations Profile Details" src="../figures/tenant_operations_profile_details.png" /></p>
+<p>The page is read only. Beside the name of the profile, there are two sections: <strong>States</strong> and <strong>Operations</strong>.</p>
+<p>In <strong>State</strong> section, there are two tables. One shows available status states produces by the Monitoring Engine(s), and the other one shows default states. </p>
+<p>Default states are necessary since compute engine gives the ability to define completely custom states based on tenants monitoring infrastructure output. Therefore, some custom states must be tagged with specific meaning. These states might not be present in the monitoring messages, but are produced during computations by the compute engine according to a specific logic. Therefore, some of the custom status tenants declare must be "tied" to a specific default state of service.</p>
+<p>The available operations are given in the <strong>Operations</strong> section in two truth tables: AND and OR. Every row in table represents an operation (AND or OR) between two states and their result.</p>
               
             </div>
           </div>
@@ -247,10 +231,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tenant_users/" class="btn btn-neutral float-right" title="Users">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../superadmin_guide/" class="btn btn-neutral float-right" title="SuperAdmin POEM guide">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../tenant_administration/" class="btn btn-neutral" title="Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tenant_thresholds_profiles/" class="btn btn-neutral" title="Thresholds profiles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -280,10 +264,10 @@
           <a href="https://github.com/ARGOeu/poem-2/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../tenant_administration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../tenant_thresholds_profiles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../tenant_users/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../superadmin_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

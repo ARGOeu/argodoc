@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Metric Templates - POEM documentation [V1]</title>
+  <title>Metric templates - POEM documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Metric Templates";
+    var mkdocs_page_name = "Metric templates";
     var mkdocs_page_input_path = "superadmin_metric_templates.md";
     var mkdocs_page_url = "/superadmin_metric_templates/";
   </script>
@@ -73,6 +73,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../superadmin_tenants/">Tenants</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../superadmin_repos/">YUM repos</a>
                 </li>
                 <li class="">
@@ -85,7 +89,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Metric Templates</a>
+    <a class="current" href="./">Metric templates</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#metric-templates">Metric templates</a></li>
@@ -114,7 +118,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
@@ -122,11 +126,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+    <a class="" href="../tenant_packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_services/">Services</a>
+    <a class="" href="../tenant_metric_templates/">Metric templates</a>
                 </li>
                 <li class="">
                     
@@ -138,15 +142,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+    <a class="" href="../tenant_metric_profiles/">Metric profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
                 </li>
     </ul>
 	    </li>
@@ -192,7 +200,7 @@
         
       
     
-    <li>Metric Templates</li>
+    <li>Metric templates</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/superadmin_metric_templates.md"
@@ -209,10 +217,10 @@
 <h2 id="list-of-metric-templates">List of metric templates</h2>
 <p>Metric templates page is accessible from the menu on the left side. The page is shown in the image below.</p>
 <p><img alt="SuperAdmin metric templates" src="../figures/superadmin_metric_template.png" /></p>
-<p>Metric templates may be filtered by name, probe, and tag (active or passive). By clicking on the metric template name, user can access particular metric template page. It is also possible to access particular probe version by clicking on its name.</p>
+<p>Metric templates may be filtered by name, probe, type (active or passive), or tag. By clicking on the metric template name, user can access particular metric template's page. It is also possible to access particular probe version by clicking on its name.</p>
 <p>There is also a feature to delete multiple metric templates at once. For that, user may select metrics (s)he wishes to delete from POEM, and click on <strong>Delete</strong> button (shown in figure below). </p>
 <p><img alt="SuperAdmin metric template bulk delete" src="../figures/superadmin_metric_template_bulk_delete.png" /></p>
-<p>User will then be asked if (s)he is sure (s)he wants to delete selected metrics. Once the user confirms his/her selection, metric templates and their histories are deleted. Also, metrics imported to tenants and their histories are also deleted, and they are removed from metric profiles. User will be informed of successful deletion of metric templates (figure below). Also, in case of any error, user will be informed the same way.</p>
+<p>User will then be asked if (s)he is sure (s)he wants to delete selected metrics. Once the user confirms his/her selection, metric templates and their histories are deleted. Metrics imported to tenants and their histories are also deleted, and they are removed from metric profiles. User will be informed of successful deletion of metric templates (figure below). Also, in case of any error, user will be informed the same way.</p>
 <p><img alt="SuperAdmin metric template deleted" src="../figures/superadmin_metric_template_deleted.png" /></p>
 <h2 id="metric-template-details">Metric template details</h2>
 <p>Depending on metric template type, pages for particular metric templates are a bit different. Active metric template must have a probe assigned to it, while passive metric template does not.</p>
@@ -225,6 +233,7 @@
 <li><strong>Name</strong> - metric template name;</li>
 <li><strong>Probe</strong> - probe name and version. This field is autocomplete, user must choose from available probes;</li>
 <li><strong>Type</strong> - type (active or passive; active in this example);</li>
+<li><strong>Tag</strong> - tag;</li>
 <li><strong>Probe executable</strong> - executable file;</li>
 <li><strong>Config</strong> <ul>
 <li><strong>maxCheckAttempts</strong> - used to define the number of times that Nagios will retry the service check command if it returns any state other than an OK state; setting this value to 1 will cause Nagios to generate an alert without retrying the service check again;</li>
@@ -235,6 +244,10 @@
 </ul>
 </li>
 </ul>
+<h5 id="tags">Tags</h5>
+<p>Metric templates can be tagged by any tag. There are, however, two tags that are special. So called internal metrics are tagged with <em>internal</em> tag. Those metrics are checking internal processes which are necessary for all tenants. They are automatically imported to a tenant POEM once new tenant is created.</p>
+<p>Metric templates tagged with <em>deprecated</em> tag are no longer being maintained, and are going to be deleted at an appropriate time.</p>
+<p>Tag field is a multiple select field with autocomplete and a possibility to create new entries. So, when SuperAdmin user starts typing, all the already existing tags are listed (filtered by the letters typed-in). If the desired tag does not exist, user can create new one by simply clicking <em>create entry</em>.</p>
 <h5 id="attributes">Attributes</h5>
 <p>Attributes are part of metric template definition. They are used to pass values as arguments to metric command (e.g. TCP port on which service is listening, SE path, CE queue...). </p>
 <p>Description of attributes is given in the table below.</p>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Aggregation Profiles - POEM documentation [V1]</title>
+  <title>Aggregation profiles - POEM documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Aggregation Profiles";
+    var mkdocs_page_name = "Aggregation profiles";
     var mkdocs_page_input_path = "tenant_aggregation_profiles.md";
     var mkdocs_page_url = "/tenant_aggregation_profiles/";
   </script>
@@ -73,6 +73,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../superadmin_tenants/">Tenants</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../superadmin_repos/">YUM repos</a>
                 </li>
                 <li class="">
@@ -85,7 +89,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../superadmin_metric_templates/">Metric Templates</a>
+    <a class="" href="../superadmin_metric_templates/">Metric templates</a>
                 </li>
     </ul>
 	    </li>
@@ -100,7 +104,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
@@ -108,11 +112,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_templates/">Metric Templates</a>
+    <a class="" href="../tenant_packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_services/">Services</a>
+    <a class="" href="../tenant_metric_templates/">Metric templates</a>
                 </li>
                 <li class="">
                     
@@ -124,7 +128,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Aggregation Profiles</a>
+    <a class="current" href="./">Aggregation profiles</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#aggregation-profiles">Aggregation profiles</a></li>
@@ -142,11 +146,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+    <a class="" href="../tenant_metric_profiles/">Metric profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
                 </li>
     </ul>
 	    </li>
@@ -192,7 +200,7 @@
         
       
     
-    <li>Aggregation Profiles</li>
+    <li>Aggregation profiles</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/tenant_aggregation_profiles.md"
@@ -218,7 +226,7 @@
 <p>Fields <strong>Operations</strong>, <strong>Endpoint group</strong> and <strong>Metric profile</strong> are all drop down select fields. The user can choose among the existing metric profiles. </p>
 <h4 id="service-flavour-groups">Service flavour groups</h4>
 <p>In <strong>Service flavour groups</strong> section, the user can create new groups, and delete and modify the existing ones. For adding one uses buttons with "+" sign, for deleting buttons with "x" sign. Whole group is deleted by clicking the red "x" button.</p>
-<p>There is a validation which checks if service flavours mentioned in aggregation profile exist in the associated metric profile, and if they do not, the warning message is displayed, and the missing service flavours are marked red (like shown in the image above).</p>
+<p>There is a validation which checks if service flavours mentioned in aggregation profile exist in the associated metric profile, and if they do not, the warning message is displayed, and the missing service flavours are marked blue (like shown in the image above).</p>
 <p>Same as for other resources, only users with appropriate permission may modify aggregation profile. That is, users that have group of aggregation the profile belongs to assigned to them, or users with superuser permission.</p>
 <h3 id="aggregation-profile-history">Aggregation profile history</h3>
 <p>By clicking <strong>History</strong> button, user can see the changes made to the profile, the time they were made, and by whom they were made.</p>
@@ -229,7 +237,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tenant_metric_profiles/" class="btn btn-neutral float-right" title="Metric Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tenant_metric_profiles/" class="btn btn-neutral float-right" title="Metric profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../tenant_metrics/" class="btn btn-neutral" title="Metrics"><span class="icon icon-circle-arrow-left"></span> Previous</a>

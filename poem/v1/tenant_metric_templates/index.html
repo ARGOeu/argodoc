@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Metric Templates - POEM documentation [V1]</title>
+  <title>Metric templates - POEM documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Metric Templates";
+    var mkdocs_page_name = "Metric templates";
     var mkdocs_page_input_path = "tenant_metric_templates.md";
     var mkdocs_page_url = "/tenant_metric_templates/";
   </script>
@@ -73,6 +73,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../superadmin_tenants/">Tenants</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../superadmin_repos/">YUM repos</a>
                 </li>
                 <li class="">
@@ -85,7 +89,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../superadmin_metric_templates/">Metric Templates</a>
+    <a class="" href="../superadmin_metric_templates/">Metric templates</a>
                 </li>
     </ul>
 	    </li>
@@ -100,15 +104,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_groups_of_resources/">Groups of Resources</a>
+    <a class="" href="../tenant_groups_of_resources/">Groups of resources</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../tenant_users/">Users</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_packages/">Packages</a>
+                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Metric Templates</a>
+    <a class="current" href="./">Metric templates</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#metric-templates">Metric templates</a></li>
@@ -124,10 +132,6 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_services/">Services</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../tenant_probes/">Probes</a>
                 </li>
                 <li class="">
@@ -136,15 +140,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_aggregation_profiles/">Aggregation Profiles</a>
+    <a class="" href="../tenant_aggregation_profiles/">Aggregation profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_metric_profiles/">Metric Profiles</a>
+    <a class="" href="../tenant_metric_profiles/">Metric profiles</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../tenant_thresholds_profiles/">Thresholds Profiles</a>
+    <a class="" href="../tenant_thresholds_profiles/">Thresholds profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tenant_operations_profiles/">Operations profiles</a>
                 </li>
     </ul>
 	    </li>
@@ -190,7 +198,7 @@
         
       
     
-    <li>Metric Templates</li>
+    <li>Metric templates</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/ARGOeu/poem-2/edit/master/docs/tenant_metric_templates.md"
@@ -205,10 +213,10 @@
               
                 <h1 id="metric-templates">Metric templates</h1>
 <h2 id="list-of-metric-templates">List of metric templates</h2>
-<p>Metric templates page is only accessible through Administration page. It is used for importing <a href="../tenant_metrics/">metrics</a> from metric templates, and only superusers have necessary permissions to perform metric imports. The page is shown in image below.</p>
+<p>Metric templates page is only accessible through <a href="../tenant_administration/">Administration</a> page. It is used for importing metrics from metric templates, and only superusers have necessary permissions to perform metric imports. The page is shown in image below.</p>
 <p><img alt="Tenant Metric templates" src="../figures/tenant_metric_templates.png" /></p>
 <p>The list shows all the available metric templates defined in POEM. User can select metric templates by clicking the checkbox next to their names, or select all metric templates by checking <strong>Select all</strong> checkbox. </p>
-<p>Metric templates can then further be filtered by probe and type (active or passive).</p>
+<p>Metric templates can then further be filtered by probe, type (active or passive), and tag.</p>
 <p>Note that when metric templates are filtered by any condition, <strong>Select all</strong> checkbox selects only the filtered metric templates. For example, if the user filters metric templates by probe, say <code>check_http</code>, and (s)he checks <strong>Select all</strong>, metric templates associated to <code>check_http</code> probe are going to be selected.</p>
 <p>Once the user selects all the metric templates (s)he wants to import as metrics, (s)he should press <strong>Import</strong> button. The user will then be notified if the import has been successful. The example in the image below shows the success and warning notification.</p>
 <p><img alt="Tenant Metric Templates Notification" src="../figures/tenant_metric_templates_notification.png" /></p>
@@ -219,10 +227,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tenant_services/" class="btn btn-neutral float-right" title="Services">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tenant_probes/" class="btn btn-neutral float-right" title="Probes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../tenant_users/" class="btn btn-neutral" title="Users"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tenant_packages/" class="btn btn-neutral" title="Packages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -252,10 +260,10 @@
           <a href="https://github.com/ARGOeu/poem-2/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../tenant_users/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../tenant_packages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../tenant_services/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../tenant_probes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
