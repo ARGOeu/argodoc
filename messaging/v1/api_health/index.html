@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>API Operational Metrics - AMS documentation [V1]</title>
+  <title>Service health check for ams and push server - AMS documentation [V1]</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API Operational Metrics";
-    var mkdocs_page_input_path = "api_metrics.md";
-    var mkdocs_page_url = "/api_metrics/";
+    var mkdocs_page_name = "Service health check for ams and push server";
+    var mkdocs_page_input_path = "api_health.md";
+    var mkdocs_page_url = "/api_health/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -129,23 +129,9 @@
                     
     <a class="" href="../api_subs/">API Subscriptions</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">API Operational Metrics</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#operational-metrics-api-calls">Operational Metrics API Calls</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#get-get-operational-metrics">[GET] Get Operational Metrics</a></li>
-        
-            <li><a class="toctree-l4" href="#get-get-daily-message-average">[GET] Get Daily Message Average</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
                 </li>
                 <li class="">
                     
@@ -194,15 +180,11 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>API & References &raquo;</li>
-        
-      
     
-    <li>API Operational Metrics</li>
+    <li>Service health check for ams and push server</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_metrics.md"
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/api_health.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -212,119 +194,50 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="operational-metrics-api-calls">Operational Metrics API Calls</h1>
-<p>Operational Metrics include metrics related to the CPU or memory usage of the ams nodes</p>
-<h2 id="get-get-operational-metrics">[GET] Get Operational Metrics</h2>
-<p>This request gets a list of operational metrics for the specific ams servcice</p>
+                <h1 id="service-health-check-for-ams-and-push-server">Service health check for ams and push server</h1>
+<p>This method can be used to retrieve api information regarding the proper functionality
+of the ams service and the push server</p>
+<h2 id="get-get-health-status">[GET] Get Health status</h2>
 <h3 id="request">Request</h3>
-<pre><code class="json">GET &quot;/v1/metrics&quot;
+<pre><code>GET &quot;/v1/status&quot;
 </code></pre>
 
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
- &quot;https://{URL}/v1/metrics?key=S3CR3T&quot;
+<ul>
+<li>
+<p><code>details=(true|false)</code> indicates if we need detailed
+information about errors regarding the push server.</p>
+</li>
+<li>
+<p>A user token corresponding to a <code>service_admin</code> or <code>admin_viewer</code>
+has to be provided when using the <code>details</code> parameter.</p>
+</li>
+</ul>
+<pre><code>curl -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/status?details=true&amp;key=token&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
-<p>If successful, the response returns a list of related operational metrics</p>
+<p>If successful, the response returns the health status of the service</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
-   &quot;metrics&quot;: [
-      {
-         &quot;metric&quot;: &quot;ams_node.cpu_usage&quot;,
-         &quot;metric_type&quot;: &quot;percentage&quot;,
-         &quot;value_type&quot;: &quot;float64&quot;,
-         &quot;resource_type&quot;: &quot;ams_node&quot;,
-         &quot;resource_name&quot;: &quot;host.foo&quot;,
-         &quot;timeseries&quot;: [
-            {
-               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
-               &quot;value&quot;: 0.2
-            }
-         ],
-         &quot;description&quot;: &quot;Percentage value that displays the CPU usage of ams service in the specific node&quot;
-      },
-      {
-         &quot;metric&quot;: &quot;ams_node.memory_usage&quot;,
-         &quot;metric_type&quot;: &quot;percentage&quot;,
-         &quot;value_type&quot;: &quot;float64&quot;,
-         &quot;resource_type&quot;: &quot;ams_node&quot;,
-         &quot;resource_name&quot;: &quot;host.foo&quot;,
-         &quot;timeseries&quot;: [
-            {
-               &quot;timestamp&quot;: &quot;2017-07-04T10:18:07Z&quot;,
-               &quot;value&quot;: 0.1
-            }
-         ],
-         &quot;description&quot;: &quot;Percentage value that displays the Memory usage of ams service in the specific node&quot;
-      }
-   ]
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;push_servers&quot;: [
+    {
+      &quot;endpoint&quot;: &quot;localhost:5555&quot;,
+      &quot;status&quot;: &quot;Success: SERVING&quot;
+    }
+  ]
 }
-
 </code></pre>
 
 <h3 id="errors">Errors</h3>
-<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="get-get-daily-message-average">[GET] Get Daily Message Average</h2>
-<p>This request returns the total amount of messages per project for the given time window.The number of messages
-is calculated using the <code>daily message count</code> for each one of the project's topics.</p>
-<h3 id="request_1">Request</h3>
-<pre><code>GET &quot;/v1/metrics/daily-message-average&quot;
-
-</code></pre>
-
-<h3 id="url-parameters">URL parameters</h3>
-<p><code>start_date</code>: start date for querying projects topics daily message count(optional), default value is the start unix time
-<code>end_date</code>: start date for querying projects topics daily message count(optional), default is the time of the api call
-<code>projects</code>: which projects to include to the query(optional), default is all registered projects</p>
-<h3 id="example-request_1">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
- &quot;https://{URL}/v1/metrics/daily-message-average&quot;
-</code></pre>
-
-<h3 id="example-request-with-url-parameters">Example request with URL parameters</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
- &quot;https://{URL}/v1/metrics/daily-message-average?start_date=2019-03-01&amp;end_date=2019-07-24&amp;projects=ARGO,ARGO-2&quot;
-</code></pre>
-
-<h3 id="responses_1">Responses</h3>
-<p>If successful, the response returns the total amount of messages per project for the given time window</p>
-<p>Success Response
-<code>200 OK</code></p>
-<pre><code class="json">{
-    &quot;projects&quot;: [
-        {
-            &quot;project&quot;: &quot;ARGO-2&quot;,
-            &quot;message_count&quot;: 8,
-            &quot;average_daily_messages&quot;: 2
-        },
-        {
-            &quot;project&quot;: &quot;ARGO&quot;,
-            &quot;message_count&quot;: 25669,
-            &quot;average_daily_messages&quot;: 120
-        }
-    ],
-    &quot;total_message_count&quot;: 25677,
-    &quot;average_daily_messages&quot;: 122
-}
-</code></pre>
-
-<h3 id="errors_1">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../api_schemas/" class="btn btn-neutral float-right" title="API Schemas">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../api_subs/" class="btn btn-neutral" title="API Subscriptions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -352,10 +265,6 @@ is calculated using the <code>daily message count</code> for each one of the pro
           <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../api_subs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../api_schemas/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
