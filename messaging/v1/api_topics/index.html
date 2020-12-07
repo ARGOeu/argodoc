@@ -255,7 +255,8 @@ A topic name must be scoped to a project.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;
+ &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;,
+ &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
 }
 </code></pre>
 
@@ -303,7 +304,9 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
- &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;
+ &quot;name&quot;: &quot;projects/BRAND_NEW/topics/monitoring&quot;,
+ &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
+
 }
 </code></pre>
 
@@ -342,10 +345,12 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <pre><code class="json">{
   &quot;topics&quot;: [
     {
-      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;,
+      &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
     },
     {
-      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;,
+      &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
     }
  ],
   &quot;nextPageToken&quot;: &quot;&quot;,
@@ -370,7 +375,8 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <pre><code class="json">{
   &quot;topics&quot;: [
     {
-      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/monitoring&quot;,
+      &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
     }
  ],
   &quot;nextPageToken&quot;: &quot;some_token&quot;,
@@ -395,7 +401,8 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <pre><code class="json">{
   &quot;topics&quot;: [
     {
-      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;
+      &quot;name&quot;:&quot;/project/BRAND_NEW/topics/accounting&quot;,
+      &quot;created_on&quot;: &quot;2020-11-21T00:00:00Z&quot;
     }
  ],
   &quot;nextPageToken&quot;: &quot;&quot;,
