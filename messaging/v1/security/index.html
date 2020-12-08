@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Security in Argo Messaging service - AMS documentation [V1]</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Security in Argo Messaging service";
+    var mkdocs_page_input_path = "security.md";
+    var mkdocs_page_url = "/security/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMS documentation [V1]</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Basic Information</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview and Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_backend/">Messaging Backend - Apache Kafka</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../msg_flow/">Messaging API flow</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auth/">Authentication & Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projects_users/">Project & User management guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">How to Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../publisher/">Publisher Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../consumer.md">Consumer Guide</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Messaging API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../api_basic/">API Basic Information</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API & References</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../api_auth/">API Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_users/">API Users</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_projects/">API Projects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_topics/">API Topics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_subs/">API Subscriptions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_metrics/">API Operational Metrics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_schemas/">API Schemas</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api_errors/">API Error Messages</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Q&A</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../qa_general_questions/">General</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../qa_ruby/">Ruby</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMS documentation [V1]</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Security in Argo Messaging service</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ARGOeu/argo-messaging/edit/master/docs/security.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="security-in-argo-messaging-service">Security in Argo Messaging service</h1>
+<h2 id="authentication">Authentication</h2>
+<p>Authentication in the AMS takes place using an <code>url key</code> provided
+with each API request.</p>
+<p>The large majority of api calls support the <code>url parameter</code>, <b>key</b>.</p>
+<p>E.g. <code>/v1/projects?key=b328c7890f061f87cbd4rff34f36fa2ae20993a5</code></p>
+<ul>
+<li>
+<p>Each request will extract the key from the request parameters
+and will try to find a user associated with it in the respective
+data store.</p>
+</li>
+<li>
+<p>The key can also be refreshed when needed with the
+<code>/users/{user}:refreshToken</code> api call.</p>
+</li>
+<li>
+<p>API keys are expected to be used by external service's clients.</p>
+</li>
+</ul>
+<h3 id="x509-authentication">X509 Authentication</h3>
+<p>Although AMS doesn't support direct authentication through an x509 certificate,
+you can use the <a href="https://github.com/ARGOeu/argo-api-authn">argo-authentication-service</a>
+to map an x509 certificate to an AMS <code>key</code>.
+The service will also validate the certificate.
+The <a href="https://github.com/ARGOeu/argo-ams-library">ams-library</a> will effortlessly
+hide this complexity if you decide to use it in order to access AMS.</p>
+<h2 id="authorization">Authorization</h2>
+<p>After the authentication part takes place, the user will be also assigned
+its privileges/roles in order for the service to determine,
+if the <code>user is allowed to access</code>
+ - the requested resource.
+ - perform a certain action.</p>
+<p>The Argo Messaging Service supports the following <code>core</code> roles:</p>
+<ul>
+<li><code>service_admin</code> - which is targeted to users that have an administrative duty over the service.
+Service admin is a service wide role.</li>
+<li><code>project_admin</code> -  which is targeted towards users that manage the resources/actions
+under a specific ams project.Project admins can only access the project(s) they belong to.
+Project admin is a <code>per project role</code> not a service wide role.</li>
+<li><code>publisher</code> - which is targeted towards users that primarily publish messages to topics.
+Publishers are able to access topic(s) under the project(s) they belong to.
+Publisher is a <code>per project role</code> not a service wide role.</li>
+<li><code>consuner</code> - which is targeted towards users that primarily consume messages from subscriptions. 
+ Consumers are able to access subscriptions(s) under the project(s) they belong to.
+ Consumer is a <code>per project role</code> not a service wide role.</li>
+</ul>
+<p>E.g. <code>userA</code> can be a 
+ - <code>project_admin</code> under <code>projectA</code>,
+ - <code>publihser</code> under <code>projectB</code>
+ - <code>publisher</code> &amp; <code>consumer</code> under <code>projectC</code>. </p>
+<p>Each API route gets assigned which roles it should accept,</p>
+<ul>
+<li>
+<p>/v1/projects is only accessible by <code>service_admin</code>,</p>
+</li>
+<li>
+<p>/v1/topics/{topic}:publish is accessible by <code>service_admin</code>, <code>project_admin</code> and <code>publisher</code>.</p>
+</li>
+</ul>
+<p>## ACL Based access</p>
+<p>All publishers <code>cannot access</code> all topics under their project.
+Same for consumers, they <code>cannot access</code> all subscriptions under their project.</p>
+<p>Both Topics and Subscriptions have ACLs which determine which of the project's 
+<code>publishers</code> and <code>consumers</code> respectively, can access them.
+ACLs for topics and subscriptions contain <code>user names</code>.</p>
+<h2 id="push-enabled-subscriptions">Push Enabled Subscriptions</h2>
+<h3 id="verifying-ownership-of-push-subscriptions-endpoints">Verifying Ownership of Push Subscriptions Endpoints</h3>
+<p>Whenever a subscription is created with a valid push configuration, the service will also generate a unique hash that
+should be later used to validate the ownership of the registered push endpoint, and will mark the subscription as 
+unverified.This procedure is mandatory in order to avoid spam requests to
+endpoints that don't belong to the right user.</p>
+<p>The owner of the push endpoint needs to execute the following steps in order to verify the ownership of the
+registered endpoint.</p>
+<ul>
+<li>
+<p>Expose an api call with a path of <code>/ams_verification_hash</code>. The service will try to access this path using the <code>host:port</code>
+of the push endpoint. For example, if the push endpoint is <code>https://example.com:8443/receive_here</code>, the  push endpoint should also
+support the api route of <code>https://example.com:8443/ams_verification_hash</code>.</p>
+</li>
+<li>
+<p>The api route of <code>https://example.com:8443/ams_verification_hash</code> should support the http <code>GET</code> method.</p>
+</li>
+<li>
+<p>A <code>GET</code> request to <code>https://example.com:8443/ams_verification_hash</code> should return a response body 
+with only the <code>verification_hash</code>
+that is found inside the subscriptions push configuration, 
+a <code>status code</code> of <code>200</code> and the header <code>Content-type: plain/text</code>.</p>
+</li>
+</ul>
+<h3 id="securing-remote-push-endpoints">Securing remote push endpoints</h3>
+<p>If you want to secure your remote endpoint, you can have the service generate
+a unique authorization hash for the subscription, which means that all
+push messages will contain the generated token inside
+the <code>Authorization</code> header.
+As a result the remote endpoint can authenticate incoming
+push messages.</p>
+<h2 id="ams-push-server-connectivity">AMS - Push Server Connectivity</h2>
+<p>AMS doesn't handle the actual pushing of messages for push enabled subscriptions
+,only the configuration part of them.</p>
+<p>The <a href="https://github.com/ARGOeu/ams-push-server">ams-push-server</a> 
+component is responsible for delivering push messages
+to remote endpoints.</p>
+<p>AMS and Push server communicate with each other using <code>mutual TLS</code>
+for authentication, while the push server also implements an authorization strategy
+of accepting requests only from certificates that have specific
+<code>Common Name(s)</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2014 - 2016 GRNET S.A.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ARGOeu/argo-messaging/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
