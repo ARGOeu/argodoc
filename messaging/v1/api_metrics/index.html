@@ -140,7 +140,7 @@
         
             <li><a class="toctree-l4" href="#get-get-operational-metrics">[GET] Get Operational Metrics</a></li>
         
-            <li><a class="toctree-l4" href="#get-get-daily-message-average">[GET] Get Daily Message Average</a></li>
+            <li><a class="toctree-l4" href="#get-get-va-metrics">[GET] Get VA Metrics</a></li>
         
         </ul>
     
@@ -266,11 +266,13 @@
 
 <h3 id="errors">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="get-get-daily-message-average">[GET] Get Daily Message Average</h2>
+<h2 id="get-get-va-metrics">[GET] Get VA Metrics</h2>
 <p>This request returns the total amount of messages per project for the given time window.The number of messages
-is calculated using the <code>daily message count</code> for each one of the project's topics.</p>
+is calculated using the <code>daily message count</code> for each one of the project's topics.
+It also returns the amount of created <code>users</code>, <code>topics</code> and <code>subscriptions</code>
+within the given time window.</p>
 <h3 id="request_1">Request</h3>
-<pre><code>GET &quot;/v1/metrics/daily-message-average&quot;
+<pre><code>GET &quot;/v1/metrics/va_metrics&quot;
 
 </code></pre>
 
@@ -280,19 +282,21 @@ is calculated using the <code>daily message count</code> for each one of the pro
 <code>projects</code>: which projects to include to the query(optional), default is all registered projects</p>
 <h3 id="example-request_1">Example request</h3>
 <pre><code>curl -H &quot;Content-Type: application/json&quot;
- &quot;https://{URL}/v1/metrics/daily-message-average&quot;
+ &quot;https://{URL}/v1/metrics/va_metrics&quot;
 </code></pre>
 
 <h3 id="example-request-with-url-parameters">Example request with URL parameters</h3>
 <pre><code>curl -H &quot;Content-Type: application/json&quot;
- &quot;https://{URL}/v1/metrics/daily-message-average?start_date=2019-03-01&amp;end_date=2019-07-24&amp;projects=ARGO,ARGO-2&quot;
+ &quot;https://{URL}/v1/metrics/va_metrics?start_date=2019-03-01&amp;end_date=2019-07-24&amp;projects=ARGO,ARGO-2&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
-<p>If successful, the response returns the total amount of messages per project for the given time window</p>
+<p>If successful, the response returns the total amount of messages per project,
+users,topics and subscriptions for the given time window</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{
+  &quot;projects_metrics&quot;: {
     &quot;projects&quot;: [
         {
             &quot;project&quot;: &quot;ARGO-2&quot;,
@@ -307,6 +311,10 @@ is calculated using the <code>daily message count</code> for each one of the pro
     ],
     &quot;total_message_count&quot;: 25677,
     &quot;average_daily_messages&quot;: 122
+  },
+  &quot;users_count&quot;: 44,
+  &quot;topics_count&quot;: 33,
+  &quot;subscriptions_counter&quot;: 100 
 }
 </code></pre>
 
