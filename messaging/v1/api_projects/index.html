@@ -391,9 +391,13 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h3 id="get-list-all-users-that-are-members-of-a-specific-project">[GET] List all users that are members of a specific project</h3>
+<ul>
+<li><code>details</code>, if set to <code>true</code>, it will return the detailed view of each user,
+containing the projects, subscriptions and topics that the user belongs to.</li>
+</ul>
 <h3 id="example-request_5">Example request</h3>
 <pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/projects/ARGO2/members?key=S3CR3T&quot;
+  &quot;https://{URL}/v1/projects/ARGO2/members?key=S3CR3T&amp;details=true&quot;
 </code></pre>
 
 <h3 id="responses_5">Responses</h3>
@@ -428,7 +432,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 }
 </code></pre>
 
-<h3 id="unpriviledge-mode-non-service_admin-user">Unpriviledge mode (non service_admin user)</h3>
+<h3 id="the-unprivileged-mode-non-service_admin-user">The Unprivileged mode (non service_admin user)</h3>
 <p>When a user is project_admin instead of service_admin and lists a project's users the results
 returned remove user information such as <code>token</code>, <code>service_roles</code> and <code>created_by</code> For example:</p>
 <pre><code class="json">{

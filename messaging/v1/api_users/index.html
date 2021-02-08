@@ -230,6 +230,10 @@
 <p>ARGO Messaging Service supports calls for creating and modifing users</p>
 <h2 id="get-manage-users-list-all-users">[GET] Manage Users - List all users</h2>
 <p>This request lists all available users in the service using pagination</p>
+<ul>
+<li><code>details</code>, if set to <code>true</code>, it will return the detailed view of each user,
+containing the projects, subscriptions and topics that the user belongs to.</li>
+</ul>
 <p>It is important to note that if there are no results to return the service will return the following:</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -249,7 +253,7 @@
 <h3 id="paginated-request-that-returns-all-users-in-one-page">Paginated Request that returns all users in one page</h3>
 <h3 id="example-request">Example request</h3>
 <pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/users?key=S3CR3T&quot;
+  &quot;https://{URL}/v1/users?key=S3CR3T&amp;details=true&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -397,7 +401,7 @@
 <h3 id="paginated-request-that-returns-the-2-most-recent-users">Paginated Request that returns the 2 most recent users</h3>
 <h3 id="example-request_1">Example request</h3>
 <pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=2&quot;
+  &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=2&amp;details=true&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
@@ -462,7 +466,7 @@
 <h3 id="paginated-request-that-returns-the-next-3-users">Paginated Request that returns the next 3 users</h3>
 <h3 id="example-request_2">Example request</h3>
 <pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=3&amp;pageToken=some_token2&quot;
+  &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=3&amp;pageToken=some_token2&amp;details=true&quot;
 </code></pre>
 
 <h3 id="responses_2">Responses</h3>
@@ -559,7 +563,7 @@
 <h3 id="paginated-request-that-returns-all-users-that-are-members-of-a-specific-project">Paginated Request that returns all users that are members of a specific project</h3>
 <h3 id="example-request_3">Example request</h3>
 <pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
-  &quot;https://{URL}/v1/users?key=S3CR3T&amp;project=ARGO2&quot;
+  &quot;https://{URL}/v1/users?key=S3CR3T&amp;project=ARGO2&amp;details=true&quot;
 </code></pre>
 
 <h3 id="responses_3">Responses</h3>
