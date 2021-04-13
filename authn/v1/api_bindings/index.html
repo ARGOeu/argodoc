@@ -67,7 +67,9 @@
         
             <li><a class="toctree-l4" href="#get-manage-bindings-list-all-bindings-by-service-type-and-host">[GET] Manage Bindings - List All Bindings By Service Type And Host</a></li>
         
-            <li><a class="toctree-l4" href="#get-manage-bindings-list-one-binding-by-uuid">[GET] Manage Bindings - List One Binding By UUID</a></li>
+            <li><a class="toctree-l4" href="#get-manage-bindings-list-one-binding-by-auth-identifier">[GET] Manage Bindings - List One Binding by Auth identifier</a></li>
+        
+            <li><a class="toctree-l4" href="#get-manage-bindings-list-one-binding-by-name">[GET] Manage Bindings - List One Binding By NAME</a></li>
         
             <li><a class="toctree-l4" href="#put-manage-bindings-update-a-binding">[PUT] Manage Bindings - Update a Binding</a></li>
         
@@ -265,15 +267,45 @@
 
 <h3 id="errors_2">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="get-manage-bindings-list-one-binding-by-uuid">[GET] Manage Bindings - List One Binding By UUID</h2>
-<p>This request retrieves the information of a binding associated with the provided uuid.</p>
+<h2 id="get-manage-bindings-list-one-binding-by-auth-identifier">[GET] Manage Bindings - List One Binding by Auth identifier</h2>
+<p>This request returns the binding under the provider service type and host matching
+the auth identifier</p>
 <h3 id="request_3">Request</h3>
-<pre><code>GET /v1/bindings/{name}
+<pre><code>GET /v1/service-types/{service-type}/hosts/{host}/bindings?authID=test_dn
 </code></pre>
 
 <h3 id="response_3">Response</h3>
-<p>If the request is successful, the response contains the binding associated with the given uuid</p>
+<p>If the request is successful, the response contains all the bindings under the given host and service.</p>
 <h4 id="success-response_2">Success Response</h4>
+<p><code>200 OK</code></p>
+<pre><code>  {
+      &quot;bindings&quot;: [
+              {
+                  &quot;name&quot;: &quot;testb&quot;,
+                  &quot;service_uuid&quot;: &quot;uuid1&quot;,
+                  &quot;host&quot;: &quot;host1&quot;,
+                  &quot;auth_identifier&quot;: &quot;testdn&quot;,
+                  &quot;uuid&quot;: &quot;p61020d9-bef3-4768-9a03-331ff36e8af4cc&quot;,
+                  &quot;unique_key&quot;: &quot;key&quot;,
+                  &quot;auth_type&quot;: &quot;x509&quot;,                
+                  &quot;created_on&quot;: &quot;2018-05-23T09:25:25Z&quot;,
+                  &quot;last_auth&quot;: &quot;2018-05-23T09:25:25Z&quot;
+              }
+      ]
+  }
+</code></pre>
+
+<h3 id="errors_3">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-manage-bindings-list-one-binding-by-name">[GET] Manage Bindings - List One Binding By NAME</h2>
+<p>This request retrieves the information of a binding associated with the provided name.</p>
+<h3 id="request_4">Request</h3>
+<pre><code>GET /v1/bindings/{name}
+</code></pre>
+
+<h3 id="response_4">Response</h3>
+<p>If the request is successful, the response contains the binding associated with the given uuid</p>
+<h4 id="success-response_3">Success Response</h4>
 <p><code>200 OK</code></p>
 <pre><code>  {
       &quot;name&quot;: &quot;testb&quot;,
@@ -288,13 +320,13 @@
   }
 </code></pre>
 
-<h3 id="errors_3">Errors</h3>
+<h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="put-manage-bindings-update-a-binding">[PUT] Manage Bindings - Update a Binding</h2>
 <p>This request updates binding. You can specify one or more fields to update.
 The allowed to be updated fields are:</p>
 <p><code>name, service_uuid, host, auth_identifier, auth_type, unique_key</code>.</p>
-<h4 id="request_4">Request</h4>
+<h4 id="request_5">Request</h4>
 <pre><code>PUT /v1/bindings/{name}
 </code></pre>
 
@@ -304,9 +336,9 @@ The allowed to be updated fields are:</p>
 }
 </code></pre>
 
-<h3 id="response_4">Response</h3>
+<h3 id="response_5">Response</h3>
 <p>If the request is successful, the response contains the updated binding.</p>
-<h4 id="success-response_3">Success Response</h4>
+<h4 id="success-response_4">Success Response</h4>
 <p><code>200 OK</code></p>
 <pre><code> {
      &quot;name&quot;: &quot;b1_updated&quot;,
@@ -320,17 +352,17 @@ The allowed to be updated fields are:</p>
  }
 </code></pre>
 
-<h3 id="errors_4">Errors</h3>
+<h3 id="errors_5">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="delete-manage-bindings-delete-a-binding">[DELETE] Manage Bindings - Delete a Binding</h2>
 <p>This request deletes a binding.</p>
-<h4 id="request_5">Request</h4>
+<h4 id="request_6">Request</h4>
 <pre><code>DELETE /v1/bindings/{name}`
 </code></pre>
 
-<h3 id="response_5">Response</h3>
+<h3 id="response_6">Response</h3>
 <p>If the request is successful, the response is empty.</p>
-<h4 id="success-response_4">Success Response</h4>
+<h4 id="success-response_5">Success Response</h4>
 <p><code>204 No Content</code></p>
               
             </div>
