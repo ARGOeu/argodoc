@@ -228,6 +228,10 @@
 <p>In <strong>Service flavour groups</strong> section, the user can create new groups, and delete and modify the existing ones. For adding one uses buttons with "+" sign, for deleting buttons with "x" sign. Whole group is deleted by clicking the red "x" button.</p>
 <p>There is a validation which checks if service flavours mentioned in aggregation profile exist in the associated metric profile, and if they do not, the warning message is displayed, and the missing service flavours are marked blue (like shown in the image above).</p>
 <p>Same as for other resources, only users with appropriate permission may modify aggregation profile. That is, users that have group of aggregation the profile belongs to assigned to them, or users with superuser permission.</p>
+<h3 id="importexport-json">Import/Export JSON</h3>
+<p>There is a feature of importing and exporting aggregation profile data in a JSON file. Data being exported (or imported) includes sections <strong>Operations, endpoint group and metric profile</strong> and <strong>Service flavor groups</strong>.</p>
+<p>When exporting data, user clicks on <strong>JSON</strong> button, and selects <em>Export</em>. The file is saved as JSON with the name of the aggregation profile being exported (in this case, the name of the file would be <em>sla_test.json</em>).</p>
+<p>On the other hand, when importing data, user clics on <strong>JSON</strong> button and selects <em>Import</em>. The data in the sections <em>Operations, endpoint group and metric profile</em> and <em>Service flavour groups</em> are then overridden by the data in the file being imported.</p>
 <h3 id="aggregation-profile-history">Aggregation profile history</h3>
 <p>By clicking <strong>History</strong> button, user can see the changes made to the profile, the time they were made, and by whom they were made.</p>
               

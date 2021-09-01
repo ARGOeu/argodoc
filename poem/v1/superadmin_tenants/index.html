@@ -78,6 +78,12 @@
             
     <li class="toctree-l3"><a href="#tenants">Tenants</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l4" href="#tenant-details">Tenant details</a></li>
+        
+        </ul>
+    
 
     </ul>
                 </li>
@@ -209,6 +215,12 @@
 <p>Tenant page is accessible from the menu on the left side. It is shown in the image below. </p>
 <p><img alt="SuperAdmin Tenants" src="../figures/superadmin_tenants.png" /></p>
 <p>The figure shows main info on each tenant: Postgres DB schema name, POEM url, and total number of probes and metrics used by the given tenant. There is also so called <strong>SuperPOEM tenant</strong> which is not a technically a tenant. Information given on the SuperPOEM tenant probes and metrics refers to the total number of probes and metric templates given in POEM.</p>
+<p>Clicking on the tenant card opens the tenant details page.</p>
+<h2 id="tenant-details">Tenant details</h2>
+<p>Tenant details page is shown in the image below.</p>
+<p><img alt="SuperAdmin Tenants Details" src="../figures/superadmin_tenants_details.png" /></p>
+<p>In addition to the information given in the tenant list page, this one also gives information on the date when the chosen tenant has been created. All the fields are disabled, since this is only an info page.</p>
+<p>There is also a <strong>Delete</strong> button, which will delete the particular tenant, along with its Postgres schema.</p>
               
             </div>
           </div>
