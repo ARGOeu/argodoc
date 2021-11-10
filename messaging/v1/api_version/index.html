@@ -196,6 +196,7 @@
               
                 <h1 id="list-api-version-information">List API Version Information</h1>
 <p>This method can be used to retrieve api version information</p>
+<p>The <code>release</code> field is only available if proper authentication credentials are provided.</p>
 <h2 id="input">Input</h2>
 <pre><code>GET /v1/version
 </code></pre>
@@ -213,7 +214,8 @@
     &quot;golang&quot;: &quot;go1.15.6&quot;,
     &quot;compiler&quot;: &quot;gc&quot;,
     &quot;os&quot;: &quot;linux&quot;,
-    &quot;architecture&quot;: &quot;amd64&quot;
+    &quot;architecture&quot;: &quot;amd64&quot;,
+    &quot;release&quot;: &quot;1.1.0&quot;
 }
 </code></pre>
               
