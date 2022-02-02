@@ -140,6 +140,10 @@
         
             <li><a class="toctree-l4" href="#post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</a></li>
         
+            <li><a class="toctree-l4" href="#post-attach-a-schema-to-a-topic">[POST] Attach a schema to a topic</a></li>
+        
+            <li><a class="toctree-l4" href="#post-detach-a-schema-to-a-topic">[POST] Detach a schema to a topic</a></li>
+        
             <li><a class="toctree-l4" href="#get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</a></li>
         
             <li><a class="toctree-l4" href="#post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</a></li>
@@ -463,23 +467,74 @@ to work properly.</p>
 
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
-<h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
-<p>The following request returns a list of authorized users (publishers) of a given topic.</p>
+<h2 id="post-attach-a-schema-to-a-topic">[POST] Attach a schema to a topic</h2>
+<p>Attach one of the project's schemas to the given topic.</p>
 <h3 id="request_4">Request</h3>
-<pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:acl&quot;
+<pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:attachSchema&quot;
 </code></pre>
 
 <h3 id="where_7">Where</h3>
 <ul>
+<li>Project_name: Name of the project</li>
+<li>topic_name: Name of the topic</li>
+</ul>
+<h3 id="post-data_1">Post data</h3>
+<pre><code class="json">{
+  &quot;schema&quot;: &quot;projects/{project_name}/schemas/{schema_name}&quot;
+}
+</code></pre>
+
+<h3 id="example-request_7">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:attachSchema?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_7">Responses</h3>
+<pre><code>If successful, empty response. 
+</code></pre>
+
+<h3 id="errors_5">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="post-detach-a-schema-to-a-topic">[POST] Detach a schema to a topic</h2>
+<p>Detach the topic's current assigned schema.
+If the topic has no assigned schema, nothing happens.</p>
+<h3 id="request_5">Request</h3>
+<pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:detachSchema&quot;
+</code></pre>
+
+<h3 id="where_8">Where</h3>
+<ul>
+<li>Project_name: Name of the project</li>
+<li>topic_name: Name of the topic</li>
+</ul>
+<h3 id="example-request_8">Example request</h3>
+<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
+&quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:detachSchema?key=S3CR3T&quot;
+</code></pre>
+
+<h3 id="responses_8">Responses</h3>
+<pre><code>If successful, empty response. 
+</code></pre>
+
+<h3 id="errors_6">Errors</h3>
+<p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
+<h2 id="get-list-acl-of-a-given-topic">[GET] List ACL of a given topic</h2>
+<p>The following request returns a list of authorized users (publishers) of a given topic.</p>
+<h3 id="request_6">Request</h3>
+<pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:acl&quot;
+</code></pre>
+
+<h3 id="where_9">Where</h3>
+<ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_7">Example request</h3>
+<h3 id="example-request_9">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_7">Responses</h3>
+<h3 id="responses_9">Responses</h3>
 <p>If successful it returns the authorized users of the topic.</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -490,20 +545,20 @@ to work properly.</p>
 }
 </code></pre>
 
-<h3 id="errors_5">Errors</h3>
+<h3 id="errors_7">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-modify-acl-of-a-given-topic">[POST] Modify ACL of a given topic</h2>
 <p>The following request Modifies the authorized users list of a given topic</p>
-<h3 id="request_5">Request</h3>
+<h3 id="request_7">Request</h3>
 <pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:modifyAcl&quot;
 </code></pre>
 
-<h3 id="where_8">Where</h3>
+<h3 id="where_10">Where</h3>
 <ul>
 <li>Project_name: Name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="post-data_1">Post data</h3>
+<h3 id="post-data_2">Post data</h3>
 <pre><code>{
 &quot;authorized_users&quot;: [
  &quot;UserX&quot;,&quot;UserY&quot;
@@ -511,15 +566,15 @@ to work properly.</p>
 }
 </code></pre>
 
-<h3 id="example-request_8">Example request</h3>
+<h3 id="example-request_10">Example request</h3>
 <pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
 -d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_8">Responses</h3>
+<h3 id="responses_10">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
-<h3 id="errors_6">Errors</h3>
+<h3 id="errors_8">Errors</h3>
 <p>If the to-be updated ACL contains users that are non-existent in the project the API returns the following error:
 <code>404 NOT_FOUND</code></p>
 <pre><code>{
@@ -534,21 +589,21 @@ to work properly.</p>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="get-topic-metrics">[GET] Topic Metrics</h2>
 <p>The following request returns related metrics for the specific topic: for eg the number of published messages</p>
-<h3 id="request_6">Request</h3>
+<h3 id="request_8">Request</h3>
 <pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}:metrics&quot;
 </code></pre>
 
-<h3 id="where_9">Where</h3>
+<h3 id="where_11">Where</h3>
 <ul>
 <li>Project_name: name of the project</li>
 <li>topic_name: name of the topic</li>
 </ul>
-<h3 id="example-request_9">Example request</h3>
+<h3 id="example-request_11">Example request</h3>
 <pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:metrics?key=S3CR3T&quot;
 </code></pre>
 
-<h3 id="responses_9">Responses</h3>
+<h3 id="responses_11">Responses</h3>
 <p>If successful it returns topic's related metrics (number of messages published and total bytes).</p>
 <p>Success Response
 <code>200 OK</code></p>
@@ -633,7 +688,7 @@ to work properly.</p>
 
 </code></pre>
 
-<h3 id="errors_7">Errors</h3>
+<h3 id="errors_9">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
               
             </div>
