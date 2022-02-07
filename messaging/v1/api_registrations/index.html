@@ -275,9 +275,17 @@ and as a result it creates a new user with the provided information.</p>
 <h3 id="errors_1">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h2 id="post-manage-registrations-decline-a-users-registration">[POST] Manage Registrations - Decline a User's Registration</h2>
-<p>This request declines a user's registration</p>
+<p>This request declines a user's registration.
+You can also provide a comment regarding
+the decline reason of the registration.</p>
 <h3 id="request_2">Request</h3>
 <pre><code class="json">POST &quot;/v1/registrations/{uuid}:decline&quot;
+</code></pre>
+
+<h3 id="post-body_1">Post body:</h3>
+<pre><code class="json">{
+   &quot;comment&quot;: &quot;comment&quot;
+}
 </code></pre>
 
 <h3 id="example-request_2">Example request</h3>
@@ -286,7 +294,7 @@ and as a result it creates a new user with the provided information.</p>
 </code></pre>
 
 <h3 id="responses_2">Responses</h3>
-<p>If successful, the response contains the newly created user</p>
+<p>If successful, the response contains nothing</p>
 <p>Success Response
 <code>200 OK</code></p>
 <pre><code class="json">{}
