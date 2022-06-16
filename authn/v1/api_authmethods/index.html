@@ -199,7 +199,10 @@ Of course you can always override the default's if you like.</p>
 <p>Success Response</p>
 <p><code>201 CREATED</code></p>
 <pre><code>        {
-            &quot;access_key&quot;: &quot;key1&quot;,
+            &quot;headers&quot;: {
+                &quot;header-1&quot;: &quot;value-1&quot;,
+                &quot;header-2&quot;: &quot;value-2&quot;
+            },
             &quot;host&quot;: &quot;127.0.0.1&quot;,
             &quot;service_uuid&quot;: &quot;da22b2d4-ba6c-43ca-b28d-400sd0a5d83e&quot;,
             &quot;port&quot;: 9000,
