@@ -286,6 +286,8 @@ forward their messages to mattermost channels through a mattermost webhook.</p>
 <p>The <code>maxMessages</code> field declares the number of messages that should be sent per
 push action. The default value is <code>1</code>. If <code>maxMessages</code> holds a value of <code>1</code> your
 push endpoint should expect a request body with the following schema:</p>
+<p>The <code>base64Decode</code> field indicates that the push mechanism should
+decode each message before sending it to the remote destination.</p>
 <pre><code class="json">{
      &quot;message&quot;: {
        &quot;attributes&quot;: {
@@ -746,7 +748,8 @@ Code: <code>200 OK</code>, Empty response if successful. The deadline will chang
       &quot;retryPolicy&quot;:{  
          &quot;type&quot;:&quot;linear&quot;,
          &quot;period&quot;:300
-      }
+      },
+      &quot;base64Decode&quot;: false
    }
 }
 </code></pre>
@@ -761,7 +764,8 @@ Code: <code>200 OK</code>, Empty response if successful. The deadline will chang
       },
       &quot;mattermostUrl&quot;: &quot;webhook.com&quot;,
       &quot;mattermostUsername&quot;: &quot;willy&quot;,
-      &quot;mattermostChannel&quot;: &quot;ops&quot;
+      &quot;mattermostChannel&quot;: &quot;ops&quot;,
+      &quot;base64Decode&quot;: true
    }
 }
 </code></pre>
