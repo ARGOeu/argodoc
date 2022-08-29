@@ -217,11 +217,11 @@
 <h2 id="get-get-operational-metrics">[GET] Get Operational Metrics</h2>
 <p>This request gets a list of operational metrics for the specific ams servcice</p>
 <h3 id="request">Request</h3>
-<pre><code class="json">GET &quot;/v1/metrics&quot;
+<pre><code>GET &quot;/v1/metrics&quot;
 </code></pre>
 
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/metrics?key=S3CR3T&quot;
 </code></pre>
 
@@ -281,12 +281,12 @@ within the given time window.</p>
 <code>end_date</code>: start date for querying projects topics daily message count(optional), default is the time of the api call
 <code>projects</code>: which projects to include to the query(optional), default is all registered projects</p>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/metrics/va_metrics&quot;
 </code></pre>
 
 <h3 id="example-request-with-url-parameters">Example request with URL parameters</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/metrics/va_metrics?start_date=2019-03-01&amp;end_date=2019-07-24&amp;projects=ARGO,ARGO-2&quot;
 </code></pre>
 

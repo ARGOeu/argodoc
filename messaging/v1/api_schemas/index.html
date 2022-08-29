@@ -225,7 +225,7 @@
 <h2 id="get-manage-schemas-retrieve-a-schema">[GET] Manage Schemas - Retrieve a Schema</h2>
 <p>This request retrieves a specific schema under the given project</p>
 <h3 id="request">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+<pre><code>GET &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
 <h3 id="where">Where</h3>
@@ -234,8 +234,8 @@
 <li>schema_name: Name of the schema to be created</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -275,7 +275,7 @@
 <h2 id="get-manage-schemas-retrieve-all-schemas">[GET] Manage Schemas - Retrieve All Schemas</h2>
 <p>This request retrieves all schemas under the given project.</p>
 <h3 id="request_1">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects/{project_name}/schemas&quot;
+<pre><code>GET &quot;/v1/projects/{project_name}/schemas&quot;
 </code></pre>
 
 <h3 id="where_1">Where</h3>
@@ -283,8 +283,8 @@
 <li>project_name: Name of the project in which the schema will belong</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas?key=S3CR3T&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/project-1/schemas?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
@@ -358,7 +358,7 @@
 <p>JSON,AVRO</p>
 </blockquote>
 <h3 id="request_2">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
 <h3 id="where_2">Where</h3>
@@ -367,8 +367,8 @@
 <li>schema_name: Name of the schema to be created</li>
 </ul>
 <h3 id="example-request_2">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json -d POSTDATA&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot; -d $POSTDATA
+ &quot;https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body">Post body:</h3>
@@ -424,7 +424,7 @@
 <h2 id="put-manage-schemas-update-schema">[PUT] Manage Schemas - Update Schema</h2>
 <p>This request updates the contents of a schema. You can update <code>one</code> or <code>all</code> of the fields at a time.</p>
 <h3 id="request_3">Request</h3>
-<pre><code class="json">PUT &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+<pre><code>PUT &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
 <h3 id="where_3">Where</h3>
@@ -433,8 +433,8 @@
 <li>schema_name: Name of the schema to be updated</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json -d POSTDATA&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot; -d $POSTDATA
+ &quot;https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_1">Post body:</h3>
@@ -492,7 +492,7 @@
 <h2 id="delete-manage-schemas-delete-schema">[DELETE] Manage Schemas - Delete Schema</h2>
 <p>This request deletes a schema.</p>
 <h3 id="request_4">Request</h3>
-<pre><code class="json">DELETE &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
+<pre><code>DELETE &quot;/v1/projects/{project_name}/schemas/{schema_name}&quot;
 </code></pre>
 
 <h3 id="where_4">Where</h3>
@@ -501,15 +501,15 @@
 <li>schema_name: Name of the schema to be deleted</li>
 </ul>
 <h3 id="example-request_4">Example request</h3>
-<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
+<pre><code class="bash">curl -X DELETE -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/project-1/schemas/schema-1?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_4">Responses</h3>
 <p>If successful, the response is empty.</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code class="json"></code></pre>
+<pre><code></code></pre>
 
 <h3 id="errors_4">Errors</h3>
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
@@ -520,7 +520,7 @@ a new topic that needs to be associated with the schema, then create the message
 publish it to the topic.Instead of creating all this pipeline in order to check your schema and messages
 we can explicitly do it on this API call.</p>
 <h3 id="request_5">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/schemas/{schema_name}:validate&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}/schemas/{schema_name}:validate&quot;
 </code></pre>
 
 <h3 id="where_5">Where</h3>
@@ -529,8 +529,8 @@ we can explicitly do it on this API call.</p>
 <li>schema_name: Name of the schema to be updated</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json -d POSTDATA&quot;
- &quot; https://{URL}/v1/projects/project-1/schemas/schema-1:validate?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot; -d $POSTDATA
+ &quot;https://{URL}/v1/projects/project-1/schemas/schema-1:validate?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_2">Post body:</h3>

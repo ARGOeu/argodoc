@@ -253,8 +253,8 @@
 <li>subscription_name: The subscription name to create</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;  -d 'PUTBODY'
- &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine ?key=S3CR3T&quot;`
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;  -d 'PUTBODY'
+ &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine ?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="put-body">PUT  BODY</h3>
@@ -445,7 +445,7 @@ happen in <code>0.5 seconds</code>. If it is unsuccessful the next push request 
 <li>subscription_name: The subscription name</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code class="json">curl -X POST &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:verifyPushEndpoint?key=S3CR3T&quot;`
+<pre><code class="bash">curl -X POST &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:verifyPushEndpoint?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="push-enabled-subscriptions_1">Push Enabled Subscriptions</h3>
@@ -482,7 +482,7 @@ a <code>status code</code> of <code>200</code> and the header <code>Content-type
 <li>Topic_name: Name of the topic</li>
 </ul>
 <h3 id="example-request_2">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/p1/topics/t1/subscriptions?key=S3CR3T&quot;
 </code></pre>
 
@@ -523,7 +523,7 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <li>Project_name: Name of the project to list the subscriptions</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions?key=S3CR3T&quot;
 </code></pre>
 
@@ -560,7 +560,7 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <li>Project_name: Name of the project to list the subscriptions</li>
 </ul>
 <h3 id="example-request_4">Example request</h3>
-<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions?key=S3CR3T&amp;pageSize=1&amp;pageToken=some_token&quot;
 </code></pre>
 
@@ -591,7 +591,7 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <li>Project_name: Name of the project to list the subscriptions</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions?key=S3CR3T&amp;pageSize=1&quot;
 </code></pre>
 
@@ -618,7 +618,7 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <h2 id="get-manage-subscriptions-get-a-subscriptions-list-of-authorized-users">[GET] Manage Subscriptions - Get a subscription's list of authorized users</h2>
 <p>This request returns a list of authorized users to consume from the subscription</p>
 <h3 id="request_6">Request</h3>
-<pre><code class="json">GET /v1/projects/{project_name}/subscriptions/{sub_name}:acl
+<pre><code>GET /v1/projects/{project_name}/subscriptions/{sub_name}:acl
 </code></pre>
 
 <h3 id="where_6">Where</h3>
@@ -627,14 +627,14 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <li>Sub_name: The subscription name</li>
 </ul>
 <h3 id="example-request_6">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;  
- &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/subscription:acl?key=S3CR3T&quot;`
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;  
+ &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/subscription:acl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_4">Responses</h3>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code class="json">{
+<pre><code>{
  &quot;authorized_users&quot;: [&quot;userC&quot;,&quot;userD&quot;]
 }
 </code></pre>
@@ -661,8 +661,8 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 </code></pre>
 
 <h3 id="example-request_7">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/subscription:modifyAcl?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/subscription:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_5">Responses</h3>
@@ -691,8 +691,8 @@ only the subscriptions that he has access to(being present in a subscriptions's 
 <li>subscription_name: The subscription name to delete</li>
 </ul>
 <h3 id="example-request_8">Example request</h3>
-<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
-http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine?key=S3CR3T
+<pre><code class="bash">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
+&quot;http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_6">Responses</h3>
@@ -717,8 +717,8 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>ackDeadlineSeconds: integer representing seconds for the acknowledgment deadline (min=0sec, max=600sec).</li>
 </ul>
 <h3 id="example-request_9">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyAckDeadline?key=S3CR3T
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyAckDeadline?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_1">post body:</h3>
@@ -789,8 +789,8 @@ the service will generate a new value every time the update request happens.
 For example, if you want to update your authorization header value,
 you can use the update request with the <b>autogen</b> type.</p>
 <h3 id="example-request_10">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyPushConfig?key=S3CR3T
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyPushConfig?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_2">post body:</h3>
@@ -837,8 +837,8 @@ will mark the subscription as unverified and a new verification process should t
 </ul>
 <p>You can specify the max number of messages returned by one call by setting maxMessages field. By default, the server will keep the connection open until at least one message is received; you can optionally set the returnImmediately field to true to prevent the subscriber from waiting if the queue is currently empty.</p>
 <h3 id="example-request_11">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;
-  -d POSTDATA https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:pull?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+  -d $POSTDATA https://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:pull?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_4">post body:</h3>
@@ -888,8 +888,8 @@ will mark the subscription as unverified and a new verification process should t
 <li>ackIds: the ids of the messages</li>
 </ul>
 <h3 id="example-request_12">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:acknowledge?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:acknowledge?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_6">post body:</h3>
@@ -923,8 +923,8 @@ will mark the subscription as unverified and a new verification process should t
 <li>subscription_name: The subscription name to consume</li>
 </ul>
 <h3 id="example-request_13">Example request</h3>
-<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;  
--d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:offsets?key=S3CR3T&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:offsets?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_8">post body:</h3>
@@ -951,8 +951,8 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>timestamp: timestamp in <code>Zulu</code> format - <code>(2006-11-02T13:39:11.000Z)</code></li>
 </ul>
 <h3 id="example-request_14">Example request</h3>
-<pre><code class="json">curl -X GET -H &quot;Content-Type: application/json&quot;  
-http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:timeToOffset?key=S3CR3T&amp;time=2019-09-02T13:39:11.100Z&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;  
+&quot;http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:timeToOffset?key=S3CR3T&amp;time=2019-09-02T13:39:11.100Z&quot;
 </code></pre>
 
 <h3 id="responses_12">Responses</h3>
@@ -983,8 +983,8 @@ Code: <code>200 OK</code></p>
 <li>offset_config: an offset number in int64</li>
 </ul>
 <h3 id="example-request_15">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d POSTDATA http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyOffset?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;http://{URL}/v1/projects/BRAND_NEW/subscriptions/alert_engine:modifyOffset?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_10">post body:</h3>
@@ -1010,7 +1010,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>sub_name: name of the subscription</li>
 </ul>
 <h3 id="example-request_16">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/subscriptions/monitoring:metrics?key=S3CR3T&quot;
 </code></pre>
 

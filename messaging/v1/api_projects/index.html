@@ -229,7 +229,7 @@
 </code></pre>
 
 <h3 id="example-request">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects?key=S3CR3T&quot;
 </code></pre>
 
@@ -237,8 +237,7 @@
 <p>If successful, the response contains a list of all available projects</p>
 <p>Success Response
 <code>200 OK</code></p>
-<pre><code class="json">
-{
+<pre><code class="json">{
  &quot;projects&quot;: [
     {
        &quot;name&quot;: &quot;PROJECT_1&quot;,
@@ -278,7 +277,7 @@
 <li>Project_name: Name of the project to get information on</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/BRAND_NEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -314,8 +313,8 @@
 </code></pre>
 
 <h3 id="example-request_2">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
- -d POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+ -d $POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_2">Responses</h3>
@@ -336,7 +335,7 @@
 <h2 id="put-manage-projects-update-a-project">[PUT] Manage Projects - Update a project</h2>
 <p>This request updates information (such as name,description) on an existing project (PUT)</p>
 <h3 id="request_3">Request</h3>
-<pre><code class="json">PUT &quot;/v1/projects/{project_name}&quot;
+<pre><code>PUT &quot;/v1/projects/{project_name}&quot;
 </code></pre>
 
 <h3 id="where_2">Where</h3>
@@ -351,8 +350,8 @@
 </code></pre>
 
 <h3 id="example-request_3">Example request</h3>
-<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
- -d POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;
+ -d $POSTDATA &quot;https://{URL}/v1/projects/PROJECT_NEW?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_3">Responses</h3>
@@ -373,7 +372,7 @@
 <h2 id="delete-manage-projects-delete-project">[DELETE] Manage Projects - Delete Project</h2>
 <p>This request deletes a specific project</p>
 <h3 id="request_4">Request</h3>
-<pre><code class="json">DELETE &quot;/v1/projects/{project_name}&quot;
+<pre><code>DELETE &quot;/v1/projects/{project_name}&quot;
 </code></pre>
 
 <h3 id="where_3">Where</h3>
@@ -381,7 +380,7 @@
 <li>Project_name: Name of the project to delete</li>
 </ul>
 <h3 id="example-request_4">Example request</h3>
-<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
+<pre><code class="bash">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
  &quot;https://{URL}/v1/projects/BRAND_NEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -396,7 +395,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 containing the projects, subscriptions and topics that the user belongs to.</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/ARGO2/members?key=S3CR3T&amp;details=true&quot;
 </code></pre>
 
@@ -465,7 +464,7 @@ returned remove user information such as <code>token</code>, <code>service_roles
 
 <h3 id="get-show-a-specific-member-user-of-the-specific-project">[GET] Show a specific member user of the specific project</h3>
 <h3 id="example-request_6">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/projects/ARGO2/members/Test?key=S3CR3T&quot;
 </code></pre>
 
@@ -505,8 +504,8 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h3 id="post-create-a-new-member-user-under-the-specific-project">[POST] Create a new member user under the specific project</h3>
 <h3 id="example-request_7">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
-  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+  -d $POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_1">Post body:</h3>
@@ -551,8 +550,8 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h3 id="put-updates-the-roles-for-a-member-user-under-the-specific-project">[PUT] Updates the roles for a member user under the specific project</h3>
 <h3 id="example-request_8">Example request</h3>
-<pre><code>curl -X PUT -H &quot;Content-Type: application/json&quot;
-  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;
+  -d $POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_2">Post body:</h3>
@@ -596,8 +595,8 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h3 id="post-addinvite-a-user-to-a-project">[POST] Add/Invite a user to a project</h3>
 <h3 id="example-request_9">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
-  -d POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser:add?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+  -d $POSTDATA &quot;https://{URL}/v1/projects/ARGO2/members/NewUser:add?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="post-body_3">Post body:</h3>
@@ -636,7 +635,7 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <p>Please refer to section <a href="../api_errors/">Errors</a> to see all possible Errors</p>
 <h3 id="post-remove-a-user-from-the-project">[POST] Remove a user from the project</h3>
 <h3 id="example-request_10">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO2/members/NewUser:remove?key=S3CR3T&quot;
 </code></pre>
 
@@ -660,7 +659,7 @@ returned remove user information such as <code>token</code>, <code>service_roles
 <li>topic_name: name of the topic</li>
 </ul>
 <h3 id="example-request_11">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW:metrics?key=S3CR3T&quot;
 </code></pre>
 

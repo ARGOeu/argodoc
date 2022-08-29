@@ -247,12 +247,12 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 <p>Also the default value for <code>pageSize = 0</code> and <code>pageToken = "</code>.</p>
 <p><code>Pagesize = 0</code> returns all the results.</p>
 <h3 id="request">Request</h3>
-<pre><code class="json">GET &quot;/v1/users&quot;
+<pre><code>GET &quot;/v1/users&quot;
 </code></pre>
 
 <h3 id="paginated-request-that-returns-all-users-in-one-page">Paginated Request that returns all users in one page</h3>
 <h3 id="example-request">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users?key=S3CR3T&amp;details=true&quot;
 </code></pre>
 
@@ -400,7 +400,7 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 
 <h3 id="paginated-request-that-returns-the-2-most-recent-users">Paginated Request that returns the 2 most recent users</h3>
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=2&amp;details=true&quot;
 </code></pre>
 
@@ -465,7 +465,7 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 
 <h3 id="paginated-request-that-returns-the-next-3-users">Paginated Request that returns the next 3 users</h3>
 <h3 id="example-request_2">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users?key=S3CR3T&amp;pageSize=3&amp;pageToken=some_token2&amp;details=true&quot;
 </code></pre>
 
@@ -562,7 +562,7 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 
 <h3 id="paginated-request-that-returns-all-users-that-are-members-of-a-specific-project">Paginated Request that returns all users that are members of a specific project</h3>
 <h3 id="example-request_3">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users?key=S3CR3T&amp;project=ARGO2&amp;details=true&quot;
 </code></pre>
 
@@ -611,7 +611,7 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 <li>user_name: Name of the user</li>
 </ul>
 <h3 id="example-request_4">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users/UserA?key=S3CR3T&quot;
 </code></pre>
 
@@ -665,7 +665,7 @@ containing the projects, subscriptions and topics that the user belongs to.</li>
 <li>token: the token of the user</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users:byToken/S3CR3T1?key=S3CR3T&quot;
 </code></pre>
 
@@ -718,7 +718,7 @@ based on the authentication key provided as a url parameter</p>
 </code></pre>
 
 <h3 id="example-request_6">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users/profile?key=S3CR3T1&quot;
 </code></pre>
 
@@ -772,7 +772,7 @@ based on the authentication key provided as a url parameter</p>
 <li>uuid: the uuid of the user</li>
 </ul>
 <h3 id="example-request_7">Example request</h3>
-<pre><code>curl -X GET -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X GET -H &quot;Content-Type: application/json&quot;
   &quot;https://{URL}/v1/users:byUUID/99bfd746-4ebe-11e8-9c2d-fa7ae01bbebc?key=S3CR3T&quot;
 </code></pre>
 
@@ -818,7 +818,7 @@ based on the authentication key provided as a url parameter</p>
 <h2 id="post-manage-users-create-new-user">[POST] Manage Users - Create new user</h2>
 <p>This request creates a new user in a project</p>
 <h3 id="request_5">Request</h3>
-<pre><code class="json">POST &quot;/v1/users/{user_name}&quot;
+<pre><code>POST &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
 <h3 id="post-body">Post body:</h3>
@@ -887,9 +887,8 @@ based on the authentication key provided as a url parameter</p>
 </tbody>
 </table>
 <h3 id="example-request_8">Example request</h3>
-<pre><code>json
-curl -X POST -H &quot;Content-Type: application/json&quot;
- -d POSTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
+ -d $POSTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_8">Responses</h3>
@@ -927,7 +926,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <h2 id="put-manage-users-update-a-user">[PUT] Manage Users - Update a user</h2>
 <p>This request updates an existing user's information</p>
 <h3 id="request_6">Request</h3>
-<pre><code class="json">PUT &quot;/v1/users/{user_name}&quot;
+<pre><code>PUT &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
 <h3 id="put-body">Put body:</h3>
@@ -959,8 +958,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <li>service_roles: A list of service-wide roles. An example of service-wide role is <code>service_admin</code> which can manage projects or other users</li>
 </ul>
 <h3 id="example-request_9">Example request</h3>
-<pre><code>json
-curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
  -d PUTDATA &quot;https://{URL}/v1/projects/ARGO/users/USERNEW?key=S3CR3T&quot;
 </code></pre>
 
@@ -999,7 +997,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <h2 id="post-manage-users-refresh-token">[POST] Manage Users - Refresh token</h2>
 <p>This request refreshes an existing user's token</p>
 <h3 id="request_7">Request</h3>
-<pre><code class="json">POST &quot;/v1/users/{user_name}:refreshToken&quot;
+<pre><code>POST &quot;/v1/users/{user_name}:refreshToken&quot;
 </code></pre>
 
 <h3 id="where_5">Where</h3>
@@ -1007,8 +1005,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <li>user_name: Name of the user</li>
 </ul>
 <h3 id="example-request_10">Example request</h3>
-<pre><code>json
-curl -X POST -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO/users/USER2:refreshToken?key=S3CR3T&quot;
 </code></pre>
 
@@ -1043,7 +1040,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <h2 id="delete-manage-users-delete-user">[DELETE] Manage Users - Delete User</h2>
 <p>This request deletes an existing user</p>
 <h3 id="request_8">Request</h3>
-<pre><code class="json">DELETE &quot;/v1/users/{user_name}&quot;
+<pre><code>DELETE &quot;/v1/users/{user_name}&quot;
 </code></pre>
 
 <h3 id="where_6">Where</h3>
@@ -1051,7 +1048,7 @@ curl -X POST -H &quot;Content-Type: application/json&quot;
 <li>user_name: Name of the user</li>
 </ul>
 <h3 id="example-request_11">Example request</h3>
-<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -X DELETE -H &quot;Content-Type: application/json&quot;
  &quot;https://{URL}/v1/projects/ARGO/users/USER2?key=S3CR3T&quot;
 </code></pre>
 

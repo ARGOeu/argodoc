@@ -234,7 +234,7 @@ A topic name must be scoped to a project.</p>
 <h2 id="put-manage-topics-create-new-topic">[PUT] Manage Topics - Create new topic</h2>
 <p>This request creates a new topic with the given topic_name in a project with a PUT request</p>
 <h3 id="request">Request</h3>
-<pre><code class="json">PUT &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
+<pre><code>PUT &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
 </code></pre>
 
 <h3 id="requestbody">RequestBody</h3>
@@ -250,8 +250,8 @@ A topic name must be scoped to a project.</p>
 <li>Topic_name: The topic name to create</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code class="json">curl -X PUT -H &quot;Content-Type: application/json&quot;
- &quot; https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
+<pre><code class="bash">curl -X PUT -H &quot;Content-Type: application/json&quot;
+ &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -269,7 +269,7 @@ A topic name must be scoped to a project.</p>
 <h2 id="delete-manage-topics-delete-topic">[DELETE] Manage Topics - Delete topic</h2>
 <p>This request deletes the defined topic in a project with a DELETE request</p>
 <h3 id="request_1">Request</h3>
-<pre><code class="json">DELETE &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
+<pre><code>DELETE &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
 </code></pre>
 
 <h3 id="where_1">Where</h3>
@@ -278,7 +278,7 @@ A topic name must be scoped to a project.</p>
 <li>Topic_name: The topic name to delete</li>
 </ul>
 <h3 id="example-request_1">Example request</h3>
-<pre><code class="json">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
+<pre><code class="bash">curl -X DELETE -H &quot;Content-Type: application/json&quot;  
 -d '' &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
@@ -290,7 +290,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <h2 id="get-manage-topics-get-a-topic">[GET] Manage Topics - Get a topic</h2>
 <p>This request gets the details of a topic in a project with a GET request</p>
 <h3 id="request_2">Request</h3>
-<pre><code class="json">GET &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
+<pre><code>GET &quot;/v1/projects/{project_name}/topics/{topic_name}&quot;
 </code></pre>
 
 <h3 id="where_2">Where</h3>
@@ -299,7 +299,7 @@ Code: <code>200 OK</code>, Empty response if successful.</p>
 <li>Topic_name: The topic name to get</li>
 </ul>
 <h3 id="example-request_2">Example request</h3>
-<pre><code class="json">curl -H &quot;Content-Type: application/json&quot;  
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;  
  &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring?key=S3CR3T&quot;
 </code></pre>
 
@@ -333,13 +333,15 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <p>Also the default value for <code>pageSize = 0</code> and <code>pageToken = "</code>.</p>
 <p><code>Pagesize = 0</code> returns all the results.</p>
 <h3 id="paginated-request-that-returns-all-topics-under-the-specified-project">Paginated Request that returns all topics under the specified project</h3>
-<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<pre><code>GET &quot;/v1/projects/{project_name}/topics&quot;
+</code></pre>
+
 <h3 id="where_3">Where</h3>
 <ul>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_3">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&quot;`
 </code></pre>
 
@@ -363,13 +365,15 @@ only the topics that he has access to(being present in a topic's acl).</p>
 </code></pre>
 
 <h3 id="paginated-request-that-returns-the-first-page-of-a-specific-size">Paginated Request that returns the first page of a specific size</h3>
-<p><code>GET "/v1/projects/{project_name}/topics"</code></p>
+<pre><code>GET &quot;/v1/projects/{project_name}/topics&quot;
+</code></pre>
+
 <h3 id="where_4">Where</h3>
 <ul>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_4">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&quot;`
 </code></pre>
 
@@ -395,7 +399,7 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <li>Project_name: Name of the project to get the list of topics</li>
 </ul>
 <h3 id="example-request_5">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/?key=S3CR3T&amp;pageSize=1&amp;pageToken=some_token&quot;`
 </code></pre>
 
@@ -419,7 +423,7 @@ only the topics that he has access to(being present in a topic's acl).</p>
 <h2 id="post-publish-messages-to-a-topic">[POST] Publish message/s to a topic</h2>
 <p>The topic:publish endpoint publishes a message, or a list of messages to a specific topic with a  POST request</p>
 <h3 id="request_3">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:publish&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:publish&quot;
 </code></pre>
 
 <h3 id="where_6">Where</h3>
@@ -451,8 +455,8 @@ only the topics that he has access to(being present in a topic's acl).</p>
 need to have their schema encoded alongside them in order for the validation
 to work properly.</p>
 <h3 id="example-request_6">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:publish?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_6">Responses</h3>
@@ -470,7 +474,7 @@ to work properly.</p>
 <h2 id="post-attach-a-schema-to-a-topic">[POST] Attach a schema to a topic</h2>
 <p>Attach one of the project's schemas to the given topic.</p>
 <h3 id="request_4">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:attachSchema&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:attachSchema&quot;
 </code></pre>
 
 <h3 id="where_7">Where</h3>
@@ -485,8 +489,8 @@ to work properly.</p>
 </code></pre>
 
 <h3 id="example-request_7">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:attachSchema?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:attachSchema?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_7">Responses</h3>
@@ -499,7 +503,7 @@ to work properly.</p>
 <p>Detach the topic's current assigned schema.
 If the topic has no assigned schema, nothing happens.</p>
 <h3 id="request_5">Request</h3>
-<pre><code class="json">POST &quot;/v1/projects/{project_name}/topics/{topic_name}:detachSchema&quot;
+<pre><code>POST &quot;/v1/projects/{project_name}/topics/{topic_name}:detachSchema&quot;
 </code></pre>
 
 <h3 id="where_8">Where</h3>
@@ -508,7 +512,7 @@ If the topic has no assigned schema, nothing happens.</p>
 <li>topic_name: Name of the topic</li>
 </ul>
 <h3 id="example-request_8">Example request</h3>
-<pre><code class="json">curl -X POST -H &quot;Content-Type: application/json&quot;  
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:detachSchema?key=S3CR3T&quot;
 </code></pre>
 
@@ -530,7 +534,7 @@ If the topic has no assigned schema, nothing happens.</p>
 <li>topic_name: name of the topic</li>
 </ul>
 <h3 id="example-request_9">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
@@ -567,8 +571,8 @@ If the topic has no assigned schema, nothing happens.</p>
 </code></pre>
 
 <h3 id="example-request_10">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_10">Responses</h3>
@@ -599,7 +603,7 @@ If the topic has no assigned schema, nothing happens.</p>
 <li>topic_name: name of the topic</li>
 </ul>
 <h3 id="example-request_11">Example request</h3>
-<pre><code class="json">curl  -H &quot;Content-Type: application/json&quot;
+<pre><code class="bash">curl  -H &quot;Content-Type: application/json&quot;
 &quot;https://{URL}/v1/projects/BRAND_NEW/topics/monitoring:metrics?key=S3CR3T&quot;
 </code></pre>
 

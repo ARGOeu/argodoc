@@ -372,8 +372,8 @@
 <li>sub_name: name of the subscription</li>
 </ul>
 <h3 id="example-request">Example request</h3>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot;  
--d { POSTDATA } https://{URL}/v1/projects/EGI/subscriptions/monitoring:acl?key=S3CR3T&quot;`
+<pre><code class="bash">curl -X POST -H &quot;Content-Type: application/json&quot;  
+-d $POSTDATA &quot;https://{URL}/v1/projects/EGI/subscriptions/monitoring:acl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses">Responses</h3>
@@ -406,7 +406,7 @@
 </code></pre>
 
 <h3 id="example-request_1">Example request</h3>
-<pre><code>curl -H &quot;Content-Type: application/json&quot;  https://{URL}/v1/projects/EGI/subscriptions/monitoring:modifyAcl?key=S3CR3T&quot;`
+<pre><code class="bash">curl -H &quot;Content-Type: application/json&quot;  &quot;https://{URL}/v1/projects/EGI/subscriptions/monitoring:modifyAcl?key=S3CR3T&quot;
 </code></pre>
 
 <h3 id="responses_1">Responses</h3>
