@@ -12,6 +12,7 @@ GEM
     eventmachine (1.0.6)
     fssm (0.2.10)
     kramdown (1.5.0)
+    logger (1.7.0)
     mime-types (2.4.3)
     mini_portile2 (2.4.0)
     nanoc (3.7.5)
@@ -22,12 +23,13 @@ GEM
     pygments.rb (0.6.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
-    rack (1.6.12)
+    rack (2.2.19)
     systemu (2.6.4)
-    thin (1.6.3)
+    thin (2.0.1)
       daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0)
-      rack (~> 1.0)
+      eventmachine (~> 1.0, >= 1.0.4)
+      logger
+      rack (>= 1, < 4)
     yajl-ruby (1.2.1)
 
 PLATFORMS
