@@ -25,7 +25,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     racc (1.8.1)
-    rack (2.2.22)
+    rack (2.2.23)
     systemu (2.6.4)
     thin (2.0.1)
       daemons (~> 1.0, >= 1.0.9)
